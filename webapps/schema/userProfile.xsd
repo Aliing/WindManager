@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:userProfile="http://www.aerohive.com/configuration/userProfile" targetNamespace="http://www.aerohive.com/configuration/userProfile">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="user-security-policy">
+		<xsd:sequence>
+			<xsd:element name="from-air" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="to-air" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="from-access" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="to-access" type="general:ah-string-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="guaranteed-bandwidth-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="10"/>
+			<xsd:maxInclusive value="500000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="performance-sentinel-action">
+		<xsd:sequence>
+			<xsd:element name="log" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="boost" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="notification-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="30"/>
+			<xsd:maxInclusive value="1800"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="notification-interval">
+		<xsd:attribute name="value" type="userProfile:notification-interval-value" use="optional" default="600"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="up-l3-tunnel-action-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="split"/>
+			<xsd:enumeration value="all"/>
+			<xsd:enumeration value="with-exception"/>
+			<xsd:enumeration value="drop-tunnel-traffic"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="up-l3-tunnel-action">
+		<xsd:attribute name="value" type="userProfile:up-l3-tunnel-action-value" default="split"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="user-profile-seq">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="user-profile-qos-marker-map">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="_8021p" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="diffserv" type="general:ah-name-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="user-profile-obj">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="group-id" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="0">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0"/>
+								<xsd:maxInclusive value="63"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="qos-policy" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="name" type="xsd:string" use="optional" default="def-user-qos"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="vlan-id" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="1">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="4094"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mobility-policy" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="attribute" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="schedule" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="deny-action-for-schedule" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="ip-policy-default-action" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:ah-permit-deny-value" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mac-policy-default-action" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:ah-permit-deny-value" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="security" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="ip-policy" type="userProfile:user-security-policy" minOccurs="0"/>
+						<xsd:element name="mac-policy" type="userProfile:user-security-policy" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="cac" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="airtime-percentage" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="share-time" type="xsd:string" fixed="" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="value" use="optional" default="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="0"/>
+											<xsd:maxInclusive value="100"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="tunnel-policy" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="performance-sentinel" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="guaranteed-bandwidth" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="userProfile:guaranteed-bandwidth-value" default="1000"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="action" type="userProfile:performance-sentinel-action" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="airscreen" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="rule" type="general:ah-name-act" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="l3-tunnel-action" type="userProfile:up-l3-tunnel-action" minOccurs="0"/>
+			<xsd:element name="qos-marker-map" type="userProfile:user-profile-qos-marker-map" minOccurs="0"/>
+			<xsd:element name="before" type="userProfile:user-profile-seq" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="performance-sentinel-obj">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="notification-interval" type="userProfile:notification-interval" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="bonjour-gateway-priority-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="bonjour-gateway-priority">
+		<xsd:attribute name="value" type="userProfile:bonjour-gateway-priority-value"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-rule-action">
+		<xsd:attribute name="value" type="general:ah-permit-deny-value"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-rule-metric">
+		<xsd:sequence>
+			<xsd:element name="action" type="userProfile:bonjour-gateway-rule-action" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" default="0"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-rule-to">
+		<xsd:sequence>
+			<xsd:element name="metric" type="userProfile:bonjour-gateway-rule-metric" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-rule-service">
+		<xsd:sequence>
+			<xsd:element name="to" type="userProfile:bonjour-gateway-rule-to" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-rule-from">
+		<xsd:sequence>
+			<xsd:element name="cr" type="userProfile:bonjour-gateway-rule-service" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-rule-before">
+		<xsd:sequence>
+			<xsd:element name="rule" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-filter-rule">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-string" minOccurs="0"/>
+			<xsd:element name="from" type="userProfile:bonjour-gateway-rule-from" minOccurs="0"/>
+			<xsd:element name="before" type="userProfile:bonjour-gateway-rule-before" minOccurs="0"/>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-name" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>the vlaue of name would include vlans of "from vlan-group" and "to vlan-group"</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-filter">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="rule" type="userProfile:bonjour-gateway-filter-rule" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="vlan-group-obj">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="bonjour-gateway-obj">
+		<xsd:sequence>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="vlan" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="priority" type="userProfile:bonjour-gateway-priority" minOccurs="0"/>
+			<xsd:element name="filter" type="userProfile:bonjour-gateway-filter" minOccurs="0"/>
+			<xsd:element name="neighbor" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="realm" type="general:ah-string-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

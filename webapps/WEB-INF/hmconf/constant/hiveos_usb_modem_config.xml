@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hiveos-modem-support-list>
+	<header>
+		<version vernum="2.00" />
+		<date time="1334684415" datestring="Apr 17, 2012" />
+	</header>
+	<modems>
+		<modem id="sierra_308">
+			<hiveos-version min="5.0.1" />
+			<display
+				name="ATT Shockwave Sierra Wireless 308U, 310U, 312U, 319U, 320U, 326U"
+				type="GPRS/UMTS" />
+			<connect type="dialup">
+				<serial-port value="/dev/ttyUSB3" />
+				<dialstring value="ATD*99***1#" />
+				<apn value="ISP.CINGULAR" />
+				<user-auth type="password">
+					<username value="ISP@CINGULARGPRS.COM" />
+					<password value="CINGULAR1" />
+				</user-auth>
+			</connect>
+			<usblist>
+				<usb id="vid_0f3d_pid_68a3">
+					<model>Sierra Wireless 308U</model>
+					<usb-info vendor-id="0f3d" product-id="68a3" module="sierra" />
+					<control-port value="/dev/ttyUSB2" />
+				</usb>
+				<usb id="vid_1199_pid_68a3">
+					<model>Sierra Wireless 310U</model>
+					<model>Sierra Wireless 312U</model>
+					<model>Sierra Wireless 319U</model>
+					<model>Sierra Wireless 320U</model>
+					<model>Sierra Wireless 326U</model>
+					<usb-info vendor-id="1199" product-id="68a3" module="sierra" />
+					<control-port value="/dev/ttyUSB2" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="sierra_313">
+			<hiveos-version min="5.0.2" />
+			<display name="ATT Momentum Sierra Wireless 313U" type="GPRS/UMTS" />
+			<connect type="dialup">
+				<serial-port value="/dev/ttyUSB3" />
+				<dialstring value="ATD*99***1#" />
+				<apn value="broadband" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_0f3d_pid_68aa">
+					<model>Sierra Wireless 313U</model>
+					<usb-info vendor-id="0f3d" product-id="68aa" module="sierra" />
+					<control-port value="/dev/ttyUSB3" />
+				</usb>
+				<usb id="vid_1199_pid_68aa">
+					<model>Sierra Wireless International Version 313U</model>
+					<usb-info vendor-id="1199" product-id="68aa" module="sierra" />
+					<control-port value="/dev/ttyUSB3" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="pantech_uml">
+			<hiveos-version min="5.1.1" />
+			<display name="Verizon Pantech UML290" type="LTE" />
+			<connect type="directip">
+				<serial-port value="/dev/ttyACM0" />
+				<dialstring value="ATD*99***3#" />
+				<apn value="" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_106c_pid_3718">
+					<model>Pantech UML290U</model>
+					<usb-info vendor-id="106C" product-id="3718" module="ptuml" />
+					<control-port value="/dev/ttyACM0" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="novatel_551L">
+			<hiveos-version min="5.1.3" />
+			<display name="Verizon Novatel USB 551L" type="LTE" />
+			<connect type="directip">
+				<serial-port value="/dev/ttyUSB0" />
+				<dialstring value="" />
+				<apn value="" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_1410_pid_b001">
+					<model>Novatel 551L</model>
+					<usb-info vendor-id="1410" product-id="b001" module="option" />
+					<control-port value="/dev/ttyUSB0" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="huawei_e220">
+			<hiveos-version min="5.1.1" />
+			<display name="Huawei E220" type="GPRS/UMTS" />
+			<connect type="dialup">
+				<serial-port value="/dev/ttyUSB0" />
+				<dialstring value="ATD*99***1#" />
+				<apn value="" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_12d1_pid_1003">
+					<model>Huawei E220</model>
+					<usb-info vendor-id="12D1" product-id="1003" module="option" />
+					<control-port value="/dev/ttyUSB1" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="huawei_e1752">
+			<hiveos-version min="5.1.1" />
+			<display name="Huawei E1752" type="GPRS/UMTS" />
+			<connect type="dialup">
+				<serial-port value="/dev/ttyUSB0" />
+				<dialstring value="ATD*99***1#" />
+				<apn value="" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_12d1_pid_140c">
+					<model>Huawei E1752</model>
+					<usb-info vendor-id="12D1" product-id="140C" module="option" />
+					<control-port value="/dev/ttyUSB1" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="huawei_e366">
+			<hiveos-version min="5.1.1" />
+			<display name="Huawei UMG366" type="GPRS/UMTS" />
+			<connect type="dialup">
+				<serial-port value="/dev/ttyUSB0" />
+				<dialstring value="ATD*99***1#" />
+				<apn value="epc.tmobile.com" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_12d1_pid_14ac">
+					<model>Huawei UMG366</model>
+					<usb-info vendor-id="12D1" product-id="14AC" module="option" />
+					<control-port value="/dev/ttyUSB3" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="pantech_uml295">
+			<hiveos-version min="6.1.6" />
+			<display name="Verizon Pantech UML295" type="LTE" />
+			<connect type="directip">
+				<serial-port value="" />
+				<dialstring value="" />
+				<apn value="" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_10a9_pid_6064">
+					<model>Pantech UML295</model>
+					<usb-info vendor-id="10a9" product-id="6064" module="" />
+					<control-port value="" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="netgear_ac340u">
+			<hiveos-version min="6.1.6" />
+			<display name="ATT Netgear AC340U" type="LTE" />
+			<connect type="dialup">
+				<serial-port value="/dev/ttyUSB2" />
+				<dialstring value="ATD*99***1#" />
+				<apn value="broadband" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_1199_pid_9051">
+					<model>Netgear AC340U</model>
+					<usb-info vendor-id="1199" product-id="9051" module="sierra" />
+					<control-port value="/dev/ttyUSB2" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="netgear_ac341u">
+			<hiveos-version min="6.1.6" />
+			<display name="Sprint Netgear AC341U" type="LTE" />
+			<connect type="directip">
+				<serial-port value="/dev/ttyUSB1" />
+				<dialstring value="" />
+				<apn value="" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_1199_pid_9055">
+					<model>Netgear AC341U</model>
+					<usb-info vendor-id="1199" product-id="9055" module="Gobi" />
+					<control-port value="/dev/ttyUSB1" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="zte_mf683">
+			<hiveos-version min="6.1.6" />
+			<display name="T-Mobile Jet 3.0" type="LTE" />
+			<connect type="dialup">
+				<serial-port value="/dev/ttyUSB1" />
+				<dialstring value="ATD*99***1#" />
+				<apn value="epc.tmobile.com" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_19d2_pid_0157">
+					<model>ZTE MF683</model>
+					<usb-info vendor-id="19d2" product-id="0157" module="option" />
+					<control-port value="/dev/ttyUSB1" />
+				</usb>
+			</usblist>
+		</modem>
+		<modem id="franklin_u772">
+			<hiveos-version min="6.1.6" />
+			<display name="C-Spire Franklin U772" type="LTE" />
+			<connect type=" directip ">
+				<serial-port value="" />
+				<dialstring value="" />
+				<apn value="" />
+				<user-auth type="none" />
+			</connect>
+			<usblist>
+				<usb id="vid_1fac_pid_0232 ">
+					<model>Franklin Wireless U772</model>
+					<usb-info vendor-id="1fac" product-id="0232" module="rndis_host" />
+					<control-port value="" />
+				</usb>
+			</usblist>
+		</modem>
+	</modems>
+</hiveos-modem-support-list>

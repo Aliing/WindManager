@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+
+	<cli-gen key="service.protocol.port.timeout">
+		<constraints>
+			<platform><![CDATA[ != ${platforms_all_cvg} ]]></platform>
+		</constraints>
+		<cmd><![CDATA[ service <string> protocol {1:tcp|2:udp|3:svp} [ port <number> ] [ timeout <number> ] ]]></cmd>
+		<cli-default value="{null, null, null, 300}" dependence="{*, 1, *, *}"/>
+		<cli-default value="{null, null, null, 100}"/>
+	</cli-gen>
+	
+	<cli-gen key="service.protocol.num.port.timeout">
+		<constraints>
+			<platform><![CDATA[ != ${platforms_all_cvg} ]]></platform>
+		</constraints>
+		<cmd><![CDATA[ service <string> protocol <number> [ port <number> ] [ timeout <number> ] ]]></cmd>
+		<cli-default value="{null, null, null, 100}"/>
+	</cli-gen>
+	
+	<cli-gen key="service.app-id">
+		<constraints name-ref="spt_L7_service"/>
+		<cmd><![CDATA[ service <string> app-id <number> [ timeout <number> ] ]]></cmd>
+		<cli-default value="{null, null, 300}"/>
+	</cli-gen>
+	
+	<cli-gen key="service.alg">
+		<constraints>
+			<platform><![CDATA[ != ${platforms_all_cvg} ]]></platform>
+			<version><![CDATA[ >= 4.0.1.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ service <string> alg {2:ftp|3:tftp|4:sip|5:dns|6:http} ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="service.alg.tv">
+		<constraints>
+			<platform><![CDATA[ != ${platforms_all_cvg} ]]></platform>
+			<version><![CDATA[ >=3.5.3.0 && < 4.0.1.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ service <string> alg {2:ftp|3:tftp|4:sip|5:dns|6:tv} ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="service.alg.old">
+		<constraints>
+			<platform><![CDATA[ != ${platforms_all_cvg} ]]></platform>
+			<version><![CDATA[ <3.5.3.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ service <string> alg {2:ftp|3:tftp|4:sip} ]]></cmd>
+	</cli-gen>
+
+</clis>

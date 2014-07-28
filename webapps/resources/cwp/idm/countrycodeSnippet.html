@@ -1,0 +1,95 @@
+<link rel="stylesheet" type="text/css" href="custom-flags32.css"/>
+<style type="text/css">
+    input.countryCode {
+        background: url("arrow.png") no-repeat scroll right center #FFFFFF;
+        border-right-width: 0;
+        cursor: pointer;
+        text-align: center;
+        width: 65px;
+        padding-right: 5px;
+        margin-right: 2px;
+    }
+    ul.f32 {
+        background-color: #fff;
+        width: 210px;
+        padding-left: 0;
+        list-style: none;
+        max-height: 192px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    ul.f32 li.flag {
+        color: #0e1218;
+        display: block;
+        padding-left: 35px;
+        width: 100%;
+        cursor: pointer;
+    }
+    ul.f32 li.flag.hover {
+        background-color: #FFC20E;
+    }
+</style>
+<ul id="countrylist" class="f32" style="display:none;"></ul>
+<script>
+$(function(){
+	initCountryListEvent();
+});
+function initCountryListEvent() {
+	if(typeof countrycodeData === 'undefined') {return;}
+    $('input.countryCode').click(function() {
+        var $this = $(this), p = $this.position(), $list = $('ul#countrylist');
+        if($.trim($list.html()) == '') {
+            $.each(countrycodeData, function(index, value) {
+            	if(value.value == 0) {
+            		$('<li>').addClass('flag').addClass('none').attr('ref', value.value).html(value.name).appendTo($list);
+            	} else {
+	                $('<li>')
+	                .addClass('flag')
+	                .addClass(value.sname.toLowerCase())
+	                .attr('ref', value.value)
+	                .html(value.name + ' (+' + value.value + ')')
+	                .appendTo($list);
+            	}
+            });
+            // events
+            $list.find('li').hover(
+                function() { $(this).addClass('hover');},
+                function() { $(this).removeClass('hover');})
+                .click(
+                function() {
+                    var code = $(this).attr('ref');
+                    if(code == 0) {
+                        $('input.countryCode').attr('readonly', false).focus().val('+');
+                    } else {
+                        $('input.countryCode').attr('readonly', true).val('+' + code).focus(function(){this.select();});
+                    }
+                    $list.hide();
+                });
+            $list.mouseleave(function() {$(this).hide();});
+        }
+        if($list.is(':hidden')) {
+            $list.css('position', 'absolute')
+            .css('top', p.top + 15)
+            .css('left', p.left)
+            .css('z-index', 2)
+            .show();
+        } else {
+            $list.hide();
+        }
+    })
+    .keypress(function(event) {
+    	var keycode = event.which;
+        if(0 == keycode || 8 == keycode) {
+        	// tab || backspace
+        	return true;
+        } else if(48 <= keycode && keycode <=57){
+            return true;
+        } else {
+        	return false;
+        }
+    })
+    .focusout(function() {
+    	if($.trim($(this).val()).indexOf('+') == -1) {$(this).val('+' + $.trim($(this).val()));}
+    });
+}
+</script>

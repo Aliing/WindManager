@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:aaa="http://www.aerohive.com/configuration/aaa" targetNamespace="http://www.aerohive.com/configuration/aaa">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="aaa-auth-port">
+		<xsd:attribute name="value" type="general:ah-port-value" use="optional" default="1812"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="aaa-acct-port">
+		<xsd:attribute name="value" type="general:ah-port-value" use="optional" default="1813"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-tls-port">
+		<xsd:attribute name="value" type="general:ah-port-value" use="optional" default="2083"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-server-type">
+		<xsd:sequence>
+			<xsd:element name="old-shared-secret" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="auth-port" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="1812">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="1"/>
+											<xsd:maxInclusive value="65535"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="acct-port" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="0"/>
+											<xsd:maxInclusive value="65535"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="value" type="xsd:string" use="required"/>
+					<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="shared-secret" type="general:ah-encrypted-string-act" minOccurs="0"/>
+			<xsd:element name="auth-port" type="aaa:aaa-auth-port" minOccurs="0"/>
+			<xsd:element name="acct-port" type="aaa:aaa-acct-port" minOccurs="0"/>
+			<xsd:element name="via-vpn-tunnel" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-accounting-server">
+		<xsd:sequence>
+			<xsd:element name="shared-secret" type="general:ah-encrypted-string-act" minOccurs="0"/>
+			<xsd:element name="acct-port" type="aaa:aaa-acct-port" minOccurs="0"/>
+			<xsd:element name="via-vpn-tunnel" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="STA-auth-private-key">
+		<xsd:sequence>
+			<xsd:element name="private-key-password" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="STA-auth-server-cert">
+		<xsd:sequence>
+			<xsd:element name="private-key" type="aaa:STA-auth-private-key"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="STA-auth-ca-cert">
+		<xsd:sequence>
+			<xsd:element name="server-cert" type="aaa:STA-auth-server-cert"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="STA-auth-tls">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="check-cert-cn" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="check-in-db" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="STA-auth-checks">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="check-in-db" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="STA-auth-positive-type">
+		<xsd:sequence>
+			<xsd:element name="peap" type="aaa:STA-auth-checks" minOccurs="0"/>
+			<xsd:element name="ttls" type="aaa:STA-auth-checks" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="LDAP-auth-verify-server-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="demand"/>
+			<xsd:enumeration value="never"/>
+			<xsd:enumeration value="try"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="LDAP-auth-private-key-password">
+		<xsd:sequence>
+			<xsd:element name="verify-server" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="aaa:LDAP-auth-verify-server-value" use="optional" default="try"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+	</xsd:complexType>
+	<xsd:complexType name="LDAP-auth-private-key">
+		<xsd:sequence>
+			<xsd:element name="private-key-password" type="aaa:LDAP-auth-private-key-password"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="LDAP-auth-client-cert">
+		<xsd:sequence>
+			<xsd:element name="private-key" type="aaa:LDAP-auth-private-key"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="LDAP-auth-ca-cert">
+		<xsd:sequence minOccurs="0">
+			<xsd:element name="client-cert" type="aaa:LDAP-auth-client-cert"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="LDAP-auth-primary">
+		<xsd:sequence>
+			<xsd:element name="type" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tls">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ca-cert" type="aaa:LDAP-auth-ca-cert"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="active-directory-user">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="active-directory-login">
+		<xsd:sequence>
+			<xsd:element name="user" type="aaa:active-directory-user"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="active-directory-workgroup">
+		<xsd:sequence>
+			<xsd:element name="realm" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="active-directory-server">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="login" type="aaa:active-directory-login" minOccurs="0"/>
+			<xsd:element name="via-vpn-tunnel" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="active-directory-login-admin">
+		<xsd:sequence>
+			<xsd:element name="admin-user" type="aaa:active-directory-user" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="active-directory-domain">
+		<xsd:sequence>
+			<xsd:element name="server" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="fullname" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="default" type="general:ah-act-show" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="value" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="basedn" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="binddn" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="password" type="general:ah-encrypted-string" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="value" type="xsd:string" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="active-directory-primary">
+		<xsd:sequence>
+			<xsd:element name="global-catalog" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="server" type="aaa:active-directory-server" minOccurs="0"/>
+			<xsd:element name="computer-ou" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="login" type="aaa:active-directory-login-admin" minOccurs="0"/>
+			<xsd:element name="domain" type="aaa:active-directory-domain" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="tls-enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="sasl-wrapping" type="general:ah-string-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ldap-server-identity">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="ldap-server-protocol-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ldap"/>
+			<xsd:enumeration value="ldaps"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ldap-server-protocol">
+		<xsd:attribute name="value" type="aaa:ldap-server-protocol-value" default="ldap"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ldap-server-port">
+		<xsd:attribute name="value" use="optional">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="1"/>
+					<xsd:maxInclusive value="65535"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ldap-server-name">
+		<xsd:sequence>
+			<xsd:element name="via-vpn-tunnel" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="aaa-ldap-server">
+		<xsd:sequence>
+			<xsd:element name="server" type="aaa:ldap-server-name" minOccurs="0"/>
+			<xsd:element name="filter-attr" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="old-filter_attr" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="basedn" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="binddn" type="aaa:ldap-server-identity" minOccurs="0"/>
+			<xsd:element name="protocol" type="aaa:ldap-server-protocol" minOccurs="0"/>
+			<xsd:element name="port" type="aaa:ldap-server-port" minOccurs="0"/>
+			<xsd:element name="no-strip-filter" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="local-retry-interval">
+		<xsd:attribute name="value" use="optional" default="600">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="60"/>
+					<xsd:maxInclusive value="200000000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-retry-interval">
+		<xsd:attribute name="value" use="optional" default="600">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="60"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-account-interim-interval">
+		<xsd:attribute name="value" use="optional" default="20">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="20"/>
+					<xsd:maxInclusive value="100000000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-accounting-all">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="primary" type="aaa:radius-accounting-server" minOccurs="0"/>
+			<xsd:element name="backup1" type="aaa:radius-accounting-server" minOccurs="0"/>
+			<xsd:element name="backup2" type="aaa:radius-accounting-server" minOccurs="0"/>
+			<xsd:element name="backup3" type="aaa:radius-accounting-server" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="mac-delimiter-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="colon"/>
+			<xsd:enumeration value="dash"/>
+			<xsd:enumeration value="dot"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="mac-style-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="no-delimiter"/>
+			<xsd:enumeration value="two-delimiter"/>
+			<xsd:enumeration value="five-delimiter"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="mac-case-sensitivity-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="lower-case"/>
+			<xsd:enumeration value="upper-case"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="open-directory-user">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="optional"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="db-server-binddn">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="open-directory-domain">
+		<xsd:sequence>
+			<xsd:element name="fullname" type="general:ah-string" minOccurs="0"/>
+			<xsd:element name="binddn" type="aaa:db-server-binddn" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="open-directory-server">
+		<xsd:sequence>
+			<xsd:element name="admin-user" type="aaa:open-directory-user" minOccurs="0"/>
+			<xsd:element name="tls-enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="domain" type="aaa:open-directory-domain" minOccurs="0"/>
+			<xsd:element name="filter-attr" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="no-strip-filter" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-proxy-server">
+		<xsd:sequence>
+			<xsd:element name="shared-secret" type="general:ah-encrypted-string" minOccurs="0"/>
+			<xsd:element name="tls" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="local-radius-server">
+		<xsd:sequence>
+			<xsd:element name="server" type="aaa:radius-proxy-server" minOccurs="0"/>
+			<xsd:element name="auth-port" type="aaa:aaa-auth-port" minOccurs="0"/>
+			<xsd:element name="acct-port" type="aaa:aaa-acct-port" minOccurs="0"/>
+			<xsd:element name="tls-port" type="aaa:radius-tls-port" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="radius-proxy-dead-time-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="30"/>
+			<xsd:maxInclusive value="3600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="radius-proxy-dead-time">
+		<xsd:attribute name="value" type="aaa:radius-proxy-dead-time-value" use="optional" default="300"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="radius-proxy-retry-count-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="radius-proxy-retry-count">
+		<xsd:attribute name="value" type="aaa:radius-proxy-retry-count-value" use="optional" default="3"/>
+	</xsd:complexType>
+	<xsd:simpleType name="radius-proxy-retry-delay-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="3"/>
+			<xsd:maxInclusive value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="radius-proxy-retry-delay">
+		<xsd:sequence>
+			<xsd:element name="retry-count" type="aaa:radius-proxy-retry-count" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="aaa:radius-proxy-retry-delay-value" use="optional" default="5"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="radius-realm-format-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="nai"/>
+			<xsd:enumeration value="nt-domain"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="radius-realm-format">
+		<xsd:attribute name="value" type="aaa:radius-realm-format-value" use="optional" default="nai"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-proxy-realm">
+		<xsd:sequence>
+			<xsd:element name="primary" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="backup" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="no-strip" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-proxy-realm-all">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="format" type="aaa:radius-realm-format" minOccurs="0"/>
+			<xsd:element name="cr" type="aaa:radius-proxy-realm" minOccurs="0" maxOccurs="8"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radsec-realm">
+		<xsd:sequence>
+			<xsd:element name="primary" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="backup" type="general:ah-name-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-proxy-radsec">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="auth-port" type="aaa:aaa-auth-port" minOccurs="0"/>
+			<xsd:element name="acct-port" type="aaa:aaa-acct-port" minOccurs="0"/>
+			<xsd:element name="realm" type="aaa:radsec-realm" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="tls-port" type="aaa:radius-tls-port" minOccurs="0"/>
+			<xsd:element name="dynamic-auth-extension" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radius-proxy">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="dead-time" type="aaa:radius-proxy-dead-time" minOccurs="0"/>
+			<xsd:element name="retry-delay" type="aaa:radius-proxy-retry-delay" minOccurs="0"/>
+			<xsd:element name="realm" type="aaa:radius-proxy-realm-all" minOccurs="0"/>
+			<xsd:element name="inject" type="aaa:radius-proxy-inject" minOccurs="0"/>
+			<xsd:element name="radsec" type="aaa:radius-proxy-radsec" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="radius-keepalive-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="60"/>
+			<xsd:maxInclusive value="86400"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="radius-keepalive-interval">
+		<xsd:attribute name="value" type="aaa:radius-keepalive-interval-value" use="optional" default="60"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="radius-keepalive-retry-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="radius-keepalive-retry">
+		<xsd:attribute name="value" type="aaa:radius-keepalive-retry-value" use="optional" default="3"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="radius-keepalive-retry-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="radius-keepalive-retry-interval">
+		<xsd:attribute name="value" type="aaa:radius-keepalive-retry-interval-value" use="optional" default="10"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-keepalive-username">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-keepalive">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="interval" type="aaa:radius-keepalive-interval" minOccurs="0"/>
+			<xsd:element name="retry" type="aaa:radius-keepalive-retry" minOccurs="0"/>
+			<xsd:element name="retry-interval" type="aaa:radius-keepalive-retry-interval" minOccurs="0"/>
+			<xsd:element name="username" type="aaa:radius-keepalive-username" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-server-port">
+		<xsd:attribute name="value" type="general:ah-port-value" default="6001"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-server-login-user">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="optional"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radius-library-sip-server">
+		<xsd:sequence>
+			<xsd:element name="server" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="port" type="aaa:library-sip-server-port" minOccurs="0"/>
+			<xsd:element name="login-enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="login-user" type="aaa:library-sip-server-login-user" minOccurs="0"/>
+			<xsd:element name="institution-id" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="separator" type="general:ah-string-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="ppsk-server-auto-save-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="60"/>
+			<xsd:maxInclusive value="3600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ppsk-server-auto-save-interval">
+		<xsd:attribute name="value" type="aaa:ppsk-server-auto-save-interval-value" default="600"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ppsk-radius-server-concrete">
+		<xsd:sequence>
+			<xsd:element name="shared-secret" type="general:ah-encrypted-string-act" minOccurs="0"/>
+			<xsd:element name="auth-port" type="aaa:aaa-auth-port" minOccurs="0"/>
+			<xsd:element name="via-vpn-tunnel" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ppsk-radius-server">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="primary" type="aaa:ppsk-radius-server-concrete" minOccurs="0"/>
+			<xsd:element name="backup1" type="aaa:ppsk-radius-server-concrete" minOccurs="0"/>
+			<xsd:element name="backup2" type="aaa:ppsk-radius-server-concrete" minOccurs="0"/>
+			<xsd:element name="backup3" type="aaa:ppsk-radius-server-concrete" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="aaa-ppsk-server">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="auto-save-interval" type="aaa:ppsk-server-auto-save-interval" minOccurs="0"/>
+			<xsd:element name="radius-server" type="aaa:ppsk-radius-server" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="aaa-attr-operator-name">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="value" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="namespace-id" type="general:ah-string-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="aaa-attribute">
+		<xsd:sequence>
+			<xsd:element name="nas-identifier" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="operator-name" type="aaa:aaa-attr-operator-name" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radius-nas-inject">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="operator-name" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radius-proxy-inject">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="operator-name" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="sta-auth-basic-type">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="aaa-obj">
+		<xsd:sequence>
+			<xsd:element name="attribute" type="aaa:aaa-attribute" minOccurs="0"/>
+			<xsd:element name="radius-server" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="primary" type="aaa:radius-server-type" minOccurs="0"/>
+						<xsd:element name="backup1" type="aaa:radius-server-type" minOccurs="0"/>
+						<xsd:element name="backup2" type="aaa:radius-server-type" minOccurs="0"/>
+						<xsd:element name="backup3" type="aaa:radius-server-type" minOccurs="0"/>
+						<xsd:element name="accounting" type="aaa:radius-accounting-all" minOccurs="0"/>
+						<xsd:element name="local" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="cache" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="lifetime" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="86400">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="3600"/>
+																	<xsd:maxInclusive value="2592000"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="STA-auth" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="ca-cert" type="aaa:STA-auth-ca-cert" minOccurs="0"/>
+												<xsd:element name="type" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+															<xsd:element name="md5" type="aaa:sta-auth-basic-type" minOccurs="0"/>
+															<xsd:element name="leap" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+															<xsd:element name="peap" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+															<xsd:element name="ttls" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+															<xsd:element name="tls" type="aaa:STA-auth-tls" minOccurs="0"/>
+															<xsd:element name="cr" type="aaa:STA-auth-positive-type" minOccurs="0"/>
+														</xsd:sequence>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="default-type" type="general:ah-string-act" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="attr-map" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="group-attr-name" type="general:ah-string-act" minOccurs="0"/>
+												<xsd:element name="reauth-attr-name" type="general:ah-string-act" minOccurs="0"/>
+												<xsd:element name="user-profile-attr-name" type="general:ah-string-act" minOccurs="0"/>
+												<xsd:element name="vlan-attr-name" type="general:ah-string-act" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="db-type" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="local" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="active-directory" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+															<xsd:element name="primary" type="aaa:active-directory-primary" minOccurs="0"/>
+															<xsd:element name="backup1" type="aaa:active-directory-primary" minOccurs="0"/>
+															<xsd:element name="backup2" type="aaa:active-directory-primary" minOccurs="0"/>
+															<xsd:element name="backup3" type="aaa:active-directory-primary" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="ldap-server" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="primary" type="aaa:aaa-ldap-server" minOccurs="0"/>
+															<xsd:element name="backup1" type="aaa:aaa-ldap-server" minOccurs="0"/>
+															<xsd:element name="backup2" type="aaa:aaa-ldap-server" minOccurs="0"/>
+															<xsd:element name="backup3" type="aaa:aaa-ldap-server" minOccurs="0"/>
+															<xsd:element name="sub-type" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+																		<xsd:element name="edirectory" minOccurs="0">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+																					<xsd:element name="acct-policy-check" type="general:ah-only-act" minOccurs="0"/>
+																				</xsd:sequence>
+																				<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="open-directory" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+															<xsd:element name="primary" type="aaa:open-directory-server" minOccurs="0"/>
+															<xsd:element name="backup1" type="aaa:open-directory-server" minOccurs="0"/>
+															<xsd:element name="backup2" type="aaa:open-directory-server" minOccurs="0"/>
+															<xsd:element name="backup3" type="aaa:open-directory-server" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="library-sip-server" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+															<xsd:element name="primary" type="aaa:radius-library-sip-server" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="nas" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="shared-key" type="general:ah-encrypted-string" minOccurs="0"/>
+												<xsd:element name="tls" type="general:ah-only-act" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="name" type="xsd:string" use="required"/>
+											<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="port" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="1812">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="1"/>
+														<xsd:maxInclusive value="65535"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="user-group" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="vlan-id" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="required">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="4094"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="user-profile-attr" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="required">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="0"/>
+																	<xsd:maxInclusive value="4095"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="reauth-time" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="1800">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="600"/>
+																	<xsd:maxInclusive value="86400"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+											<xsd:attribute name="name" type="xsd:string" use="required"/>
+											<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="LDAP-auth" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="primary" type="aaa:LDAP-auth-primary" minOccurs="0"/>
+												<xsd:element name="backup1" type="aaa:LDAP-auth-primary" minOccurs="0"/>
+												<xsd:element name="backup2" type="aaa:LDAP-auth-primary" minOccurs="0"/>
+												<xsd:element name="backup3" type="aaa:LDAP-auth-primary" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="local-check-period" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="300">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="30"/>
+														<xsd:maxInclusive value="3600"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="remote-check-period" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="30">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="10"/>
+														<xsd:maxInclusive value="3600"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="retry-interval" type="aaa:local-retry-interval" minOccurs="0"/>
+									<xsd:element name="shared-secret-auto-gen" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="library-sip-policy" type="general:ah-name-act" minOccurs="0"/>
+									<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="retry-interval" type="aaa:radius-retry-interval" minOccurs="0"/>
+						<xsd:element name="account-interim-interval" type="aaa:radius-account-interim-interval" minOccurs="0"/>
+						<xsd:element name="dynamic-auth-extension" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="cr" type="aaa:local-radius-server" minOccurs="0" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>subelement tls and tls-port unused</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="name" type="aaa:local-radius-server" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="proxy" type="aaa:radius-proxy" minOccurs="0"/>
+						<xsd:element name="keepalive" type="aaa:radius-keepalive" minOccurs="0"/>
+						<xsd:element name="inject" type="aaa:radius-nas-inject" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mac-format" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="delimiter" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="aaa:mac-delimiter-value" use="optional" default="colon"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="style" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="aaa:mac-style-value" use="optional" default="no-delimiter"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="case-sensitivity" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="aaa:mac-case-sensitivity-value" use="optional" default="lower-case"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ppsk-server" type="aaa:aaa-ppsk-server" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="designated-server-idm-proxy">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="announce" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="dynamic" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="designated-server-obj">
+		<xsd:sequence>
+			<xsd:element name="idm-proxy" type="aaa:designated-server-idm-proxy" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

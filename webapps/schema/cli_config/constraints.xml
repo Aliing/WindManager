@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../src/xml/cli_config.xsd">
+	<params>
+		<!-- 
+			:p		hiveAp.getHiveApModel
+			:t		hiveAp.getDeviceType
+			:v		hiveAp.getSoftVer
+		 -->
+		 
+		<param name="AP28">0</param>
+		<param name="AP20">1</param>
+		<param name="AP320">2</param>
+		<param name="AP340">3</param>
+		<param name="AP380">4</param>
+		<param name="AP120">5</param>
+		<param name="AP110">6</param>
+		<param name="AP330">8</param>
+		<param name="AP350">9</param>
+		<param name="cvg">10</param>
+		<param name="BR100">11</param>
+		<param name="AP170">12</param>
+		<param name="BR200">13</param>
+		<param name="BR200wp">14</param>
+		<param name="AP121">15</param>
+		<param name="AP141">16</param>
+		<param name="SR2024">17</param>
+		<param name="BR200_LTE">19</param>
+		<param name="AP370">20</param>
+		<param name="AP390">21</param>
+		<param name="SR2124P">22</param>
+		<param name="SR2148P">23</param>
+		<param name="SR2024P">24</param>
+		<param name="AP230">25</param>
+		<param name="VPN_Gateway">26</param>
+		
+		<param name="platforms_all_switch" device_property="default_device_type = Switch"/>
+		<param name="platforms_all_cvg" device_property="default_device_type = VPN"/>
+		<param name="platforms_support_L7_service" device_property="spt_L7_service = true"/>
+		<param name="platforms_support_social_login" device_property="spt_social_login = true"/>
+		<param name="platforms_all_11ac" device_property="spt_11ac = true"/>
+
+		<param name="ap">0</param>
+		<param name="br">1</param>
+		<param name="vpn">2</param>
+		<param name="switch">4</param>
+		<param name="br+vpn">1|2</param>
+		<param name="ap+switch">0|4</param>
+
+		<param name="3.5.1.0-"><![CDATA[ <3.5.1.0 ]]></param>
+		<param name="3.5.1.0=+"><![CDATA[ >=3.5.1.0 ]]></param>
+		<param name="fuji">6.1.1.0</param>
+		<param name="Gotham">6.1.4.0</param>
+		<param name="Guadalupe">6.1.6.0</param>
+
+		<constraints name="spt_L7_service">
+			<platform>platforms_support_L7_service</platform>
+			<version><![CDATA[ >= 6.0.1.0 ]]></version>
+		</constraints>
+		
+		<!-- <constraints name="all-switch-platform" expression=":p = ${platforms_all_switch}"/> -->
+		<constraints name="all-switch-platform">
+			<platform>${platforms_all_switch}</platform>
+		</constraints>
+		
+		<constraints name="spt_cloud_cwp">
+			<platform>platforms_support_social_login</platform>
+			<version><![CDATA[ >= ${Guadalupe} ]]></version>
+		</constraints>
+		
+		<constraints name="not_switch">
+			<expression>:p != ${platforms_all_switch}</expression>
+		</constraints>
+		
+		<constraints name="not_cvg">
+			<expression>:p != ${platforms_all_cvg}</expression>
+		</constraints>
+	</params>
+</clis>

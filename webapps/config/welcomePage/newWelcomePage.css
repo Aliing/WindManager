@@ -1,0 +1,580 @@
+@CHARSET "UTF-8";
+.content {
+	width: 850px;
+	margin: 0 auto;
+	height: 100%;
+	background-color: white;
+}
+.welcome-string {
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 34px;
+}
+.step-tip {
+	font-size: 13px;
+	line-height: 24px;
+	color: #666;
+}
+.top-tip {
+	text-align: left;
+	margin-bottom: 15px;
+	padding-left: 15px;
+	margin-top: 15px;
+}
+.footer-helper {
+	text-align: left;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	margin: 45px 25px 20px 25px;
+	border-top: solid 2px lightblue;
+}
+.footer-helper .btn-group {
+	margin-top: 3px;
+}
+#btn-back, #btn-next {
+	background-color: #BDBAAB;
+	height: 28px;
+	width: 55px;
+}
+#btn-back.active, #btn-next.active {
+	background-color: #0093D1;
+}
+#activate-license {
+	display: none;
+}
+#management-settings {
+	display: none;
+}
+input.startHere_common_btn {
+	background-color: #0093D1;
+	border: none;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border-radius: 4px;
+	font-size: 12px;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: 3px;
+}
+#btn-next.disabled {
+	cursor: default;
+	background-color: gray;
+}
+.btn-group input[type=button] {
+	margin-right: 10px;
+}
+
+.step_sub_title {
+	font-size: 18px;
+	padding-left: 25px;
+	margin-top: 10px;
+}
+.step_sub_content {
+	padding: 12px 25px;
+}
+
+.inventory_review {
+	text-align: left;
+}
+.inventory_title {
+	display: table-cell;
+	width: 200px;
+	font-size: 15px;
+	font-weight: bold;
+}
+.inventory_list {
+	display: table-cell;
+	width: 350px;
+}
+.inventory_tip {
+	display: table-cell;
+	width: 200px;
+	padding-left: 20px;
+}
+.device_number_total {
+	width: 30px;
+	font-weight: bold;
+	display: inline-block;
+}
+.inventory_device_number {
+	height: 25px;
+}
+.inventory_device_seperate {
+	height: 20px;
+	border-bottom: solid 2px #000000;
+	margin-bottom: 10px;
+	width: 230px;
+}
+
+.step-indicator {
+	margin: 20px auto 45px;
+	width: 820px;
+	height: 35px;
+	height: 39px \9;
+	-moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #999;
+	background-color: #ccc;
+}
+.step-indicator-content {
+	text-align: center;
+	padding-left: 20px;
+	padding-top: 0px \9;
+}
+.single-step-indicator .order {
+	width: 20px;
+	height: 20px;
+	font-weight: bold;
+	display: table-cell;
+	background: url(../../images/start/circle-light.png) no-repeat center;
+}
+.single-step-indicator .text {
+	display: table-cell;
+	font-size: 14px;
+	font-weight: normal;
+	padding-left: 5px;
+	margin-right: 5px;
+	color: #0093D1;
+}
+.single-step-indicator {
+	display: table-cell;
+	line-height: 35px;
+}
+.single-step-indicator-separate {
+	display: table-cell;
+	font-size: 18px;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 30px;
+	line-height: 35px \9;
+}
+.single-step-indicator-separate img {
+	background: url(../../images/start/arrow-light.png) no-repeat center;
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.license_activate {
+	text-align: left;
+}
+.sub_content_tip {
+	color: #666;
+	font-size: 13px;
+}
+.step_sub_content .enter_title {
+	font-size: 14px;
+	width: 180px;
+	font-weight: normal;
+	display: inline-block;
+}
+.step_sub_content .enter_area {
+	display: inline-block;
+	width: 300px;
+}
+.step_sub_content .enter_area input {
+	width: 295px;
+}
+.step_sub_content .enter_active {
+	display: inline-block;
+}
+.step_sub_content .enter_active input[type=button] {
+	height: 25px;
+	width: 70px;
+}
+.step_sub_content .enter_active input[type=button].disabled {
+	background-color: gray;
+}
+.entitlement_key_area {
+	margin-top: 35px;
+	margin-bottom: 5px;
+	clear: both;
+}
+.use_30_trial {
+	margin-left: 180px;
+}
+.progress_img {
+	display: none;
+	margin-left: 5px;
+}
+.progress_img img {
+	background: url(../../images/waitingSquare.gif) no-repeat top right;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+}
+.activate_license_error {
+	margin: 8px 228px 2px 183px;
+}
+.activate_result {
+	/* display: none; */
+	margin-top: 45px;
+}
+.activate_result .enter_title {
+	vertical-align: top;
+	font-size: 13px;
+	float: left;
+	width: 180px;
+}
+.activate_result .enter_content {
+	margin-left: 180px;
+}
+.activated_info {
+	display: inline-block;
+}
+.activate_single_result {
+	display: none;
+}
+.entered_entitlementkey {
+	font-size: 13px;
+	display: inline-block;
+}
+.entered_entitlementkey_succ_indicator {
+	background: url(../../images/start/check.png) no-repeat center right;
+	height: 21px;
+	width: 21px;
+	display: inline-block;
+	margin-left: 5px;
+}
+.key_succ_indicator {
+	font-size: 13px;
+	height: 21px;
+	line-height: 21px;
+	font-weight: bold;
+	display: inline-block;
+}
+.key_succ_info_container {
+	margin-top: 10px;
+}
+.entitlement_key_add_another_area {
+	display: none;
+}
+.entitlement_key_add_another_area .enter_area {
+	margin-top: 15px;
+	font-size: 13px;
+}
+.activate_older_single_result {
+	margin-top: 15px;
+	padding-bottom: 15px;
+}
+.activate_older_single_result.entitlement_key {
+	border-bottom: 1px solid #DEDCD5;
+}
+.activate_older_result {
+	display: none;
+}
+#enter_entitlement_key_tip_text {
+	display: none;
+}
+.key_detail_info {
+	font-size: 13px;
+	color: #666;
+	margin-left: 15px;
+	display: inline-block;
+}
+.key_detail_info .key_total_devices {
+	font-size: 15px;
+	color: #000000;
+	padding: 0 10px;
+}
+.key_detail_info .key_total_days {
+	font-size: 15px;
+	color: #000000;
+	padding: 0 10px;
+}
+
+.settings_management {
+	text-align: left;
+}
+.single_setting_area {
+	margin-top: 5px;
+}
+.settings_management .single_setting_area:first-child {
+	margin-top: 10px;
+}
+.single_setting_area > .title {
+	width: 180px;
+	font-size: 14px;
+	font-weight: normal;
+	display: inline-block;
+	vertical-align: top;
+}
+.single_setting_area.with_sub_setting > .title {
+	margin-top: 8px;
+}
+.single_setting .setting input[type=text],
+.single_setting .setting input[type=password] {
+	width: 200px;
+}
+.single_setting_area > .setting {
+	display: inline-block;
+	width: 600px;
+}
+.single_setting > .title {
+	display: inline-block;
+	width: 80px;
+	font-size: 13px;
+	font-weight: normal;
+}
+.single_setting > .setting {
+	display: inline-block;
+}
+.settings_management .settings_container > .single_setting_area:first-child .single_setting:first-child > .setting {
+	margin-left: 9px;
+}
+.settings_container {
+	margin-top: 15px;
+}
+.single_setting_area .single_setting {
+	margin: 8px 0;
+}
+.console_mode_tip {
+	color: #666;
+	font-size: 12px;
+	padding: 8px 0px 3px 20px;
+	width: 80%;
+	line-height: 18px;
+}
+.required_mark {
+	font-size: 15px;
+	color: #FF0000;
+}
+.required_mark.left {
+	margin-right: 3px;
+}
+#chkToggleDisplay1, #chkToggleDisplay2 {
+	margin-left: 9px;
+}
+.quick_start_ssid_pwd_tip {
+	font-size: 13px;
+	margin-left: 20px;
+	margin-top: 3px;
+}
+/*
+.single_setting_area.time_zone .single_setting {
+	margin-top: 12px;
+}*/
+.single_setting.time_zone_select {
+	margin-top: 5px;
+} 
+.time_zone .single_setting .title {
+	margin-right: 10px;
+}
+#tt_country_filter {
+	position: absolute;
+	width: 210px;
+	width: 209px \9;
+	border: none;
+	height: 17px;
+	margin-top: 1px;
+	margin-left: 1px;
+	font-family: Helvetica, Arial, sans-serif;
+}
+#tt_country {
+	width: 238px;
+	height: 25px;
+	font-family: Helvetica, Arial, sans-serif;
+}
+#tt_timezone {
+	margin: 0;
+	min-width: 238px;
+}
+.setting.country_filter {
+	width: 200px;
+}
+.ui-autocomplete {
+	max-width: 235px;
+	min-width: 235px;
+	padding-left: 0px;
+	cursor: default;
+	max-height: 300px;
+	overflow-y: auto;
+	font-size: 11px;
+	background-color: white;
+	background-image: none;
+}
+.ui-autocomplete li {
+	list-style-type: none;
+	height: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+	display: block;
+	padding: 2px .4em;
+	line-height: 1.5;
+	min-height: 0;
+	font-weight: normal;
+}
+.ui-widget-content a {
+	color: #222;
+}
+.settings_management .single_setting .title {
+	width: 120px \9;
+}
+.settings_management .single_setting .title.show_update_preshared_key {
+	width: 160px \9;
+}
+.quick_start_ssid_pwd_setting {
+	display: none;
+}
+.quick_start_ssid_pwd_setting .single_setting .title {
+	padding-left: 20px \9;
+	width: 100px \9;
+}
+.quick_start_ssid_pwd_setting .single_setting .title.show_update_preshared_key {
+	width: 140px \9;
+}
+.access_console_pwd_setting .single_setting .title {
+	padding-left: 20px \9;
+	width: 100px \9;
+}
+.access_console_pwd_setting .single_setting .title.show_update_preshared_key {
+	width: 140px \9;
+}
+#quick_start_ssid_pwd_section {
+	margin-top: -8px;
+}
+.management_common_error {
+	margin-left: 12px;
+	max-width: 420px;
+}
+
+.config_done {
+	text-align: left;
+	padding-bottom: 65px;
+}
+.config_done .step_sub_title {
+	padding-top: 40px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.config_done .sub_content_tip {
+	width: 650px;
+	margin-bottom: 50px;
+}
+.config_done .config_tip span {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.single-step-indicator.active .order {
+	background: url(../../images/start/circle-dark.png) no-repeat center;
+}
+.single-step-indicator.active .text {
+	color: #666;
+	font-weight: bold;
+	text-decoration: none;
+}
+.single-step-indicator.active .single-step-indicator-separate img {
+	/* background: url(../../images/start/arrow-dark.png) no-repeat center; */
+}
+input.config_done_btn {
+	height: 26px;
+	width: 75px;
+	margin-left: 15px;
+	padding: 0 8px;
+}
+
+.inventory_tip_topword{
+	text-align:right;
+	font-style: italic;
+	padding:4px;
+}
+.inventory_tip_box{
+	border-width: 2px;
+	border-style:solid;
+	padding:8px;
+	width: 280px;"
+	font-style: italic;
+}
+.inventory_tip_box_bold {
+	font-weight: bold;
+	font-style: italic;
+}
+.inventory_tip_box_normal {
+	font-style: italic;
+}
+
+#loadPapgDiv {
+	position: absolute;
+	background-color:#888888;
+	filter: alpha(opacity="50");
+	opacity: 0.5;
+	z-index: 5;
+}
+
+#loadPapgDiv img{position:absolute;left:15%;top:50%}
+
+.hidden {
+	display: none;
+}
+.setting.hidden {
+	display: none;
+}
+.single_setting.hidden {
+	display: none;
+}
+.ie_only_show {
+	display: none;
+	display: inline-block \9;
+}
+.ie_verison_note {
+	text-align: right;
+	color: #666;
+	font-size: 12px;
+	margin-right: 10px;
+	float: right;
+}
+.tip_license_key {
+	display: none;
+}
+.tip_content_text {
+	display: inline-block;
+	float: left;
+}
+.tip_addi_operation {
+	display: inline-block;
+	float: left;
+	margin-left: 15px;
+}
+.tip_license_key {
+	display: none;
+}
+.license_key_area {
+	display: none;
+	margin-top: 35px;
+	margin-bottom: 5px;
+	clear: both;
+}
+.license_key_area .enter_area {
+	width: 340px; 
+	margin-left: 3px;
+}
+#license_license_key_input {
+	width: 338px; 
+	height: 32px;
+}
+.license_key_area .enter_active {
+	margin-left: 3px;
+}
+.license_key_area .activate_license_error {
+	margin: 0 0 2px 3px;
+}
+.loadIcon {
+	height: 32px;
+	width:  32px;
+	background: url(../../images/hm/express/ajax-loader-on-white.gif) no-repeat scroll 0 0 transparent;"
+}
+#restartLoadIcon {
+	left: 160px;
+	top:  90px;
+	z-index:  900;
+	position:  absolute;
+	display:  none;
+}

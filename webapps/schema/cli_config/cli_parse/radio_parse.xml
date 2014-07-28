@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	
+	<cli-parse>
+		<cmd><![CDATA[ radio profile <string> channel-width {20|40|80|40-above|40-below} ]]></cmd>
+		<xml><![CDATA[
+			<configuration>
+				<radio>
+					<profile name="{1}">
+						<channel-width value="{2}"/>
+					</profile>
+				</radio>
+			</configuration>
+	   ]]></xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd><![CDATA[ radio profile <string> primary-channel-offset {auto|0|1|2|3} ]]></cmd>
+		<xml><![CDATA[
+			<configuration>
+				<radio>
+					<profile name="{1}">
+						<primary-channel-offset name="{2}"/>
+					</profile>
+				</radio>
+			</configuration>
+	   ]]></xml>
+	</cli-parse>
+	
+</clis>

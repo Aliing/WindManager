@@ -1,0 +1,20 @@
+var countrycodeData = [
+    {'sname':'US','name':'美國','value':'1'},
+    {'sname':'CA','name':'加拿大','value':'1'},
+    {'sname':'NL','name':'荷蘭','value':'31'},
+    {'sname':'BE','name':'比利時','value':'32'},
+    {'sname':'FR','name':'法國','value':'33'},
+    {'sname':'ES','name':'西班牙','value':'34'},
+    {'sname':'AT','name':'奧地利','value':'43'},
+    {'sname':'GB','name':'英國','value':'44'},
+    {'sname':'DK','name':'丹麥','value':'45'},
+    {'sname':'SE','name':'瑞典','value':'46'},
+    {'sname':'DE','name':'德國','value':'49'},
+    {'sname':'MX','name':'墨西哥','value':'52'},
+    {'sname':'BR','name':'巴西','value':'55'},
+    {'sname':'AU','name':'澳大利亞','value':'61'},
+    {'sname':'NZ','name':'新西蘭','value':'64'},
+    {'sname':'KR','name':'韓國','value':'82'},
+    {'sname':'CN','name':'中國','value':'86'},
+    {'name':'其他','value':'0'}//manual
+];

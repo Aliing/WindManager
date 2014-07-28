@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ah.com/hm/ws/platform/bo/ap" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ah.com/hm/ws/platform/bo/ap">
+    <xs:complexType name="hiveAp">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="nodeId" type="xs:string"/>
+            <xs:element minOccurs="0" name="serialNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="hostName" type="xs:string"/>
+            <xs:element minOccurs="0" name="ipAddress" type="xs:string"/>
+            <xs:element minOccurs="0" name="netmask" type="xs:string"/>
+            <xs:element minOccurs="0" name="gateway" type="xs:string"/>
+            <xs:element minOccurs="0" name="softwareVersion" type="xs:string"/>
+            <xs:element minOccurs="0" name="deviceGroup">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="MANAGED"/>
+                        <xs:enumeration value="NEW"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="model">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="AP_20"/>
+                        <xs:enumeration value="AP_28"/>
+                        <xs:enumeration value="AP_110"/>
+                        <xs:enumeration value="AP_120"/>
+                        <xs:enumeration value="AP_320"/>
+                        <xs:enumeration value="AP_330"/>
+                        <xs:enumeration value="AP_340"/>
+                        <xs:enumeration value="AP_350"/>
+                        <xs:enumeration value="AP_370"/>
+                        <xs:enumeration value="AP_380"/>
+                        <xs:enumeration value="AP_390"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PORTAL"/>
+                        <xs:enumeration value="MESH_POINT"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="nativeVlan" type="xs:int" use="required"/>
+        <xs:attribute name="mgtVlan" type="xs:int" use="required"/>
+        <xs:attribute name="active" type="xs:boolean" use="required"/>
+    </xs:complexType>
+</xs:schema>

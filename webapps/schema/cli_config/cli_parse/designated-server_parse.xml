@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+
+	<cli-parse>
+		<cmd>
+			<![CDATA[ designated-server idm-proxy dynamic ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<designated-server>
+						<idm-proxy>
+							<dynamic/>
+						</idm-proxy>
+					</designated-server>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[ designated-server idm-proxy announce ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<designated-server>
+						<idm-proxy>
+							<announce/>
+						</idm-proxy>
+					</designated-server>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+	
+</clis>

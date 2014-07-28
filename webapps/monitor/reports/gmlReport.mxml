@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="8" paddingTop="8" paddingRight="8" paddingBottom="8">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.charts.HitData;
+			import mx.charts.series.LineSeries;
+			import mx.charts.series.items.LineSeriesItem;
+			var initURL: String; 
+			public function dateParseFunction(s:String):Date {     
+			    var datearray:Array = s.split("-");  
+			    var intMon:int =datearray[1];
+			    var intDay:int =datearray[2];
+			  	
+			  	 var testDate:Date = new Date();
+				var offhour:Number = testDate.getTimezoneOffset()/60 *-1;
+				var offmin:Number = testDate.getTimezoneOffset()%60 *-1
+				
+				var newDate:Date = new Date(datearray[0],intMon-1,intDay,0+offhour,0+offmin);   
+			  	return newDate;    
+			}
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url =initURL+ "userReports.action?operation=getFlashData&key=" + new Date().time;
+				httpSvc.send();				
+			 }
+		    public function myDataTipFunction(e:HitData):String {
+		       	var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Count:</I>" + e.item.count + "\n";
+		        return s
+		    }	
+			
+        ]]>
+    </mx:Script>
+	<mx:Panel height="400" width="100%" headerHeight="8"  borderThicknessTop="0" >
+		<mx:HBox height="100%" width="100%" paddingTop="1" paddingLeft="1" paddingRight="1">
+		<mx:Panel title="{httpSvc.lastResult.report.title}" height="100%" width="100%" headerHeight="25" borderThicknessTop="0" >
+	    <mx:LineChart id="gmlReportLine" height="95%" width="100%" 
+    	    paddingRight="0" paddingLeft="0" 
+    	    dataTipFunction="myDataTipFunction"
+        	showDataTips="true">
+        	<mx:seriesFilters>
+	           <mx:Array/>
+	        </mx:seriesFilters>
+            <mx:horizontalAxis>
+	            <mx:DateTimeAxis
+	            	dataUnits="days"
+	            	parseFunction="dateParseFunction"/>
+    	    </mx:horizontalAxis>
+
+        	<mx:verticalAxis>
+            	<mx:LinearAxis baseAtZero="true"/>
+            </mx:verticalAxis>
+
+	        <mx:series>
+    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.reportResult.item}"
+						displayName="Count">
+		            <mx:lineStroke>
+		                <mx:Stroke color="0x0000FF"/>
+		            </mx:lineStroke>   
+				</mx:LineSeries>
+        	</mx:series>
+        </mx:LineChart> 
+         <mx:Legend dataProvider="{gmlReportLine}" width="100%" height="5%" fontSize="9" markerHeight="10" markerWidth="8" paddingTop="0" paddingBottom="0"/>   
+       </mx:Panel>
+        </mx:HBox>
+    </mx:Panel>
+</mx:Application>

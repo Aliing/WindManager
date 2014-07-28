@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<os_dhcp_fingerprints>
+	<os_dchp_fingerprint osname="CrOS">
+		<option55 version="6.1.3.0">1,121,33,3,6,12,15,26,28,51,54,58,59,119</option55>
+		<option55 version="6.1.3.0">1,121,33,3,6,12,15,26,28,51,54,58,59,119,252</option55>
+	</os_dchp_fingerprint>
+	<os_dchp_fingerprint osname="Android">
+		<option55 version="6.1.3.0">1,33,3,6,15,26,28,51,58,59</option55>
+	</os_dchp_fingerprint>
+</os_dhcp_fingerprints>

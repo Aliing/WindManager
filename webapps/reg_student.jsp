@@ -1,0 +1,1 @@
+<% response.sendRedirect("studentRegist.action?operation=registration"); %>

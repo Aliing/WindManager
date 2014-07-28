@@ -1,0 +1,47 @@
+/* custom tab styles */
+
+.tab_selectTabStyle a {
+	color: #000000;
+	font-size: 12px;
+	padding:0 8px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.tab_unSelectTabStyle a {
+	color: #0093D1;
+	font-size: 12px;
+	padding:0 8px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.tab_selectTabStyle:hover, .tab_selectTabStyle a:hover {
+	text-decoration: none;
+}
+.tab_unSelectTabStyle:hover,.tab_unSelectTabStyle a:hover {
+	color: #888;
+	background-color: #F5F5F5;
+	text-decoration: none;
+}
+
+.tab_selectTabStyle {
+	background-repeat: repeat-x;
+    border-bottom: 0px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+	border-top: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+	border-radius:4px 4px 0 0;
+	text-align:center;
+	height: 30px;
+	
+}
+.tab_unSelectTabStyle {
+	background-repeat: repeat-x;
+    border-bottom: 1px solid #DDDDDD;
+    text-align:center;
+    height: 30px;
+}
+.tab_unSelectStyle {
+	border-bottom: 1px solid #DDDDDD;
+}

@@ -1,0 +1,2477 @@
+<HTML><head>
+
+<title>Asynchronous ReST/JSON API of Report Data</title>
+
+</head><body>
+
+<h1 align=center>Asynchronous ReST/JSON API of Report Data</h1>
+<h4 align=right>
+  <a hRef=MailTo:yZhong@AeroHive.com>&#38047;&#38451;(Yang ZHONG)</a><br>
+  <a hRef=MailTo:nFang@AeroHive.com>&#26041;&#24180;&#33635;(NianRong FANG)</a>
+</h4>
+<h5 align=right>
+  First created: May 30, 2012<br>
+  Last modified: Nov. 8, 2012
+</h5>
+
+<strong>Index</strong>
+<OL><LI>
+  Asynchronous ReST API in generic<p>
+  </LI><OL><LI>
+    <a hRef=#async>Browser example</a></p>
+  </LI><LI>
+    <a hRef=#operation>Service &amp; operation, optional revision</a><p>
+  </LI><LI>
+    <a hRef=#request>Optional requester &amp; request</a></p>
+  </LI><LI>
+    <a hRef=#response>Response JSON</a><p>
+</LI></OL><LI>
+  JavaScript API of Report Data availability</p>
+  </LI><OL><LI>
+    <a hRef=#available>JavaScript</a><p>
+  </LI><LI>
+    <a hRef=#availability>REPORT_DATA</a></p>
+  </LI><LI>
+    <a hRef=#parse>Parsing for axis</a><p>
+  </LI><LI>
+    <a hRef=#axis>Recommended axis prompt, display & default chart</a></p>
+  </LI><LI>
+    <a hRef=#valid>Localized expression validation</a><p>
+</LI></OL><LI>
+  ReST/JSON API of Report Data</p>
+  </LI><OL><LI>
+    <a hRef=#data>AJAX URL</a><p>
+  </LI><LI>
+    <a hRef=#post>Post Parameters</a></p>
+  </LI><LI>
+    <a hRef=#level>Absolute Break-down Levels</a><p>
+  </LI><LI>
+    <a hRef=#rows>Additional response JSON "data"</a></p>
+  </LI><LI>
+    <a hRef=#eval>Validated expression evaluation</a><p>
+  </LI><LI>
+    <a hRef=#test>Test/Demo/Debug</a></p>
+</LI></OL><LI>
+  ReST/JSON API of Report Results<p>
+  </LI><OL><LI>
+    <a hRef=#results>AJAX URL</a></p>
+  </LI><LI>
+    <a hRef=#parameters>Post Parameters</a><p>
+  </LI><LI>
+    <a hRef=#exclude>Test/Demo/Debug</a>
+</LI></OL></OL>
+
+<strong>Asynchronous ReST/JSON API in generic</strong>
+<OL><LI>
+  <a name=async>Browser example</a>
+  </LI><pre>    &lt;form name=ExampleForm action=/CONTEXT/<strong><a name=URL>SERVICE/OPERATION/REQUESTER/REQUEST?revision=</a></strong>...
+
+    AJAX.post
+    ({
+      form: document.ExampleForm,
+      handleAs: "json",
+      load: function (JSON)
+      {
+        switch( JSON<strong>.<a name=result>result</a></strong> )
+        {
+          case 0:
+            warning = JSON.exception;
+            break;
+          default:
+            error = JSON<strong>.<a name=exception>exception</a></strong>;
+        }
+        ...
+      }
+    });</pre>
+<LI>
+  <a name=operation hRef=#URL>Service &amp; operation, optional revision</a><p>
+  </LI><OL><LI>
+    Service string identifies a particular service, for instance, "report" for this reporting service.</p>
+  </LI><LI>
+    Operation string identifies a particular operation, for instances,
+    "data" for <a hRef=#data>Report Data</a> retrieval operation.<p>
+  </LI><LI>
+    Revision integer identifies service &amp; operation revision.
+    It's a 16-bit signed integer, optionally prefixing w/ 0x/0X/# for hexa-decimal or 0 for octal after optional sign.</p>
+</LI></OL><LI>
+  Optional <a name=request hRef=#URL>requester &amp; request</a>,
+  to retrieve response asynchronously, or after Time Out or the particular responding (cluster) element crashed/restarted,
+  @ a different trip<p>
+  </LI><OL><LI>
+    Requester string scopes the request identifier.</p>
+  </LI><LI>
+    Request integer identifies the corresponding response to be retrieved asynchronously.
+    It's a 64-bit signed integer, optionally prefixing w/ 0x/0X/# for hexa-decimal or 0 for octal after optional sign.
+    E.g. <a hRef=HTTP://WWW.w3schools.com/jsref/jsref_gettime.asp>new Date().getTime()</a><p>
+</LI></OL><LI>
+  <a name=response>Response JSON</a></p>
+  </LI><OL><LI>
+    <a hRef=#result>Result</a> integer<p>
+  </LI><LI>
+    <a hRef=#exception>Exception</a> string for support
+</LI></OL></OL>
+
+<strong>JavaScript API of Report Data availability</a></strong>
+<OL><LI>
+  <a name=available>JavaScript</a>
+  </LI><BlockQuote>
+    &lt;script src=<a hRef=data.js>/hm/js/report/data.js</a>>&lt;/script>
+</BlockQuote><LI>
+  <a name=availability>REPORT_DATA =</a>
+  </LI><BlockQuote>
+    <table><TR>
+      <TD RowSpan=294>[</TD>
+      <TD RowSpan=4 ColSpan=3>[{"<strong>audited operation</strong>"</TD>
+      <TD RowSpan=4>:"Audited operation",</TD>
+      <TD align=center ColSpan=3>"<strong>time</strong>"</TD>
+      <TD>:"<a hRef=HTTP://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html#iso8601timezone>yyyy-MM-dd'T'HH:mm:ssZ</a>
+        of local <a hRef=HTTP://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html#skip-navbar_top>Time Zone</a>",</TD>
+      <TD RowSpan=294>]</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD ColSpan=3 align=center>"<strong>adminitrator</strong>"</TD>
+      <TD>:"by",</TD>
+    </TR><TR>
+      <TD ColSpan=3 align=center>"<strong>IP</strong>"</TD>
+      <TD>:"from",</TD>
+    </TR><TR>
+      <TD ColSpan=3 align=center>"<strong>result</strong>"</TD>
+      <TD>:"Result"<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=3 ColSpan=3>[{"<strong>login administrator</strong>"</TD>
+      <TD RowSpan=3>:"Admin Name",</TD>
+      <TD align=center ColSpan=3>"<strong>time</strong>"</TD>
+      <TD>:"<a hRef=HTTP://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html#iso8601timezone>yyyy-MM-dd'T'HH:mm:ssZ</a>
+        of local <a hRef=HTTP://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html#skip-navbar_top>Time Zone</a>",</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD ColSpan=3 align=center>"<strong>IP</strong>"</TD>
+      <TD>:"from",</TD>
+    </TR><TR>
+      <TD ColSpan=3 align=center>"<strong>seconds</strong>"</TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//0 if session hasn't ended yet, count of which is "Admins logged in currently"</TD>
+    </TR><TR>
+      <TD RowSpan=8>[{"<strong>bandwidth</strong></TD>
+      <TD RowSpan=8 ColSpan=2><strong>consuming OS/type</strong>"</TD>
+      <TD RowSpan=8>:"Client device OS/type",</TD>
+      <TD align=right ColSpan=3>"<strong><a name=only>total distinct client devices</a></strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>bytes</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right NoWrap><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD RowSpan=8>[{"<strong>bandwidth</strong></TD>
+      <TD RowSpan=8 ColSpan=2><strong>consuming vendor</strong>"</TD>
+      <TD RowSpan=8>:"Client device vendor",</TD>
+      <TD align=right ColSpan=3>"<strong><a name=only>total distinct client devices</a></strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>bytes</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD RowSpan=17>[{"<strong>bandwidth</strong></TD>
+      <TD RowSpan=17 ColSpan=2><strong>application</strong>"</TD>
+      <TD RowSpan=17>:1,</TD>
+      <TD align=center ColSpan=3>"<strong>bytes</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>top</strong></TD>
+      <TD><strong>user</strong>"</TD>
+      <TD></TD>
+      <TD>:"top bandwidth UserName",</TD>
+    </TR><TR>
+      <TD align=right>"<strong>top</strong></TD>
+      <TD><strong>SSId</strong>"</TD>
+      <TD></TD>
+      <TD>:"top bandwidth SSId",</TD>
+    </TR><TR>
+      <TD align=right>"<strong>top</strong></TD>
+      <TH align=right>network</TH>
+      <TD><strong>device</strong>"</TD>
+      <TD>:"top bandwidth network device",</TD>
+    </TR><TR>
+      <TD align=right>"<strong>top</strong></TD>
+      <TH align=right>client</TH>
+      <TD><strong>device</strong>"</TD>
+      <TD>:"top bandwidth client MAC address",</TD>
+    </TR><TR>
+      <TD align=right>"<strong>top</strong></TD>
+      <TH align=right>client</TH>
+      <TD><strong>host</strong>"</TD>
+      <TD>:"top bandwidth client host name",</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right>"<strong>client</strong></TD>
+      <TD><strong>devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right>"<strong>network</strong></TD>
+      <TD><strong>devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>last time</strong>"</TD>
+      <TD>:"yyyy-MM-dd'T'HH:mm:ssZ of local Time Zone",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>users</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>group</strong>"</TD>
+      <TD>:1<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=9>[{"<strong>bandwidth</strong></TD>
+      <TD RowSpan=9 ColSpan=2><strong>user</strong>"</TD>
+      <TD RowSpan=9>:"UserName",</TD>
+      <TD align=center ColSpan=3>"<strong>bytes</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>top application</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>last client MAC</strong>"</TD>
+      <TD>:"latest client device MAC used"<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=11>[{"<strong>bandwidth</strong></TD>
+      <TD RowSpan=11 ColSpan=2><strong>consumer</strong>"</TD>
+      <TD RowSpan=11>:"Client device name, or MAC address if anonymous",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"Client device Media Access Control address",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>OS/type</strong>"</TD>
+      <TD>:"Client device OS/type",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>vendor</strong>"</TD>
+      <TD>:"Client device vendor",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>UserNames</strong>"</TD>
+      <TD>:"UserNames delimited by /",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>bytes</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><!--TR>
+      <TD RowSpan=2>[{"<strong>AirTime</strong></TD>
+      <TD RowSpan=2 ColSpan=2><strong>consumer</strong>"</TD>
+      <TD RowSpan=2>:"Client device name, or MAC address if anonymous",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"Client device Media Access Control address",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>seconds</strong>"</TD>
+      <TD>:60<strong>}]</strong>,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down; order by desc</TD>
+    </TR--><TR>
+      <TD RowSpan=2>[{</TD>
+      <TD RowSpan=2 align=right>"<strong>client</strong></TD>
+      <TD RowSpan=2><strong>w/ association failures</strong>"</TD>
+      <TD RowSpan=2>:"Client device name, or MAC address if anonymous",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"Client device Media Access Control address",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>association failures</strong>"</TD>
+      <TD>:1000}],</TD>
+      <TD>//scope/filter &amp; client-users breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD>[{</TD>
+      <TD align=right>"<strong>client</strong></TD>
+      <TD><strong>device radio mode</strong>"</TD>
+      <TD>:"Client device radio mode",</TD>
+      <TD align=right ColSpan=3>"<strong>total distinct client devices</strong>"</TD>
+      <TD>:1000}],</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD>[{</TD>
+      <TD align=right>"<strong>client</strong></TD>
+      <TD><strong>device OS/type</strong>"</TD>
+      <TD>:"Client device OS/type",</TD>
+      <TD align=right ColSpan=3>"<strong>total distinct client devices</strong>"</TD>
+      <TD>:1000}],</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD>[{</TD>
+      <TD align=right>"<strong>client</strong></TD>
+      <TD><strong>device vendor</strong>"</TD>
+      <TD>:"Client device vendor",</TD>
+      <TD align=right ColSpan=3>"<strong>total distinct client devices</strong>"</TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD RowSpan=2>[{"<strong>total</strong></TD>
+      <TD RowSpan=2 align=right><strong>client</strong></TD>
+      <TD RowSpan=2><strong>devices server(s) (port)</strong>"</TD>
+      <TD RowSpan=2>:"Network device (aggregation) name/interface, or MAC address if anonymous, or SSId or User Profile",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"MAC address if individual network device (linkable)",</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3>"<strong>total distinct client devices</strong>"</TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD RowSpan=6>[{"<strong>concurrent</strong></TD>
+      <TD RowSpan=6 align=right><strong>client</strong></TD>
+      <TD RowSpan=6><strong>devices server(s) (port)</strong>"</TD>
+      <TD RowSpan=6>:"Network device (aggregation) name/interface, or MAC address if anonymous, or SSId or User Profile",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"MAC address if individual network device (linkable)",</TD>
+    </TR><TR>
+      <TD NoWrap>"<strong>maximum concurrent</strong></TD>
+      <TH align=right>2.4 GHz</TH>
+      <TD align=right NoWrap><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+    </TR><TR>
+      <TD>"<strong>maximum concurrent</strong></TD>
+      <TH align=right>5 GHz</TH>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+    </TR><TR>
+      <TD ColSpan=2>"<strong>maximum concurrent wireless</strong></TD>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+    </TR><TR>
+      <TD ColSpan=2>"<strong>maximum concurrent wired</strong></TD>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+    </TR><TR>
+      <TD ColSpan=2>"<strong>maximum concurrent</strong></TD>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000}],</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD ColSpan=3>[{"<strong>HiveOS version</strong>"</TD>
+      <TD>:"HiveOS version",</TD>
+      <TD align=right ColSpan=3>"<strong>total network devices</strong>"</TD>
+      <TD>:1000}],</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD ColSpan=3>[{"<strong>configuration compliance</strong>"</TD>
+      <TD>:"Configuration compliance",</TD>
+      <TD align=right ColSpan=3>"<strong>total network devices</strong>"</TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD RowSpan=18>[{</TD>
+      <TD RowSpan=18>"<strong>system</strong></TD>
+      <TD RowSpan=18><strong>information</strong>"</TD>
+      <TD RowSpan=18>:"HiveManager(s) version",</TD>
+      <TD ColSpan=3>"<strong>network devices - up</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>network devices - down</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>network devices - unmanaged</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>network devices - alarmed</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>network devices - disconfigured</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>network devices - friendly</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>network devices - rogue</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>clients - active</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>clients - maximum</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>clients - net rogue</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>clients - map rogue</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>OnPremise - host(s)</strong>"</TD>
+      <TD>:"HiveManager OnPremise Host Name(s)",</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>OnPremise - build</strong>"</TD>
+      <TD>:"yyyy-MM-dd'T'HH:mm:ss",</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>OnPremise - model</strong>"</TD>
+      <TD>:"HiveManager(s) OnPremise Model Number",</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>OnPremise - up</strong>"</TD>
+      <TD>:"HiveManager(s) OnPremise System UpTime",</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>OnPremise - HA</strong>"</TD>
+      <TD>:"HiveManager OnPremise HA Status",</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>OnPremise - port(s)</strong>"</TD>
+      <TD>:"HiveManager OnPremise Mgt Port(s)",</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>OnPremise - LAN(s)</strong>"</TD>
+      <TD>:"HiveManager OnPremise LAN Port(s)"<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=11>[{</TD>
+      <TD RowSpan=11>"<strong>port(s)</strong></TD>
+      <TD RowSpan=11><strong>information</strong>"</TD>
+      <TD RowSpan=11>:1,</TD>
+      <TD ColSpan=3>"<strong>network device(s)</strong>"</TD>
+      <TD>:"Network device (aggregation) name, or MAC address if anonymous",</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"MAC address if individual network device (linkable)",</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>vLANs - voice</strong>"</TD>
+      <TD>:[11,20,100],</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>vLANs - data</strong>"</TD>
+      <TD>:[1,20],</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>link state</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>link protocol</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>authentication</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>STP mode</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>STP role</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>STP state</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>top candidate</strong>"</TD>
+      <TD>:true<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=9 ColSpan=3>[{"<strong>bandwidth provider</strong>"</TD>
+      <TD RowSpan=9>:"Network device (aggregation) name/port, or MAC address if anonymous, or SSId or User Profile",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"<a name=provider>MAC</a> address if individual network device (linkable)",</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3>"<strong>total distinct client devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3>"<strong>bytes</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>2.4 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>5 GHz bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>wired bytes</strong>"</TD>
+      <TD></TD>
+      <TD>:1000}],</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>[{"<strong>network device(s) (port) alarm level</strong>"</TD>
+      <TD>:"Network device(s) (port) alarm level",</TD>
+      <TD align=center ColSpan=3>"<strong>alarms</strong>"</TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD RowSpan=8 ColSpan=3>[{"<strong>network device (port) w/ errors</strong>"</TD>
+      <TD RowSpan=8>:"Network device name/port, or MAC address if anonymous",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"Network device Media Access Control address",</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3>"<strong>error %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>CRC</TH>
+      <TD align=right><strong>error %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>transmitting</TH>
+      <TD align=right><strong>error %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>receiving</TH>
+      <TD align=right><strong>error %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>CRC</TH>
+      <TD align=right><strong>error %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>transmitting</TH>
+      <TD align=right><strong>error %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>receiving</TH>
+      <TD align=right><strong>error %</strong>"</TD>
+      <TD>:1<strong>}]</strong>,</TD>
+    <!--/TR><TR>
+      <TD>"<strong>wired</strong></TD>
+      <TH>CRC</TH>
+      <TD align=right><strong>error %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD>"<strong>wired</strong></TD>
+      <TD align=right ColSpan=2><strong>Oversize Packets %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD>"<strong>wired</strong></TD>
+      <TD align=right ColSpan=2><strong>Undersize Packets %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD>"<strong>wired</strong></TD>
+      <TH>fragments</TH>
+      <TD align=right><strong>%</strong>"</TD>
+      <TD>:1<strong>}]</strong>,</TD-->
+    </TR><TR>
+      <TD RowSpan=6 ColSpan=3>[{"<strong>network device (port) w/ retries</strong>"</TD>
+      <TD RowSpan=6>:"Network device name/port, or MAC address if anonymous",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"Network device Media Access Control address",</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3>"<strong>retry %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>transmitting</TH>
+      <TD align=right><strong>retry %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>receiving</TH>
+      <TD align=right><strong>retry %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>transmitting</TH>
+      <TD align=right><strong>retry %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>receiving</TH>
+      <TD align=right><strong>retry %</strong>"</TD>
+      <TD>:1<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=8 ColSpan=2>[{"<strong>network device (interface) of Channel</strong></TD>
+      <TD RowSpan=8><strong>Utilization</strong>"</TD>
+      <TD RowSpan=8>:"Network device name/interface, or MAC address if anonymous",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"Network device Media Access Control address",</TD>
+    </TR><TR>
+      <TD>"<strong>Channel</strong></TD>
+      <TH>Utilization</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>interference</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>transmitting</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>receiving</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>interference</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>transmitting</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>receiving</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=6 ColSpan=2>[{"<strong>network device (interface) of AirTime</strong></TD>
+      <TD RowSpan=6><strong>utilization</strong>"</TD>
+      <TD RowSpan=6>:"Network device name/interface, or MAC address if anonymous",</TD>
+      <TD align=center ColSpan=3>"<strong>MAC</strong>"</TD>
+      <TD>:"Network device Media Access Control address",</TD>
+    </TR><TR>
+      <TD>"<strong>AirTime</strong></TD>
+      <TH>utilization</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>transmitting</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TH>receiving</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>transmitting</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TH>receiving</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=69 ColSpan=3>[{"<strong>time</strong>"</TD>
+      <TD RowSpan=69>:"yyyy-MM-dd'T'HH:mm(Z of local Time Zone)",</TD>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>2.4 GHz BPS</strong>"</TD>
+      <TD></TD>
+      <TD>:<a name=time>1000</a>,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>5 GHz BPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>wired BPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>2.4 GHz BPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>5 GHz BPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>wired BPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>2.4 GHz PPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>5 GHz PPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TD align=right><strong>wired PPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>2.4 GHz PPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>5 GHz PPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TD align=right><strong>wired PPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    <!--/TR><TR>
+      <TD align=right>"<strong>wired</strong></TD>
+      <TH>Packets</TH>
+      <TD align=right><strong>Per Queue</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD-->
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>unicast</TH>
+      <TD align=right><strong>2.4 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>unicast</TH>
+      <TD align=right><strong>5 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>unicast</TH>
+      <TD align=right><strong>wired PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    <!--/TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>multicast</TH>
+      <TD align=right><strong>2.4 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>multicast</TH>
+      <TD align=right><strong>5 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>multicast</TH>
+      <TD align=right><strong>wired PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD-->
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>2.4 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>5 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>wired PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>unicast</TH>
+      <TD align=right><strong>2.4 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>unicast</TH>
+      <TD align=right><strong>5 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>unicast</TH>
+      <TD align=right><strong>wired PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    <!--/TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>multicast</TH>
+      <TD align=right><strong>2.4 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>multicast</TH>
+      <TD align=right><strong>5 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>multicast</TH>
+      <TD align=right><strong>wired PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD-->
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>2.4 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>5 GHz PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>wired PPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>2.4 GHz BPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>5 GHz BPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>inbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>wired BPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>2.4 GHz BPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>5 GHz BPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>outbound</strong></TD>
+      <TH align=right>broadcast</TH>
+      <TD align=right><strong>wired BPS</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    <!--/TR><TR>
+      <TD align=right>"<strong>unicast</strong></TD>
+      <TH>wired</TH>
+      <TD align=center><strong>packet%</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>unicast</strong></TD>
+      <TH align=right>2.4 GHz</TH>
+      <TD align=center><strong>packet%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>unicast</strong></TD>
+      <TH align=right>5 GHz</TH>
+      <TD align=center><strong>packet%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>multicast</strong></TD>
+      <TH>wired</TH>
+      <TD align=center><strong>packet%</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>multicast</strong></TD>
+      <TH align=right>2.4 GHz</TH>
+      <TD align=center><strong>packet%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>multicast</strong></TD>
+      <TH align=right>5 GHz</TH>
+      <TD align=center><strong>packet%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD-->
+    </TR><TR>
+      <TD align=right ColSpan=2>"<strong>top <a name=applications>applications</a> BPS</strong>"</TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; aggregation-distinct breakable-down; order by period application BPS desc</TD>
+    </TR><TR>
+      <TD align=right ColSpan=2>"<strong>top applications BPS</strong></TD>
+      <TD><strong>(2.4)</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; aggregation-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=right ColSpan=2>"<strong>top applications BPS</strong></TD>
+      <TD><strong>(5)</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; aggregation-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=right ColSpan=2>"<strong>top applications BPS</strong></TD>
+      <TD><strong>(wired)</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; aggregation-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3>"<strong>total distinct client devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>maximum concurrent</strong></TD>
+      <TH align=right>2.4 GHz</TH>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>maximum concurrent</strong></TD>
+      <TH align=right>5 GHz</TH>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=2>"<strong>maximum concurrent wireless</strong></TD>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=2>"<strong>maximum concurrent wired</strong></TD>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=2>"<strong>maximum concurrent</strong></TD>
+      <TD align=right><strong>client devices</strong>"</TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>throughput</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>clients %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>throughput</strong></TD>
+      <TH>warning</TH>
+      <TD><strong>clients %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>AirTime</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>clients %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>health</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>clients %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>health</strong></TD>
+      <TH>warning</TH>
+      <TD><strong>clients %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>throughput</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>providers %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>throughput</strong></TD>
+      <TH>warning</TH>
+      <TD><strong>providers %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>AirTime</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>providers %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>Rx Drop</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>providers %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>Tx Drop</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>providers %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>Tx Retry</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>providers %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>CRC</strong></TD>
+      <TH>noncompliant</TH>
+      <TD><strong>providers %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>dropped % @ 2.4</strong></TD>
+      <TD ColSpan=2><strong>GHz to receive</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>dropped % @ 5</strong></TD>
+      <TD ColSpan=2><strong>GHz to receive</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>dropped % @ 2.4</strong></TD>
+      <TD ColSpan=2><strong>GHz to transmit</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>dropped % @ 5</strong></TD>
+      <TD ColSpan=2><strong>GHz to transmit</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>dropped % by 2.4</strong></TD>
+      <TD ColSpan=2><strong>GHz to transmit</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>dropped % by 5</strong></TD>
+      <TD ColSpan=2><strong>GHz to transmit</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    <!--/TR><TR>
+      <TD>"<strong>wired</strong></TD>
+      <TH>CRC error</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>wired</strong></TD>
+      <TH align=right>Oversize Packets</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>wired</strong></TD>
+      <TH align=right>Undersize Packets</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>wired</strong></TD>
+      <TH>fragments</TH>
+      <TD align=center><strong>%</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope breakable-down</TD-->
+    </TR><TR>
+      <TD>"<strong>average</strong></TD>
+      <TD align=right><strong>CPU %</strong>"</TD>
+      <TD></TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>maximum</strong></TD>
+      <TD align=right><strong>CPU %</strong>"</TD>
+      <TD></TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>average</strong></TD>
+      <TD align=right><strong>memory %</strong>"</TD>
+      <TD></TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD>"<strong>maximum</strong></TD>
+      <TD align=right><strong>memory %</strong>"</TD>
+      <TD></TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right>"<strong>up %</strong>"</TD>
+      <TD></TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; count-distinct(down) breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TD align=right><strong>transmitting</strong></TD>
+      <TD><strong>AirTime %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>2.4 GHz</strong></TD>
+      <TD align=right><strong>receiving</strong></TD>
+      <TD><strong>AirTime %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TD align=right><strong>transmitting</strong></TD>
+      <TD><strong>AirTime %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right>"<strong>5 GHz</strong></TD>
+      <TD align=right><strong>receiving</strong></TD>
+      <TD><strong>AirTime %</strong>"</TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>HiveManager(s) OnPremise CPU %</strong>"</TD>
+      <TD>:1,</TD>
+    </TR><TR>
+      <TD ColSpan=3>"<strong>HiveManager(s) OnPremise memory %</strong>"</TD>
+      <TD>:1<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=6><font color=blue>[{"<strong>time for</strong></font></TD>
+      <TH RowSpan=6 align=right><font color=blue>client</font></TH>
+      <TD RowSpan=6><font color=blue><strong>device</strong>"</font></TD>
+      <TD RowSpan=6>:"yyyy-MM-dd'T'HH:mm(Z of local Time Zone)",</TD>
+      <TD align=center ColSpan=3><font color=blue>"<strong><a name=client>Received Signal Strength Indication</a></strong>"</font></TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>Signal-to-Noise Ratio</strong>"</font></TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD><font color=blue>"<strong>average</strong></font></TD>
+      <TH align=right><font color=blue>transmitting</font></TH>
+      <TD><font color=blue><strong>BPS</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD><font color=blue>"<strong>average</strong></font></TD>
+      <TH align=right><font color=blue>receiving</font></TH>
+      <TD><font color=blue><strong>BPS</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right><font color=blue>"<strong>transmitting</strong></font></TD>
+      <TD><font color=blue><strong>AirTime %</strong>"</font></TD>
+      <TD>:1,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right><font color=blue>"<strong>receiving</strong></font></TD>
+      <TD><font color=blue><strong>AirTime %</strong>"</font></TD>
+      <TD>:1<strong>}]</strong>,</TD>
+      <TD>//scope/filter &amp; client-users breakable-down</TD>
+    </TR><TR>
+      <TD RowSpan=8><font color=blue>[{</font></TD>
+      <TD RowSpan=8><font color=blue>"<strong>client device</strong></font></TD>
+      <TD RowSpan=8><font color=blue><strong>information</strong>"</font></TD>
+      <TD RowSpan=8>:"last Host Name",</TD>
+      <TD align=center ColSpan=3><font color=blue>"<strong>1st time seen ever</strong>"</font></TD>
+      <TD>:"yyyy-MM-dd'T'HH:mm:ssZ of local Time Zone",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>comment</strong>"</font></TD>
+      <TD>:"last comment",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>IP4</strong>"</font></TD>
+      <TD>:"IP4 address",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>OS/type</strong>"</font></TD>
+      <TD>:"OS/type",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>vendor</strong>"</font></TD>
+      <TD>:"vendor",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>UserName</strong>"</font></TD>
+      <TD>:"last UserName",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>location watched</strong>"</font></TD>
+      <TD>:false,</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>monitored</strong>"</font></TD>
+      <TD>:false<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=3 ColSpan=3><font color=blue>[{"<strong>SSId seen</strong>"</font></TD>
+      <TD RowSpan=3>:"Service Set Id",</TD>
+      <TD align=center ColSpan=3><font color=blue>"<strong>last time</strong>"</font></TD>
+      <TD>:"yyyy-MM-dd'T'HH:mm:ssZ of local Time Zone",</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>last network device</strong>"</font></TD>
+      <TD>:"Network device name, or MAC address if anonymous",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=blue>"<strong>network device MAC</strong>"</font></TD>
+      <TD>:"Network device Media Access Control address"<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=10><font color=green>[{"<strong>time for</strong></font></TD>
+      <TD RowSpan=10 ColSpan=2><font color=green><strong>user</strong>"</font></TD>
+      <TD RowSpan=10>:"yyyy-MM-dd'T'HH:mm(Z of local Time Zone)",</TD>
+      <TD align=right><font color=green>"<strong><a name=user>inbound</a></strong></font></TD>
+      <TD align=right><font color=green><strong>2.4 GHz BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=green><strong>5 GHz BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=green><strong>wired BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=green><strong>2.4 GHz BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=green><strong>5 GHz BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=green><strong>wired BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; user-clients breakable-down</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3><font color=green>"<strong>total distinct client devices</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3><font color=green>"<strong>network devices</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>SSIDs</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>applications</strong>"</font></TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD RowSpan=3><font color=green>[{</font></TD>
+      <TD RowSpan=3><font color=green>"<strong>user</strong></font></TD>
+      <TD RowSpan=3><font color=green><strong>information</strong>"</font></TD>
+      <TD RowSpan=3>:"last comment",</TD>
+      <TD align=center ColSpan=3><font color=green>"<strong>1st time seen ever</strong>"</font></TD>
+      <TD>:"yyyy-MM-dd'T'HH:mm:ssZ of local Time Zone",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>User Profile</strong>"</font></TD>
+      <TD>:"last User Profile name",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>eMail</strong>"</font></TD>
+      <TD>:"last eMail address"<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=6><font color=green>[{"<strong>device</strong></font></TD>
+      <TD RowSpan=6 ColSpan=2><font color=green><strong>used</strong>"</font></TD>
+      <TD RowSpan=6>:"Client device name, or MAC address if anonymous",</TD>
+      <TD align=center ColSpan=3><font color=green>"<strong>MAC</strong>"</font></TD>
+      <TD>:"Client device Media Access Control address",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>last time</strong>"</font></TD>
+      <TD>:"yyyy-MM-dd'T'HH:mm:ssZ of local Time Zone",</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>last network device</strong>"</font></TD>
+      <TD>:"Network device name, or MAC address if anonymous",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>network device MAC</strong>"</font></TD>
+      <TD>:"Network device Media Access Control address",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>OS/type</strong>"</font></TD>
+      <TD>:"Client device OS/type",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>vendor</strong>"</font></TD>
+      <TD>:"Client device vendor"<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=4 ColSpan=3><font color=green>[{"<strong>SSId authenticated</strong>"</font></TD>
+      <TD RowSpan=4>:"Service Set Id",</TD>
+      <TD align=center ColSpan=3><font color=green>"<strong>last time</strong>"</font></TD>
+      <TD>:"yyyy-MM-dd'T'HH:mm:ssZ of local Time Zone",</TD>
+      <TD>//order by desc</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>last network device</strong>"</font></TD>
+      <TD>:"Network device name, or MAC address if anonymous",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>network device MAC</strong>"</font></TD>
+      <TD>:"Network device Media Access Control address",</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>authentication</strong>"</font></TD>
+      <TD>:"authentication method"<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=15><font color=green>[{"<strong>bandwidth</strong></font></TD>
+      <TD RowSpan=15><font color=green><strong>application</strong></font></TD>
+      <TD RowSpan=15><font color=green><strong>used</strong>"</font></TD>
+      <TD RowSpan=15>:1,</TD>
+      <TD align=center ColSpan=3><font color=green>"<strong>bytes</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=green><strong>2.4 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=green><strong>5 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=green><strong>2.4 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=green><strong>5 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=green><strong>wired bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=green><strong>wired bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>top</strong></font></TD>
+      <TD><font color=green><strong>SSId</strong>"</font></TD>
+      <TD></TD>
+      <TD>:"top bandwidth SSId",</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>top</strong></font></TD>
+      <TH align=right><font color=green>network</font></TH>
+      <TD><font color=green><strong>device</strong>"</font></TD>
+      <TD>:"top bandwidth network device",</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>top</strong></font></TD>
+      <TH align=right><font color=green>client</font></TH>
+      <TD><font color=green><strong>device</strong>"</font></TD>
+      <TD>:"top bandwidth client MAC address",</TD>
+    </TR><TR>
+      <TD align=right><font color=green>"<strong>top</strong></font></TD>
+      <TH align=right><font color=green>client</font></TH>
+      <TD><font color=green><strong>host</strong>"</font></TD>
+      <TD>:"top bandwidth client host name",</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right><font color=green>"<strong>client</strong></font></TD>
+      <TD><font color=green><strong>devices</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right><font color=green>"<strong>network</strong></font></TD>
+      <TD><font color=green><strong>devices</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>last time</strong>"</font></TD>
+      <TD>:"yyyy-MM-dd'T'HH:mm:ssZ of local Time Zone",</font></TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=green>"<strong>group</strong>"</font></TD>
+      <TD>:1<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=15><font color=maroon>[{</font></TD>
+      <TD RowSpan=15><font color=maroon>"<strong>application</strong></font></TD>
+      <TD RowSpan=15><font color=maroon><strong>information</strong>"</font></TD>
+      <TD RowSpan=15>:"yyyy-MM-dd'T'HH:mm:ssZ of local Time Zone",</TD>
+      <TD align=right><font color=maroon>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>2.4 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>5 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>2.4 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>5 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>wired bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>wired bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>top</strong></font></TD>
+      <TD><font color=maroon><strong>user</strong>"</font></TD>
+      <TD></TD>
+      <TD>:"top bandwidth UserName",</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>top</strong></font></TD>
+      <TD><font color=maroon><strong>SSId</strong>"</font></TD>
+      <TD></TD>
+      <TD>:"top bandwidth SSId",</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>top</strong></font></TD>
+      <TH align=right><font color=maroon>network</font></TH>
+      <TD><font color=maroon><strong>device</strong>"</font></TD>
+      <TD>:"top bandwidth network device",</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>top</strong></font></TD>
+      <TH align=right><font color=maroon>client</font></TH>
+      <TD><font color=maroon><strong>device</strong>"</font></TD>
+      <TD>:"top bandwidth client MAC address",</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>top</strong></font></TD>
+      <TH align=right><font color=maroon>client</font></TH>
+      <TD><font color=maroon><strong>host</strong>"</font></TD>
+      <TD>:"top bandwidth client host name",</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right><font color=maroon>"<strong>client</strong></font></TD>
+      <TD><font color=maroon><strong>devices</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD></TD>
+      <TD align=right><font color=maroon>"<strong>network</strong></font></TD>
+      <TD><font color=maroon><strong>devices</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=maroon>"<strong>users</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=maroon>"<strong>group</strong>"</font></TD>
+      <TD>:1<strong>}]</strong>,</TD>
+    </TR><TR>
+      <TD RowSpan=5><font color=maroon>[{"<strong>bandwidth</strong></font></TD>
+      <TD RowSpan=5 ColSpan=2><font color=maroon><strong>user applied</strong>"</font></TD>
+      <TD RowSpan=5>:"UserName",</TD>
+      <TD align=center ColSpan=3><font color=maroon>"<strong>bytes</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down; order by desc</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>2.4 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>5 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>2.4 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>5 GHz bytes</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000<strong>}]</strong>,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD RowSpan=8><font color=maroon>[{"<strong>time for</strong></font></TD>
+      <TD RowSpan=8 ColSpan=2><font color=maroon><strong>application</strong>"</font></TD>
+      <TD RowSpan=8>:"yyyy-MM-dd'T'HH:mm(Z of local Time Zone)",</TD>
+      <TD align=right><font color=maroon>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>2.4 GHz BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>inbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>5 GHz BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>2.4 GHz BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right><font color=maroon>"<strong>outbound</strong></font></TD>
+      <TD align=right><font color=maroon><strong>5 GHz BPS</strong>"</font></TD>
+      <TD></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter breakable-down</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3><font color=maroon>"<strong>total distinct client devices</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=right ColSpan=3><font color=maroon>"<strong>network devices</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=maroon>"<strong>vLANs</strong>"</font></TD>
+      <TD>:1000,</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR><TR>
+      <TD align=center ColSpan=3><font color=maroon>"<strong>users</strong>"</font></TD>
+      <TD>:1000}]</TD>
+      <TD>//scope/filter &amp; count-distinct breakable-down</TD>
+    </TR></table>
+</BlockQuote><LI>
+  <a name=parse>Parsing for axis (<a hRef=data.js>/hm/js/report/data.js</a>)</a>
+  </LI><pre>  AeroHive.axis: function (metrics)
+  {
+    for( metric in metrics )
+      return metric;
+  }</pre>
+  E.g. AeroHive.axis( <a hRef=#availability>REPORT_DATA</a>[ 0 ][0])<p>
+<LI>
+  <a name=axis>Recommended axis prompt, display &amp; default chart</a>
+    <form>
+      <table><TR>
+        <TD align=center><label for=select>Data</label></TD>
+        <TD align=center><label for=display>Display Name</label></TD>
+        <TD align=center><label for=expression>Display Value</label></TD>
+      </TR><TR>
+        <TD><select id=select onchange=onSelectionChange() style=width:200px></select></TD>
+        <TD><input id=display></input></TD>
+        <TD><input id=expression></input></TD>
+        <TD><img name=chart></img></TD>
+      </TR></table>
+    </form>
+    <script src=data.js></script>
+    <script src=zh_CN.js></script>
+    <script>
+      var SELECTION = document.getElementById( "select"),
+          DISPLAY =  document.getElementById( "display"),
+          EXPRESSION = document.getElementById( "expression");
+      function selected (axis)
+      {
+        document.chart.src = axis.defaultChart + ".PNG";
+        EXPRESSION.value = AeroHive.metric( DISPLAY.value = axis.display);
+      }
+      function onSelectionChange()
+      {
+        var axis = SELECTION.options[ SELECTION.selectedIndex ].value;
+        selected( AeroHive.localization( axis)[ axis ]);
+      }
+      for( index = 0 ; REPORT_LOCALIZATION.length != index ;)
+      {
+        var properties = REPORT_LOCALIZATION[ index ],
+            a = AeroHive.axis( properties),
+            selection = properties[ a ],
+            option = document.createElement( "option");
+        option.value = a;
+        AeroHive.text( option, selection.prompt);
+        SELECTION.appendChild( option);
+        if( 0 == index++ )
+          selected( selection);
+      }
+    </script>
+    &lt;script src=<a hRef=zh_CN.js>/hm/js/report/zh_CN.js</a>>&lt;/script></p>
+</LI><LI>
+  <a name=valid>Localized expression validation (<a hRef=data.js>/hm/js/report/data.js</a>)</a>
+  </LI><pre>AeroHive =
+{
+  metric: function (display)
+  {
+    return '[' + display + ']';
+  },
+
+  metrics: function (report,metric)
+  {
+    for( index = 0 ; report.length != index ; ++index )
+    {
+      var metrics = report[ index ];
+      if( <a hRef=#availability>REPORT_DATA</a> == report )
+        metrics = metrics[0];
+      if( AeroHive.axis( metrics) == metric )
+        return report[ index ];
+    }
+  },
+  localization: function (axis)
+  {
+    return AeroHive.metrics( <a hRef=zh_CN.js>REPORT_LOCALIZATION</a>, axis);
+  },
+
+  replace: function (expression,global,replacement)
+  {
+    for( replaced = expression.replace( global, replacement) ; replaced != expression ;)
+      replaced = (expression = replaced).replace( global, replacement);
+    return expression;
+  },
+  <a name=validate>validate</a>: function (expression,axis)
+  {
+    var row = AeroHive.localization( axis);
+    for( metric in row )
+    {
+      var display = AeroHive.metric( row[ metric ].display);
+      expression = AeroHive.replace
+      (
+        AeroHive.replace( expression, "AH(" + display, 'AH(rows,row,"' + metric + '"'),
+        display,
+        'rows[row]["' + metric + '"]'
+      );
+    }
+    var rows = AeroHive.metrics( <a hRef=#availability>REPORT_DATA</a>, axis);
+    row = 0;
+    return undefined == eval( expression)
+         ? undefined
+         : expression;
+  }
+};</pre>
+  E.g. expression2store = AeroHive.validate( "[&#32456;&#31471;&#35774;&#22791;] + ' ' + [&#32456;&#31471;&#35774;&#22791;]", "AirTime consumer")
+</OL>
+
+<strong>ReST/JSON API of Report Data</a></strong>
+<OL><LI>
+  <a name=data>AJAX URL</a>
+  </LI><BlockQuote>
+    /hm/<strong>report/data</strong>/REQUESTER/REQUEST?revision=...
+</BlockQuote><LI>
+  <a name=post>Post Parameters</a><p>
+  <table border=1><TR>
+    <TD align=center ColSpan=3>Parameter</TD>
+    <TD align=center ColSpan=2>Enumeration</TD>
+    <TD align=center ColSpan=2>Default</TD>
+    <TD align=center ColSpan=3>Others</TD>
+  </TR><TR>
+    <TD align=center ColSpan=3>"<strong>example</strong>"</TD>
+    <TD align=center ColSpan=2>'<strong>T</strong>'</TD>
+    <TD align=center ColSpan=5>false</TD>
+  </TR><TR>
+    <TD align=center ColSpan=3>"<a hRef=#parse><strong>axis</strong></a>"</TD>
+    <TD ColSpan=2>&nbsp;</TD>
+    <TD align=center ColSpan=2><a hRef=#time>"time"</a></TD>
+    <TD ColSpan=3><a hRef=#result>Result</a> 1 w/o <a hRef=#exception>exception</a></TD>
+  </TR><TR>
+    <TD ColSpan=3 align=center>"<strong>level</strong>"</TD>
+    <TD ColSpan=2>&nbsp;8-bit decimal to break <a hRef=#scope>scope</a>/filter down,
+      positive for break-down of the specified level down from topology,
+      greater level than depth or "<strong>-1</strong>" for break-down of network device ports.
+      Besides being relative to topology, <a hRef=#level>level can also be absolute</a>.</TD>
+    <TD ColSpan=2 align=center>-2</TD>
+    <TD ColSpan=2><a hRef=#result>Result</a> 7</TD>
+    <TD RowSpan=10><a hRef=#result>Result</a> -1 w/ <a hRef=#exception>exception</a> Stack Trace</TD>
+  </TR><TR>
+    <TD ColSpan=3><a name=break hRef=#availability>Metric</a> 1</TD>
+    <TD ColSpan=2 RowSpan=2><font color=gray>[</font><strong>descend</strong><font color=gray>]</font>break-downLevel<font color=gray>[</font><strong>@</strong>row<font color=gray>]</font><font color=gray>[</font><strong>X</strong>rows</font color=gray>]</font><p>
+      Optional "<strong>descend</strong>" indicates to order both axis *and* all break-downs by this metric.
+      If multiple metrics are marked "<strong>descend</strong>", their sum or sum(dividends) % of sum(divisors) will be used to sort rows,
+      and 1 more column "<strong>sorting sum</strong>" to return the sum or sum(dividends) % of sum(divisors).
+      Please note, single metric break-down rows may be ordered by a sum including break-downs of other metrics.</p>
+      Optional "<strong>@</strong>" to specify where to start returning the break-down rows which could be thousands,
+      the default is the axis "<strong>row</strong>" parameter value.<br>
+      Optional "<strong>X</strong>" to specify how many break-down rows to be returned,
+      which could be thousands, the default is the axis "<strong>rows</strong>" parameter value.<p>
+      break-downLevel is a 8-bit decimal to break <a hRef=#scope>scope</a>/filter down,
+      positive for break-down of the specified level down from <a hRef=#scope>the network device scope</a>,
+      greater level than depth or "<strong>-1</strong>" for break-down of network device ports or filter,
+      negative for break-down of the specified level up from the network device ports or filter,
+      of device/topology "<a name=BreakDown><strong>name</strong></a>"
+      or UserProfile/NetworkPolicy "<strong>id</strong>" where applicable.
+      Besides being relative to scope, <a hRef=#level>level can also be absolute</a>.<p>
+      Or, to break down (data)
+      <UL><LI>
+        count/% by distinct network device of "<strong>name</strong>"
+      </LI><LI>
+        count/% <!--or client device--> by distinct user
+      </LI><LI>
+        count/% <!--or user--> by distinct client device of "<strong>name</strong>", "<strong>OS/type</strong>" id &amp; "<strong>vendor</strong>" id
+      </LI><LI>
+        count/% <!--or <a hRef=#applications>top applications</a--> by distinct application of "<strong>group</strong>" id
+      </LI></UL></TD>
+    <TD><a hRef=#only>The only (numeric) metric available</a> to the "<a hRef=#parse><strong>axis</strong></a>",
+      or <a hRef=#result>result</a> 2 w/o <a hRef=#exception>exception</a></TD>
+    <TD RowSpan=2>Data break-down</TD>
+    <TD RowSpan=2 ColSpan=2><a hRef=#result>Result</a> 1 w/ <a hRef=#exception>exception</a> of the unrecognized metric,
+      or 2 w/ <a hRef=#exception>exception</a> of the metric where value Not Applicable</TD>
+  </TR><TR>
+    <TD ColSpan=3><a hRef=#availability>Metric</a> ...</TD>
+    <TD>&nbsp;</TD>
+  </TR><TR>
+    <TD ColSpan=3>"<strong>row</strong>"</TD>
+    <TD>16-bit decimal, positive for 1st ones, negative for last ones</TD>
+    <TD align=center RowSpan=2>Range of rows order by metric (descending)</TD>
+    <TD align=center ColSpan=2>0</TD>
+    <TD ColSpan=2><a hRef=#result>Result</a> 0 w/o data if out of range</TD>
+  </TR><TR>
+    <TD ColSpan=3>"<strong>rows</strong>"</TD>
+    <TD>&nbsp;8-bit decimal, positive after "<strong>row</strong>", negative before "<strong>row</strong>"</TD>
+    <TD align=center ColSpan=2>10</TD>
+    <TD ColSpan=2 RowSpan=2><a hRef=#result>Result</a> 0 w/ data only within range</TD>
+  </TR><TR>
+    <TD align=center ColSpan=3>"<strong>time</strong>"</TD>
+    <TD align=center ColSpan=2><a hRef=HTTP://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html#iso8601timezone>yyyy-MM-dd'T'HH:mmZ</a>,
+      time w/o <a hRef=HTTP://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html#skip-navbar_top>Zone (Z)</a> is local to network device</TD>
+    <TD align=center ColSpan=2>Current time (w/ zone such as UTC)</TD>
+  </TR><TR>
+    <TD ColSpan=3>"<strong>sample</strong>"</TD>
+    <TD ColSpan=2>32-bit decimal, positive in seconds, negative in month(w/ "<strong>time</strong>" -dd'T'HH:mm ignored if any)</TD>
+    <TD align=center ColSpan=2>1 minute</TD>
+    <TD RowSpan=2><a hRef=#result>Result</a> 3 w/o <a hRef=#exception>exception</a> if 0</TD>
+    <TD><a hRef=#result>Result</a> 3 w/ <a hRef=#exception>exception</a> of unsupported metric</TD>
+  </TR><TR>
+    <TD ColSpan=3>"<strong>samples</strong>"</TD>
+    <TD ColSpan=2>16-bit decimal, positive after "<strong>time</strong>", negative before "<strong>time</strong>"</TD>
+    <TD align=center ColSpan=2>-1</TD>
+    <TD><a hRef=#result>Result</a> 0 w/ data only available</TD>
+  </TR><TR>
+    <TD RowSpan=2>Exclusive</TD>
+    <TD ColSpan=2>"<strong>ApplicationGroup</strong>"</TD>
+    <TD ColSpan=2>&nbsp;8-bit decimal</TD>
+    <TD ColSpan=2>All Application Groups</TD>
+    <TD RowSpan=10 ColSpan=2><a hRef=#result>Result</a> 0 w/o data matching</TD>
+  </TR><TR>
+    <TD ColSpan=2><font color=maroon>"<strong>application</strong>"</font></TD>
+    <TD ColSpan=2><font color=maroon>16-bit decimal</font></TD>
+    <TD ColSpan=2><font color=maroon><a hRef=#result><font color=maroon>Result</font></a> 4 if missing for <a hRef=#app><font color=maroon>application</font></a> data</font></TD>
+  </TR><TR>
+    <TD RowSpan=2>Exclusive</TD>
+    <TD ColSpan=2><font color=green>"<strong>UserName</strong>"</font></TD>
+    <TD ColSpan=2 align=center><font color=green>String</font></TD>
+    <TD ColSpan=2><a hRef=#result><font color=green>Result</font></a> <font color=green>4 if missing for <a hRef=#user><font color=green>user</font></a> data</font></TD>
+    <TD>&nbsp;</TD>
+  </TR><TR>
+    <TD ColSpan=2>"<strong>UserProfile</strong>"</TD>
+    <TD>64-bit decimal Primary Key</TD>
+    <TD align=right><font color=gray>/*UserProfile.id*/</font></TD>
+    <TD ColSpan=2>All User Profiles</TD>
+    <TD RowSpan=13><a hRef=#result>Result</a> -1 w/ <a hRef=#exception>exception</a> Stack Trace</TD>
+  </TR><TR>
+    <TD RowSpan=4>Exclusive</TD>
+    <TD RowSpan=3>Optional</TD>
+    <TD>"<strong>ClientDeviceVendor</strong>"</TD>
+    <TD ColSpan=2>16-bit decimal</TD>
+    <TD ColSpan=2>All Client Device Vendors</TD>
+  </TR><TR>
+    <TD>"<strong>ClientDeviceOS/type</strong>"</TD>
+    <TD ColSpan=2 RowSpan=2>&nbsp;8-bit decimal</TD>
+    <TD ColSpan=2>All Client Device OSs/types</TD>
+  </TR><TR>
+    <TD>"<strong>ClientDeviceRadioMode</strong>"</TD>
+    <TD ColSpan=2>All Client Device Radio Modes</TD>
+  </TR><TR>
+    <TD align=right ColSpan=2><font color=blue>"<strong>ClientDeviceMAC</strong>"</font></TD>
+    <TD ColSpan=2 RowSpan=2>64-bit integer, optionally prefixing w/ 0x/0X/# for hexa-decimal or 0 for octal</TD>
+    <TD ColSpan=2><a hRef=#result>Result</a> <font color=blue>4 if missing for <a hRef=#client>client</a> data</font></TD>
+  </TR><TR>
+    <TD RowSpan=12>Exclusive</TD>
+    <TD RowSpan=2><br>Optional</TD>
+    <TD align=right>"<strong>NetworkDeviceMAC</strong>"</TD>
+    <TD ColSpan=2>All network devices</TD>
+  </TR><TR>
+    <TD align=center>"<strong><a name=port>port</a></strong>"</TD>
+    <TD ColSpan=2>&nbsp;8-bit decimal, 1 for radio 0, 2 for radio 1, 0, -1, ... for eth0, eth1, ...</TD>
+    <TD ColSpan=2>All ports</TD>
+  </TR><TR>
+    <TD RowSpan=10>Optional</TD>
+    <TD align=center>"<strong>domain</strong>"</TD>
+    <TD RowSpan=2>64-bit decimal Primary Key</TD>
+    <TD align=right><font color=gray>/*HmDomain.id*/</font></TD>
+    <TD ColSpan=2><a hRef=#scope>"<strong>topology</strong>"</a>/"<strong>NetworkPolicy</strong>"/"<strong>UserProfile</strong>" domain,
+      or <a hRef=#result>result</a> 5 w/o <a hRef=#exception>exception</a></TD>
+    <TD ColSpan=2><a hRef=#result>Result</a> 5 w/ <a hRef=#exception>exception</a> of unrecognized "<strong>domain</strong>"</TD>
+  </TR><TR>
+    <TD align=center>"<strong><a name=scope>topology</a></strong>"</TD>
+    <TD align=right><strong>World/top can only be 0 !</strong> <font color=gray>/*MapNode.id*/</font></TD>
+    <TD RowSpan=9 ColSpan=2>All network devices</TD>
+    <TD><a hRef=#result>Result</a> 0 w/o data matching</TD>
+    <TD><a hRef=#result>Result</a> 5 w/ <a hRef=#exception>exception</a> of unrecognized "<strong>topology</strong>" break-down</TD>
+  </TR><TR>
+    <TD align=center RowSpan=3>"<strong>tag</strong>"</TD>
+    <TD align=center RowSpan=3>String</TD>
+    <TD align=right><font color=gray>/*HiveAP#classificationTag1*/</font></TD>
+    <TD RowSpan=4 ColSpan=2><a hRef=#result>Result</a> 0 w/o data matching</TD>
+  </TR><TR>
+    <TD align=right><font color=gray>/*HiveAP#classificationTag2*/</font></TD>
+  </TR><TR>
+    <TD align=right><font color=gray>/*HiveAP#classificationTag3*/</font></TD>
+  </TR><TR>
+    <TD>"<strong>NetworkPolicy</strong>"</TD>
+    <TD>64-bit decimal Primary Key</TD>
+    <TD align=right><font color=gray>/*Cwp.id*/</font></TD>
+  </TR><TR>
+    <TD RowSpan=4>"<strong>NetworkDeviceType</strong>"</TD>
+    <TD>"<strong>AP</strong>" for Access Points</TD>
+    <TD>model for APs, e.g. "AP110", "APBR200"</TD>
+    <TD RowSpan=4 ColSpan=3><a hRef=#result>Result</a> 6</TD>
+  </TR><TR>
+    <TD>"<strong>BR</strong>" for Branch Routers</TD>
+    <TD>model for BRs, e.g. "BR200", "BRAP110"</TD>
+  </TR><TR>
+    <TD>"<strong>SR</strong>" for Switches/Routers</TD>
+    <TD>model for SRs, e.g. "SR2024"</TD>
+  </TR><TR>
+    <TD>"<strong>VG</strong>" for VPN Gateways</TD>
+    <TD>model for VGs, e.g. "CVG", "VGAP330"</TD>
+  </TR><TR>
+    <TD align=center ColSpan=3>"<strong>SSId</strong>"</TD>
+    <TD align=center ColSpan=2>String</TD>
+    <TD ColSpan=2>All SSIDs</TD>
+    <TD ColSpan=3><a hRef=#result>Result</a> 0 w/o data matching</TD>
+  </TR></table></p>
+</LI><LI>
+  <a name=level>Absolute Break-down Levels</a><p>
+  <table border=1><TR>
+    <TD align=center>Absolute Level</TD>
+    <TD align=center>Break-Down despite topology/scope/filter selection</TD>
+    <TD align=center>Metric Result</TD>
+    <TD align=center>"BreakDown" Id</TD>
+    <TD align=center ColSpan=4>Extra Metrics / Break-Down Properties</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>Users</TH>
+    <TD ColSpan=2 align=right>UserName(linkable)</TD>
+    <TD ColSpan=4 align=right><strong>profile</strong> name</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>UserProfiles</TH>
+    <TD ColSpan=2 align=center>name</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>Applications</TH>
+    <TD>id (linkable)</TD>
+    <TD>decimal id (linkable)</TD>
+    <TD ColSpan=4 align=right><strong>group</strong> id</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>ApplicationGroups</TH>
+    <TD>id</TD>
+    <TD>decimal id</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>ClientDevices</TH>
+    <TD ColSpan=2 align=right>hexa-decimal MAC (linkable)</TD>
+    <TH align=left>name</TH>
+    <TD align=center><strong>OS/type</strong> id</TD>
+    <TD align=center><strong>vendor</strong> id</TD>
+    <TD align=right><strong>radio mode</strong> id</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>ClientDeviceOSs/types</TH>
+    <TD ColSpan=2 RowSpan=3>id</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>ClientDeviceVendors</TH>
+  </TR><TR>
+    <TH ColSpan=2 align=left>ClientDeviceRadioModes</TH>
+  </TR><TR>
+    <TH ColSpan=2>SSIDs</TH>
+    <TD ColSpan=2 align=center>name</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>NetworkDeviceModels</TH>
+    <TD ColSpan=2 align=center>e.g. "AP110", "APBR200", "BR200", "BRAP110", "CVG", "VGAP330"</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>NetworkDeviceTypes</TH>
+    <TD ColSpan=2 align=center>"AP"/"BR"/"SR"/"VG"</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>NetworkPolicies</TH>
+    <TD ColSpan=2 align=center RowSpan=4>name</TD>
+  </TR><TR>
+    <TH ColSpan=2 align=left>Tag3s</TH>
+  </TR><TR>
+    <TH ColSpan=2 align=left>Tag2s</TH>
+  </TR><TR>
+    <TH ColSpan=2 align=left>Tag1s</TH>
+  </TR><TR>
+    <TH align=left>-1</TH>
+    <TD align=center>ports/interfaces</TD>
+    <TD>1 for radio 0, 2 for radio 1, 0, -1, ... for eth0, eth1, ... (linkable)</TD>
+    <TD>hexa-decimal port<font color=gray>"</font>@<font color=gray>"</font>MAC (linkable)</TD>
+    <TD RowSpan=2><strong>name</strong>, hexa-decimal MAC if anonymous</TD>
+    <TD ColSpan=3 align=center>hexa-decimal <strong>MAC</strong></TD>
+  </TR><TR>
+    <TH align=left>-2</TH>
+    <TD align=center>Network Devices</TD>
+    <TD ColSpan=2 align=right>hexa-decimal MAC (linkable)</TD>
+    <TD><strong>topology</strong> name</TD>
+    <TD><strong>model</strong> name</TD>
+    <TD align=right><strong>policy</strong> name</TD>
+  </TR><TR>
+    <TD align=left><strong>-3</strong> ... <strong>-64</strong></TD>
+    <TD>level 0 ... 61 up from topology bottom</TD>
+    <TD RowSpan=2>id</TD>
+    <TD RowSpan=2>decimal id</TD>
+    <TH ColSpan=4 RowSpan=2 align=left>name</TH>
+  </TR><TR>
+    <TD align=left><strong>-128</strong> ... <strong>-65</strong></TD>
+    <TD>level 1 ... 64 down from topology World/top, greater level than depth for port/interface</TD>
+  </TR></table></p>
+</LI><LI>
+  Additional <a name=rows hRef=#response>response JSON</a> "data"<p>
+  </LI><UL><LI>
+    Similar w/ <a hRef=#availability>REPORT_DATA</a>[x], except</p>
+    </LI><UL><LI>
+      metric value can be a break-down object if <a hRef=#break>requested</a> so, which has<p>
+      </LI><UL><LI>
+        "original" number property w/ the original value</p>
+      </LI><LI>
+        "BreakDown" property whose value is an object w/ properties corresponding to each
+        break-down network device tag / type/model / SSId / UserProfile/NetworkPolicy name / decimal topology id / hexa-decimal<!--parseInt(, 16)--> port<font color=gray>"</font>@<font color=gray>"</font>MAC (linkable) / hexa-decimal MAC(linkable), client device hexa-decimal MAC (linkable), or UserName(linkable) / decimal application id (linkable), whose value has
+        </LI><UL><LI>
+          <a hRef=#BreakDown>Break-down</a> properties <!--linkable-->
+        </LI><LI>
+          The metric property of number<p>
+    </LI></UL></UL><LI>
+      E.g.</p>
+      </LI><UL><LI>
+      Top/Distribution (rows=2&amp;bytes=<strong>1</strong>&amp;inbound<font
+      color=gray size=-1>+</font>5<font color=gray size=-1>+</font>GHz<font color=gray size=-1>+</font>bytes=<strong>-2</strong>):<p>
+      <table><TR>
+        <TD RowSpan=4>[</TD>
+        <TD RowSpan=2 NoWrap>{ "bandwidth user" :"TheMost"</TD>
+        <TD RowSpan=2 NoWrap>, "bytes" :{ original :1000</TD>
+        <TD RowSpan=2 NoWrap>, BreakDown :{</TD>
+        <TD NoWrap>"12":{ name :"building 1", "bytes" :600},</TD>
+        <TD RowSpan=2 NoWrap>}}, "inbound 5 GHz bytes" :{ original :100</TD>
+        <TD RowSpan=2 NoWrap>, BreakDown :{</TD>
+        <TD NoWrap>"123456789012":{ name :"TheMost's iPad"</TD>
+        <TD NoWrap>, "OS/type" :"iPad"</TD>
+        <TD NoWrap>, vendor :"Apple", "inbound 5 GHz bytes" :60},</TD>
+        <TD RowSpan=2 NoWrap>}}},</TD>
+        <TD RowSpan=4 NoWrap>]</TD>
+      </TR><TR>
+        <TD NoWrap>"23":{ name :"building 2", "bytes" :400}</TD>
+        <TD NoWrap>"210987654321":{ name :"TheMost's iPhone"</TD>
+        <TD NoWrap>, "OS/type" :"iPhone"</TD>
+        <TD NoWrap>, vendor :"Apple", "inbound 5 GHz bytes" :40}</TD>
+      </TR><TR>
+        <TD RowSpan=2 NoWrap>{ "bandwidth user" :"2ndMost"</TD>
+        <TD RowSpan=2 NoWrap>, "bytes" :{ original :500</TD>
+        <TD RowSpan=2 NoWrap>, BreakDown :{</TD>
+        <TD NoWrap>"12":{ name :"building 1", "bytes" :200},</TD>
+        <TD RowSpan=2 NoWrap>}}, "inbound 5 GHz bytes" :{ original :50</TD>
+        <TD RowSpan=2 NoWrap>, BreakDown :{</TD>
+        <TD NoWrap>"987654321012":{ name :"2ndMost's iPad"</TD>
+        <TD NoWrap>, "OS/type" :"iPad"</TD>
+        <TD NoWrap>, vendor :"Apple", "inbound 5 GHz bytes" :20},</TD>
+        <TD RowSpan=2 NoWrap>}}}</TD>
+      </TR><TR>
+        <TD NoWrap>"23":{ name :"building 2", "bytes" :300}</TD>
+        <TD NoWrap>"210123456789":{ name :"2ndMost's iPhone"</TD>
+        <TD NoWrap>, "OS/type" :"iPhone"</TD>
+        <TD NoWrap>, vendor :"Apple", "inbound 5 GHz bytes" :30}</TD>
+      </TR></table></p>
+    </LI><LI>
+      Over time (rows=2&amp;sample=-1&amp;samples=2&amp;top<font color=gray size=-1>+</font>applications<font color=gray size=-1>+</font>BPS&amp;CRC<font
+      color=gray size=-1>+</font>noncompliant<font color=gray size=-1>+</font>providers<font color=gray size=-1>+</font>%):<p>
+      <table><TR>
+        <TD RowSpan=4>[</TD>
+        <TD RowSpan=2 NoWrap>{ "time" :"2012-06"</TD>
+        <TD RowSpan=2 NoWrap>, "top applications BPS" :{ original :1000</TD>
+        <TD RowSpan=2 NoWrap>, BreakDown :{</TD>
+        <TD NoWrap>"1234"</TD>
+        <TD NoWrap>:{ group :1</TD>
+        <TD NoWrap>, "top applications BPS" :600},</TD>
+        <TD RowSpan=2 NoWrap>}}, "CRC noncompliant providers %" :{ original :2</TD>
+        <TD RowSpan=2 NoWrap>, BreakDown :{</TD>
+        <TD NoWrap>"234567890123":{ name : "room 1 AP 2"},</TD>
+        <TD RowSpan=2 NoWrap>}}},</TD>
+        <TD RowSpan=4 NoWrap>]</TD>
+      </TR><TR>
+        <TD NoWrap>"4321"</TD>
+        <TD NoWrap>:{ group :2</TD>
+        <TD NoWrap>, "top applications BPS" :400}</TD>
+        <TD NoWrap>"321098765432":{ name : "room 2 AP 1"}</TD>
+      </TR><TR>
+        <TD RowSpan=2 NoWrap>{ "time" :"2012-07"</TD>
+        <TD RowSpan=2 NoWrap>, "top applications BPS" :{ original :500</TD>
+        <TD RowSpan=2 NoWrap>, BreakDown :{</TD>
+        <TD NoWrap>"1234"</TD>
+        <TD NoWrap>:{ group :1</TD>
+        <TD NoWrap>, "top applications BPS" :200},</TD>
+        <TD RowSpan=2 NoWrap>}}, "CRC noncompliant providers %" :{ original :2</TD>
+        <TD RowSpan=2 NoWrap>, BreakDown :{</TD>
+        <TD NoWrap>"234567890123":{ name : "room 1 AP 2"},</TD>
+        <TD RowSpan=2 NoWrap>}}}</TD>
+      </TR><TR>
+        <TD NoWrap>"4321"</TD>
+        <TD NoWrap>:{ group :2</TD>
+        <TD NoWrap>, "top applications BPS" :300}</TD>
+        <TD NoWrap>"321098765432":{ name : "room 2 AP 1"}</TD>
+      </TR></table></p>
+  </LI></UL></UL><LI>
+    E.g.<p>
+    </LI><UL><LI>
+      Top/Distribution (rows=2&amp;bytes=<strong>0</strong>&amp;inbound<font
+      color=gray size=-1>+</font>5<font color=gray size=-1>+</font>GHz<font color=gray size=-1>+</font>bytes=<strong>0</strong>):</p>
+      <table><TR>
+        <TD RowSpan=2>[</TD>
+        <TD>{ "bandwidth user" :"TheMost"</TD>
+        <TD>, "bytes" :1000</TD>
+        <TD>, "inbound 5 GHz bytes" :100},</TD>
+        <TD RowSpan=2>]</TD>
+      </TR><TR>
+        <TD>{ "bandwidth user" :"2ndMost"</TD>
+        <TD>, "bytes" :500</TD>
+        <TD>, "inbound 5 GHz bytes" :50}</TD>
+      </TR></table><p>
+    </LI><LI>
+      Over time (rows=2&amp;sample=-1&amp;samples=2&amp;top<font color=gray size=-1>+</font>applications<font color=gray size=-1>+</font>BPS=<strong>0</strong>&amp;CRC<font
+      color=gray size=-1>+</font>noncompliant<font color=gray size=-1>+</font>providers<font color=gray size=-1>+</font>%=<strong>0</strong>):</p>
+      <table><TR>
+        <TD RowSpan=2>[</TD>
+        <TD>{ "time" :"2012-06"</TD>
+        <TD>, "top applications BPS" :1000</TD>
+        <TD>, "CRC noncompliant providers %" :2},</TD>
+        <TD RowSpan=2>]</TD>
+      </TR><TR>
+        <TD>{ "time" :"2012-07"</TD>
+        <TD>, "top applications BPS" :500</TD>
+        <TD>, "CRC noncompliant providers %" :2}</TD>
+      </TR></table><p>
+</LI></UL></UL><LI>
+  <a name=eval>Validated expression evaluation</a>
+  </LI><pre>  AeroHive.evaluate: function (<a hRef=#validate>validated</a>,rows,row,cache)
+  {
+    return eval( <a hRef=#validate>validated</a>);  //TODO  breakDowns
+  }
+
+  For example of break-down:
+  <strong>{
+    original :</strong>...<strong>,
+    BreakDown :
+    {
+      </strong>...<strong>:
+      {
+        </strong>"<a hRef=#BreakDown>Break-down</a> property":...<strong>,
+        value :</strong>...<strong>
+      }
+    }
+  }</strong></pre>
+<LI>
+  <a name=test>Test/Demo/Debug</a></p>
+  </LI><form name=report><table id=parameters><TR>
+    <TH>example</TH>
+    <TD><input name=example></TD>
+  </TR><TR>
+    <TH>axis</TH>
+    <TD><input name=axis></TD>
+  </TR><TR>
+    <TH align=left>row</TH>
+    <TD><input name=row></TD>
+  </TR><TR>
+    <TH align=left>rows</TH>
+    <TD><input name=rows></TD>
+  </TR><TR>
+    <TH>time</TH>
+    <TD><input name=time></TD>
+  </TR><TR>
+    <TH align=left>sample</TH>
+    <TD><input name=sample></TD>
+  </TR><TR>
+    <TH align=left>samples</TH>
+    <TD><input name=samples></TD>
+  </TR><TR id=insertion>
+    <TD ColSpan=2>Parameter such as metric <input id=parameter>&nbsp;
+    <button type=button onclick=metric()>+</button></TD>
+  </TR><TR>
+    <TD align=center>revision</TD>
+    <TD><input name=revision></TD>
+  </TR><TR>
+    <TD align=center>worker</TD>
+    <TD><input name=worker></TD>
+  </TR><TR>
+    <TD ColSpan=2>/hm/report/data/<input id=requester value=REQUESTER>/<input id=requestId><!--hidden by previous anchor name on IE 9-->
+    <input type=button value=Report onclick=invoke()><!--"submit" is reserved--></TD>
+  </TR></table></form>
+  Response: <TextArea id=output cols=128 rows=16></TextArea>
+  <script src=HTTP://AJAX.GoogleAPIs.com/ajax/libs/dojo/1.7/dojo/dojo.js></script>
+  <script>
+    var PARAMETERs = document.getElementById( "parameters").tBodies[0],
+        PARAMETER = document.getElementById( "parameter"),
+        INSERTION = document.getElementById( "insertion"),
+        RESPONSE = document.getElementById( "output"),
+        REQUESTer = document.getElementById( "requester"),
+        REQUEST = document.getElementById( "requestId");
+    REQUEST.value = new Date().getTime();
+    function metric()
+    {
+      var row = document.createElement( "TR"),
+          header = document.createElement( "TH"),
+          data = document.createElement( "TD"),
+          input = document.createElement( "input");
+      AeroHive.text( header, input.name = PARAMETER.value);
+      row.appendChild( header);
+      data.appendChild( input);
+      row.appendChild( data);
+      PARAMETERs.insertBefore( row, INSERTION);
+      PARAMETER.value = '';
+    }
+    function invoke()
+    {
+      var report = document.report;
+      report.action = "/hm/report/data/" + REQUESTer.value
+                    + '/' + REQUEST.value;
+      require
+      (
+        [ 'dojo/_base/xhr'],
+        function (XHR)
+        {
+          XHR.post  //  IE 6 & 9 cache AJAX GET!
+          ({
+            form: report,  //  "report" doesn't work w/ DOJO 1.7
+            //handleAs: "json",
+            load: function (response)
+            {
+              RESPONSE.value = response;
+            },
+            error: function (error)
+            {
+              RESPONSE.value = error.responseText;
+            }
+          });
+        }
+      );
+    }
+  </script>
+</OL>
+
+<strong>ReST/JSON API of Report Results</a></strong>
+<OL><LI>
+  <a name=results>AJAX URL</a>
+  </LI><BlockQuote>
+    /hm/<strong>report/result</strong>/REQUESTER/REQUEST?revision=...
+</BlockQuote><LI>
+  <a name=parameters>Post Parameters</a><p>
+  <table border=1><TR>
+    <TD align=center>Parameter</TD>
+    <TD align=center>Enumeration</TD>
+    <TD align=center>Default</TD>
+    <TD align=center ColSpan=2>Others</TD>
+  </TR><TR>
+    <TD align=center>"<strong>include</strong>"</TD>
+    <TD align=center>'<strong>T</strong>'</TD>
+    <TD align=center ColSpan=3>false</TD>
+  </TR><TR>
+    <TD align=center>"<a hRef=#parse><strong>axis</strong></a>"</TD>
+    <TD>&nbsp;</TD>
+    <TD align=center><a hRef=#provider>"bandwidth provider"</a></TD>
+    <TD ColSpan=2><a hRef=#result>Result</a> 1</TD>
+  </TR><TR>
+    <TD align=right>"<strong>NetworkDeviceMAC</strong>"</TD>
+    <TD>64-bit integer, optionally prefixing w/ 0x/0X/# for hexa-decimal or 0 for octal</TD>
+    <TD><a hRef=#result>Result</a> 2</TD>
+    <TD RowSpan=2><a hRef=#result>Result</a> 0 w/o Network Device (port) included/excluded</TD>
+    <TD RowSpan=2><a hRef=#result>Result</a> -1 w/ <a hRef=#exception>exception</a> Stack Trace</TD>
+  </TR><TR>
+    <TD align=center>"<strong><a name=port>port</a></strong>"</TD>
+    <TD>8-bit decimal, 1 for radio 0, 2 for radio 1, 0, -1, ... for eth0, eth1, ...</TD>
+    <TD><a hRef=#result>Result</a> 3</TD>
+  </TR></table>
+</LI><LI>
+  <a name=exclude>Test/Demo/Debug</a></p>
+  </LI><form name=exclusion><table><TR>
+    <TH>include</TH>
+    <TD><input name=include></TD>
+  </TR><TR>
+    <TH>axis</TH>
+    <TD><input name=axis></TD>
+  </TR><TR>
+    <TH align=right>NetworkDeviceMAC</TH>
+    <TD><input name=NetworkDeviceMAC></TD>
+  </TR><TR>
+    <TH>port</TH>
+    <TD><input name=port></TD>
+  </TR><TR>
+    <TD align=center>revision</TD>
+    <TD><input name=revision></TD>
+  </TR><TR>
+    <TD align=center>worker</TD>
+    <TD><input name=worker></TD>
+  </TR><TR>
+    <TD ColSpan=2>/hm/report/result/<input id=request_er value=REQUESTER>/<input id=request_id><!--hidden by previous anchor name on IE 9-->
+    <input type=button value=Exclude/Include onclick=exclude()><!--"submit" is reserved--></TD>
+  </TR></table></form>
+  Response: <TextArea id=out_put cols=128 rows=16></TextArea>
+  <script>
+    var RESPONSE = document.getElementById( "out_put"),
+        REQUESTer = document.getElementById( "request_er"),
+        REQUEST = document.getElementById( "request_id");
+    REQUEST.value = new Date().getTime();
+    function exclude()
+    {
+      var report = document.exclusion;
+      report.action = "/hm/report/result/" + REQUESTer.value
+                    + '/' + REQUEST.value;
+      require
+      (
+        [ 'dojo/_base/xhr'],
+        function (XHR)
+        {
+          XHR.post  //  IE 6 & 9 cache AJAX GET!
+          ({
+            form: result,  //  "result" doesn't work w/ DOJO 1.7
+            //handleAs: "json",
+            load: function (response)
+            {
+              RESPONSE.value = response;
+            },
+            error: function (error)
+            {
+              RESPONSE.value = error.responseText;
+            }
+          });
+        }
+      );
+    }
+  </script>
+<OL>
+
+</body><HTML>

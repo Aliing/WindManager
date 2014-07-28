@@ -1,0 +1,499 @@
+
+/**
+ * Model_type1.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
+ */
+
+            
+                package com.ah.hm.ws.platform.bo.ap;
+            
+
+            /**
+            *  Model_type1 bean class
+            */
+            @SuppressWarnings({"unchecked","unused"})
+        
+        public  class Model_type1
+        implements org.apache.axis2.databinding.ADBBean{
+        
+                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                "http://ah.com/hm/ws/platform/bo/ap",
+                "model_type1",
+                "");
+
+            
+
+                        /**
+                        * field for Model_type0
+                        */
+
+                        
+                                    protected java.lang.String localModel_type0 ;
+                                
+                            private static java.util.HashMap _table_ = new java.util.HashMap();
+
+                            // Constructor
+                            
+                                protected Model_type1(java.lang.String value, boolean isRegisterValue) {
+                                    localModel_type0 = value;
+                                    if (isRegisterValue){
+                                        
+                                               _table_.put(localModel_type0, this);
+                                           
+                                    }
+
+                                }
+                            
+                                    public static final java.lang.String _AP_20 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_20");
+                                
+                                    public static final java.lang.String _AP_28 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_28");
+                                
+                                    public static final java.lang.String _AP_110 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_110");
+                                
+                                    public static final java.lang.String _AP_120 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_120");
+                                
+                                    public static final java.lang.String _AP_320 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_320");
+                                
+                                    public static final java.lang.String _AP_330 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_330");
+                                
+                                    public static final java.lang.String _AP_340 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_340");
+                                
+                                    public static final java.lang.String _AP_350 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_350");
+                                
+                                    public static final java.lang.String _AP_370 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_370");
+                                
+                                    public static final java.lang.String _AP_380 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_380");
+                                
+                                    public static final java.lang.String _AP_390 =
+                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("AP_390");
+                                
+                                public static final Model_type1 AP_20 =
+                                    new Model_type1(_AP_20,true);
+                            
+                                public static final Model_type1 AP_28 =
+                                    new Model_type1(_AP_28,true);
+                            
+                                public static final Model_type1 AP_110 =
+                                    new Model_type1(_AP_110,true);
+                            
+                                public static final Model_type1 AP_120 =
+                                    new Model_type1(_AP_120,true);
+                            
+                                public static final Model_type1 AP_320 =
+                                    new Model_type1(_AP_320,true);
+                            
+                                public static final Model_type1 AP_330 =
+                                    new Model_type1(_AP_330,true);
+                            
+                                public static final Model_type1 AP_340 =
+                                    new Model_type1(_AP_340,true);
+                            
+                                public static final Model_type1 AP_350 =
+                                    new Model_type1(_AP_350,true);
+                            
+                                public static final Model_type1 AP_370 =
+                                    new Model_type1(_AP_370,true);
+                            
+                                public static final Model_type1 AP_380 =
+                                    new Model_type1(_AP_380,true);
+                            
+                                public static final Model_type1 AP_390 =
+                                    new Model_type1(_AP_390,true);
+                            
+
+                                public java.lang.String getValue() { return localModel_type0;}
+
+                                public boolean equals(java.lang.Object obj) {return (obj == this);}
+                                public int hashCode() { return toString().hashCode();}
+                                public java.lang.String toString() {
+                                
+                                        return localModel_type0.toString();
+                                    
+
+                                }
+
+                        
+
+     
+     
+        /**
+        *
+        * @param parentQName
+        * @param factory
+        * @return org.apache.axiom.om.OMElement
+        */
+       public org.apache.axiom.om.OMElement getOMElement (
+               final javax.xml.namespace.QName parentQName,
+               final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
+
+
+        
+               org.apache.axiom.om.OMDataSource dataSource =
+                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
+               return factory.createOMElement(dataSource,MY_QNAME);
+            
+        }
+
+         public void serialize(final javax.xml.namespace.QName parentQName,
+                                       javax.xml.stream.XMLStreamWriter xmlWriter)
+                                throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
+                           serialize(parentQName,xmlWriter,false);
+         }
+
+         public void serialize(final javax.xml.namespace.QName parentQName,
+                               javax.xml.stream.XMLStreamWriter xmlWriter,
+                               boolean serializeType)
+            throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
+            
+                
+                //We can safely assume an element has only one type associated with it
+                
+                            java.lang.String namespace = parentQName.getNamespaceURI();
+                            java.lang.String _localName = parentQName.getLocalPart();
+                        
+                            writeStartElement(null, namespace, _localName, xmlWriter);
+
+                            // add the type details if this is used in a simple type
+                               if (serializeType){
+                                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://ah.com/hm/ws/platform/bo/ap");
+                                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
+                                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
+                                           namespacePrefix+":model_type1",
+                                           xmlWriter);
+                                   } else {
+                                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
+                                           "model_type1",
+                                           xmlWriter);
+                                   }
+                               }
+                            
+                                          if (localModel_type0==null){
+                                            
+                                                     throw new org.apache.axis2.databinding.ADBException("model_type0 cannot be null !!");
+                                                
+                                         }else{
+                                        
+                                                       xmlWriter.writeCharacters(localModel_type0);
+                                            
+                                         }
+                                    
+                            xmlWriter.writeEndElement();
+                    
+
+        }
+
+        private static java.lang.String generatePrefix(java.lang.String namespace) {
+            if(namespace.equals("http://ah.com/hm/ws/platform/bo/ap")){
+                return "";
+            }
+            return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
+        }
+
+        /**
+         * Utility method to write an element start tag.
+         */
+        private void writeStartElement(java.lang.String prefix, java.lang.String namespace, java.lang.String localPart,
+                                       javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
+            if (writerPrefix != null) {
+                xmlWriter.writeStartElement(namespace, localPart);
+            } else {
+                if (namespace.length() == 0) {
+                    prefix = "";
+                } else if (prefix == null) {
+                    prefix = generatePrefix(namespace);
+                }
+
+                xmlWriter.writeStartElement(prefix, localPart, namespace);
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+        }
+        
+        /**
+         * Util method to write an attribute with the ns prefix
+         */
+        private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
+                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+            if (xmlWriter.getPrefix(namespace) == null) {
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+            xmlWriter.writeAttribute(namespace,attName,attValue);
+        }
+
+        /**
+         * Util method to write an attribute without the ns prefix
+         */
+        private void writeAttribute(java.lang.String namespace,java.lang.String attName,
+                                    java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
+            if (namespace.equals("")) {
+                xmlWriter.writeAttribute(attName,attValue);
+            } else {
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace,attName,attValue);
+            }
+        }
+
+
+           /**
+             * Util method to write an attribute without the ns prefix
+             */
+            private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName,
+                                             javax.xml.namespace.QName qname, javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+                java.lang.String attributeNamespace = qname.getNamespaceURI();
+                java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+                if (attributePrefix == null) {
+                    attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+                }
+                java.lang.String attributeValue;
+                if (attributePrefix.trim().length() > 0) {
+                    attributeValue = attributePrefix + ":" + qname.getLocalPart();
+                } else {
+                    attributeValue = qname.getLocalPart();
+                }
+
+                if (namespace.equals("")) {
+                    xmlWriter.writeAttribute(attName, attributeValue);
+                } else {
+                    registerPrefix(xmlWriter, namespace);
+                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
+                }
+            }
+        /**
+         *  method to handle Qnames
+         */
+
+        private void writeQName(javax.xml.namespace.QName qname,
+                                javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+            java.lang.String namespaceURI = qname.getNamespaceURI();
+            if (namespaceURI != null) {
+                java.lang.String prefix = xmlWriter.getPrefix(namespaceURI);
+                if (prefix == null) {
+                    prefix = generatePrefix(namespaceURI);
+                    xmlWriter.writeNamespace(prefix, namespaceURI);
+                    xmlWriter.setPrefix(prefix,namespaceURI);
+                }
+
+                if (prefix.trim().length() > 0){
+                    xmlWriter.writeCharacters(prefix + ":" + org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+                } else {
+                    // i.e this is the default namespace
+                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+                }
+
+            } else {
+                xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qname));
+            }
+        }
+
+        private void writeQNames(javax.xml.namespace.QName[] qnames,
+                                 javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
+
+            if (qnames != null) {
+                // we have to store this data until last moment since it is not possible to write any
+                // namespace data after writing the charactor data
+                java.lang.StringBuffer stringToWrite = new java.lang.StringBuffer();
+                java.lang.String namespaceURI = null;
+                java.lang.String prefix = null;
+
+                for (int i = 0; i < qnames.length; i++) {
+                    if (i > 0) {
+                        stringToWrite.append(" ");
+                    }
+                    namespaceURI = qnames[i].getNamespaceURI();
+                    if (namespaceURI != null) {
+                        prefix = xmlWriter.getPrefix(namespaceURI);
+                        if ((prefix == null) || (prefix.length() == 0)) {
+                            prefix = generatePrefix(namespaceURI);
+                            xmlWriter.writeNamespace(prefix, namespaceURI);
+                            xmlWriter.setPrefix(prefix,namespaceURI);
+                        }
+
+                        if (prefix.trim().length() > 0){
+                            stringToWrite.append(prefix).append(":").append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                        } else {
+                            stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                        }
+                    } else {
+                        stringToWrite.append(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(qnames[i]));
+                    }
+                }
+                xmlWriter.writeCharacters(stringToWrite.toString());
+            }
+
+        }
+
+
+        /**
+         * Register a namespace prefix
+         */
+        private java.lang.String registerPrefix(javax.xml.stream.XMLStreamWriter xmlWriter, java.lang.String namespace) throws javax.xml.stream.XMLStreamException {
+            java.lang.String prefix = xmlWriter.getPrefix(namespace);
+            if (prefix == null) {
+                prefix = generatePrefix(namespace);
+                javax.xml.namespace.NamespaceContext nsContext = xmlWriter.getNamespaceContext();
+                while (true) {
+                    java.lang.String uri = nsContext.getNamespaceURI(prefix);
+                    if (uri == null || uri.length() == 0) {
+                        break;
+                    }
+                    prefix = org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
+                }
+                xmlWriter.writeNamespace(prefix, namespace);
+                xmlWriter.setPrefix(prefix, namespace);
+            }
+            return prefix;
+        }
+
+
+  
+        /**
+        * databinding method to get an XML representation of this object
+        *
+        */
+        public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
+                    throws org.apache.axis2.databinding.ADBException{
+
+
+        
+                
+                //We can safely assume an element has only one type associated with it
+                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(MY_QNAME,
+                            new java.lang.Object[]{
+                            org.apache.axis2.databinding.utils.reader.ADBXMLStreamReader.ELEMENT_TEXT,
+                            org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localModel_type0)
+                            },
+                            null);
+
+        }
+
+  
+
+     /**
+      *  Factory class that keeps the parse method
+      */
+    public static class Factory{
+
+        
+        
+                public static Model_type1 fromValue(java.lang.String value)
+                      throws java.lang.IllegalArgumentException {
+                    Model_type1 enumeration = (Model_type1)
+                       
+                               _table_.get(value);
+                           
+
+                    if ((enumeration == null) && !((value == null) || (value.equals("")))) {
+                        throw new java.lang.IllegalArgumentException();
+                    }
+                    return enumeration;
+                }
+                public static Model_type1 fromString(java.lang.String value,java.lang.String namespaceURI)
+                      throws java.lang.IllegalArgumentException {
+                    try {
+                       
+                                       return fromValue(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(value));
+                                   
+
+                    } catch (java.lang.Exception e) {
+                        throw new java.lang.IllegalArgumentException();
+                    }
+                }
+
+                public static Model_type1 fromString(javax.xml.stream.XMLStreamReader xmlStreamReader,
+                                                                    java.lang.String content) {
+                    if (content.indexOf(":") > -1){
+                        java.lang.String prefix = content.substring(0,content.indexOf(":"));
+                        java.lang.String namespaceUri = xmlStreamReader.getNamespaceContext().getNamespaceURI(prefix);
+                        return Model_type1.Factory.fromString(content,namespaceUri);
+                    } else {
+                       return Model_type1.Factory.fromString(content,"");
+                    }
+                }
+            
+
+        /**
+        * static method to create the object
+        * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
+        *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+        * Postcondition: If this object is an element, the reader is positioned at its end element
+        *                If this object is a complex type, the reader is positioned at the end element of its outer element
+        */
+        public static Model_type1 parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            Model_type1 object = null;
+                // initialize a hash map to keep values
+                java.util.Map attributeMap = new java.util.HashMap();
+                java.util.List extraAttributeList = new java.util.ArrayList<org.apache.axiom.om.OMAttribute>();
+            
+
+            int event;
+            java.lang.String nillableValue = null;
+            java.lang.String prefix ="";
+            java.lang.String namespaceuri ="";
+            try {
+                
+                while (!reader.isStartElement() && !reader.isEndElement())
+                    reader.next();
+
+                
+
+                
+                // Note all attributes that were handled. Used to differ normal attributes
+                // from anyAttributes.
+                java.util.Vector handledAttributes = new java.util.Vector();
+                
+
+                   
+                while(!reader.isEndElement()) {
+                    if (reader.isStartElement()  || reader.hasText()){
+                
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                        if (content.indexOf(":") > 0) {
+                                            // this seems to be a Qname so find the namespace and send
+                                            prefix = content.substring(0, content.indexOf(":"));
+                                            namespaceuri = reader.getNamespaceURI(prefix);
+                                            object = Model_type1.Factory.fromString(content,namespaceuri);
+                                        } else {
+                                            // this seems to be not a qname send and empty namespace incase of it is
+                                            // check is done in fromString method
+                                            object = Model_type1.Factory.fromString(content,"");
+                                        }
+                                        
+                                        
+                             } else {
+                                reader.next();
+                             }  
+                           }  // end of while loop
+                        
+
+
+
+            } catch (javax.xml.stream.XMLStreamException e) {
+                throw new java.lang.Exception(e);
+            }
+
+            return object;
+        }
+
+        }//end of factory class
+
+        
+
+        }
+           
+    

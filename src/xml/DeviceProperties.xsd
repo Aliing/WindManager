@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by zjie (zjie) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="device-property-attr-option-obj">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="version" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="device-property-attr-obj">
+		<xsd:sequence>
+			<xsd:element name="option" type="device-property-attr-option-obj" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="key" type="xsd:string" use="required"/>
+		<xsd:attribute name="value" type="xsd:string"/>
+		<xsd:attribute name="version" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="device-property-obj">
+		<xsd:sequence>
+			<xsd:element name="attribute" type="device-property-attr-obj" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="device-obj">
+		<xsd:sequence>
+			<xsd:element name="property" type="device-property-obj"/>
+		</xsd:sequence>
+		<xsd:attribute name="deviceName" type="xsd:string" use="required"/>
+		<xsd:attribute name="key" type="xsd:int"/>
+		<xsd:attribute name="extends" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:element name="devices">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="device" type="device-obj" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

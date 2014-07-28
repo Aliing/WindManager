@@ -1,0 +1,321 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="Home" extends="ah-default" namespace="/">
+
+		<action name="startHereMgr"
+			class="com.ah.ui.actions.home.StartHereAction">
+			<result type="tiles" name="input">startHereMgr</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="hmSettings"
+			class="com.ah.ui.actions.home.HmSettingsAction">
+			<result type="tiles">hmSettings</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result type="redirectAction" name="newFile">
+				<param name="actionName">certificates</param>
+				<param name="operation">managementImport</param>
+				<param name="certificateFile">${certificateFileFileName}</param>
+			</result>
+		</action>
+
+		<action name="oemSettings" class="com.ah.ui.actions.home.OEMSettingsAction">
+		    <result type="tiles">oemSettings</result>
+		    <result name="json">/tiles/json.jsp</result>
+		    <result type="redirectAction" name="newFile">
+				<param name="actionName">certificates</param>
+				<param name="operation">managementImport</param>
+				<param name="certificateFile">${certificateFileFileName}</param>
+			</result>
+		</action>
+		
+		<action name="hmServices"
+			class="com.ah.ui.actions.home.HmServicesAction">
+			<result type="tiles">hmServices</result>
+			<result type="tiles" name="error">hmServices</result>
+			<result type="tiles" name="openDNSDevice">openDNSDevice</result>
+			<result type="redirectAction" name="newRadius">
+				<param name="actionName">radiusAssignment</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="editRadius">
+				<param name="actionName">radiusAssignment</param>
+				<param name="operation">edit</param>
+				<param name="id">${radiusServiceId}</param>
+			</result>
+			<result type="redirectAction" name="newIpAddress">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="editIpAddress">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${ipAddressId}</param>
+			</result>
+			<result type="redirectAction" name="newWebsenseWhitelists">
+				<param name="actionName">domainObject</param>
+				<param name="operation">new</param>
+				<param name="objType">3</param>
+			</result>
+			<result type="redirectAction" name="editWebsenseWhitelists">
+				<param name="actionName">domainObject</param>
+				<param name="operation">edit</param>
+				<param name="id">${whiteListId}</param>
+				<param name="objType">3</param>
+			</result>
+			<result type="redirectAction" name="newBarracudaWhitelists">
+				<param name="actionName">domainObject</param>
+				<param name="operation">new</param>
+				<param name="objType">3</param>
+			</result>
+			<result type="redirectAction" name="editBarracudaWhitelists">
+				<param name="actionName">domainObject</param>
+				<param name="operation">edit</param>
+				<param name="id">${whiteListId}</param>
+				<param name="objType">3</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="haMonitor"
+			class="com.ah.ui.actions.home.HaMonitoringAction">
+			<result type="tiles">haMonitor</result>
+		</action>
+
+		<action name="portalSettings"
+			class="com.ah.ui.actions.home.PortalSettingsAction">
+			<result type="tiles">portalSettings</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="vhmManagement"
+			class="com.ah.ui.actions.admin.VHMManagementAction">
+			<result type="tiles">vhmList</result>
+			<result type="tiles" name="input">vhm</result>
+		</action>
+
+		<action name="systemOverview"
+			class="com.ah.ui.actions.admin.SystemOverviewAction">
+			<result type="tiles" name="systemOverview">systemOverview</result>
+			<result name="systemOverviewData">/monitor/reports/systemOverviewData.jsp</result>
+		</action>
+
+		<action name="users"
+			class="com.ah.ui.actions.admin.UsersAction">
+			<result type="tiles">userList</result>
+			<result type="tiles" name="input">user</result>
+			<result type="tiles" name="ssidEx">userEx</result>
+			<result type="redirectAction" name="ssid">
+				<param name="actionName">ssidProfiles</param>
+				<param name="operation">continue</param>
+				<param name="backFromUser">true</param>
+			</result>
+			<result type="redirectAction" name="tvClass">
+				<param name="actionName">tvClass</param>
+				<param name="operation">continue</param>
+				<param name="retTeacherName">${tvClassUserName}</param>
+			</result>
+		</action>
+
+		<action name="userPasswordModify"
+		    class="com.ah.ui.actions.admin.UserPasswordModifyAction">
+			<result type="tiles" name="input">userPasswordModify</result>
+			<result name="changePassword4Plan" type="tiles">changePassword4Plan</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="userGroups"
+			class="com.ah.ui.actions.admin.UserGroupsAction">
+			<result type="tiles">userGroupList</result>
+			<result type="tiles" name="input">userGroup</result>
+		</action>
+
+		<action name="restartSoftware"
+			class="com.ah.ui.actions.admin.RestartSoftwareAction">
+			<result type="tiles">restartSoftware</result>
+		</action>
+
+		<action name="clearDB"
+			class="com.ah.ui.actions.admin.ClearDBAction">
+			<result type="tiles">clearDB</result>
+			<result type="tiles" name="error">clearDB</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="backupDB"
+			class="com.ah.ui.actions.admin.BackupDBAction">
+			<result type="tiles">backupDB</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/tar</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="restoreDB"
+			class="com.ah.ui.actions.admin.RestoreDBAction">
+			<!--  <param name="savePath">\upload</param>-->
+			<interceptor-ref name="fileUpload">
+     		 	<param name="maximumSize">900000000</param>
+   			</interceptor-ref>
+   			<interceptor-ref name="ahStack" />
+			<result type="tiles">restoreDB</result>
+			<result type="redirectAction" name="input">
+				<param name="actionName">restoreDB</param>
+				<param name="operation">uploadExceedLimit</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="shutDownApp"
+			class="com.ah.ui.actions.admin.ShutDownAppAction">
+			<result type="tiles">shutDownApp</result>
+		</action>
+
+		<action name="rebootApp"
+			class="com.ah.ui.actions.admin.RebootAppAction">
+			<result type="tiles">rebootApp</result>
+		</action>
+
+		<!-- Download HiveManager Image -->
+		<action name="updateSoftware"
+			class="com.ah.ui.actions.admin.UpdateSoftwareAction">
+			<interceptor-ref name="fileUpload">
+     		 	<param name="maximumSize">900000000</param>
+   			</interceptor-ref>
+   			<interceptor-ref name="ahStack" />
+			<result type="tiles">updateSoftware</result>
+			<result type="tiles" name="connectivityTestResult">connectivityTestResult</result>
+			<result type="redirectAction" name="input">
+				<param name="actionName">updateSoftware</param>
+				<param name="operation">uploadExceedLimit</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+		</action>
+		
+		<action name="updateSoftwareExt"
+			class="com.ah.ui.actions.admin.UpdateSoftwareExternalAction">
+
+			<result type="tiles">updateSoftwareExt</result>
+			<result type="redirectAction" name="input">
+				<param name="actionName">updateSoftware</param>
+				<param name="operation">uploadExceedLimit</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="supportBundle"
+			class="com.ah.ui.actions.admin.SupportBundleAction">
+			<result type="tiles">supportBundle</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/tar</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="systemLog"
+			class="com.ah.ui.actions.admin.SystemLogAction">
+			<result type="tiles">systemLog</result>
+		</action>
+
+		<action name="upgradeLog"
+			class="com.ah.ui.actions.admin.UpgradeLogAction">
+			<result type="tiles">upgradeLogList</result>
+			<result type="tiles" name="input">upgradeLog</result>
+		</action>
+		
+		<action name="kddrLog"
+			class="com.ah.ui.actions.admin.HmKddrLogAction">
+			<result type="tiles">hmKddrLog</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="auditLog"
+			class="com.ah.ui.actions.admin.AuditLogAction">
+			<result type="tiles">auditLog</result>
+		</action>
+
+		<!--add by wpliang for l3firewallLog 2011/06/13-->
+		<action name="l3firewallLog"
+			class="com.ah.ui.actions.admin.L3firewallLogAction">
+			<result type="tiles">l3firewallLog</result>
+		</action>
+
+		<action name="mailList"
+			class="com.ah.ui.actions.admin.MailListAction">
+			<result type="tiles">mailList</result>
+		</action>
+
+		<action name="licenseMgr"
+			class="com.ah.ui.actions.admin.LicenseMgrAction">
+			<result type="tiles">licenseMgr</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${exportFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="auxiliaryFileMgmt"
+			class="com.ah.ui.actions.admin.AuxiliaryFileMgmtAction">
+			<result type="tiles" name="mibFiles">mibFileMgmt</result>
+			<result type="tiles" name="radiusDicts">dictionaryFileMgmt</result>
+			<result type="tiles" name="macouiDictionary">dictionaryFileMgmt</result>
+			<result name="detail">/jsp/home/mibFileDetail.jsp</result>
+			<result type="tiles" name="cidClients">cidClientsMgmt</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="hmAccess"
+			class="com.ah.ui.actions.admin.HmAccessControlAction">
+			<result type="tiles">hmAccess</result>
+			<result type="tiles" name="input">hmAccess</result>
+		</action>
+
+		<action name="downloadSoft"
+			class="com.ah.ui.actions.admin.DownloadSoftwareAction">
+			<result>/jsp/home/downloadSoftware.jsp</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="apSimulator"
+			class="com.ah.ui.actions.admin.SimulatorAction">
+			<result type="tiles">apSimulator</result>
+		</action>
+		
+	</package>
+</struts>

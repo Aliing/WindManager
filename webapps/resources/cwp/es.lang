@@ -1,0 +1,58 @@
+PRE_LOGIN_TITLE:REDIRECCIONANDO
+PRE_LOGIN_WAIT:Por favor, espere
+PRE_LOGIN_CONTENT:Si no puede ver la página de inicio de sesión, cierre y abra el navegador y vuelva a intentarlo.
+FAIL_RADIUS_UNREACH:El acceso a la red actualmente no está disponible porque la validación de sus datos de registro no se han recibido desde el servidor de autenticación. Por favor, inténtelo de nuevo más tarde, y si el problema persiste, póngase en contacto con su administrador de red.
+FAIL_CREDENTIAL_ERR:El servidor de autenticación no pudo validar la información de acceso que ha introducido con una cuenta o la cuenta ha caducado. Compruebe el nombre de usuario y la contraseña y vuelva a intentarlo. Si el problema continúa, pida al administrador que compruebe la cuenta.
+FAIL_MANDATED_MISSED:Todos los campos marcados con un asterisco son obligatorios. Por favor, complételos y envíe su registro de nuevo.
+FAIL_PPSK_INVALID_SSID:La contraseña no puede ser asignada. Por favor, póngase en contacto con el administrador de la red e informe que el SSID que tiene que contiene el portal web cautivo no está asociado a un SSID mediante la autenticación Private PSK.
+FAIL_PPSK_STA_DENIED:Una contraseña no puede ser asignada porque le ha sido denegado el acceso a la red. Para obtener más información, póngase en contacto con el administrador de red.
+FAIL_PPSK_NO_MORE_PSK:No hay más contraseñas disponibles. Por favor, póngase en contacto con el administrador de red.
+FAIL_UNKNOWN:Error desconocido.
+FAIL_RETURN_TO_LOGIN:Usted será redireccionado a la página de login automáticamente, o puede volver a la página de login haciendo click 
+FAIL_HERE:Aquí
+FAIL_REDIR:Usted sera redireccionado a
+FAIL_INTERNAL_ERR:Error interno del servidor Web
+TIMER_TIME_LEFT_PART1:Usted ha sido registrado con éxito y ahora puede acceder a la red. Mantenga esta ventana abierta para comprobar el tiempo restante de su cuenta y ciérrela cuando la sesión haya terminado. Usted actualmente aún dispone de
+TIMER_TIME_LEFT_PART2:minutos restantes.
+TIMER_LOG_OUT:Desconectar
+TIMER_SHOW_DETAIL:Mostrar detalles
+TIMER_BOOKMARK:Añadir a Favoritos
+TIMER_NOTE:NOTA
+TIMER_TITLE:Temporizador de acceso a la red
+TIMER_CUR_AP:Punto de acceso actual:
+TIMER_PRE_AP:Punto de acceso anterior:
+TIMER_CUR_LAST_LOGOUT:Última desconexión:
+TIMER_HIDE_DETAIL:Ocultar detalles
+TIMER_NOTE_PART1:Está conectado a la red inalámbrica y puede acceder a ella por un período limitado de tiempo. Para ahorrar tiempo de acceso, cierre esta sesión cuando no utilice la red.
+TIMER_NOTE_PART2:Le recomendamos que añada a favoritos esta página si desea cerrarla. Una nueva entrada llamada "Temporizador de acceso a la red (
+TIMER_NOTE_PART3:)" se añadirá a su lista de Favoritos. Abriendo este enlace, se podrá ver cuál es el tiempo restante de su sesión actual.
+TIMER_TIME_LEFT2_PART1:Menos de  1 minuto
+TIMER_NOTE_SESS_TIMEOUT:Su sesión ha caducado.
+TIMER_LOG_OUT_CONFIRM:¿Está seguro que desea desconectarse?
+TIMER_LEAVE:Mientras está conectado a la red inalámbrica, mantenga la página del Temporizador abierta para que pueda comprobar el estado de sesión. Si desea cerrarla, añádala a Favoritos en primer lugar, y podrá abrirla más tarde.
+TIMER_DAY:día
+TIMER_DAYS:días
+TIMER_HOUR:hora
+TIMER_HOURS:horas
+TIMER_MINUTE:Minute
+TIMER_MINUTES:minutos
+TIMER_LEFT:izquierda
+TIMER_TO_BOOKMARK:Para añadir esta página a favorite, pulse
+TIMER_TIME_OUT:Time out
+TIMER_NO_LONGER_CONNECT:Su dispositivo ya no esta conectado con el AP. Por favor, compruebe la configuración de red de su dispositivo. Está página se cerrará en
+TIMER_NO_LONGER_CONNECT2:minutos
+TIMER_NO_CONNECT:Su dispositivo no está conectado a la red
+TIMER_NO_CONNECT_ALERT:Su dispositivo ya no está conectado a la red. Por favor, compruebe la configuración de red de su dispositivo e inténtelo de nuevo.
+LOGOUT_TITLE:Sesión cerrada
+LOGOUT_LOGOUT_THK:Desconectado. Gracias.
+LOGOUT_NOTE:Ya se puede cerrar esta ventana.
+LOGOUT_SUMMARY:Resumen de la session
+LOGOUT_LEFT_TIME:Tiempo restante de la sesión
+LOGOUT_LEFT_MINUTES:Minutos
+LOGOUT_IP:Dirección IP
+LOGOUT_AP:Punto de Acceso
+LOGOUT_LOGOUT_TIME:Hora de la desconexión
+LOGOUT_SENT:Bytes Enviados
+LOGOUT_RECV:Bytes Recibidos
+LOGOUT_BYTES:Bytes
+PPSK_LOGIN_PAGE:Página de registro

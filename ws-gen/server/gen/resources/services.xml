@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:22:40 CEST) -->
+<serviceGroup>
+    <service name="HmService" scope="transportsession">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.ah.hm.ws.platform.service.HmServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.ah.hm.ws.platform.service.impl.HmServiceImpl</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getVendorNamesByMacOuis" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:getVendorNamesByMacOuis</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/getVendorNamesByMacOuisResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/getVendorNamesByMacOuis/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/getVendorNamesByMacOuis/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/getVendorNamesByMacOuis/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="getVendorNameByMacOui" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:getVendorNameByMacOui</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/getVendorNameByMacOuiResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/getVendorNameByMacOui/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/getVendorNameByMacOui/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/getVendorNameByMacOui/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="fetchHiveApsByClientNamesWithCase" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:fetchHiveApsByClientNamesWithCase</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientNamesWithCaseResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientNamesWithCase/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientNamesWithCase/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientNamesWithCase/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="keepSessionAlive" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:keepSessionAlive</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/keepSessionAliveResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/keepSessionAlive/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/keepSessionAlive/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/keepSessionAlive/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="fetchHiveApByClientMac" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:fetchHiveApByClientMac</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByClientMacResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByClientMac/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByClientMac/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByClientMac/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="fetchAllHiveAps" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:fetchAllHiveAps</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchAllHiveApsResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchAllHiveAps/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchAllHiveAps/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchAllHiveAps/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="login" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:login</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/loginResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/login/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/login/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/login/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="fetchHiveApByNodeId" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:fetchHiveApByNodeId</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByNodeIdResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByNodeId/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByNodeId/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByNodeId/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="fetchHiveApByClientName" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:fetchHiveApByClientName</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByClientNameResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByClientName/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByClientName/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApByClientName/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="logout" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:logout</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/logoutResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/logout/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/logout/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/logout/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="fetchHiveApsByClientMacs" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:fetchHiveApsByClientMacs</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientMacsResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientMacs/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientMacs/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientMacs/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="fetchHiveApsByClientNames" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:fetchHiveApsByClientNames</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientNamesResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientNames/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientNames/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByClientNames/Fault/soapFault</faultActionMapping>
+        </operation>
+        <operation name="fetchHiveApsByNodeIds" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ah.com/hm/ws/platform/service/HmService">
+            <actionMapping>urn:fetchHiveApsByNodeIds</actionMapping>
+            <outputActionMapping>http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByNodeIdsResponse</outputActionMapping>
+            <faultActionMapping faultName="soapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByNodeIds/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByNodeIds/Fault/soapFault</faultActionMapping>
+            <faultActionMapping faultName="SoapFault_Exception">http://ah.com/hm/ws/platform/service/HmService/HmServicePortType/fetchHiveApsByNodeIds/Fault/soapFault</faultActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

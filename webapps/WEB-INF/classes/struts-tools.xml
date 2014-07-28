@@ -1,0 +1,99 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="Tools" extends="ah-default" namespace="/">
+
+		<action name="apSimulator"
+			class="com.ah.ui.actions.admin.SimulatorAction">
+			<result type="tiles">apSimulator</result>
+			<result type="tiles" name="blankSimulator">blankSimulator</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="retrieveCACustomerId"
+			class="com.ah.ui.actions.tools.RetrieveCloudAuthCustomerAction">
+			<result type="tiles">retrieveCAId</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="planTool"
+			class="com.ah.ui.actions.tools.PlanToolAction">
+			<result type="tiles">planTool</result>
+			<result name="initPlanningPanelFromTopo" type="tiles">planningFromTopo</result>
+			<result name="landingMap" type="redirectAction">
+				<param name="actionName">maps</param>
+				<param name="operation">view</param>
+			</result>
+		</action>
+
+		<action name="rtt"
+			class="com.ah.ui.actions.tools.RTAction">
+			<result type="tiles">rtt</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="spectralAnalysis"
+			class="com.ah.ui.actions.tools.SpectralAnalysisAction">
+			<result type="tiles">spectrumAnalyzer</result>
+			<result name="analyzer" type="tiles">spectrumAnalyzer</result>
+			<result name="analysis" type="redirectAction">
+				<param name="actionName">hiveAp</param>
+				<param name="operation">managedHiveAps</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+        <action name="clientMgmtTest" class="com.ah.ui.actions.tools.ClientMgmtTestAction">
+			<result type="tiles">clientMgmtTest</result>
+		</action>
+		
+		<action name="radiusTest" class="com.ah.ui.actions.tools.RadisuTestAction">
+			<result type="tiles">radiusTest</result>
+		</action>
+
+		<action name="adLdapTest" class="com.ah.ui.actions.tools.AdLdapTestAction">
+			<result type="tiles">adLdapTest</result>
+		</action>
+
+		<action name="librarySipTest" class="com.ah.ui.actions.tools.LibrarySipTestAction">
+			<result type="tiles">librarySipTest</result>
+		</action>
+		
+		<action name="idmTest" class="com.ah.ui.actions.tools.IdmTestAction">
+			<result type="tiles">idmTest</result>
+		</action>
+		
+		<action name="cliparse"
+			class="com.ah.ui.actions.tools.RunningConfigParseAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		
+		<action name="downloadInfo"
+			class="com.ah.ui.actions.tools.DsDownloadInfoAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result name="downloadInfo" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		
+		<action name="schedulerDebug" class="com.ah.ui.actions.tools.SchedulerDebugAction">
+			<result type="tiles" name="input">schedulerDebug</result>
+		</action>
+		
+	</package>
+</struts>

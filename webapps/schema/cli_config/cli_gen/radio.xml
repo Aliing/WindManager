@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	
+	<cli-gen key="radio.profile.channel_width.old">
+		<constraints>
+			<expression>!(${cons_channel_width_new})</expression>
+		</constraints>
+		<cmd><![CDATA[ radio profile <string> channel-width {1:20|2:40-above|3:40-below} ]]></cmd>
+		<cli-default value="{*, 1}"/>
+	</cli-gen>
+	
+	<cli-gen key="radio.profile.channel_width.new">
+		<constraints name="cons_channel_width_new">
+			<expression><![CDATA[ :p = ${platforms_all_11ac} || :v >= ${Guadalupe} ]]></expression>
+		</constraints>
+		<cmd><![CDATA[ radio profile <string> channel-width {1:20|5:40|4:80} ]]></cmd>
+		<cli-default value="{*, 1}"/>
+	</cli-gen>
+	
+	<cli-gen key="radio.profile.primary-channel-offset">
+		<constraints name-ref="cons_channel_width_new"/>
+		<cmd><![CDATA[ radio profile <string> primary-channel-offset {auto|0|1|2|3} ]]></cmd>
+		<cli-default value="{*, auto}"/>
+	</cli-gen>
+</clis>

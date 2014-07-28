@@ -1,0 +1,11 @@
+<binding xmlns:tns="http://ah.com/hm/ws/platform/core" force-classes="true" add-constructors="true">
+  <namespace uri="http://ah.com/hm/ws/platform/core" default="elements" prefix="tns"/>
+  <mapping abstract="true" type-name="tns:passport" class="com.ah.hm.ws.platform.core.Passport">
+    <value style="element" name="userName" field="userName" usage="optional"/>
+    <value style="element" name="password" field="password" usage="optional"/>
+    <value style="attribute" name="sessionTimeout" field="sessionTimeout"/>
+  </mapping>
+  <mapping abstract="true" type-name="tns:session" class="com.ah.hm.ws.platform.core.Session">
+    <value style="element" name="version" field="version" usage="optional"/>
+  </mapping>
+</binding>

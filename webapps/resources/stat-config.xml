@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<stat>
+	<feature id="1" ignore="true" name="RadioProfile - transmit rate">
+		<bo-class name="com.ah.bo.wlan.RadioProfile"/>
+		<search-rule value="transmitRate != 1"/>
+	</feature>
+	<feature id="2" name="RadioProfile - preamble">
+		<bo-class name="com.ah.bo.wlan.RadioProfile"/>
+		<search-rule value="shortPreamble != 1"/>
+	</feature>
+	<feature id="3" name="RadioProfile - background scanning">
+		<bo-class name="com.ah.bo.wlan.RadioProfile"/>
+		<search-rule value="backgroundScan = true"/>
+	</feature>
+	<feature id="4" name="Radio Profile - Channel model">
+		<bo-class name="com.ah.bo.wlan.RadioProfile"/>
+		<search-rule value="turboMode = true"/>
+	</feature>
+	<feature id="5" name="Radio Profile - Channel auto selection">
+		<bo-class name="com.ah.bo.wlan.RadioProfile"/>
+		<search-rule value="enableChannel = true"/>
+	</feature>
+	<feature id="6" name="Radio Profile - load balancing">
+		<bo-class name="com.ah.bo.wlan.RadioProfile"/>
+		<search-rule value="enableClientLoadBalance = true"/>
+	</feature>
+	<feature id="7" name="Radio Profile - backhaul failover">
+		<bo-class name="com.ah.bo.wlan.RadioProfile"/>
+		<search-rule value="backhaulFailover = true"/>
+	</feature>
+	<feature id="8" name="DHCP Servers &amp; Relays - server">
+		<bo-class name="com.ah.bo.network.VlanDhcpServer"/>
+		<search-rule value="typeFlag = 1"/>
+	</feature>
+	<feature id="9" name="DHCP Servers &amp; Relay - relay">
+		<bo-class name="com.ah.bo.network.VlanDhcpServer"/>
+		<search-rule value="typeFlag = 2"/>
+	</feature>
+	<feature id="10" name="LLDP/CDP Profiles - LLDP">
+		<bo-class name="com.ah.bo.network.LLDPCDPProfile"/>
+		<search-rule value="enableLLDP = true"/>
+	</feature>
+	<feature id="11" name="LLDP/CDP Profiles - CDP">
+		<bo-class name="com.ah.bo.network.LLDPCDPProfile"/>
+		<search-rule value="enableCDP = true"/>
+	</feature>
+	<feature id="12" name="QoS Classifier - Network Service">
+		<bo-class name="com.ah.bo.mobility.QosClassfierAndMarker"/>
+		<search-rule value="networkServicesEnabled = true"/>
+	</feature>
+	<feature id="13" name="QoS Classifier - MAC OUI">
+		<bo-class name="com.ah.bo.mobility.QosClassfierAndMarker"/>
+		<search-rule value="macOuisEnabled = true"/>
+	</feature>
+	<feature id="14" name="QoS Classifier - SSID">
+		<bo-class name="com.ah.bo.mobility.QosClassfierAndMarker"/>
+		<search-rule value="ssidEnabled = true"/>
+	</feature>
+	<feature id="15" name="QoS Classifier - Marked Packet">
+		<bo-class name="com.ah.bo.mobility.QosClassfierAndMarker"/>
+		<search-rule value="marksEnabled = true"/>
+	</feature>
+	<feature id="16" name="QoS Ingress Maps - Network Service">
+		<bo-class name="com.ah.bo.mobility.QosClassification"/>
+		<search-rule value="networkServicesEnabled = true"/>
+	</feature>
+	<feature id="17" name="QoS Ingress Maps - MAC OUI">
+		<bo-class name="com.ah.bo.mobility.QosClassification"/>
+		<search-rule value="macOuisEnabled = true"/>
+	</feature>
+	<feature id="18" name="QoS Ingress Maps - SSID">
+		<bo-class name="com.ah.bo.mobility.QosClassification"/>
+		<search-rule value="ssidEnabled = true"/>
+	</feature>
+	<feature id="19" name="QoS Ingress Maps - Marked Packet">
+		<bo-class name="com.ah.bo.mobility.QosClassification"/>
+		<search-rule value="marksEnabled = true"/>
+	</feature>
+	<feature id="20" name="Qos Egress Maps -  802.1p">
+		<bo-class name="com.ah.bo.mobility.QosMarking"/>
+		<search-rule value="prtclP != null and prtclP !=''"/>
+	</feature>
+	<feature id="21" name="Qos Egress Maps - DiffServ">
+		<bo-class name="com.ah.bo.mobility.QosMarking"/>
+		<search-rule value="prtclD != null and prtclD!=''"/>
+	</feature>
+	<feature id="22" name="IP Tracking">
+		<bo-class name="com.ah.bo.useraccess.MgmtServiceIPTrack"/>
+		<search-rule value="enableTrack = true"/>
+	</feature>
+	<feature id="23" name="Authentication - AAA client">
+		<bo-class name="com.ah.bo.useraccess.RadiusAssignment"/>
+		<search-rule value=""/>
+	</feature>
+	<feature id="24" ignore="true" name="Authentication - AAA client">
+		<bo-class name="com.ah.bo.useraccess.RadiusAssignment"/>
+		<search-rule value=""/>
+	</feature>
+	<feature id="25" name="Authentication - User RADIUS">
+		<bo-class name="com.ah.bo.useraccess.LocalUserGroup"/>
+		<search-rule value="userType = 1"/>
+	</feature>
+	<feature id="26" name="Authentication - User Private PSK">
+		<bo-class name="com.ah.bo.useraccess.LocalUserGroup"/>
+		<search-rule value="userType = 2 or userType = 3"/>
+	</feature>
+	<feature id="27" name="Authentication - AD">
+		<bo-class name="com.ah.bo.useraccess.ActiveDirectoryOrOpenLdap"/>
+		<search-rule value="typeFlag = 1"/>
+	</feature>
+	<feature id="28" name="Authentication - LDAP">
+		<bo-class name="com.ah.bo.useraccess.ActiveDirectoryOrOpenLdap"/>
+		<search-rule value="typeFlag = 2"/>
+	</feature>
+	<feature id="29" name="Authentication - HiveAP RADIUS">
+		<bo-class name="com.ah.bo.useraccess.RadiusOnHiveap"/>
+		<search-rule value="serverEnable = true"/>
+	</feature>
+	<feature id="30" name="Authentication - Attribute Alias">
+		<bo-class name="com.ah.bo.useraccess.UserProfileAttribute"/>
+		<search-rule value=""/>
+	</feature>
+	<feature id="31" name="Authentication - CWP -self registration">
+		<bo-class name="com.ah.bo.wlan.Cwp"/>
+		<search-rule value="registrationType = 2"/>
+	</feature>
+	<feature id="32" name="Authentication - CWP - Authentication">
+		<bo-class name="com.ah.bo.wlan.Cwp"/>
+		<search-rule value="registrationType = 1"/>
+	</feature>
+	<feature id="33" name="Authentication - CWP - default network setting">
+		<bo-class name="com.ah.bo.wlan.Cwp"/>
+		<search-rule value="useDefaultNetwork = true"/>
+	</feature>
+	<feature id="34" name="Authentication - CWP - passthru">
+		<bo-class name="com.ah.bo.wlan.Cwp"/>
+		<search-rule value="serverType = 1"/>
+	</feature>
+	<feature id="35" name="Authentication - CWP - internal">
+		<bo-class name="com.ah.bo.wlan.Cwp"/>
+		<search-rule value="serverType = 2"/>
+	</feature>
+	<feature id="36" name="User Profile - default QoS Rate Control &amp; Queuing">
+		<bo-class name="com.ah.bo.useraccess.UserProfile"/>
+		<search-rule value="qosRateControl.qosName = 'def-user-qos'"/>
+	</feature>
+	<feature id="37" name="User Profile -  Non default QoS Rate Control &amp; Queuing">
+		<bo-class name="com.ah.bo.useraccess.UserProfile"/>
+		<search-rule value="qosRateControl.qosName != 'def-user-qos'"/>
+	</feature>
+	<feature id="38" name="User Profile - dynamic tunnel policies">
+		<bo-class name="com.ah.bo.mobility.TunnelSetting"/>
+		<search-rule value="enableType = 1"/>
+	</feature>
+	<feature id="39" name="User Profile - static Tunnel Policies">
+		<bo-class name="com.ah.bo.mobility.TunnelSetting"/>
+		<search-rule value="enableType = 2"/>
+	</feature>
+	<feature id="40" name="User Profile - MAC Firewall">
+		<bo-class name="com.ah.bo.useraccess.UserProfile"/>
+		<search-rule value="macPolicyFrom != null or macPolicyTo != null"/>
+	</feature>
+	<feature id="41" name="User Profile - IP Firewall">
+		<bo-class name="com.ah.bo.useraccess.UserProfile"/>
+		<search-rule value="ipPolicyFrom != null or ipPolicyTo !=null"/>
+	</feature>
+	<feature id="42" name="User Profile -CAC Airtime">
+		<bo-class name="com.ah.bo.useraccess.UserProfile"/>
+		<search-rule value="guarantedAirTime > 0"/>
+	</feature>
+	<feature id="43" name="User Profile -share unused airtime">
+		<bo-class name="com.ah.bo.useraccess.UserProfile"/>
+		<search-rule value="enableShareTime = true"/>
+	</feature>
+	<feature id="44" name="User Profile - schedule">
+		<bo-class name="com.ah.bo.useraccess.UserProfile"/>
+		<search-rule value="userProfileSchedulers.size > 0"/>
+	</feature>
+	<feature id="45" name="SSID - Open">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="accessMode = 5"/>
+	</feature>
+	<feature id="46" name="SSID - WEP">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="accessMode = 4"/>
+	</feature>
+	<feature id="47" name="SSID - PSK">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="accessMode = 1"/>
+	</feature>
+	<feature id="48" name="SSID - PPSK">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="accessMode = 2"/>
+	</feature>
+	<feature id="49" name="SSID - 802.1X">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="accessMode = 3"/>
+	</feature>
+	<feature id="50" name="SSID - MAC Auth">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="macAuthEnabled = true"/>
+	</feature>
+	<feature id="51" name="SSID -2.4 Rate Setting">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="enableGRateSet = true"/>
+	</feature>
+	<feature id="52" name="SSID - 5 Rate Setting">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="enableARateSet = true"/>
+	</feature>
+	<feature id="53" name="SSID - MAC DoS Per SSID">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="ssidDos != null"/>
+	</feature>
+	<feature id="54" name="SSID - MAC DoS Per Station">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="stationDos != null"/>
+	</feature>
+	<feature id="55" name="SSID - IP DoS per SSID">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="ipDos != null"/>
+	</feature>
+	<feature id="56" name="SSID - MAC Filter">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="macFilters.size > 0"/>
+	</feature>
+	<feature id="57" name="SSID - Traffic Filter">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="serviceFilter.filterName != 'def-service-filter'"/>
+	</feature>
+	<feature id="58" name="SSID - Schedule">
+		<bo-class name="com.ah.bo.wlan.SsidProfile"/>
+		<search-rule value="schedulers.size > 0"/>
+	</feature>
+	<feature id="59" name="Network Policies - Default Hive">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="hiveProfile.hiveName = 'hive0'"/>
+	</feature>
+	<feature id="60" name="Network Policies - Non default Hive">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="hiveProfile.hiveName != 'hive0'"/>
+	</feature>
+	<feature id="61" name="Network Policies - DNS Assignment">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="mgmtServiceDns != null"/>
+	</feature>
+	<feature id="62" name="Network Policies - NTP Server">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="mgmtServiceTime != null"/>
+	</feature>
+	<feature id="63" name="Network Policies - Syslog">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="mgmtServiceSyslog != null"/>
+	</feature>
+	<feature id="64" name="Network Policies - SNMP">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="mgmtServiceSnmp != null"/>
+	</feature>
+	<feature id="65" name="Network Policies - location aeroscout">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="locationServer.enableServer = true and locationServer.serviceType = 2"/>
+	</feature>
+	<feature id="66" name="Network Policies - location aerohive">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="locationServer.enableServer = true and locationServer.serviceType = 1"/>
+	</feature>
+	<feature id="67" name="Network Policies - FTP ALG">
+		<bo-class name="com.ah.bo.network.AlgConfiguration"/>
+		<search-rule value="select alg_configuration_id from alg_config_info where ifenable=true and mapkey='FTP'"/>
+	</feature>
+	<feature id="68" name="Network Policies - SIP ALG">
+		<bo-class name="com.ah.bo.network.AlgConfiguration"/>
+		<search-rule value="select alg_configuration_id from alg_config_info where ifenable=true and mapkey='SIP'"/>
+	</feature>
+	<feature id="69" name="Network Policies - TFTP ALG">
+		<bo-class name="com.ah.bo.network.AlgConfiguration"/>
+		<search-rule value="select alg_configuration_id from alg_config_info where ifenable=true and mapkey='TFTP'"/>
+	</feature>
+	<feature id="70" name="Network Policies - Management Options">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="mgmtServiceOption != null"/>
+	</feature>
+	<feature id="71" name="Network Policies WIPS Policies - short preamble check">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="shortPreambleEnable = true"/>
+	</feature>
+	<feature id="72" name="Network Policies - WIPS Policies - short beacon interval check">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="shortBeanchIntervalEnable = true"/>
+	</feature>
+	<feature id="73" name="Network Policies - WIPS Policies - WMM check">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="wmmEnable = true"/>
+	</feature>
+	<feature id="74" name="Network Policies - WIPS Policies - BSSID detection">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="ouiEnable = true"/>
+	</feature>
+	<feature id="75" name="Network Policies - WIPS Policies - Onnet detection">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="inNetworkEnable = true"/>
+	</feature>
+	<feature id="76" name="Network Policies - WIPS Policies - SSID detection">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="ssidEnable = true"/>
+	</feature>
+	<feature id="77" name="Network Policies - WIPS Policies - Ad hoc Client detection">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="networkDetectionEnable = true"/>
+	</feature>
+	<feature id="78" name="Network Policies - WIPS Policies - AP intrusion detection-mitigation">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="rogueDetectionEnable = true"/>
+	</feature>
+	<feature id="79" name="Network Policies - access console">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="accessConsole != null"/>
+	</feature>
+	<feature id="80" name="Network Policies - Mgt IP filter">
+		<bo-class name="com.ah.bo.hiveap.ConfigTemplate"/>
+		<search-rule value="ipFilter != null"/>
+	</feature>
+	<feature id="81" name="HiveAP - wifi0 - access">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="wifi0.operationMode = 1"/>
+	</feature>
+	<feature id="82" name="HiveAP - wifi1 - backhaul">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="wifi1.operationMode = 2"/>
+	</feature>
+	<feature id="83" name="HiveAP - eth as access bridging 802.1q">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="eth0.operationMode = 3 or eth1.operationMode = 3"/>
+	</feature>
+	<feature id="84" name="HiveAP - eth as access bridging">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="eth0.operationMode = 1 or eth1.operationMode = 1"/>
+	</feature>
+	<feature id="85" name="HiveAP - eth in redundant mode">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="eth0.bindInterface = 1 or eth1.bindInterface = 1"/>
+	</feature>
+	<feature id="86" name="HiveAP - eth in aggregation mode">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="eth0.bindInterface = 2 or eth1.bindInterface = 2"/>
+	</feature>
+	<feature id="87" name="HiveAP - eth as backhaul">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="eth0.operationMode = 2 or eth1.operationMode = 2"/>
+	</feature>
+	<feature id="88" name="HiveAP - wireless access">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="wifi0.operationMode = 1 or wifi1.operationMode = 1"/>
+	</feature>
+	<feature id="89" name="HiveAP - wireless backhaul">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="wifi0.operationMode = 2 or wifi1.operationMode = 2"/>
+	</feature>
+	<feature id="90" name="HiveAP - L3 Roaming neighbors">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="l3Neighbors.size > 0"/>
+	</feature>
+	<feature id="91" name="HiveAP - static IP">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="dhcp = false"/>
+	</feature>
+	<feature id="92" name="HiveAP - dhcp clients">
+		<bo-class name="com.ah.bo.hiveap.HiveAp"/>
+		<search-rule value="dhcp = true"/>
+	</feature>
+	<feature id="93" ignore="true" name="WIPS Policies - in-net rogue detection for old HiveAP">
+		<bo-class name="com.ah.bo.network.IdsPolicy"/>
+		<search-rule value="inNetworkEnable = true"/>
+	</feature>
+	<feature id="94" name="AP and Router Population and mode">
+		<bo-class name="com.ah.bo.hiveap.HiveAp" />
+		<search-rule value=""/>
+	</feature>
+	<feature id="95" name="Devices with 802.1X">
+		<bo-class name="com.ah.bo.wlan.SsidProfile" />
+		<search-rule value="accessMode = 3"/>
+	</feature>
+	<feature id="96" name="Devices with PPSK">
+		<bo-class name="com.ah.bo.wlan.SsidProfile" />
+		<search-rule value="accessMode = 2"/>
+	</feature>
+	<feature id="97" name="Devices with RADIUS server">
+		<bo-class name="com.ah.bo.hiveap.HiveAp" />
+		<search-rule value=""/>
+	</feature>
+	<feature id="98" name="Devices with RADIUS proxy">
+		<bo-class name="com.ah.bo.hiveap.HiveAp" />
+		<search-rule value=""/>
+	</feature>
+	<feature id="99" name="Devices with meshing enabled">
+		<bo-class name="com.ah.bo.hiveap.HiveAp" />
+		<search-rule value=""/>
+	</feature>
+	<feature id="100" name="CVG and active tunnels on the CVG">
+		<bo-class name="com.ah.bo.hiveap.HiveAp" />
+		<search-rule value=""/>
+	</feature>
+	<feature id="101" name="Number of clients connected to APs">
+		<bo-class name="com.ah.bo.hiveap.HiveAp" />
+		<search-rule value=""/>
+	</feature>
+	<feature id="102" name="Devices with RADIUS caching">
+		<bo-class name="com.ah.bo.hiveap.HiveAp" />
+		<search-rule value=""/>
+	</feature>
+	<feature id="103" name="Device power setting">
+		<bo-class name="com.ah.bo.hiveap.HiveAp" />
+		<search-rule value=""/>
+	</feature>
+	<feature id="104" name="User Manager Statistics">
+		<bo-class name="com.ah.bo.useraccess.LocalUser" />
+		<search-rule value=""/>
+	</feature>
+</stat>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:aaa="http://www.aerohive.com/configuration/aaa" xmlns:admin="http://www.aerohive.com/configuration/admin" xmlns:schedule="http://www.aerohive.com/configuration/schedule" xmlns:security="http://www.aerohive.com/configuration/security" xmlns:qos="http://www.aerohive.com/configuration/qos" xmlns:ssid="http://www.aerohive.com/configuration/ssid" xmlns:hive="http://www.aerohive.com/configuration/hive" xmlns:userProfile="http://www.aerohive.com/configuration/userProfile" xmlns:radio="http://www.aerohive.com/configuration/radio" xmlns:interface="http://www.aerohive.com/configuration/interface" xmlns:service="http://www.aerohive.com/configuration/service" xmlns:logging="http://www.aerohive.com/configuration/logging" xmlns:snmp="http://www.aerohive.com/configuration/snmp" xmlns:capwap="http://www.aerohive.com/configuration/capwap" xmlns:roaming="http://www.aerohive.com/configuration/roaming" xmlns:policy="http://www.aerohive.com/configuration/policy" xmlns:others="http://www.aerohive.com/configuration/others" xmlns:configuration="http://www.aerohive.com/configuration" targetNamespace="http://www.aerohive.com/configuration">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/aaa" schemaLocation="aaa.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/admin" schemaLocation="admin.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/schedule" schemaLocation="schedule.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/security" schemaLocation="security.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/qos" schemaLocation="qos.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/ssid" schemaLocation="ssid.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/hive" schemaLocation="hive.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/userProfile" schemaLocation="userProfile.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/radio" schemaLocation="radio.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/interface" schemaLocation="interface.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/service" schemaLocation="service.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/logging" schemaLocation="logging.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/snmp" schemaLocation="snmp.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/capwap" schemaLocation="capwap.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/roaming" schemaLocation="roaming.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/policy" schemaLocation="policy.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/others" schemaLocation="others.xsd"/>
+	<xsd:element name="configuration">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="vlan-reserve" type="general:ah-int-act" minOccurs="0"/>
+				<xsd:element name="vlan" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="reset-button" type="others:reset-button-obj" minOccurs="0"/>
+				<xsd:element name="console" type="others:console-obj" minOccurs="0"/>
+				<xsd:element name="track" type="others:track-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="cac" type="others:cac-obj" minOccurs="0"/>
+				<xsd:element name="lldp" type="others:lldp-obj" minOccurs="0"/>
+				<xsd:element name="cdp" type="others:cdp-obj" minOccurs="0"/>
+				<xsd:element name="system" type="others:system-obj" minOccurs="0"/>
+				<xsd:element name="service" type="service:service-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="logging" type="logging:logging-obj" minOccurs="0"/>
+				<xsd:element name="snmp" type="snmp:snmp-obj" minOccurs="0"/>
+				<xsd:element name="amrp" type="others:amrp-obj" minOccurs="0"/>
+				<xsd:element name="clock" type="others:clock-obj" minOccurs="0"/>
+				<xsd:element name="dns" type="others:dns-obj" minOccurs="0"/>
+				<xsd:element name="hivemanager" type="others:hivemanager-obj" minOccurs="0"/>
+				<xsd:element name="hostname" type="others:hostname-obj" minOccurs="0"/>
+				<xsd:element name="route" type="others:route-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="web-directory" type="others:web-directory-obj" minOccurs="0"/>
+				<xsd:element name="location" type="others:location-obj" minOccurs="0"/>
+				<xsd:element name="alg" type="others:alg-obj" minOccurs="0"/>
+				<xsd:element name="mobility-threshold" type="others:mobility-threshold-obj" minOccurs="0"/>
+				<xsd:element name="admin" type="admin:admin-obj" minOccurs="0"/>
+				<xsd:element name="schedule" type="schedule:schedule-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="schedule-ppsk" type="schedule:schedule-ppsk-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="user-group" type="others:user-group-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="auto-psk-user-group" type="others:auto-psk-user-group-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="user" type="others:user-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="ip-policy" type="policy:ip-policy-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="mac-policy" type="policy:mac-policy-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="mobility-policy" type="policy:mobility-policy-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="security" type="security:security-obj" minOccurs="0"/>
+				<xsd:element name="radio" type="radio:radio-obj" minOccurs="0"/>
+				<xsd:element name="agg" type="others:port-channel-obj" minOccurs="0"/>
+				<xsd:element name="qos" type="qos:qos-obj" minOccurs="0"/>
+				<xsd:element name="_ip-nat-policy" type="others:ip-nat-policy-obj" minOccurs="0"/>
+				<xsd:element name="spanning-tree" type="interface:spanning-tree-obj" minOccurs="0"/>
+				<xsd:element name="airscreen" type="others:airscreen-obj" minOccurs="0"/>
+				<xsd:element name="user-profile" type="userProfile:user-profile-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="domain-object" type="policy:domain-object-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="mac-object" type="policy:mac-object-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="os-detection" type="policy:os-detection-obj" minOccurs="0"/>
+				<xsd:element name="os-version" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="os-object" type="policy:os-object-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="device-group" type="policy:device-group-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="mobile-device-policy" type="policy:mobile-device-policy-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="security-object" type="ssid:network-access-security-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="performance-sentinel" type="userProfile:performance-sentinel-obj" minOccurs="0"/>
+				<xsd:element name="ssid" type="ssid:ssid-obj" minOccurs="0" maxOccurs="16"/>
+				<xsd:element name="hive" type="hive:hive-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="library-sip-policy" type="policy:library-sip-policy-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="vlan-group" type="userProfile:vlan-group-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="bonjour-gateway" type="userProfile:bonjour-gateway-obj" minOccurs="0"/>
+				<xsd:element name="pse" type="interface:pse-obj" minOccurs="0"/>
+				<xsd:element name="_802.1x-mac-table" type="interface:ethx-802dot1x-mac-table-obj" minOccurs="0"/>
+				<xsd:element name="storm-control" type="interface:storm-control-obj" minOccurs="0"/>
+				<xsd:element name="usbmodem" type="admin:usbmodem-obj" minOccurs="0"/>
+				<xsd:element name="interface" type="interface:interface-obj" minOccurs="0"/>
+				<xsd:element name="forwarding-engine" type="others:forwarding-engine-obj" minOccurs="0"/>
+				<xsd:element name="track-wan" type="others:track-wan-obj" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="client-mode" type="ssid:client-mode-obj" minOccurs="0"/>
+				<xsd:element name="lan" type="admin:lan-obj" minOccurs="0"/>
+				<xsd:element name="vpn" type="others:vpn-obj" minOccurs="0"/>
+				<xsd:element name="monitor" type="interface:monitor-obj" minOccurs="0"/>
+				<xsd:element name="roaming" type="roaming:roaming-obj" minOccurs="0"/>
+				<xsd:element name="access-console" type="others:access-console-obj" minOccurs="0"/>
+				<xsd:element name="ntp" type="others:ntp-obj" minOccurs="0"/>
+				<xsd:element name="aaa" type="aaa:aaa-obj" minOccurs="0"/>
+				<xsd:element name="designated-server" type="aaa:designated-server-obj" minOccurs="0"/>
+				<xsd:element name="ip" type="others:ip-obj" minOccurs="0"/>
+				<xsd:element name="capwap" type="capwap:capwap-obj" minOccurs="0"/>
+				<xsd:element name="report" type="others:report-obj" minOccurs="0"/>
+				<xsd:element name="network-firewall" type="policy:network-firewall-obj" minOccurs="0"/>
+				<xsd:element name="teacher-view" type="others:teacher-view-obj" minOccurs="0"/>
+				<xsd:element name="hiveui" type="others:hiveui-obj" minOccurs="0"/>
+				<xsd:element name="boot-param" type="others:boot-param-obj" minOccurs="0"/>
+				<xsd:element name="data-collection" type="others:data-collection-obj" minOccurs="0"/>
+				<xsd:element name="routing" type="admin:routing-obj" minOccurs="0"/>
+				<xsd:element name="web-security-proxy" type="admin:web-security-proxy-obj" minOccurs="0"/>
+				<xsd:element name="config" type="others:config-obj" minOccurs="0"/>
+				<xsd:element name="application" type="others:application-obj" minOccurs="0"/>
+				<xsd:element name="connection-alarming" type="admin:admin-connection-alarming-obj" minOccurs="0"/>
+				<xsd:element name="mac-address-table" type="others:mac-address-table-obj" minOccurs="0"/>
+				<xsd:element name="kddr" type="others:kddr-obj" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

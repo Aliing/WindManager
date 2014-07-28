@@ -1,0 +1,1190 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="monitor" extends="ah-default" namespace="/">
+		<action name="hiveAp"
+			class="com.ah.ui.actions.hiveap.HiveApAction">
+			<result type="tiles">manuallyProvisioned</result>
+			<result type="tiles" name="newHiveAps">newHiveAps</result>
+			<result type="tiles" name="manuallyProvisioned">manuallyProvisioned</result>
+			<result type="tiles" name="autoDiscovered">autoDiscovered</result>
+			<result type="tiles" name="managedHiveAps">managedHiveAps</result>
+			<result type="tiles" name="managedDeviceAPs">managedHiveAps</result>
+			<result type="tiles" name="managedRouters">managedHiveAps</result>
+			<result type="tiles" name="managedSwitches">managedHiveAps</result>
+			<result type="tiles" name="managedVPNGateways">managedHiveAps</result>
+			<result type="tiles" name="input">hiveAp2</result>
+			<result type="tiles" name="devicePage">devicePage</result>
+			<result type="tiles" name="input2">hiveAp2</result>
+			<result type="tiles" name="upgradeInput">hiveApUpdates</result>
+			<result type="tiles" name="multiEdit">hiveApMultiEdit</result>
+			<result type="tiles" name="multiEditJson">hiveApMultiEditJson</result>
+			<result type="tiles" name="manageAPEx">manageAPEx</result>
+			<result type="tiles" name="manageAPGuid">manageAPGuid</result>
+			<result type="tiles" name="hiveapEx">hiveapEx</result>
+			<result type="tiles" name="hiveapJsonOnly">hiveapJsonOnly</result>
+			<result type="tiles" name="devicePageJsonOnly">devicePageJsonOnly</result>
+			<result type="tiles" name="hiveapDlg">hiveapDlg</result>
+			<result type="tiles" name="showPortDetails">portDetails</result>
+			<result name="json">/tiles/json.jsp</result>
+
+			<result name="hiveApDetails" type="redirectAction">
+				<param name="actionName">hiveApMonitor</param>
+				<param name="operation">hiveApDetails</param>
+				<param name="id">${id}</param>
+			</result>
+			<result name="newTemplate" type="redirectAction">
+				<param name="actionName">configTemplate</param>
+				<param name="operation">new</param>
+			</result>
+			<result name="newCapwapIp" type="redirectAction">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="ipType">capwapIp</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result name="newCapwapBackupIp" type="redirectAction">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="ipType">capwapBackupIp</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result name="newScheduler" type="redirectAction">
+				<param name="actionName">scheduler</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${isContentShownInDlg || parentIframeOpenFlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="newPPPoE" type="redirectAction">
+				<param name="actionName">pppoe</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${isContentShownInDlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="newIpTrack" type="redirectAction">
+				<param name="actionName">mgmtIpTrack</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result name="newRadius" type="redirectAction">
+				<param name="actionName">radiusOnHiveAp</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="enable4Router">${newEditRadiusForBrFlg}</param>
+			</result>
+			<result name="newRadiusProxy" type="redirectAction">
+				<param name="actionName">radiusProxy</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="enable4Router">${newEditRadiusForBrFlg}</param>
+			</result>
+			<result name="newRoutingPbrPolicy" type="redirectAction">
+				<param name="actionName">routingProfilePolicy</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="newVpn" type="redirectAction">
+				<param name="actionName">vpnServices</param>
+				<param name="operation">new</param>
+			</result>
+			<result name="newDhcpServer" type="redirectAction">
+				<param name="actionName">vlanDhcpServer</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="newMacAddressEth0" type="redirectAction">
+				<param name="actionName">macAddress</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="newMacAddressEth1" type="redirectAction">
+				<param name="actionName">macAddress</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="newMacAddressAgg0" type="redirectAction">
+				<param name="actionName">macAddress</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="newMacAddressRed0" type="redirectAction">
+				<param name="actionName">macAddress</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="newUserProfileEth0" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="newUserProfileEth1" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="newUserProfileAgg0" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="newUserProfileRed0" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="newEthCwpUserprofile" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="newEthCwpRadiusClient" type="redirectAction">
+				<param name="actionName">radiusAssignment</param>
+				<param name="operation">new</param>
+			</result>
+			<result name="newEthCwpCwpProfile" type="redirectAction">
+				<param name="actionName">captivePortalWeb</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">${contentShowType}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result name="newEthCwpDefaultAuthUserProfile" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="newEthCwpDefaultRegUserProfile" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="newCapwapIpMulti" type="redirectAction">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="ipType">capwapIp</param>
+			</result>
+			<result name="newCapwapBackupIpMulti" type="redirectAction">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="ipType">capwapBackupIp</param>
+			</result>
+			<result name="newSchedulerMulti" type="redirectAction">
+				<param name="actionName">scheduler</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${contentShownInDlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="newWifi0RadioProfile" type="redirectAction">
+				<param name="actionName">radioProfile</param>
+				<param name="operation">new</param>
+				<param name="radioType">${radioType}</param>
+				<param name="radioProfileName">${radioProfileName}</param>
+				<param name="radioProfileMode">${radioProfileMode}</param>
+				<param name="radioProfileChannelWidth">${radioProfileChannelWidth}</param>
+			</result>
+			<result name="newWifi1RadioProfile" type="redirectAction">
+				<param name="actionName">radioProfile</param>
+				<param name="operation">new</param>
+				<param name="radioType">${radioType}</param>
+				<param name="radioProfileName">${radioProfileName}</param>
+				<param name="radioProfileMode">${radioProfileMode}</param>
+				<param name="radioProfileChannelWidth">${radioProfileChannelWidth}</param>
+			</result>
+			<result name="newTemplateMulti" type="redirectAction">
+				<param name="actionName">configTemplate</param>
+				<param name="operation">new</param>
+			</result>
+			<result name="newWifi0RadioProfileMulti" type="redirectAction">
+				<param name="actionName">radioProfile</param>
+				<param name="operation">new</param>
+				<param name="radioType">${radioType}</param>
+			</result>
+			<result name="newWifi1RadioProfileMulti" type="redirectAction">
+				<param name="actionName">radioProfile</param>
+				<param name="operation">new</param>
+				<param name="radioType">${radioType}</param>
+			</result>
+			<result name="newRouting" type="redirectAction">
+				<param name="actionName">routingProfiles</param>
+				<param name="operation">new</param>
+			</result>
+            <result name="newWifiClientPreferredSsid" type="redirectAction">
+                <param name="actionName">wifiClinetPerferredSsid</param>
+                <param name="operation">new</param>
+            </result>
+			<result name="upgradeConfiguration" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">wizard</param>
+			</result>
+			<result name="upgradeImage" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">imageInput</param>
+			</result>
+			<result name="upgradeSignature" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">signatureInput</param>
+			</result>
+			<result name="upgradeBootstrap" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">bootstrapInput</param>
+			</result>
+			<result name="upgradeCountryCode" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">countryCodeInput</param>
+			</result>
+			<result name="upgradeCwp" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">cwpInput</param>
+			</result>
+			<result name="upgradeCert" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">certInput</param>
+			</result>
+			<result name="upgradeConfigurationS" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">scritpInput</param>
+			</result>
+			<result name="upgradeLocalUserS" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">localUserInput</param>
+			</result>
+			<result name="upgradePskS" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">pskInput</param>
+			</result>
+			<result name="upgradePoe" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">poeInput</param>
+			</result>
+			<result name="upgradeNetdump" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">netdumpInput</param>
+			</result>
+			<result type="redirectAction" name="newConfigmdmPolicy">
+				<param name="actionName">configmdm</param>
+				<param name="operation">new</param>
+				<param name="id">${configmdmId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				
+			</result>
+			<result type="redirectAction" name="editConfigmdmPolicy">
+				<param name="actionName">configmdm</param>
+				<param name="operation">edit</param>
+				<param name="id">${configmdmId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+			</result>
+			<result name="upgradeVpn" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">vpnInput</param>
+			</result>
+			<result name="import" type="redirectAction">
+				<param name="actionName">importCsvFile</param>
+				<param name="operation">importFiles</param>
+			</result>
+			<result name="importNew" type="redirectAction">
+				<param name="actionName">importCsvFile</param>
+				<param name="operation">importFiles</param>
+			</result>
+			<result name="editCapwapIpMulti" type="redirectAction">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${capwapIp}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="ipType">capwapIp</param>
+			</result>
+			<result name="editCapwapBackupIpMulti" type="redirectAction">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${capwapBackupIp}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="ipType">capwapBackupIp</param>
+			</result>
+			<result name="editSchedulerMulti" type="redirectAction">
+				<param name="actionName">scheduler</param>
+				<param name="operation">edit</param>
+				<param name="id">${scheduler}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${contentShownInDlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="editTemplateMulti" type="redirectAction">
+				<param name="actionName">configTemplate</param>
+				<param name="operation">edit</param>
+				<param name="id">${configTemplate}</param>
+			</result>
+			<result name="editWifi0RadioProfileMulti" type="redirectAction">
+				<param name="actionName">radioProfile</param>
+				<param name="operation">edit</param>
+				<param name="id">${wifi0RadioProfile}</param>
+			</result>
+			<result name="editWifi1RadioProfileMulti" type="redirectAction">
+				<param name="actionName">radioProfile</param>
+				<param name="operation">edit</param>
+				<param name="id">${wifi1RadioProfile}</param>
+			</result>
+			<result name="editTemplate" type="redirectAction">
+				<param name="actionName">configTemplate</param>
+				<param name="operation">edit</param>
+				<param name="id">${configTemplate}</param>
+			</result>
+			<result name="editWifi0RadioProfile" type="redirectAction">
+				<param name="actionName">radioProfile</param>
+				<param name="operation">edit</param>
+				<param name="id">${wifi0RadioProfile}</param>
+			</result>
+			<result name="editWifi1RadioProfile" type="redirectAction">
+				<param name="actionName">radioProfile</param>
+				<param name="operation">edit</param>
+				<param name="id">${wifi1RadioProfile}</param>
+			</result>
+			<result name="editCapwapIp" type="redirectAction">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${capwapIp}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result name="editCapwapBackupIp" type="redirectAction">
+				<param name="actionName">ipAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${capwapBackupIp}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result name="editScheduler" type="redirectAction">
+				<param name="actionName">scheduler</param>
+				<param name="operation">edit</param>
+				<param name="id">${scheduler}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${isContentShownInDlg || parentIframeOpenFlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="editPPPoE" type="redirectAction">
+				<param name="actionName">pppoe</param>
+				<param name="operation">edit</param>
+				<param name="id">${pppoeAuthProfile}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${isContentShownInDlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="editIpTrack" type="redirectAction">
+				<param name="actionName">mgmtIpTrack</param>
+				<param name="operation">edit</param>
+				<param name="id">${vpnIpTrackId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result name="editRadius" type="redirectAction">
+				<param name="actionName">radiusOnHiveAp</param>
+				<param name="operation">edit</param>
+				<param name="id">${radiusServer}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="enable4Router">${newEditRadiusForBrFlg}</param>
+			</result>
+			<result name="editRadiusProxy" type="redirectAction">
+				<param name="actionName">radiusProxy</param>
+				<param name="operation">edit</param>
+				<param name="id">${radiusProxy}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="enable4Router">${newEditRadiusForBrFlg}</param>
+			</result>
+			<result name="editRoutingPbrPolicy" type="redirectAction">
+				<param name="actionName">routingProfilePolicy</param>
+				<param name="operation">edit</param>
+				<param name="id">${routingPolicyId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="editVpn" type="redirectAction">
+				<param name="actionName">vpnServices</param>
+				<param name="operation">edit</param>
+				<param name="id">${vpnServer}</param>
+			</result>
+			<result name="editDhcpServer" type="redirectAction">
+				<param name="actionName">vlanDhcpServer</param>
+				<param name="operation">edit</param>
+				<param name="id">${dhcpServer}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="editMacAddressEth0" type="redirectAction">
+				<param name="actionName">macAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${learningMacId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="editMacAddressEth1" type="redirectAction">
+				<param name="actionName">macAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${learningMacId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="editMacAddressAgg0" type="redirectAction">
+				<param name="actionName">macAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${learningMacId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="editMacAddressRed0" type="redirectAction">
+				<param name="actionName">macAddress</param>
+				<param name="operation">edit</param>
+				<param name="id">${learningMacId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+			</result>
+			<result name="editUserProfileEth0" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${userProfileEth0}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="editUserProfileEth1" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${userProfileEth1}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="editUserProfileAgg0" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${userProfileAgg0}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="editUserProfileRed0" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${userProfileRed0}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="editEthCwpUserprofile" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${ethUserProfileId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="editEthCwpCwpProfile" type="redirectAction">
+				<param name="actionName">captivePortalWeb</param>
+				<param name="operation">edit</param>
+				<param name="id">${cwpProfile}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">${contentShowType}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result name="editEthCwpDefaultAuthUserProfile" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${ethDefaultAuthUserprofile}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="editEthCwpDefaultRegUserProfile" type="redirectAction">
+				<param name="actionName">userProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${ethDefaultRegUserprofile}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="contentShowType">dlg</param>
+				<param name="blnForceUpControl">${blnForceUsingWREnable}</param>
+			</result>
+			<result name="editEthCwpRadiusClient" type="redirectAction">
+				<param name="actionName">radiusAssignment</param>
+				<param name="operation">edit</param>
+				<param name="id">${ethCwpRadiusClient}</param>
+			</result>
+			<result name="editRouting" type="redirectAction">
+				<param name="actionName">routingProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${routingProfile}</param>
+			</result>
+            <result name="editWifiClientPreferredSsid" type="redirectAction">
+                <param name="actionName">wifiClinetPerferredSsid</param>
+                <param name="operation">edit</param>
+                <param name="id">${preferredSsid}</param>
+            </result>
+			<result type="redirectAction" name="guidedConfiguration">
+			    <param name="actionName">configGuide</param>
+			    <param name="operation">back</param>
+			</result>
+			<result type="redirectAction" name="vpnService">
+				<param name="actionName">vpnServices</param>
+				<param name="operation">continue</param>
+				<param name="vpnGateWayId">${id}</param>
+			</result>
+			<result name="upgradeOutdoor" type="redirectAction">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">outdoorSettingsInput</param>
+			</result>
+			<result type="redirectAction" name="subnetworkAllocations">
+				<param name="actionName">subnetworkAllocations</param>
+				<param name="operation">list</param>
+			</result>
+			<result type="redirectAction" name="newMgtDns">
+				<param name="actionName">mgmtServiceDns</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result type="redirectAction" name="editMgtDns">
+				<param name="actionName">mgmtServiceDns</param>
+				<param name="operation">edit</param>
+				<param name="id">${dnsForCVGId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result type="redirectAction" name="newMgtTime">
+				<param name="actionName">mgmtServiceTime</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result type="redirectAction" name="editMgtTime">
+				<param name="actionName">mgmtServiceTime</param>
+				<param name="operation">edit</param>
+				<param name="id">${ntpForCVGId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result type="redirectAction" name="newMgtSyslog">
+				<param name="actionName">mgmtServiceSyslog</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result type="redirectAction" name="editMgtSyslog">
+				<param name="actionName">mgmtServiceSyslog</param>
+				<param name="operation">edit</param>
+				<param name="id">${syslogForCVGId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result type="redirectAction" name="newMgtSnmp">
+				<param name="actionName">mgmtServiceSnmp</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result type="redirectAction" name="editMgtSnmp">
+				<param name="actionName">mgmtServiceSnmp</param>
+				<param name="operation">edit</param>
+				<param name="id">${snmpForCVGId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${parentIframeOpenFlg}</param>
+			</result>
+			<result type="redirectAction" name="newMstpRegion">
+				<param name="actionName">mstpRegion</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="editMstpRegion">
+				<param name="actionName">mstpRegion</param>
+				<param name="operation">edit</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="id">${mstpRegionId}</param>
+			</result>
+			<result type="redirectAction" name="newLldpCdp">
+				<param name="actionName">lldpcdpProfiles</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="adaptedDeviceType">2</param>
+			</result>
+			<result type="redirectAction" name="editLldpCdp">
+				<param name="actionName">lldpcdpProfiles</param>
+				<param name="operation">edit</param>
+				<param name="id">${lldpCdpId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="adaptedDeviceType">2</param>
+			</result>
+			<result type="redirectAction" name="rebootHiveAPs">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">rebootHiveAPs</param>
+			</result>
+			<result type="redirectAction" name="uploadWizard">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">uploadWizard</param>
+				<param name="sessionToken">${sessionTokenInfo}</param>
+				<param name="simpleUpdate">true</param>
+				<param name="completeCfgUpdate">${completeCfgUpdate}</param>
+				<param name="imageUpgrade">${imageUpgrade}</param>
+				<param name="forceImageUpgrade">${forceImageUpgrade}</param>
+				<param name="simplifiedRebootType">${simplifiedRebootType}</param>
+			</result>
+			<result type="redirectAction" name="getDeviceCounts">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">getDeviceCounts</param>
+			</result>
+			<result name="exportDeviceInventory" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localCSVFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result type="redirectAction" name="newSuppCLI">
+				<param name="actionName">supplementalCLI</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${isContentShownInDlg || parentIframeOpenFlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result type="redirectAction" name="editSuppCLI">
+				<param name="actionName">supplementalCLI</param>
+				<param name="operation">edit</param>
+				<param name="id">${supplementalCLIId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${isContentShownInDlg || parentIframeOpenFlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			
+			<result name="newSuppCLIMulti" type="redirectAction">
+				<param name="actionName">supplementalCLI</param>
+				<param name="operation">new</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${contentShownInDlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			<result name="editSuppCLIMulti" type="redirectAction">
+				<param name="actionName">supplementalCLI</param>
+				<param name="operation">edit</param>
+				<param name="id">${supplementalCLIId}</param>
+				<param name="jsonMode">${jsonMode}</param>
+				<param name="parentDomID">${parentDomID}</param>
+				<param name="parentIframeOpenFlg">${contentShownInDlg}</param>
+				<param name="contentShowType">dlg</param>
+			</result>
+			
+			<!-- HiveAp page return to unManaged page begin-->
+			<result type="redirectAction" name="di_list">
+				<param name="actionName">deviceInventory</param>
+				<param name="operation">null</param>
+				<param name="diMenuTypeKey">${diMenuTypeKey}</param>
+			</result>
+			<!-- HiveAp page return to unManaged page end-->
+			
+		</action>
+
+		<action name="deviceMappingRedirector" class="com.ah.ui.actions.hiveap.DeviceMappingRedirectorAction">
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="idp" class="com.ah.ui.actions.hiveap.IdpAction">
+			<result type="tiles">rogueApList</result>
+			<result type="tiles" name="friendlyAps">friendlyApList</result>
+			<result type="tiles" name="rogueAps">rogueApList</result>
+			<result type="tiles" name="rogueClient">rogueClientList</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="hiveApUpdate"
+			class="com.ah.ui.actions.hiveap.HiveApUpdateAction">
+			<result type="tiles" name="imageInput">hiveApUpdates</result>
+			<result type="tiles" name="signatureInput">signatureInput</result>
+			<result type="tiles" name="bootstrapInput">hiveApUpdateBootstrapInput</result>
+			<result type="tiles" name="countryCodeInput">hiveApCountryCodeInput</result>
+			<result type="tiles" name="poeInput">poeInput</result>
+			<result type="tiles" name="netdumpInput">netdumpInput</result>
+			<result type="tiles" name="configInput">hiveApConfigInput</result>
+			<result type="tiles" name="updateOptionEx">configUploadOptionEx</result>
+			<result type="tiles" name="updateOptionJson">configUploadOptionJson</result>
+			<result type="tiles" name="countryCodeInputJson">hiveApCountryCodeInputJson</result>
+			<result type="tiles" name="outdoorSettingsInput">hiveApOutdoorSettingsInput</result>
+			<result name="managedHiveAps" type="redirectAction">
+				<param name="actionName">hiveAp</param>
+			</result>
+			<result name="input" type="redirectAction">
+				<param name="actionName">hiveAp</param>
+			</result>
+			<result name="hiveApUpdateResultsList" type="redirectAction">
+				<param name="actionName">hiveApUpdateRts</param>
+			</result>
+			<result name="importImage" type="redirectAction">
+				<param name="actionName">hiveApFile</param>
+				<param name="operation">newFiles</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+
+		</action>
+
+		<action name="hiveApFile"
+			class="com.ah.ui.actions.hiveap.HiveApFileAction">
+			<result>/config/hiveAps/hiveApFile.jsp</result>
+			<result name="input">/config/hiveAps/hiveApFile.jsp</result>
+			<result name="error">/config/hiveAps/hiveApFile.jsp</result>
+			<result type="redirectAction" name="hiveApImageUpdate">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">continueImage</param>
+				<param name="selectedImage">${uploadFileName}</param>
+			</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="hiveApUpdateRts"
+			class="com.ah.ui.actions.hiveap.HiveApUpdateResultAction">
+			<result type="tiles">hiveApUpdateResultsList</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result type="redirectAction" name="rebootHiveAPs">
+				<param name="actionName">hiveApUpdate</param>
+				<param name="operation">rebootHiveAPs</param>
+			</result>
+		</action>
+
+		<action name="hiveApMonitor"
+			class="com.ah.ui.actions.hiveap.HiveApMonitor">
+			<result type="tiles">hiveApDetails</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result name="dashBoardhData">/monitor/reports/apDashBoardData.jsp</result>
+			<result name="brDashBoardData">/monitor/reports/brDashBoardData.jsp</result>
+			<result name="vpnGatewayDashBoardData">/monitor/reports/vpnGatewayDashBoardData.jsp</result>
+			<result name="vpnAsApDashBoardData">/monitor/reports/vpnAsApDashBoardData.jsp</result>
+			<result name="switchDashBoardData">/monitor/reports/switchDashBoardData.jsp</result>
+		</action>
+
+		<action name="events"
+			class="com.ah.ui.actions.monitor.AhEventsAction">
+			<result type="tiles">eventList</result>
+			<result name="export">/monitor/traps/eventListExport.jsp</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="alarms"
+			class="com.ah.ui.actions.monitor.AhAlarmsAction">
+			<result type="tiles">alarmList</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="clientMonitor"
+			class="com.ah.ui.actions.monitor.ClientMonitorAction">
+			<result name="input" type="tiles">clientDetail</result>
+			<result type="tiles">clientMonitorList</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result name="activeClientSwf">/monitor/reports/activeClientSwfData.jsp</result>
+			<result type="redirectAction" name="newClientWatch">
+				<param name="actionName">watchList</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="addToClientWatch">
+				<param name="actionName">watchList</param>
+				<param name="operation">addClients</param>
+				<param name="watchName">${clientWatchName}</param>
+				<param name="clientMacs">${selectedClientsMac}</param>
+				<param name="clientNames">${selectedClientsName}</param>
+			</result>
+			<result type="redirectAction" name="addToComputerCart">
+				<param name="actionName">tvComputerCart</param>
+				<param name="operation">addClients</param>
+				<param name="cartName">${clientWatchName}</param>
+				<param name="clientMacs">${selectedClientsMac}</param>
+				<param name="clientNames">${selectedClientsName}</param>
+			</result>
+			<result type="tiles" name="clientTsInfoDlgJson">clientTsInfo</result>
+		</action>
+		
+		<action name="enrolledClients"
+			class="com.ah.ui.actions.monitor.enrolledclient.EnrolledClientsListAction">
+			<result type="tiles">enrolledClients</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+		
+		<action name="unenrolledClients"
+			class="com.ah.ui.actions.monitor.enrolledclient.EnrolledClientsListAction"
+			method="unenrolledClients">
+			<result type="tiles">enrolledClients</result>
+		</action>
+		
+		<action name="refreshClients"
+			class="com.ah.ui.actions.monitor.enrolledclient.EnrolledClientsListAction"
+			method="refreshClients">
+			<result type="tiles">enrolledClients</result>
+		</action>
+		
+		<action name="showDetails"
+			class="com.ah.ui.actions.monitor.enrolledclient.EnrolledClientsListAction"
+			method="showDetails">
+			<result type="tiles">detailsClient</result>
+			<result type="redirectAction" name="enrolledList">enrolledClients</result>
+		</action>
+		
+		<action name="doDeleteDevices"
+			class="com.ah.ui.actions.monitor.enrolledclient.EnrolledClientsListAction"
+			method="deleteDevices">
+			<result type="tiles">enrolledClients</result>
+		</action>
+		<action name="deWipeDevices"
+			class="com.ah.ui.actions.monitor.enrolledclient.EnrolledClientsListAction"
+			method="wipeDevices">
+			<result type="tiles">enrolledClients</result>
+		</action>
+		<action name="doRetrieveDevices"
+			class="com.ah.ui.actions.monitor.enrolledclient.EnrolledClientsListAction"
+			method="retrieveDevices">
+			<result type="tiles">enrolledClients</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+		
+		<action name="clientModifications"
+			class="com.ah.ui.actions.monitor.ClientModifyAction">
+			<result type="tiles">clientModifications</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="watchList"
+			class="com.ah.ui.actions.monitor.LocationClientWatchAction">
+			<result type="tiles">watchList</result>
+			<result name="input" type="tiles">clientWatch</result>
+			<result name="locationClientWatchJson" type="tiles">locationClientWatchJson</result>
+			<result type="redirectAction" name="clientMonitor">
+				<param name="actionName">clientMonitor</param>
+				<param name="operation"/>
+			</result>
+			<result type="redirectAction" name="wirelessClient">
+				<param name="actionName">clientMonitor</param>
+				<param name="operation"/>
+				<param name="listType">wireless</param>
+			</result>
+			<result type="redirectAction" name="wiredClient">
+				<param name="actionName">clientMonitor</param>
+				<param name="operation"/>
+				<param name="listType">wired</param>
+			</result>
+			<result type="redirectAction" name="configTemplate">
+				<param name="actionName">configTemplate</param>
+				<param name="operation">continue</param>
+				<param name="clientWatchId">${id}</param>
+			</result>
+		</action>
+
+		<action name="reports"
+			class="com.ah.ui.actions.monitor.ReportsAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles" name="summary">summary</result>
+			<result name="summaryWidgetAlarmData">/monitor/reports/summaryWidgetAlarm.jsp</result>
+			<result name="summaryWidgetRadioData">/monitor/reports/summaryWidgetRadio.jsp</result>
+			<result name="summaryWidgetBandwidthData">/monitor/reports/summaryWidgetBandwidth.jsp</result>
+			<result name="summaryWidgetComplianceData">/monitor/reports/summaryWidgetCompliance.jsp</result>
+			<result name="summaryWidgetUserprofileData">/monitor/reports/summaryWidgetUserprofile.jsp</result>
+			<result name="summaryWidgetVendorData">/monitor/reports/summaryWidgetVendor.jsp</result>
+			<result name="summaryWidgetApSlaData">/monitor/reports/summaryWidgetApSla.jsp</result>
+			<result name="summaryWidgetClientSlaData">/monitor/reports/summaryWidgetClientSla.jsp</result>
+			<result name="summaryWidgetSystemCpuData">/monitor/reports/summaryWidgetSystemCpu.jsp</result>
+			<result name="summaryWidgetSystemUserData">/monitor/reports/summaryWidgetSystemUser.jsp</result>
+			<result name="summaryWidgetSystemPerformanceData">/monitor/reports/summaryWidgetSystemPerformance.jsp</result>
+			<result name="summaryWidgetApVersionData">/monitor/reports/summaryWidgetApVersion.jsp</result>
+			<result name="summaryWidgetApUptimeData">/monitor/reports/summaryWidgetApUptime.jsp</result>
+			<result name="summaryWidgetActiveUserData">/monitor/reports/summaryWidgetActiveUser.jsp</result>
+		</action>
+
+		<action name="customReportList"
+			class="com.ah.ui.actions.monitor.CustomReportListAction">
+			<result type="tiles">customReportList</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result name="input" type="tiles">customReport</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="pciCompliance"
+			class="com.ah.ui.actions.monitor.PciComplianceAction">
+			<result type="tiles">pciReportList</result>
+			<result type="tiles" name="input">pciCompliance</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="networkUsageReport"
+			class="com.ah.ui.actions.monitor.NetworkUsageReportAction">
+			<result type="tiles">networkReportList</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles" name="input">networkReport</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="reportExport"
+			class="com.ah.ui.actions.monitor.ReportExportAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles" name="chartEmailConfig">chartEmailConfig</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="error" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">errorInputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${errorFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="reportData"
+			class="com.ah.ui.actions.monitor.ReportDataAction">
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="reportLoginUser"
+			class="com.ah.ui.actions.monitor.ReportLoginUserAction">
+			<result type="tiles">reportLoginUserList</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles" name="summaryUserUsage">reportLoginUser</result>
+			<result type="tiles" name="detailUserUsage">reportLoginUser</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="reportList"
+			class="com.ah.ui.actions.monitor.ReportListAction">
+			<result type="tiles">reportList</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles" name="radioReports">reportDetailGraph</result>
+			<result type="tiles" name="ssidReports">reportDetailGraph</result>
+			<result type="tiles" name="clientReports">reportDetailGraph</result>
+			<result type="tiles" name="channelPowerNoise">reportDetailGraph</result>
+			<result type="tiles" name="radioAirTime">reportDetailGraph</result>
+			<result type="tiles" name="radioTrafficMetrics">reportDetailGraph</result>
+			<result type="tiles" name="radioTroubleShooting">reportDetailGraph</result>
+			<result type="tiles" name="radioInterference">reportDetailGraph</result>
+			<result type="tiles" name="ssidTrafficMetrics">reportDetailGraph</result>
+			<result type="tiles" name="ssidTroubleShooting">reportDetailGraph</result>
+			<result type="tiles" name="ssidAirTime">reportDetailGraph</result>
+			<result type="tiles" name="mostClientsAPs">reportDetailGraph</result>
+			<result type="tiles" name="clientAirTime">reportDetailGraph</result>
+			<result type="tiles" name="clientSession">reportDetailGraph</result>
+			<result type="tiles" name="clientCount">reportDetailGraph</result>
+			<result type="tiles" name="uniqueClientCount">reportDetailGraph</result>
+			<result type="tiles" name="clientAuth">reportDetailGraph</result>
+			<result type="tiles" name="clientVendor">reportDetailGraph</result>
+			<result type="tiles" name="securityRogueAPs">reportDetailGraph</result>
+			<result type="tiles" name="securityRogueClients">reportDetailGraph</result>
+			<result type="tiles" name="compliance">reportDetailGraph</result>
+			<result type="tiles" name="hiveApNonCompliance">reportDetailGraph</result>
+			<result type="tiles" name="clientNonCompliance">reportDetailGraph</result>
+			<result type="tiles" name="meshNeighbors">reportDetailGraph</result>
+			<result type="tiles" name="inventory">reportDetailGraph</result>
+			<result type="tiles" name="hiveApSla">reportDetailGraph</result>
+			<result type="tiles" name="clientSla">reportDetailGraph</result>
+			<result type="tiles" name="maxClient">reportDetailGraph</result>
+			<result type="tiles" name="hiveApConnection">reportDetailGraph</result>
+			<result type="tiles" name="summaryUserUsage">reportDetailGraph</result>
+			<result type="tiles" name="detailUserUsage">reportDetailGraph</result>
+			<result name="reportListData">/monitor/reports/reportListData.jsp</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="vpnReportList"
+			class="com.ah.ui.actions.monitor.VpnReportListAction">
+			<result type="tiles">vpnReportList</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles" name="wiredBrReports">vpnReportDetailGraph</result>
+			<result type="tiles" name="wiredCvgReports">vpnReportDetailGraph</result>
+			<result type="tiles" name="vpnBrReports">vpnReportDetailGraph</result>
+			<result type="tiles" name="vpnCvgReports">vpnReportDetailGraph</result>
+			<result type="tiles" name="vpnThroughput">vpnReportDetailGraph</result>
+			<result type="tiles" name="vpnLatency">vpnReportDetailGraph</result>
+			<result type="tiles" name="vpnAvailability">vpnReportDetailGraph</result>
+			<result type="tiles" name="wanThroughput">vpnReportDetailGraph</result>
+			<result type="tiles" name="wanAvailability">vpnReportDetailGraph</result>
+			<result type="tiles" name="gwVpnAvailability">vpnReportDetailGraph</result>
+			<result type="tiles" name="gwWanThroughput">vpnReportDetailGraph</result>
+			<result type="tiles" name="gwWanAvailability">vpnReportDetailGraph</result>
+			<result name="vpnReportListData">/monitor/reports/vpnReportListData.jsp</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="reportSetting"
+			class="com.ah.ui.actions.monitor.ReportSettingAction">
+			<result type="tiles">reportSetting</result>
+		</action>
+		
+		<action name="retailAnalytics"
+			class="com.ah.ui.actions.monitor.RetailAnalyticsAction">
+			<result type="tiles">retailAnalytics</result>
+			<result type="tiles" name="retailSensorData">retailSensorData</result>
+			<result type="tiles" name="input">retailConfig</result>
+		</action>
+		
+		<action name="clientSurvey"
+			class="com.ah.ui.actions.monitor.ClientSurveyAction">
+			<result type="tiles">clientSurvey</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="subnetworkAllocations"
+            class="com.ah.ui.actions.monitor.SubnetworkAllocationAction">
+            <result type="tiles">subnetworkAllocationList</result>
+            <result name="export">/jsp/monitor/subnetworkAllocationListExport.jsp</result>
+            <result name="json">/tiles/json.jsp</result>
+            <result type="redirectAction" name="editAp">
+				<param name="actionName">hiveAp</param>
+				<param name="operation">edit2</param>
+				<param name="id">${selctedHiveApId}</param>
+				<param name="domainId">${selctedOwnerId}</param>
+			</result>
+        </action>
+
+		<action name="bonjourGatewayMonitoring"
+            class="com.ah.ui.actions.monitor.BonjourGatewayMonitoringAction">
+            <result type="tiles">bonjourGatewayMonitoring</result>
+            <result type="tiles" name="input">bonjourGatewayMonitoring</result>
+            <result name="json">/tiles/json.jsp</result>
+
+            <result type="redirectAction" name="configGuide2">
+			    <param name="actionName">configGuide</param>
+			    <param name="networkPolicyId4Drawer">${networkId}</param>
+			</result>
+        </action>
+
+        <action name="oneTimePassword"
+            class="com.ah.ui.actions.monitor.OneTimePasswordAction">
+            <result type="tiles">oneTimePasswordList</result>
+            <result type="tiles" name="input">oneTimePassword</result>
+            <result name="export">/jsp/monitor/oneTimePasswordListExport.jsp</result>
+            <result type="redirectAction" name="import">
+				<param name="actionName">importCsvFile</param>
+				<param name="operation">importFiles</param>
+			</result>
+        </action>
+
+	</package>
+</struts>

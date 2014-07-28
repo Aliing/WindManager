@@ -1,0 +1,7 @@
+Floor=floor_32x32.png
+Building=building_32x32.png
+Area=hexagon_32x32.png
+Region=oval_32x32.png
+House=house_32x32.png
+Pennant=penant_32x32.png
+Star=star_32x32.png

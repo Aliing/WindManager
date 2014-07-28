@@ -1,0 +1,58 @@
+PRE_LOGIN_TITLE:REDIR
+PRE_LOGIN_WAIT:Veuillez patienter…
+PRE_LOGIN_CONTENT:Si vous ne pouvez pas voir la page de connexion, fermez puis rouvrez votre navigateur et essayez de nouveau.
+FAIL_RADIUS_UNREACH:L’accès réseau est actuellement indisponible car la confirmation de votre inscription n’a pas encore été reçue par le serveur d’authentification. Veuillez réessayer ultérieurement et, si le problème persiste, veuillez contacter votre administrateur réseau.
+FAIL_CREDENTIAL_ERR:Le serveur d'authentification n'a pas pu associer les informations de connexion que vous avez renseignées avec un compte existant, ou le compte a expiré. Vérifiez votre nom d'utilisateur et votre mot de passe et essayez de nouveau. Si le problème persiste, veuillez contacter votre administrateur réseau pour vérifier le compte.
+FAIL_MANDATED_MISSED:Tous les champs marqués d'un astérisque sont obligatoires. Veuillez les renseigner tous et soumettre votre enregistrement de nouveau.
+FAIL_PPSK_INVALID_SSID:Un mot de passe ne peut pas être attribué. Veuillez contacter votre administrateur réseau et lui indiquer que le SSID hébergeant le portail captif n'est pas lié à un SSID utilisant l'authentification par clé partagée privée (PPSK).
+FAIL_PPSK_STA_DENIED:Un mot de passe ne peut pas être attribué car votre client est interdit d'accès sur le réseau. Pour plus d'informations, contactez votre administrateur réseau.
+FAIL_PPSK_NO_MORE_PSK:Plus aucun mot de passe disponible. Veuillez contacter votre administrateur réseau.
+FAIL_UNKNOWN:Erreur inconnue.
+FAIL_RETURN_TO_LOGIN:Vous allez être redirigé(e) automatiquement sur la page de connexion, ou vous pouvez retourner sur cette page de connexion en cliquant
+FAIL_HERE:ici.
+FAIL_REDIR:Vous allez être redirigé(e) vers
+FAIL_INTERNAL_ERR:Serveur Web - Erreur interne.
+TIMER_TIME_LEFT_PART1:Vous êtes enregistré(e) avec succès et vous pouvez maintenant accéder au réseau. Maintenez cette fenêtre ouverte pour vérifier le temps restant sur votre compte et pour vous déconnecter lorsque vous avez terminé. Il vous reste actuellement
+TIMER_TIME_LEFT_PART2:minutes.
+TIMER_LOG_OUT:Déconnexion
+TIMER_SHOW_DETAIL:Afficher les détails
+TIMER_BOOKMARK:Ajouter la page aux favoris
+TIMER_NOTE:NOTE
+TIMER_TITLE:Temps d'accès réseau restant
+TIMER_CUR_AP:Point d'accès actuel :
+TIMER_PRE_AP:Point d'accès précédent :
+TIMER_CUR_LAST_LOGOUT:Dernière déconnexion :
+TIMER_HIDE_DETAIL:Masquer les détails
+TIMER_NOTE_PART1:Vous êtes connecté(e) au réseau sans fil pour une période de temps limitée. Pour économiser votre temps d'accès, déconnectez-vous lorsque vous n'utilisez pas le réseau.
+TIMER_NOTE_PART2:Nous vous recommandons fortement d'ajouter cette page à vos favoris si vous souhaitez la fermer et la retrouver ensuite. Une nouvelle page intitulée « Temps d'accès réseau restant (
+TIMER_NOTE_PART3:) » sera ajoutée à votre liste de favoris. En ouvrant ce lien, vous pourrez voir combien de temps il vous reste dans votre session en cours.
+TIMER_TIME_LEFT2_PART1:moins d'une minute
+TIMER_NOTE_SESS_TIMEOUT:Votre session a expiré.
+TIMER_LOG_OUT_CONFIRM:Êtes-vous certain(e) de vouloir vous déconnecter ?
+TIMER_LEAVE:Lorsque vous êtes connecté(e) au réseau sans fil, maintenez la page de temps ouverte afin de vérifier l'état de votre session. Si vous souhaitez la fermer, ajoutez-la d'abord à votre liste de favoris, afin de pouvoir la rouvrir ultérieurement.
+TIMER_DAY:jour
+TIMER_DAYS:jours
+TIMER_HOUR:heure
+TIMER_HOURS:heures
+TIMER_MINUTE:minute
+TIMER_MINUTES:minutes
+TIMER_LEFT:restants
+TIMER_TO_BOOKMARK:Pour ajouter cette page à vos favoris, appuyez
+TIMER_TIME_OUT:Fin de session
+TIMER_NO_LONGER_CONNECT:Votre équipement n'est plus connecté avec le point d'accès. Veuillez vérifier vos paramètres réseau. Cette page se fermera dans
+TIMER_NO_LONGER_CONNECT2:minutes
+TIMER_NO_CONNECT:Votre équipement n'est pas connecté  au réseau.
+TIMER_NO_CONNECT_ALERT:Votre équipement n'est plus connecté au réseau. Veuillez vérifier vos paramètres réseau et essayez à nouveau.
+LOGOUT_TITLE:Déconnexion
+LOGOUT_LOGOUT_THK:Déconnecté. Merci.
+LOGOUT_NOTE:Vous pouvez maintenant fermer cette page.
+LOGOUT_SUMMARY:Résumé de session
+LOGOUT_LEFT_TIME:Temps de session restant
+LOGOUT_LEFT_MINUTES:minutes
+LOGOUT_IP:Adresse IP
+LOGOUT_AP:Point d'accès
+LOGOUT_LOGOUT_TIME:Heure de déconnexion
+LOGOUT_SENT:Octets envoyés
+LOGOUT_RECV:Octets reçus
+LOGOUT_BYTES:Octets
+PPSK_LOGIN_PAGE:Page de connexion

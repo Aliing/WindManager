@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices>
+	
+	<device deviceName="global">
+		<property>
+			<attribute key="spt_device_type"/>
+			<attribute key="default_device_type"/>
+			<attribute key="spt_radio_counts"/>
+			<attribute key="spt_ethernet_counts"/>
+			<attribute key="spt_sfp_counts" value="0"/>
+			<attribute key="spt_sfp_index"/>
+			<attribute key="spt_usb_counts" value="0"/>
+			<attribute key="spt_dynamic_routing" value="false"/>
+			<attribute key="spt_radius_server" value="true"/>
+			<attribute key="spt_bonjour_service" value="true"/>
+			<attribute key="spt_pse" value="false"/>
+			<attribute key="spt_wifi_client_mode" value="false"/>
+			<attribute key="spt_channel40M_for_2.4g" value="false"/>
+			<attribute key="spt_teacher_view" value="false"/>
+			<attribute key="spt_idm_proxy" value="false"/>
+			<attribute key="spt_L7_service" value="false"/>
+			<attribute key="spt_11ac" value="false"/>
+			<attribute key="spt_image_ls_name"/>
+			<attribute key="spt_image_internal_name"/>
+			<attribute key="spt_vpn_service_server" value="false"/>
+			<attribute key="spt_latest_version"/>
+			<attribute key="start_version"/>
+			<attribute key="spt_hive_ui" value="true"/>
+			<attribute key="spt_multiple_host" value="false"/>
+			<attribute key="SLA_max_11n_mcs_rate"/>
+			<attribute key="spt_SFPspeed_only_auto" value="false"/>
+			<attribute key="spt_device_image_counts"/>
+			<attribute key="spt_social_login" value="false"/>
+		</property>
+	</device>
+	
+	<device deviceName="all-AP" extends="global">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="AP"/>
+			</attribute>
+			<attribute key="default_device_type" value="AP"/>
+			<attribute key="spt_radio_counts" value="2"/>
+			<attribute key="spt_ethernet_counts" value="2"/>
+			<attribute key="spt_teacher_view" value="true"/>
+			<attribute key="spt_idm_proxy" value="true"/>
+			<attribute key="spt_L7_service" value="true" version="6.0.2.0"/>
+		</property>
+	</device>
+	
+	<device deviceName="all-BR" extends="global">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="BR"/>
+			</attribute>
+			<attribute key="default_device_type" value="BR"/>
+			<attribute key="spt_ethernet_counts" value="5"/>
+			<attribute key="spt_usb_counts" value="1"/>
+			<attribute key="spt_idm_proxy" value="true"/>
+			<attribute key="spt_L7_service" value="true" version="6.0.2.0"/>
+			<attribute key="spt_device_image_counts" value="2"/>
+		</property>
+	</device>
+	
+	<device deviceName="all-Switch" extends="global">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="Switch"/>
+			</attribute>
+			<attribute key="default_device_type" value="Switch"/>
+			<attribute key="spt_radio_counts" value="0"/>
+			<attribute key="spt_ethernet_counts" value="24"/>
+			<attribute key="spt_sfp_counts" value="4"/>
+			<attribute key="spt_sfp_index">
+				<option value="25"/>
+				<option value="26"/>
+				<option value="27"/>
+				<option value="28"/>
+			</attribute>
+			<attribute key="spt_image_ls_name">
+				<option value="SR2000"/>
+				<option value="HiveAPCHESAPEAKE"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="CHESAPEAKE"/>
+			</attribute>
+			<attribute key="spt_usb_counts" value="1"/>
+			<attribute key="spt_hive_ui" value="false"/>
+			<attribute key="spt_device_image_counts" value="2"/>
+		</property>
+	</device>
+	
+	<device deviceName="all-VPN" extends="global">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="VPN"/>
+				<option value="AP"/>
+			</attribute>
+			<attribute key="default_device_type" value="VPN"/>
+			<attribute key="spt_radio_counts" value="0"/>
+			<attribute key="spt_ethernet_counts" value="2"/>
+			<attribute key="spt_dynamic_routing" value="true"/>
+			<attribute key="spt_idm_proxy" value="true"/>
+			<attribute key="spt_L7_service" value="true" version="6.0.2.0"/>
+			<attribute key="spt_vpn_service_server" value="true"/>
+			<attribute key="spt_hive_ui" value="false"/>
+			<attribute key="spt_device_image_counts" value="2"/>
+		</property>
+	</device>
+	
+	
+
+	<device deviceName="DeviceNull" key="-1">
+		<property/>
+	</device>
+
+	<device deviceName="AP20" key="1" extends="global">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="AP"/>
+			</attribute>
+			<attribute key="default_device_type" value="AP"/>
+			<attribute key="spt_radio_counts" value="2"/>
+			<attribute key="spt_ethernet_counts" value="2"/>
+			<attribute key="spt_bonjour_service" value="false"/>
+			<attribute key="spt_image_ls_name">
+				<option value="HiveAP20" version="0.0.0.0"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="EAP6628"/>
+			</attribute>
+			<attribute key="start_version" value="2.1.4.0"/>
+			<attribute key="spt_device_image_counts" value="1"/>
+		</property>
+	</device>
+	
+	<device deviceName="AP28" key="0" extends="AP20" />
+	
+	<device deviceName="AP320" key="2" extends="all-AP">
+		<property>
+			<attribute key="spt_channel40M_for_2.4g" value="true"/>
+			<attribute key="spt_image_ls_name">
+				<option value="HiveAP300" version="0.0.0.0"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="HiveAP300"/>
+				<option value="AP5020N"/>
+			</attribute>
+			<attribute key="spt_vpn_service_server" value="true"/>
+			<attribute key="start_version" value="3.0.1.0"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="15"/>
+			<attribute key="spt_device_image_counts" value="2"/>
+			<attribute key="spt_social_login" value="true"/>
+		</property>
+	</device>
+	
+	<device deviceName="AP340" key="3" extends="AP320"/>
+	
+	<device deviceName="AP110" key="6" extends="all-AP">
+		<property>
+			<attribute key="spt_radio_counts" value="1"/>
+			<attribute key="spt_ethernet_counts" value="1"/>
+			<attribute key="spt_channel40M_for_2.4g" value="true"/>
+			<attribute key="spt_image_ls_name">
+				<option value="HiveAP100" version="0.0.0.0"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="AP120"/>
+			</attribute>
+			<attribute key="start_version" value="3.4.2.0"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="15"/>
+			<attribute key="spt_device_image_counts" value="1"/>
+			<attribute key="spt_social_login" value="true"/>
+		</property>
+	</device>
+	
+	<device deviceName="AP120" key="5" extends="AP110">
+		<property>
+			<attribute key="spt_radio_counts" value="2"/>
+			<attribute key="start_version" value="3.4.0.0"/>
+		</property>
+	</device>
+	
+	<device deviceName="AP121" key="15" extends="all-AP">
+		<property>
+			<attribute key="spt_ethernet_counts" value="1"/>
+			<attribute key="spt_image_ls_name">
+				<option value="HiveAPRIALTO" version="0.0.0.0"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="RIALTO"/>
+			</attribute>
+			<attribute key="start_version" value="5.0.1.0"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="15"/>
+			<attribute key="spt_device_image_counts" value="1"/>
+			<attribute key="spt_social_login" value="true"/>
+		</property>
+	</device>
+	
+	<device deviceName="AP141" key="16" extends="AP121"/>
+	
+	<device deviceName="AP170" key="12" extends="all-AP">
+		<property>
+			<attribute key="spt_ethernet_counts" value="1"/>
+			<attribute key="spt_channel40M_for_2.4g" value="true"/>
+			<attribute key="spt_image_ls_name">
+				<option value="HiveAP170" version="0.0.0.0"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="AP170"/>
+			</attribute>
+			<attribute key="start_version" value="4.1.1.0"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="15"/>
+			<attribute key="spt_device_image_counts" value="2"/>
+			<attribute key="spt_social_login" value="true"/>
+		</property>
+	</device>
+
+	<device deviceName="AP330" key="8" extends="all-AP">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="AP"/>
+				<option value="BR" version="5.0.0.0"/>
+			</attribute>
+			<attribute key="spt_usb_counts" value="1"/>
+			<attribute key="spt_wifi_client_mode" value="true"/>
+			<attribute key="spt_image_ls_name">
+				<option value="HiveAP350" version="0.0.0.0"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="AP350"/>
+				<option value="GOLDENGATE"/>
+			</attribute>
+			<attribute key="spt_vpn_service_server" value="true"/>
+			<attribute key="start_version" value="4.0.1.0"/>
+			<attribute key="spt_multiple_host" value="true" version="6.1.3.0"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="23"/>
+			<attribute key="spt_device_image_counts" value="2"/>
+			<attribute key="spt_social_login" value="true"/>
+		</property>
+	</device>
+	
+	<device deviceName="AP350" key="9" extends="AP330"/>
+	
+	<device deviceName="AP370" key="20" extends="all-AP">
+		<property>
+			<attribute key="spt_usb_counts" value="1"/>
+			<attribute key="spt_11ac" value="true"/>
+			<attribute key="spt_image_ls_name">
+				<option value="HiveAP370"/>
+				<option value="HiveAP390"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="AP390"/>
+			</attribute>
+			<attribute key="spt_vpn_service_server" value="true"/>
+			<attribute key="spt_latest_version" value="6.0.2.0"/>
+			<attribute key="start_version" value="6.0.2.0"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="23"/>
+			<attribute key="spt_device_image_counts" value="2"/>
+		</property>
+	</device>
+
+	<device deviceName="AP390" key="21" extends="AP370"/>
+	
+	<device deviceName="AP230" key="25" extends="all-AP">
+		<property>
+			<attribute key="spt_usb_counts" value="1"/>
+			<attribute key="spt_11ac" value="true"/>
+			<attribute key="spt_image_ls_name">
+				<option value="AP230"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="AP230"/>
+			</attribute>
+			<attribute key="spt_vpn_service_server" value="true"/>
+			<attribute key="start_version" value="6.1.5.0"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="23"/>
+			<attribute key="spt_multiple_host" value="true"/>
+			<attribute key="spt_device_image_counts" value="2"/>
+			<attribute key="spt_social_login" value="true"/>
+		</property>
+	</device>
+	
+	<device deviceName="VPN Gateway Virtual Appliance" key="10" extends="all-VPN">
+		<property>
+			<attribute key="spt_image_ls_name">
+				<option value="CloudVirtualGateway" version="0.0.0.0"/>
+				<option value="VPN Gateway Virtual Appliance" version="6.1.4.0"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="VHIVEOS"/>
+				<option value="VG-VA"/>
+			</attribute>
+			<attribute key="spt_vpn_service_server" value="true"/>
+			<attribute key="start_version" value="5.1.1.0"/>
+		</property>
+	</device>
+	
+	<device deviceName="VPN Gateway" key="26" extends="all-VPN">
+		<property>
+			<attribute key="spt_image_ls_name">
+				<option value="VPN Gateway" version="6.1.4.0"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="VG-1U"/>
+			</attribute>
+			<attribute key="spt_vpn_service_server" value="true"/>
+			<attribute key="start_version" value="6.1.4.0"/>
+		</property>
+	</device>	
+	
+	<device deviceName="BR100" key="11" extends="all-BR">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="BR"/>
+				<option value="AP" version="5.1.1.0"/>
+			</attribute>
+			<attribute key="spt_radio_counts" value="1"/>
+			<attribute key="spt_radius_server" value="false"/>
+			<attribute key="spt_bonjour_service" value="false"/>
+			<attribute key="spt_idm_proxy" value="false"/>
+			<attribute key="spt_L7_service" value="false"/>
+			<attribute key="spt_image_ls_name">
+				<option value="BR100"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="BR100"/>
+			</attribute>
+			<attribute key="start_version" value="5.0.1.0"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="7"/>
+			<attribute key="spt_device_image_counts" value="1"/>
+		</property>
+	</device>
+	
+	<device deviceName="BR200" key="13" extends="all-BR">
+		<property>
+			<attribute key="spt_radio_counts" value="0"/>
+			<attribute key="spt_pse" value="true"/>
+			<attribute key="spt_image_ls_name">
+				<option value="BR200"/>
+			</attribute>
+			<attribute key="spt_image_internal_name">
+				<option value="BR200"/>
+			</attribute>
+			<attribute key="start_version" value="5.0.3.0"/>
+		</property>
+	</device>
+	
+	<device deviceName="BR200-WP" key="14" extends="BR200">
+		<property>
+			<attribute key="spt_radio_counts" value="1"/>
+			<attribute key="spt_wifi_client_mode" value="true"/>
+			<attribute key="SLA_max_11n_mcs_rate" value="23"/>
+			<attribute key="spt_social_login" value="true"/>
+		</property>
+	</device>
+	
+	<device deviceName="BR200-LTE-VZ" key="19" extends="BR200-WP">
+		<property>
+			<attribute key="spt_wifi_client_mode" value="false"/>
+			<attribute key="start_version" value="6.1.2.0"/>
+		</property>
+	</device>
+	
+	<device deviceName="SR2024" key="17" extends="all-Switch">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="Switch"/>
+				<option value="BR"/>
+			</attribute>
+			<attribute key="start_version" value="6.0.1.0"/>
+		</property>
+	</device>
+	
+	<device deviceName="SR2024P" key="24" extends="all-Switch">
+		<property>
+			<attribute key="spt_device_type">
+				<option value="Switch"/>
+				<option value="BR"/>
+			</attribute>
+			<attribute key="start_version" value="6.1.2.0"/>
+		</property>
+	</device>
+
+	<device deviceName="SR2124P" key="22" extends="all-Switch">
+		<property>
+			<attribute key="spt_SFPspeed_only_auto" value="true"/>
+			<attribute key="spt_latest_version" value="6.1.4.0"/>
+			<attribute key="start_version" value="6.0.1.0"/>
+			<attribute key="spt_image_ls_name">
+				<option value="SR2000"/>
+				<option value="HiveAPCHESAPEAKE"/>
+				<option value="SR2100"/>
+			</attribute>
+		</property>
+	</device>
+	
+	<!-- only use for image select -->
+	<device deviceName="SR2124P-01" key="-22" extends="SR2124P">
+		<property>
+			<attribute key="spt_latest_version" value="6.1.3.0"/>
+		</property>
+	</device>
+	
+	<device deviceName="SR2148P" key="23" extends="all-Switch">
+		<property>
+			<attribute key="spt_ethernet_counts" value="48"/>
+			<attribute key="spt_SFPspeed_only_auto" value="true"/>
+			<attribute key="spt_sfp_index">
+				<option value="49"/>
+				<option value="50"/>
+				<option value="51"/>
+				<option value="52"/>
+			</attribute>
+			<attribute key="spt_latest_version" value="6.1.4.0"/>
+			<attribute key="start_version" value="6.1.2.0"/>
+			<attribute key="spt_image_ls_name">
+				<option value="SR2000"/>
+				<option value="HiveAPCHESAPEAKE"/>
+				<option value="SR2100"/>
+			</attribute>
+		</property>
+	</device>	
+				
+</devices>

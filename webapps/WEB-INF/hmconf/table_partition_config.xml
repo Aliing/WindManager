@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- max time policy
+	1: use default
+	2: calculate raw client stats max time base on device number of license, if no license , get from table logsettings, field is maxtimetableclisave
+	3: calculate raw device stats max time base on device number of license, if no license , get from table logsettings, field is maxtimetablepersave 
+	4: raw stats data,get from table logsettings, field is MaxOriginalCount
+	5: hour stats data, get from table logsettings, field is maxhourvalue
+	6: day stats data, get from table logsettings, field is maxdayvalue
+	7: week stats data, get from table logsettings, field is maxweekvalue
+-->
+<!-- interval policy
+	1: use default
+	2: get from table partiton number and max time
+-->
+<!-- max record number policy
+	1: use default
+	2: get from table logsettings, field is reportdbhourly
+	3: get from table logsettings, field is reportdbdaily
+	4: get from table logsettings, field is reportdbweekly
+	5: get from table logsettings, field is maxhistoryclientrecord
+	6: get from table logsettings, field is maxperfrecord
+-->
+		
+<tablepartition>
+	<catalog name="raw client stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>72</default_maxtime>
+		<default_interval>24</default_interval>	
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>1000000</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>2</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>5</max_record_policy>
+		
+		
+		<table name="hm_client_stats">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_association">
+			<schemaname>public</schemaname>
+			<timefield>time</timefield>
+		</table>
+		<table name="ah_clientsession_history">
+			<schemaname>public</schemaname>
+			<timefield>starttimestamp</timefield>
+		</table>
+		
+	</catalog>
+	
+	<catalog name="raw device stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>72</default_maxtime>
+		<default_interval>24</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>200000</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>3</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>6</max_record_policy>
+		
+		
+		<table name="HM_ACSPNEIGHBOR">
+			<schemaname>public</schemaname>
+			<timefield>time</timefield>
+		</table>
+		<table name="HM_INTERFERENCESTATS">
+			<schemaname>public</schemaname>
+			<timefield>time</timefield>
+		</table>
+		<table name="hm_interface_stats">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="HM_NEIGHBOR">
+			<schemaname>public</schemaname>
+			<timefield>time</timefield>
+		</table>
+		<table name="HM_XIF">
+			<schemaname>public</schemaname>
+			<timefield>stattimestamp</timefield>
+		</table>
+		<table name="HM_VIFSTATS">
+			<schemaname>public</schemaname>
+			<timefield>stattimestamp</timefield>
+		</table>
+		<table name="HM_RADIOATTRIBUTE">
+			<schemaname>public</schemaname>
+			<timefield>stattimestamp</timefield>
+		</table>
+		<table name="HM_RADIOSTATS">
+			<schemaname>public</schemaname>
+			<timefield>stattimestamp</timefield>
+		</table>
+		<table name="HM_BANDWIDTHSENTINEL_HISTORY">
+			<schemaname>public</schemaname>
+			<timefield>time</timefield>
+		</table>
+		<table name="HM_PCIDATA">
+			<schemaname>public</schemaname>
+			<timefield>reporttime</timefield>
+		</table>
+		<table name="ah_event">
+			<schemaname>public</schemaname>
+			<timefield>time</timefield>
+		</table>
+		
+	</catalog>
+	
+	<catalog name="hm stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>720</default_maxtime>
+		<default_interval>120</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>0</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>1</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>6</max_record_policy>
+		
+		
+		<table name="max_clients_count">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="AP_CONNECT_HISTORY_INFO">
+			<schemaname>public</schemaname>
+			<timefield>trapTime</timefield>
+		</table>
+		
+	</catalog>
+	
+	<catalog name="user stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>8760</default_maxtime>
+		<default_interval>1440</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>0</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>1</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>6</max_record_policy>
+		
+		
+		<table name="AH_ADMINLOGIN_SESSION">
+			<schemaname>public</schemaname>
+			<timefield>logintime</timefield>
+		</table>
+		<table name="AH_USERLOGIN_SESSION">
+			<schemaname>public</schemaname>
+			<timefield>logintime</timefield>
+		</table>
+		
+	</catalog>
+	
+	<catalog name="raw stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>24</default_maxtime>
+		<default_interval>6</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>500000</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>4</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>1</max_record_policy>
+		
+		
+		<table name="hm_device_stats">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="ah_new_sla_stats">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_switch_port_period_stats">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="ssid_clients_count">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="clients_osinfo_count">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		
+	</catalog>
+	
+	<catalog name="hour stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>48</default_maxtime>
+		<default_interval>8</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>2000000</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>5</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>2</max_record_policy>
+		
+		
+		<table name="hm_repo_apcpumem_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_app_data_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_client_data_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_hmcpumem_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_network_interface_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_newsla_stats_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_port_interface_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_switch_period_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_client_count_hour">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		
+	</catalog>
+	
+	<catalog name="day stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>720</default_maxtime>
+		<default_interval>120</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>2000000</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>6</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>3</max_record_policy>
+		
+		
+		<table name="hm_repo_apcpumem_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_app_data_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_client_data_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_hmcpumem_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_network_interface_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_newsla_stats_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_port_interface_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_switch_period_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_client_count_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_ssid_count_date">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		
+	</catalog>
+	
+	<catalog name="week stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>8760</default_maxtime>
+		<default_interval>1440</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>2000000</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>7</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>4</max_record_policy>
+		
+		
+		<table name="hm_repo_apcpumem_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_app_data_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_client_data_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_hmcpumem_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_network_interface_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_newsla_stats_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_port_interface_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_switch_period_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_client_count_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_ssid_count_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		
+	</catalog>
+ 
+	<catalog name="month stats">
+		<enable>false</enable>
+		<!--the unit is hours-->
+		<default_maxtime>17520</default_maxtime>
+		<default_interval>2880</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>5000000</default_max_record>
+		<default_max_record_per_partition>2000000</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>1</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>4</max_record_policy>
+		
+		
+		<table name="hm_repo_apcpumem_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_app_data_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_client_data_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_hmcpumem_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_network_interface_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_newsla_stats_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_port_interface_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_switch_period_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_client_count_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_ssid_count_month">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+	</catalog>
+
+	<catalog name="minute stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>2</default_maxtime>
+		<default_interval>1</default_interval>
+		<table_partition_number>2</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>0</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>1</maxtime_policy>
+		<interval_policy>1</interval_policy>
+		<max_record_policy>2</max_record_policy>
+		
+		<table name="hm_repo_app_data">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+	</catalog>
+	
+	<catalog name="last week stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>192</default_maxtime>
+		<default_interval>24</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>0</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>1</maxtime_policy>
+		<interval_policy>1</interval_policy>
+		<max_record_policy>4</max_record_policy>
+		
+		<table name="hm_repo_app_data_all">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+		<table name="hm_repo_app_data_all_last_week">
+			<schemaname>public</schemaname>
+			<timefield>timestamp</timefield>
+		</table>
+	</catalog>
+	
+	<catalog name="last month stats">
+		<enable>true</enable>
+		<!--the unit is hours-->
+		<default_maxtime>744</default_maxtime>
+		<default_interval>120</default_interval>
+		<table_partition_number>8</table_partition_number>
+		<default_max_record>0</default_max_record>
+		<default_max_record_per_partition>0</default_max_record_per_partition>
+		
+		<!-- policy, see policy description in the head -->
+		<maxtime_policy>1</maxtime_policy>
+		<interval_policy>2</interval_policy>
+		<max_record_policy>4</max_record_policy>
+		
+		<table name="ah_app_flow_day">
+			<schemaname>public</schemaname>
+			<timefield>created_at</timefield>
+		</table>
+		<table name="hm_device_reboot_history">
+			<schemaname>public</schemaname>
+			<timefield>receivedtimestamp</timefield>
+		</table>
+	</catalog>
+	
+</tablepartition>

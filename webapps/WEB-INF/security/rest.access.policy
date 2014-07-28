@@ -1,0 +1,16 @@
+grant principal com.ah.ws.rest.server.auth.RestPrincipal "super_user" {
+  permission com.ah.ws.rest.server.auth.perms.MethodPermission "*","ALL";
+};
+grant principal com.ah.ws.rest.server.auth.RestPrincipal "idm_user" {
+  permission com.ah.ws.rest.server.auth.perms.MethodPermission "/idm/*/ssids","ALL";
+};
+grant principal com.ah.ws.rest.server.auth.RestPrincipal "redirector_user" {
+  permission com.ah.ws.rest.server.auth.perms.MethodPermission "/devices","ALL";
+};
+grant principal com.ah.ws.rest.server.auth.RestPrincipal "portal_user" {
+  permission com.ah.ws.rest.server.auth.perms.MethodPermission "/portal/users","ALL";
+  permission com.ah.ws.rest.server.auth.perms.MethodPermission "/portal/limitOpAccessSettings","ALL";
+};
+grant principal com.ah.ws.rest.server.auth.RestPrincipal "HM API User" {
+  permission com.ah.ws.rest.server.auth.perms.MethodPermission "/v1/*","GET";
+};

@@ -1,0 +1,18 @@
+<binding xmlns:tns="http://ah.com/hm/ws/platform/bo/ap" force-classes="true" add-constructors="true">
+  <namespace uri="http://ah.com/hm/ws/platform/bo/ap" default="elements" prefix="tns"/>
+  <mapping abstract="true" type-name="tns:hiveAp" class="com.ah.hm.ws.platform.bo.ap.HiveAp">
+    <value style="element" name="nodeId" field="nodeId" usage="optional"/>
+    <value style="element" name="serialNumber" field="serialNumber" usage="optional"/>
+    <value style="element" name="hostName" field="hostName" usage="optional"/>
+    <value style="element" name="ipAddress" field="ipAddress" usage="optional"/>
+    <value style="element" name="netmask" field="netmask" usage="optional"/>
+    <value style="element" name="gateway" field="gateway" usage="optional"/>
+    <value style="element" name="softwareVersion" field="softwareVersion" usage="optional"/>
+    <value style="attribute" name="nativeVlan" field="nativeVlan"/>
+    <value style="attribute" name="mgtVlan" field="mgtVlan"/>
+    <value style="attribute" name="active" field="active"/> 
+    <value style="element" name="deviceGroup" field="deviceGroup" usage="optional"/>
+    <value style="element" name="model" field="model" usage="optional"/>
+    <value style="element" name="type" field="type" usage="optional"/>
+  </mapping>
+</binding>

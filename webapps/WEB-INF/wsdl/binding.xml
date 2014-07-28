@@ -1,0 +1,6 @@
+<binding xmlns:ns0="http://ah.com/hm/ws/platform/service/HmService" name="binding" package="com.ah.hm.ws.platform.faults.types" force-classes="true" add-constructors="true">
+  <namespace uri="http://ah.com/hm/ws/platform/service/HmService" prefix="ns0"/>
+  <include path="hm_ws_platform_service_HmServiceBinding.xml"/>
+  <include path="hm_ws_platform_coreBinding.xml"/>
+  <include path="hm_ws_platform_bo_apBinding.xml"/>
+</binding>

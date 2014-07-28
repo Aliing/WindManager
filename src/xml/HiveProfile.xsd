@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="xmlHiveProfiles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded"
+					name="profile" type="xmlHiveProfile" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="xmlHiveProfile">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="unbounded"
+				name="hiveWlanDosParams" type="xmlDosParams" />
+			<xs:element minOccurs="0" maxOccurs="unbounded"
+				name="stationWlanDosParams" type="xmlDosParams" />
+		</xs:sequence>
+		<xs:attribute name="hiveName" type="xs:string" />
+		<xs:attribute name="nativeVlan" type="xs:short" />
+		<xs:attribute name="fragThreshold" type="xs:int" />
+		<xs:attribute name="rtsThreshold" type="xs:int" />
+	</xs:complexType>
+	<xs:complexType name="xmlDosParams">
+		<xs:attribute name="frameType" type="xs:string" />
+		<xs:attribute name="alarmInterval" type="xs:int" />
+		<xs:attribute name="alarmThreshold" type="xs:int" />
+		<xs:attribute name="ban" type="xs:int" />
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<device_feature>
+	<device name="br100" deviceType="br">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<enableEthBridge_id hide="true"/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row hide="true"/>
+			<routerWanRow/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle>
+				<hiveApNetworkSettings hide="true"/>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat/>
+							<head_disablePortForwarding/>
+							<head_enablePppoe/>
+							<head_pppoeAuth/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul hide="true"/>
+							<br_eth0_setting_role_wan hide="true"/>
+							<br_eth0_setting_role/>
+							<eth0_enableNat/>
+							<eth0_disablePortForwarding/>
+							<eth0_enablePppoe/>
+							<eth0_pppoeAuth/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting/>
+						<br_eth3_setting/>
+						<br_eth4_setting/>
+						<br_usb_setting>
+							<usb_enableNat/>
+							<usb_disablePortForwarding/>
+						</br_usb_setting>
+						<routingPolicySettings/>
+						<voipSettings/>
+						<pseSettingAllDiv hide="true"/>
+					</devicePortSettings>
+					<usbSettings/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer hide="true"/>
+				<wifi5GSsidAllocation hide="true"/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv hide="true"/>
+				<brAsRadiusServerOverrideDisplayDiv hide="true"/>
+				<radiusServerRowDiv hide="true"/>
+				<radiusProxyRowDiv hide="true"/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr hide="true"/>
+				<dhcpServerOptionsRow hide="true"/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceBonjourGatewayConfig hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings/>
+				<brRouteInterval/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+			<deviceWifiClientModeSettings hide="true"/>
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="br100" deviceType="ap">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<enableEthBridge_id hide="true"/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row hide="true"/>
+			<routerWanRow hide="true"/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle>
+				<mgt0DhcpSettings/>
+			</mgt0InterfaceConfigStyle>
+			<ethConfigStyle>
+			<!-- fix bug 32980 for BR100 as AP, routerNetworkSetting already has wifi0 interface configuration-->
+				<hiveApNetworkSettings hide="true">
+					<ethModeSettings hide="true"/>
+					<radioConfigTr hide="true"/>
+					<macLearningSettings hide="true"/>
+					<ethAdvanceSettings hide="true"/>
+				</hiveApNetworkSettings>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat hide="true"/>
+							<head_disablePortForwarding hide="true"/>
+							<head_enablePppoe hide="true"/>
+							<head_pppoeAuth hide="true"/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul/>
+							<br_eth0_setting_role_wan hide="true"/>
+							<br_eth0_setting_role hide="true"/>
+							<eth0_enableNat hide="true"/>
+							<eth0_disablePortForwarding hide="true"/>
+							<eth0_enablePppoe hide="true"/>
+							<eth0_pppoeAuth hide="true"/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting/>
+						<br_eth3_setting/>
+						<br_eth4_setting/>
+						<br_usb_setting hide="true"/>
+						<routingPolicySettings hide="true"/>
+						<voipSettings hide="true"/>
+						<pseSettingAllDiv hide="true"/>
+					</devicePortSettings>
+					<usbSettings hide="true"/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer hide="true"/>
+				<wifi5GSsidAllocation hide="true"/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv hide="true"/>
+				<brAsRadiusServerOverrideDisplayDiv hide="true"/>
+				<radiusServerRowDiv hide="true"/>
+				<radiusProxyRowDiv hide="true"/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr/>
+				<dhcpServerOptionsRow/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle>
+				<multipleVlanSection hide="true"/>
+			</routingConfigStyle>
+			<deviceBonjourGatewayConfig hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>	
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="cvg" deviceType="cvg">
+		<deviceBaseSettings>
+			<cvgNetworkTr/>
+			<networkPolicyTr hide="true"/>
+			<vpnServerNameTr/>
+		</deviceBaseSettings>
+		<radioConfigStyle hide="true"/>
+		<wifiConfigStyle hide="true"/>
+		<vpnGatewayIntStyle>
+			<cvgWanIntSettings>
+				<cvgPortSettingHead>
+					<cvgHeadAdmin/>
+				</cvgPortSettingHead>
+				<cvgWanPortSettings>
+					<cvgWanAdmin/>
+				</cvgWanPortSettings>
+			</cvgWanIntSettings>
+			<dynamicRoutingSettings/>
+			<internalNetworkSettings/>
+			<cvgStaticRouterSettings/>
+		</vpnGatewayIntStyle>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle hide="true"/>
+			<ssidBindConfigStyle hide="true"/>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle hide="true"/>
+			<l3RoamingStyle hide="true"/>
+			<cvgMgtServerTr/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings/>
+				<vpnIpTrackTr/>
+				<auditScheduler/>
+				<hiveApTag hide="true"/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+				<overrideEnableDelayAlarmTr hide="true"/>
+			</deviceAdvancedSettings>
+			<deviceWifiClientModeSettings hide="true"/>	
+            <captureDataCwpSettings hide="true"/>
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="cvg" deviceType="ap">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle hide="true"/>
+		<wifiConfigStyle hide="true"/>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle>
+				<mgt0DhcpSettings/>
+			</mgt0InterfaceConfigStyle>
+			<ethConfigStyle hide="true"/>
+			<ssidBindConfigStyle hide="true"/>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv hide="true"/>
+				<brAsRadiusServerOverrideDisplayDiv hide="true"/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq hide="true"/>
+				<radioNasTypeTr2 hide="true"/>
+				<rradioNasTypeTr2 hide="true"/>
+				<vpnRuleTr/>
+				<dhcpServerOptionsRow/>
+			</serviceSettingStyle>
+			<l3RoamingStyle hide="true"/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+				<overrideEnableDelayAlarmTr/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>	
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="cvgappliance" deviceType="cvg">
+		<deviceBaseSettings>
+			<cvgNetworkTr/>
+			<networkPolicyTr hide="true"/>
+			<vpnServerNameTr/>
+		</deviceBaseSettings>
+		<radioConfigStyle hide="true"/>
+		<wifiConfigStyle hide="true"/>
+		<vpnGatewayIntStyle>
+			<cvgWanIntSettings>
+				<cvgPortSettingHead>
+					<cvgHeadAdmin/>
+				</cvgPortSettingHead>
+				<cvgWanPortSettings>
+					<cvgWanAdmin/>
+				</cvgWanPortSettings>
+			</cvgWanIntSettings>
+			<dynamicRoutingSettings/>
+			<internalNetworkSettings/>
+			<cvgStaticRouterSettings/>
+		</vpnGatewayIntStyle>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle hide="true"/>
+			<ssidBindConfigStyle hide="true"/>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle hide="true"/>
+			<l3RoamingStyle hide="true"/>
+			<cvgMgtServerTr/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings/>
+				<vpnIpTrackTr/>
+				<auditScheduler/>
+				<hiveApTag hide="true"/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+				<overrideEnableDelayAlarmTr hide="true"/>
+			</deviceAdvancedSettings>
+			<deviceWifiClientModeSettings hide="true"/>	
+            <captureDataCwpSettings hide="true"/>
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="cvgappliance" deviceType="ap">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle hide="true"/>
+		<wifiConfigStyle hide="true"/>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle>
+				<mgt0DhcpSettings/>
+			</mgt0InterfaceConfigStyle>
+			<ethConfigStyle hide="true"/>
+			<ssidBindConfigStyle hide="true"/>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv hide="true"/>
+				<brAsRadiusServerOverrideDisplayDiv hide="true"/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq hide="true"/>
+				<radioNasTypeTr2 hide="true"/>
+				<rradioNasTypeTr2 hide="true"/>
+				<vpnRuleTr/>
+				<dhcpServerOptionsRow/>
+			</serviceSettingStyle>
+			<l3RoamingStyle hide="true"/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+				<overrideEnableDelayAlarmTr/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>	
+		</hiveApOptionSection>
+	</device>	
+	
+	<device name="br200" deviceType="br">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle hide="true"/>
+		<wifiConfigStyle hide="true">
+			<wifiConfigTitle hide="true"/>
+			<wifi0Row hide="true"/>
+			<wifi1Row hide="true"/>
+			<routerWanRow/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle>
+				<hiveApNetworkSettings hide="true"/>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat/>
+							<head_disablePortForwarding/>
+							<head_enablePppoe/>
+							<head_pppoeAuth/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul hide="true"/>
+							<br_eth0_setting_role_wan hide="true"/>
+							<br_eth0_setting_role/>
+							<eth0_enableNat/>
+							<eth0_disablePortForwarding/>
+							<eth0_enablePppoe/>
+							<eth0_pppoeAuth/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting/>
+						<br_eth3_setting/>
+						<br_eth4_setting/>
+						<br_usb_setting>
+							<usb_enableNat/>
+							<usb_disablePortForwarding/>
+						</br_usb_setting>
+						<routingPolicySettings/>
+						<voipSettings/>
+						<pseSettingAllDiv hide="true"/>
+					</devicePortSettings>
+					<usbSettings/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle hide="true"/>
+			<brStaticRoutingStyle/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv/>
+				<brAsRadiusServerOverrideDisplayDiv/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr hide="true"/>
+				<dhcpServerOptionsRow hide="true"/>
+			</serviceSettingStyle>
+			<l3RoamingStyle hide="true"/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings/>
+				<brRouteInterval/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+			<deviceWifiClientModeSettings hide="true"/>
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="br200_wp" deviceType="br">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<enableEthBridge_id hide="true"/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row hide="true"/>
+			<routerWanRow/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle>
+				<hiveApNetworkSettings hide="true"/>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat/>
+							<head_disablePortForwarding/>
+							<head_enablePppoe/>
+							<head_pppoeAuth/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul hide="true"/>
+							<br_eth0_setting_role_wan hide="true"/>
+							<br_eth0_setting_role/>
+							<eth0_enableNat/>
+							<eth0_disablePortForwarding/>
+							<eth0_enablePppoe/>
+							<eth0_pppoeAuth/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting/>
+						<br_eth3_setting/>
+						<br_eth4_setting/>
+						<br_usb_setting>
+							<usb_enableNat/>
+							<usb_disablePortForwarding/>
+						</br_usb_setting>
+						<routingPolicySettings/>
+						<voipSettings/>
+						<pseSettingAllDiv/>
+					</devicePortSettings>
+					<usbSettings/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer hide="true"/>
+				<wifi5GSsidAllocation hide="true"/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv/>
+				<brAsRadiusServerOverrideDisplayDiv/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr hide="true"/>
+				<dhcpServerOptionsRow hide="true"/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings/>
+				<brRouteInterval/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings/>		
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="br200_lte_vz" deviceType="br">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<enableEthBridge_id hide="true"/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row hide="true"/>
+			<routerWanRow/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle>
+				<hiveApNetworkSettings hide="true"/>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat/>
+							<head_disablePortForwarding/>
+							<head_enablePppoe/>
+							<head_pppoeAuth/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul hide="true"/>
+							<br_eth0_setting_role_wan hide="true"/>
+							<br_eth0_setting_role/>
+							<eth0_enableNat/>
+							<eth0_disablePortForwarding/>
+							<eth0_enablePppoe/>
+							<eth0_pppoeAuth/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting/>
+						<br_eth3_setting/>
+						<br_eth4_setting/>
+						<br_usb_setting>
+							<usb_enableNat/>
+							<usb_disablePortForwarding/>
+						</br_usb_setting>
+						<routingPolicySettings/>
+						<voipSettings/>
+						<pseSettingAllDiv/>
+					</devicePortSettings>
+					<usbSettings/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer hide="true"/>
+				<wifi5GSsidAllocation hide="true"/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv/>
+				<brAsRadiusServerOverrideDisplayDiv/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr hide="true"/>
+				<dhcpServerOptionsRow hide="true"/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings/>
+				<brRouteInterval/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings/>		
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="hiveap320, hiveap340, hiveap330, hiveap350, hiveap370, hiveap390,hiveap230" deviceType="ap">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<radioConfigTypeCustomer/>
+			<enableEthBridge_id/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row/>
+			<routerWanRow hide="true"/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle/>
+			<mgt0InterfaceConfigStyle>
+				<mgt0DhcpSettings/>
+			</mgt0InterfaceConfigStyle>
+			<ethConfigStyle>
+				<hiveApNetworkSettings>
+					<ethModeSettings>
+						<ethSetupTr/>
+						<eth0ModeTr/>
+						<eth1ModeTr/>
+						<red0ModeTr hide="true"/>
+						<agg0ModeTr hide="true"/>
+					</ethModeSettings>
+					<radioConfigTr hide="true"/>
+					<macLearningSettings hide="true"/>
+					<ethAdvanceSettings>
+						<ethAdvSettingsTr/>
+						<eth0Row/>
+						<eth1Row/>
+						<red0Row hide="true"/>
+						<agg0Row hide="true"/>
+					</ethAdvanceSettings>
+				</hiveApNetworkSettings>
+				<routerNetworkSetting hide="true"/>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer/>
+				<wifi5GSsidAllocation/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv hide="true"/>
+				<brAsRadiusServerOverrideDisplayDiv hide="true"/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr/>
+				<dhcpServerOptionsRow/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle>
+				<multipleVlanSection/>
+			</routingConfigStyle>
+			<deviceAdvancedSettings>
+				<vlanSetting/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority/>
+				<virtualConnectSection/>
+			</deviceAdvancedSettings>
+			<deviceWifiClientModeSettings hide="true"/>
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="hiveap330, hiveap350" deviceType="br">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<radioConfigTypeCustomer/>
+			<enableEthBridge_id hide="true"/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row/>
+			<routerWanRow/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle>
+				<hiveApNetworkSettings hide="true"/>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat/>
+							<head_enablePppoe/>
+							<head_pppoeAuth/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul hide="true"/>
+							<br_eth0_setting_role_wan hide="true"/>
+							<br_eth0_setting_role/>
+							<eth0_enableNat/>
+							<eth0_enablePppoe/>
+							<eth0_pppoeAuth/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting hide="true"/>
+						<br_eth3_setting hide="true"/>
+						<br_eth4_setting hide="true"/>
+						<br_usb_setting>
+							<usb_enableNat/>
+						</br_usb_setting>
+						<routingPolicySettings/>
+						<voipSettings/>
+						<pseSettingAllDiv hide="true"/>
+					</devicePortSettings>
+					<usbSettings/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer/>
+				<wifi5GSsidAllocation/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv/>
+				<brAsRadiusServerOverrideDisplayDiv/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr hide="true"/>
+				<dhcpServerOptionsRow hide="true"/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings/>
+				<brRouteInterval/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>	
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="hiveap330, hiveap350" deviceType="vpn_br">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<radioConfigTypeCustomer/>
+			<enableEthBridge_id hide="true"/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row/>
+			<routerWanRow hide="true"/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle>
+			<cvgWanIntSettings>
+				<cvgPortSettingHead>
+					<cvgHeadAdmin hide="true"/>
+				</cvgPortSettingHead>
+				<cvgWanPortSettings>
+					<cvgWanAdmin hide="true"/>
+				</cvgWanPortSettings>
+				<cvgLanPortSettings hide="true"/>
+			</cvgWanIntSettings>
+			<dynamicRoutingSettings hide="true"/>
+			<internalNetworkSettings/>
+			<cvgStaticRouterSettings/>
+		</vpnGatewayIntStyle>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle>
+				<hiveApNetworkSettings hide="true"/>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat hide="true"/>
+							<head_enablePppoe hide="true"/>
+							<head_pppoeAuth hide="true"/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul hide="true"/>
+							<br_eth0_setting_role_wan/>
+							<br_eth0_setting_role hide="true"/>
+							<eth0_enableNat hide="true"/>
+							<eth0_enablePppoe hide="true"/>
+							<eth0_pppoeAuth hide="true"/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting hide="true"/>
+						<br_eth3_setting hide="true"/>
+						<br_eth4_setting hide="true"/>
+						<br_usb_setting hide="true"/>
+						<routingPolicySettings hide="true"/>
+						<voipSettings/>
+						<pseSettingAllDiv hide="true"/>
+					</devicePortSettings>
+					<usbSettings hide="true"/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer/>
+				<wifi5GSsidAllocation/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv/>
+				<brAsRadiusServerOverrideDisplayDiv/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr hide="true"/>
+				<dhcpServerOptionsRow hide="true"/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings/>
+				<brRouteInterval/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>	
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="br200" deviceType="vpn_br">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle hide="true"/>
+		<wifiConfigStyle hide="true"/>
+		<vpnGatewayIntStyle>
+			<cvgWanIntSettings>
+				<cvgPortSettingHead>
+					<cvgHeadAdmin hide="true"/>
+				</cvgPortSettingHead>
+				<cvgWanPortSettings>
+					<cvgWanAdmin hide="true"/>
+				</cvgWanPortSettings>
+				<cvgLanPortSettings hide="true"/>
+			</cvgWanIntSettings>
+			<dynamicRoutingSettings hide="true"/>
+			<internalNetworkSettings/>
+			<cvgStaticRouterSettings/>
+		</vpnGatewayIntStyle>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle>
+				<hiveApNetworkSettings hide="true"/>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat hide="true"/>
+							<head_enablePppoe hide="true"/>
+							<head_pppoeAuth hide="true"/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul hide="true"/>
+							<br_eth0_setting_role_wan/>
+							<br_eth0_setting_role hide="true"/>
+							<eth0_enableNat hide="true"/>
+							<eth0_enablePppoe hide="true"/>
+							<eth0_pppoeAuth hide="true"/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting/>
+						<br_eth3_setting/>
+						<br_eth4_setting/>
+						<br_usb_setting hide="true"/>
+						<routingPolicySettings hide="true"/>
+						<voipSettings/>
+						<pseSettingAllDiv hide="true"/>
+					</devicePortSettings>
+					<usbSettings hide="true"/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle hide="true"/>
+			<brStaticRoutingStyle/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv/>
+				<brAsRadiusServerOverrideDisplayDiv/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr hide="true"/>
+				<dhcpServerOptionsRow hide="true"/>
+			</serviceSettingStyle>
+			<l3RoamingStyle hide="true"/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings/>
+				<brRouteInterval/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>	
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="br200_wp" deviceType="vpn_br">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<enableEthBridge_id hide="true"/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row hide="true"/>
+			<routerWanRow hide="true"/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle>
+			<cvgWanIntSettings>
+				<cvgPortSettingHead>
+					<cvgHeadAdmin hide="true"/>
+				</cvgPortSettingHead>
+				<cvgWanPortSettings>
+					<cvgWanAdmin hide="true"/>
+				</cvgWanPortSettings>
+				<cvgLanPortSettings hide="true"/>
+			</cvgWanIntSettings>
+			<dynamicRoutingSettings hide="true"/>
+			<internalNetworkSettings/>
+			<cvgStaticRouterSettings/>
+		</vpnGatewayIntStyle>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle hide="true"/>
+			<mgt0InterfaceConfigStyle hide="true"/>
+			<ethConfigStyle>
+				<hiveApNetworkSettings hide="true"/>
+				<routerNetworkSetting>
+					<!--radioConfigBR/-->
+					<devicePortSettings>
+						<br_head_setting>
+							<head_enableNat hide="true"/>
+							<head_enablePppoe hide="true"/>
+							<head_pppoeAuth hide="true"/>
+						</br_head_setting>
+						<br_eth0_setting>
+							<br_eth0_setting_role_backhaul hide="true"/>
+							<br_eth0_setting_role_wan/>
+							<br_eth0_setting_role hide="true"/>
+							<eth0_enableNat hide="true"/>
+							<eth0_enablePppoe hide="true"/>
+							<eth0_pppoeAuth hide="true"/>
+						</br_eth0_setting>
+						<br_eth1_setting/>
+						<br_eth2_setting/>
+						<br_eth3_setting/>
+						<br_eth4_setting/>
+						<br_usb_setting hide="true"/>
+						<routingPolicySettings hide="true"/>
+						<voipSettings/>
+						<pseSettingAllDiv/>
+					</devicePortSettings>
+					<usbSettings hide="true"/>
+					<!--vrrpSettings-->
+				</routerNetworkSetting>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer hide="true"/>
+				<wifi5GSsidAllocation hide="true"/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv/>
+				<brAsRadiusServerOverrideDisplayDiv/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr hide="true"/>
+				<dhcpServerOptionsRow hide="true"/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle hide="true"/>
+			<deviceAdvancedSettings>
+				<vlanSetting hide="true"/>
+				<brPmtudSettings/>
+				<brRouteInterval/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority hide="true"/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>		
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="hiveap120, hiveap170, hiveap121, hiveap141" deviceType="ap">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<radioConfigTypeCustomer/>
+			<enableEthBridge_id/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row/>
+			<routerWanRow hide="true"/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle/>
+			<mgt0InterfaceConfigStyle>
+				<mgt0DhcpSettings/>
+			</mgt0InterfaceConfigStyle>
+			<ethConfigStyle>
+				<hiveApNetworkSettings>
+					<ethModeSettings>
+						<ethSetupTr hide="true"/>
+						<eth0ModeTr/>
+						<eth1ModeTr hide="true"/>
+						<red0ModeTr hide="true"/>
+						<agg0ModeTr hide="true"/>
+					</ethModeSettings>
+					<radioConfigTr hide="true"/>
+					<macLearningSettings hide="true"/>
+					<ethAdvanceSettings>
+						<ethAdvSettingsTr/>
+						<eth0Row/>
+						<eth1Row hide="true"/>
+						<red0Row hide="true"/>
+						<agg0Row hide="true"/>
+					</ethAdvanceSettings>
+				</hiveApNetworkSettings>
+				<routerNetworkSetting hide="true"/>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer/>
+				<wifi5GSsidAllocation/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv hide="true"/>
+				<brAsRadiusServerOverrideDisplayDiv hide="true"/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr/>
+				<dhcpServerOptionsRow/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle>
+				<multipleVlanSection hide="true"/>
+			</routingConfigStyle>
+			<deviceAdvancedSettings>
+				<vlanSetting/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority/>
+				<virtualConnectSection/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="hiveap110" deviceType="ap">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<enableEthBridge_id/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row hide="true"/>
+			<routerWanRow hide="true"/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle/>
+			<mgt0InterfaceConfigStyle>
+				<mgt0DhcpSettings/>
+			</mgt0InterfaceConfigStyle>
+			<ethConfigStyle>
+				<hiveApNetworkSettings>
+					<ethModeSettings>
+						<ethSetupTr hide="true"/>
+						<eth0ModeTr/>
+						<eth1ModeTr hide="true"/>
+						<red0ModeTr hide="true"/>
+						<agg0ModeTr hide="true"/>
+					</ethModeSettings>
+					<radioConfigTr hide="true"/>
+					<macLearningSettings hide="true"/>
+					<ethAdvanceSettings>
+						<ethAdvSettingsTr/>
+						<eth0Row/>
+						<eth1Row hide="true"/>
+						<red0Row hide="true"/>
+						<agg0Row hide="true"/>
+					</ethAdvanceSettings>
+				</hiveApNetworkSettings>
+				<routerNetworkSetting hide="true"/>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer hide="true"/>
+				<wifi5GSsidAllocation hide="true"/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv hide="true"/>
+				<brAsRadiusServerOverrideDisplayDiv hide="true"/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr/>
+				<dhcpServerOptionsRow/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle>
+				<multipleVlanSection hide="true"/>
+			</routingConfigStyle>
+			<deviceAdvancedSettings>
+				<vlanSetting/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority/>
+				<virtualConnectSection/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>	
+		</hiveApOptionSection>
+	</device>
+	
+	<device name="hiveap20, hiveap28" deviceType="ap">
+		<deviceBaseSettings>
+			<cvgNetworkTr hide="true"/>
+			<networkPolicyTr/>
+			<vpnServerNameTr hide="true"/>
+		</deviceBaseSettings>
+		<radioConfigStyle>
+			<radioConfigTypeTr2/>
+			<radioConfigTypeTr2_note hide="true"/>
+			<radioConfigTypeDual_note/>
+			<enableEthBridge_id/>
+		</radioConfigStyle>
+		<wifiConfigStyle>
+			<wifiConfigTitle/>
+			<wifi0Row/>
+			<wifi1Row/>
+			<routerWanRow hide="true"/>
+		</wifiConfigStyle>
+		<vpnGatewayIntStyle hide="true"/>
+		<deviceBonjourGatewayConfig hide="true"/>
+		<hiveApOptionSection>
+			<ethConfigCwpStyle/>
+			<mgt0InterfaceConfigStyle>
+				<mgt0DhcpSettings/>
+			</mgt0InterfaceConfigStyle>
+			<ethConfigStyle>
+				<hiveApNetworkSettings>
+					<ethModeSettings>
+						<ethSetupTr hide="true"/>
+						<eth0ModeTr/>
+						<eth1ModeTr hide="true"/>
+						<red0ModeTr hide="true"/>
+						<agg0ModeTr hide="true"/>
+					</ethModeSettings>
+					<radioConfigTr hide="true"/>
+					<macLearningSettings hide="true"/>
+					<ethAdvanceSettings>
+						<ethAdvSettingsTr/>
+						<eth0Row/>
+						<eth1Row hide="true"/>
+						<red0Row hide="true"/>
+						<agg0Row hide="true"/>
+					</ethAdvanceSettings>
+				</hiveApNetworkSettings>
+				<routerNetworkSetting hide="true"/>
+			</ethConfigStyle>
+			<ssidBindConfigStyle>
+				<wifi2GSsidAllocation/>
+				<wifi2GSsidAllocationSpacer/>
+				<wifi5GSsidAllocation/>
+			</ssidBindConfigStyle>
+			<brStaticRoutingStyle hide="true"/>
+			<serviceSettingStyle>
+				<brAsRadiusServerDisplayDiv hide="true"/>
+				<brAsRadiusServerOverrideDisplayDiv hide="true"/>
+				<radiusServerRowDiv/>
+				<radiusProxyRowDiv/>
+				<useNasIdenInRadiusReq/>
+				<radioNasTypeTr2/>
+				<rradioNasTypeTr2/>
+				<vpnRuleTr/>
+				<dhcpServerOptionsRow/>
+			</serviceSettingStyle>
+			<l3RoamingStyle/>
+			<cvgMgtServerTr hide="true"/>
+			<credentialsTr/>
+			<routingConfigStyle>
+				<multipleVlanSection hide="true"/>
+			</routingConfigStyle>
+			<deviceAdvancedSettings>
+				<vlanSetting/>
+				<brPmtudSettings hide="true"/>
+				<brRouteInterval hide="true"/>
+				<cvgPmtudSettings hide="true"/>
+				<vpnIpTrackTr hide="true"/>
+				<auditScheduler/>
+				<hiveApTag/>
+				<distributedPriority/>
+				<virtualConnectSection hide="true"/>
+			</deviceAdvancedSettings>
+            <deviceWifiClientModeSettings hide="true"/>		
+		</hiveApOptionSection>
+	</device>
+	
+</device_feature>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	<cli-parse>
+		<cmd>
+			<![CDATA[ alg {ftp|tftp|sip|dns|http} enable ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<alg>
+						<ftp keyWord="{1}">
+							<enable/>
+						</ftp>
+						<tftp keyWord="{1}">
+							<enable/>
+						</tftp>
+						<sip keyWord="{1}">
+							<enable/>
+						</sip>
+						<dns keyWord="{1}">
+							<enable/>
+						</dns>
+						<http keyWord="{1}">
+							<enable />
+						</http>
+					</alg>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+</clis>

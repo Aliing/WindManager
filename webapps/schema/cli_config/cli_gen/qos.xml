@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	
+	<cli-gen key="qos.classifier-map.service">
+		<!-- Original CLI: qos classifier-map service <string> [ qos <number> ] [ action {permit|deny|log} ] -->
+		<constraints>
+			<platform><![CDATA[!= ${platforms_all_switch} && != ${platforms_all_cvg}]]></platform>
+		</constraints>
+		<cmd><![CDATA[ qos classifier-map service <string> qos <number> action {1:permit|2:deny} ]]></cmd>
+		<cli-default value="{ftp-data, 0, 1}" dependence="{ftp-data, *, *}"/>
+		<cli-default value="{tftp, 3, 1}" dependence="{tftp, *, *}"/>
+		<cli-default value="{dhcp-client, 5, 1}" dependence="{dhcp-client, *, *}"/>
+		<cli-default value="{dhcp-server, 5, 1}" dependence="{dhcp-server, *, *}"/>
+		<cli-default value="{dns, 5, 1}" dependence="{dns, *, *}"/>
+		<cli-default value="{ica, 5, 1}" dependence="{ica, *, *}"/>
+		<cli-default value="{radius, 5, 1}" dependence="{radius, *, *}"/>
+		<cli-default value="{radius-acct, 5, 1}" dependence="{radius-acct, *, *}"/>
+		<cli-default value="{pcoip-control, 5, 1}" dependence="{pcoip-control, *, *}"/>
+		<cli-default value="{pcoip-media, 5, 1}" dependence="{pcoip-media, *, *}"/>
+		<cli-default value="{vocera-control, 5, 1}" dependence="{vocera-control, *, *}"/>
+		<cli-default value="{vocera-media, 6, 1}" dependence="{vocera-media, *, *}"/>
+		<cli-default value="{voip-svp, 6, 1}" dependence="{voip-svp, *, *}"/>
+		<cli-default value="{sip, 6, 1}" dependence="{sip, *, *}"/>
+		<cli-default value="{*, 2, 1}"/>
+	</cli-gen>
+	
+	<cli-gen key="qos.classifier-map.service.log">
+		<!-- Original CLI: qos classifier-map service <string> [ qos <number> ] [ action {permit|deny|log} ] -->
+		<constraints>
+			<platform><![CDATA[!= ${platforms_all_switch} && != ${platforms_all_cvg}]]></platform>
+		</constraints>
+		<cmd><![CDATA[ qos classifier-map service <string> qos <number> action log ]]></cmd>
+	</cli-gen>
+	
+</clis>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="image_config">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="image" type="imageType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="imageType">
+		<xs:sequence>
+			<xs:element name="imageName" type="xs:string"/>
+			<xs:element name="platform" type="xs:string"/>
+			<xs:element name="version" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

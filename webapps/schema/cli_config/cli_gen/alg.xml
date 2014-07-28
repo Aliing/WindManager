@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	<cli-gen key="alg.protocol.enable">
+		<cmd><![CDATA[ {false:no|true:} alg {ftp|tftp|sip|dns|http} enable ]]></cmd>
+		<cli-default value="{false, *}"/>
+	</cli-gen>
+</clis>

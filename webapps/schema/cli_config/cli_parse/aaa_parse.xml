@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[ aaa radius-server name <string> server <string> shared-secret <string> ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<aaa>
+						<radius-server>
+							<name name="{1}">
+								<server value="{2}">
+									<shared-secret value="{3}"/>
+								</server>
+							</name>
+						</radius-server>
+					</aaa>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+
+	<cli-parse>
+		<cmd>
+			<![CDATA[ aaa radius-server name <string> server <string> tls ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<aaa>
+						<radius-server>
+							<name name="{1}">
+								<server value="{2}">
+									<tls/>
+								</server>
+							</name>
+						</radius-server>
+					</aaa>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[ aaa radius-server name <string> tls-port <port> ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<aaa>
+						<radius-server>
+							<name name="{1}">
+								<tls-port value="{2}"/>
+							</name>
+						</radius-server>
+					</aaa>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[ aaa radius-server proxy radsec enable ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<aaa>
+						<radius-server>
+							<proxy>
+								<radsec>
+									<enable/>
+								</radsec>
+							</proxy>
+						</radius-server>
+					</aaa>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[ aaa radius-server proxy radsec dynamic-auth-extension ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<aaa>
+						<radius-server>
+							<proxy>
+								<radsec>
+									<dynamic-auth-extension/>
+								</radsec>
+							</proxy>
+						</radius-server>
+					</aaa>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[ aaa radius-server proxy radsec realm <string> {primary|backup} <string> ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<aaa>
+						<radius-server>
+							<proxy>
+								<radsec>
+									<realm name="{1}">
+										<primary name="{3}" keyWord="{2}"/>
+										<backup name="{3}" keyWord="{2}"/>
+									</realm>
+								</radsec>
+							</proxy> 
+						</radius-server>
+					</aaa>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[ aaa radius-server proxy realm <string> {primary|backup} <string> ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<aaa>
+						<radius-server>
+							<proxy>
+								<realm>
+									<cr name="{1}">
+										<primary name="{3}" keyWord="{2}"/>
+										<backup name="{3}" keyWord="{2}"/>
+									</cr>
+								</realm>
+							</proxy> 
+						</radius-server>
+					</aaa>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[ aaa radius-server local nas <string> tls ]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<aaa>
+						<radius-server>
+							<local>
+								<nas name="{1}">
+									<tls/>
+								</nas>
+							</local>
+						</radius-server>
+					</aaa>
+				</configuration>
+			]]>	
+		</xml>
+	</cli-parse>
+</clis>

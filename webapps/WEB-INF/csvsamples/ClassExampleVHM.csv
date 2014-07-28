@@ -1,0 +1,5 @@
+#ClassName,#Subject,#TeacherEmailAddress,#RosterType,#ComputerCartName,#Description,#VHMName,#Weekday,#StartTime,#EndTime,#Room
+//The follow line is test data, please delete it.
+test-classname,test-subject,test-teacher@test.com,1,,test-description,vhmname,0111110,09:00,10:00,test-room
+//And the filed #Weekday,#StartTime,#EndTime,#Room can be loop, like the following:
+test-classname,test-subject,test-teacher@test.com,1,,test-description,vhmname,0111110,09:00,10:00,test-room1,0110010,10:30,11:30,test-room2

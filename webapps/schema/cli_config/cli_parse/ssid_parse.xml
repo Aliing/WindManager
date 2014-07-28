@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ssid <string>
+			]]>
+		</cmd>
+		<!-- "ssid sName" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<cr/>
+					</ssid>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ssid <string> qos-classifier <string>
+			]]>
+		</cmd>
+		<!-- "ssid sName qos-classifier qName" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<qos-classifier name="{2}"/>
+					</ssid>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ssid <string> qos-marker <string>
+			]]>
+		</cmd>
+		<!-- "ssid sName qos-marker qmName" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<qos-marker name="{2}"/>
+					</ssid>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ssid <string> user-group <string>
+			]]>
+		</cmd>
+		<!-- "ssid sName user-group gName" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<user-group name="{2}"/>
+					</ssid>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ssid <string> rts-threshold <number>
+			]]>
+		</cmd>
+		<!-- "ssid sName rts-threshold 100" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<rts-threshold value="{2}"/>
+					</ssid>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ssid <string> wmm
+			]]>
+		</cmd>
+		<!-- "ssid sName wmm" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<wmm/>
+					</ssid>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ssid <string> security mac-filter <string>
+			]]>
+		</cmd>
+		<!-- "ssid sName security mac-filter mfName" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<security>
+							<mac-filter name="{2}"/>
+						</security>
+					</ssid>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ssid <string> security wlan dos {ssid-level|station-level} frame-type {probe-req|probe-resp|assoc-req|assoc-resp|disassoc|auth|deauth|eapol|all}
+			]]>
+		</cmd>
+		<!-- "ssid sName security wlan dos ssid-level frame-type assoc-req" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<security>
+							<wlan>
+								<dos>
+									<ssid-level keyWord="{2}">
+										<frame-type>
+											<probe-req keyWord="{3}">
+												<cr/>
+											</probe-req>
+											<probe-resp keyWord="{3}">
+												<cr/>
+											</probe-resp>
+											<assoc-req keyWord="{3}">
+												<cr/>
+											</assoc-req>
+											<assoc-resp keyWord="{3}">
+												<cr/>
+											</assoc-resp>
+											<auth keyWord="{3}">
+												<cr/>
+											</auth>
+											<deauth keyWord="{3}">
+												<cr/>
+											</deauth>
+											<disassoc keyWord="{3}">
+												<cr/>
+											</disassoc>
+											<eapol keyWord="{3}">
+												<cr/>
+											</eapol>
+										</frame-type>
+									</ssid-level>
+									<station-level keyWord="{2}">
+										<frame-type>
+											<probe-req keyWord="{3}">
+												<cr/>
+											</probe-req>
+											<probe-resp keyWord="{3}">
+												<cr/>
+											</probe-resp>
+											<assoc-req keyWord="{3}">
+												<cr/>
+											</assoc-req>
+											<assoc-resp keyWord="{3}">
+												<cr/>
+											</assoc-resp>
+											<auth keyWord="{3}">
+												<cr/>
+											</auth>
+											<deauth keyWord="{3}">
+												<cr/>
+											</deauth>
+											<disassoc keyWord="{3}">
+												<cr/>
+											</disassoc>
+											<eapol keyWord="{3}">
+												<cr/>
+											</eapol>
+										</frame-type>
+									</station-level>
+								</dos>
+							</wlan>
+						</security>
+					</ssid>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ ssid <string> user-profile-deny action ban [ <number> ] [ strict ] ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<user-profile-deny>
+							<action>
+								<ban>
+									<cr value="{3}"/>
+									<strict keyWord="{4}"/>
+								</ban>
+							</action>
+						</user-profile-deny>
+					</ssid>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ ssid <string> user-profile-deny action {ban-forever|disconnect} [ strict ] ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ssid name="{1}">
+						<user-profile-deny>
+							<action>
+								<ban-forever keyWord="{2}">
+									<cr/>
+									<strict keyWord="{3}"/>
+								</ban-forever>
+								<disconnect keyWord="{2}">
+									<cr/>
+									<strict keyWord="{3}"/>
+								</disconnect>
+							</action>
+						</user-profile-deny>
+					</ssid>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+</clis>

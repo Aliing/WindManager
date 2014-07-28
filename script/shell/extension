@@ -1,0 +1,141 @@
+#!/bin/bash
+#
+# Copyright (C) 2006-2012 Aerohive Networks
+#
+# yZhong@AeroHive.com
+#
+##
+
+SHELL_SCRIPTs=$(readlink -f "$(dirname "${ARGUMENT0:-$0}")")
+
+SSH()
+{
+  if [ -z "$LOGNAME" ] && [ -z "$USER" ] ;then
+    # TomCat 6.0.24
+    SSH=~root
+  else
+    SSH=~
+  fi
+  SSH=$SSH/.ssh
+}
+key()
+{
+  SSH
+  KEY=$SSH/id_rsa
+  if [ ! -d $SSH ] ;then
+    mkdir -p $SSH
+  fi
+  
+  if [ ! -f $KEY ] ;then
+    ssh-keygen -t rsa -f $KEY -P ''
+  fi
+}
+
+configureSSH()
+{
+  CONFIG=$SSH/config
+  if [ -f $CONFIG ] ;then
+    grep $1 $CONFIG
+    if [ 0 == $? ] ;then
+      return
+    fi
+    echo "Host $1" >> $CONFIG
+  else
+    echo "Host $1" > $CONFIG
+    chmod 600 $CONFIG
+  fi
+  echo "User admin" >> $CONFIG
+  echo "IdentityFile $KEY" >> $CONFIG
+  echo "UserKnownHostsFile /dev/null" >> $CONFIG
+  echo "StrictHostKeyChecking no" >> $CONFIG
+}
+keySSH()
+{
+  key
+  configureSSH $1
+}
+
+authorizeSSH()
+{
+  CONFIG=$SSH/authorized_keys
+  if [ -f $CONFIG ] ;then
+    grep "$1" $CONFIG
+    if [ 0 != $? ] ;then
+      echo "$1" >> $CONFIG
+    fi
+  else
+    echo "$1" > $CONFIG
+    chmod 600 $CONFIG
+  fi
+}
+SSHpassword()
+{
+	keySSH $1
+	authorizeSSH "`cat ${KEY}.pub`"
+
+	#ip addr | grep $1
+	#if [ 0 == $? ] ;then
+	#	HOST_NAME=`hostname`
+	#	ping -c 1 -q $HOST_NAME | grep $1
+	#	if [ 0 != $? ] ;then
+			# Address $1 maps to $HOST_NAME, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+	#		sed -i "0,/$HOST_NAME/s/$HOST_NAME//" /etc/hosts
+	#	fi
+	#fi
+	$SHELL_SCRIPTs/SSHpassword.expect $1
+}
+
+myself()
+{
+  SSHpassword $1 >/dev/null
+  ssh $1 "ps -ef | grep -v grep | grep '$0'" >/dev/null
+}
+
+SSHwithOutPassword()
+{
+  key
+  $SHELL_SCRIPTs/SSH "$2" ssh-copy-id -i ${KEY}.pub admin@$1
+  configureSSH $1
+}
+
+allowSSH()
+{
+  SSH
+  authorizeSSH "`ssh $1 "$SHELL_SCRIPTs/keySSH $2" 2>/dev/null`"
+}
+
+stopLocal()
+{
+  chkconfig $1 off
+  service $1 stop
+}
+
+IP()
+{
+  /sbin/ip addr show eth0 | grep "inet " | awk '{print substr($2,0,index($2,"/")-1)}'
+}
+
+noCaseMatch()
+{
+  shopt -s nocasematch
+  if [[ "$1" != "$2" ]] ;then
+    shopt -u nocasematch
+    return 1
+  fi
+  shopt -u nocasematch
+}
+
+exitIfError()
+{
+  IF0=$?
+  if [ 0 != $IF0 ] ;then
+    exit $IF0
+  fi
+}
+
+copyPostGreSQL()
+{
+  pg_dump -h $1 -U $3 -Fc $4 > dump
+  pg_restore -h $2 -U $3 -d $4 -c dump
+  rm -f dump
+}

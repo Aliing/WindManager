@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> user-profile-deny action ban [ <number> ] [ strict ] ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<user-profile-deny>
+							<action>
+								<ban>
+									<cr value="{3}"/>
+									<strict keyWord="{4}"/>
+								</ban>
+							</action>
+						</user-profile-deny>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> user-profile-deny action {ban-forever|disconnect} [ strict ] ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<user-profile-deny>
+							<action>
+								<ban-forever keyWord="{2}">
+									<cr/>
+									<strict keyWord="{3}"/>
+								</ban-forever>
+								<disconnect keyWord="{2}">
+									<cr/>
+									<strict keyWord="{3}"/>
+								</disconnect>
+							</action>
+						</user-profile-deny>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp enable ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<security>
+							<additional-auth-method>
+								<captive-web-portal>
+									<cloud-cwp>
+										<enable/>
+									</cloud-cwp>
+								</captive-web-portal>
+							</additional-auth-method>
+						</security>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp url-root-path <string> ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<security>
+							<additional-auth-method>
+								<captive-web-portal>
+									<cloud-cwp>
+										<url-root-path value="{2}"/>
+									</cloud-cwp>
+								</captive-web-portal>
+							</additional-auth-method>
+						</security>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp customer-id <string> ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<security>
+							<additional-auth-method>
+								<captive-web-portal>
+									<cloud-cwp>
+										<customer-id value="{2}"/>
+									</cloud-cwp>
+								</captive-web-portal>
+							</additional-auth-method>
+						</security>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp service-id <number> ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<security>
+							<additional-auth-method>
+								<captive-web-portal>
+									<cloud-cwp>
+										<service-id value="{2}"/>
+									</cloud-cwp>
+								</captive-web-portal>
+							</additional-auth-method>
+						</security>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp api-key <string> api-nonce <string> ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<security>
+							<additional-auth-method>
+								<captive-web-portal>
+									<cloud-cwp>
+										<api-key value="{2}">
+											<api-nonce value="{3}"/>
+										</api-key>
+									</cloud-cwp>
+								</captive-web-portal>
+							</additional-auth-method>
+						</security>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> walled-garden hostname <string> [ service {all|web} ] ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<walled-garden>
+							<hostname name="{2}">
+								<service exist="{3}">
+									<web keyWord="{4}"/>
+									<all keyWord="{4}"/>
+								</service>
+							</hostname>
+						</walled-garden>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+	
+	<cli-parse>
+ 		<cmd><![CDATA[ security-object <string> security aaa radius-server idm ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<security-object name="{1}">
+						<security>
+							<aaa>
+								<radius-server>
+									<idm/>
+								</radius-server>
+							</aaa>
+						</security>
+					</security-object>
+				</configuration>
+	   		]]>
+	   </xml>
+	</cli-parse>
+</clis>

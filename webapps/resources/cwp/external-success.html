@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Redirect page with JavaScript</title>
+<script src="hm.cwp.util.js"></script>
+<script  src="external-success_en.js"><!-- $STATIC_RESOURCE=external-success --></script>
+
+</head>
+<body onload="transfer();fillData()">
+     <script language="JavaScript">
+          <!--
+          // pause_time determines the length of pause in milliseconds
+          // after the page is loaded until it transfers
+          //       0 =  0 seconds
+          //    5000 =  5 seconds
+        //  pause_time = pause-time;
+          pause_time = 5000;
+ 
+          // transfer_location is either the relative or full URL
+          // of the page to which you want it to transfer you
+          transfer_location = "transfer-url";
+ 
+          function transfer() {
+            setTimeout('location.href = "'+transfer_location+'";',pause_time);
+          }
+          // -->
+     </script>
+ 
+     <center>
+     <b id="regNote"><font size=+2></font></b>
+     <p id="forwardNote">
+     
+     <p>
+     </center>
+</body>
+</html>

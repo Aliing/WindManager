@@ -1,0 +1,86 @@
+# BlackBox OEM Flag 
+blackbox=false
+
+# Simple name of your company, capitalized and not capitalized is both ok.
+company_name=Aerohive
+
+# Full name of your company.
+company_full_name=Aerohive Networks, Inc.
+
+# Abbreviation of your company's name
+company_name_abbreviation=AH
+
+# Address of your company. It will be used to generate a default HiveManager certificate.
+company_address=330 Gibraltar Drive, Sunnyvale CA 94089
+
+# Name of Access Point
+access_point_name=Device
+
+# Name of Access Point BR
+access_point_name_br=Routers
+
+# Name of Access Point CVG
+access_point_name_cvg=HiveOS Virtual Appliance
+
+# Name of Network Management System (NMS)
+nms_name=HiveManager
+
+# Abbreviation name of Network Management System (NMS)
+nms_name_abbreviation=HM
+
+# Name of Access Point operating system
+access_point_os=HiveOS
+
+# Name of wireless network unit
+wireless_unit_name=hive
+
+# Default password for HM super user
+hm_root_password=aerohive
+
+# Default password for root admin of Access Point
+ap_root_password=aerohive
+
+# Default password for access console SSID of Access Point
+access_console_password=aerohive
+
+# Default SNMP contact
+snmp_contact=admin@aerohive.com
+
+# MAC OUI of your company
+mac_oui=001977,4018B1,E01C41,08EA44,9C5D12,F09CE9,885BDD,B87CF2
+
+# Email address of technology support
+support_mail_address=inside-sales@aerohive.com
+# Phone numbers of technology support
+support_phone_number=+1-408-510-6100
+support_phone_number_us=1-866-365-9918
+
+# Email address of sales department
+sales_mail_address=sales@aerohive.com
+
+# Email address of orders-handling department
+orders_mail_address=orders@aerohive.com
+
+# Home page of your company
+home_page=http://www.aerohive.com
+
+# Default address of HM help document
+help_link=http://www.aerohive.com/330000/docs/help/english/6.2r1
+
+# URL to register HMOL user and learn more about HMOL Planner and Demo
+register_url=http://www.aerohive.com/register/
+
+# Copyright of NMS product
+nms_copyright=Copyright &copy; 2006-2014
+
+# Default Enable Express Mode
+express_mode_enable=true
+
+# Default License Server Url
+default_license_server=hmupdates.aerohive.com
+
+# Default dns suffix
+dns_suffix=aerohive.com
+
+# URL for tell me more about ID Manager
+tell_me_more=http://www.aerohive.com/docs/help/idmMore.html

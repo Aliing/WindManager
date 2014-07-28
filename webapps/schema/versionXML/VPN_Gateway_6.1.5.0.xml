@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<track name="*" operation="yesWithValue">
+		<cr/>
+		<enable operation="yes"/>
+		<default-gateway operation="yes"/>
+		<ip name="*" operation="yesWithValue"/>
+		<multi-dst-logic value="*" operation="yes"/>
+		<action operation="yes">
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<disable-access-radio operation="yes"/>
+			<enable-access-console operation="yes"/>
+		</action>
+		<retry value="*" operation="yes"/>
+		<interval value="*" operation="yes"/>
+	</track>
+	<logging>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<buffered>
+			<level value="*" operation="yesWithValue"/>
+		</buffered>
+		<console>
+			<level value="*"/>
+		</console>
+		<debug operation="yes"/>
+		<facility value="*" operation="yes"/>
+		<flash>
+			<level value="*" operation="yesWithValue"/>
+		</flash>
+		<server name="*" operation="yesWithValue">
+			<level value="*" operation="yesWithValue"/>
+			<via-vpn-tunnel operation="yes"/>
+		</server>
+		<trap>
+			<level value="*" operation="yes"/>
+		</trap>
+	</logging>
+	<snmp>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<contact value="*" operation="yes"/>
+		<location value="*" operation="yes"/>
+		<reader>
+			<version>
+				<v1>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<community name="*" operation="yesWithValue"/>
+				</v1>
+				<v2c>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<community name="*" operation="yesWithValue"/>
+				</v2c>
+				<any>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<community name="*" operation="yesWithValue"/>
+				</any>
+				<v3>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<admin name="*" operation="yesWithValue">
+						<auth value="*">
+							<password value="*">
+								<encryption value="*">
+									<password value="*"/>
+								</encryption>
+							</password>
+						</auth>
+					</admin>
+				</v3>
+			</version>
+		</reader>
+		<trap-host>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<v1 name="*" operation="yesWithValue">
+				<port value="*" operation="yesWithValue"/>
+				<community value="*"/>
+				<via-vpn-tunnel operation="yes"/>
+			</v1>
+			<v2c name="*" operation="yesWithValue">
+				<port value="*" operation="yesWithValue"/>
+				<community value="*"/>
+				<via-vpn-tunnel operation="yes"/>
+			</v2c>
+			<v3>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<admin name="*" operation="yesWithValue">
+					<auth value="*">
+						<password value="*">
+							<encryption value="*">
+								<password value="*"/>
+							</encryption>
+						</password>
+					</auth>
+				</admin>
+				<cr name="*" operation="yesWithValue">
+					<via-vpn-tunnel value="*">
+						<admin name="*"/>
+					</via-vpn-tunnel>
+				</cr>
+			</v3>
+		</trap-host>
+		<trap-info>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<over-capwap operation="yes"/>
+			<over-snmp operation="yes"/>
+		</trap-info>
+	</snmp>
+	<clock>
+		<time-zone>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<cr value="*">
+				<cr value="*"/>
+			</cr>
+			<daylight-saving-time value="*" operation="yes"/>
+		</time-zone>
+		<date-time value="*"/>
+	</clock>
+	<dns>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<domain-name value="*" operation="yes"/>
+		<server-ip name="*" operation="yesWithValue">
+			<cr/>
+			<second/>
+			<third/>
+		</server-ip>
+	</dns>
+	<hostname value="*" operation="yes"/>
+	<admin>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<auth>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<cr operation="yes">
+				<both/>
+				<local/>
+				<radius/>
+			</cr>
+			<radius-method operation="yes">
+				<pap operation="yesWithShow"/>
+				<chap operation="yesWithShow"/>
+				<ms-chap-v2 operation="yesWithShow"/>
+			</radius-method>
+		</auth>
+		<manager-ip name="*" operation="yesWithValue"/>
+		<min-password-length value="*" operation="yes"/>
+		<read-only name="*" operation="yesWithValue">
+			<password value="*"/>
+		</read-only>
+		<read-write name="*" operation="yesWithValue">
+			<password value="*"/>
+		</read-write>
+		<root-admin value="*">
+			<password value="*" operation="yesWithValue"/>
+		</root-admin>
+	</admin>
+	<vlan-group name="*" operation="yesWithValue">
+		<cr name="*" operation="yesWithValue"/>
+	</vlan-group>
+	<bonjour-gateway>
+		<enable operation="yes"/>
+		<vlan name="*" operation="yesWithValue"/>
+		<priority value="*" operation="yes"/>
+		<filter>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<rule name="*" operation="yesWithValue">
+				<from value="*">
+					<cr value="*">
+						<to value="*">
+							<metric value="*"/>
+						</to>
+					</cr>
+				</from>
+				<before value="*" operation="yesWithShow">
+					<rule value="*"/>
+				</before>
+			</rule>
+		</filter>
+		<neighbor name="*" operation="yesWithValue"/>
+		<realm value="*" operation="yes"/>
+	</bonjour-gateway>
+	<interface>
+		<eth0>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<mode operation="yes">
+				<backhaul operation="yesWithShow"/>
+				<bridge-access operation="yesWithShow">
+					<vlan value="*" operation="yes"/>
+					<user-profile-attribute value="*" operation="yes"/>
+				</bridge-access>
+				<bridge-802.1q operation="yesWithShow">
+					<user-profile-attribute value="*" operation="yes"/>
+				</bridge-802.1q>
+				<wan>
+					<cr operation="yesWithShow"/>
+					<nat operation="yes"/>
+				</wan>
+			</mode>
+			<shutdown operation="yes"/>
+			<native-vlan value="*" operation="yes"/>
+			<dhcp>
+				<client>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<cr operation="yes"/>
+					<prefer-subnet value="*" operation="yes"/>
+					<timeout value="*" operation="yes"/>
+					<address-only operation="yes"/>
+				</client>
+			</dhcp>
+			<ip name="*" operation="yes"/>
+		</eth0>
+		<eth1>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<mode operation="yes">
+				<backhaul operation="yesWithShow"/>
+				<bridge-access operation="yesWithShow">
+					<vlan value="*" operation="yes"/>
+					<user-profile-attribute value="*" operation="yes"/>
+				</bridge-access>
+				<bridge-802.1q operation="yesWithShow">
+					<user-profile-attribute value="*" operation="yes"/>
+				</bridge-802.1q>
+				<wan>
+					<cr operation="yesWithShow"/>
+					<nat operation="yes"/>
+				</wan>
+			</mode>
+			<shutdown operation="yes"/>
+			<native-vlan value="*" operation="yes"/>
+			<dhcp>
+				<client>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<cr operation="yes"/>
+					<prefer-subnet value="*" operation="yes"/>
+					<timeout value="*" operation="yes"/>
+					<address-only operation="yes"/>
+				</client>
+			</dhcp>
+			<ip name="*" operation="yes"/>
+		</eth1>
+		<mgt0>
+			<vlan value="*" operation="yes"/>
+			<dhcp>
+				<client>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<cr operation="yes"/>
+				</client>
+			</dhcp>
+			<ip value="*" operation="yes"/>
+			<dhcp-server>
+				<ip-pool name="*" operation="yesWithValue"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway value="*" operation="yes">
+						<nat-support operation="yes"/>
+					</default-gateway>
+					<dns1 value="*" operation="yes"/>
+					<domain-name value="*" operation="yes"/>
+					<lease-time value="*" operation="yes"/>
+					<ntp1 value="*" operation="yes"/>
+					<hivemanager name="*" operation="yesWithValue"/>
+					<custom name="*" operation="yesWithValue">
+						<integer value="*"/>
+						<ip value="*"/>
+						<string value="*"/>
+						<hex value="*"/>
+					</custom>
+				</options>
+				<enable operation="yes">
+					<cr/>
+					<AH-DELTA-ASSISTANT name="*"/>
+				</enable>
+			</dhcp-server>
+			<dns-server>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<mode value="*" operation="yesWithValue"/>
+				<int-domain-name name="*" operation="yesWithValue">
+					<cr name="*"/>
+				</int-domain-name>
+				<int-resolve operation="yes">
+					<dns1 value="*" operation="yes"/>
+					<dns2 value="*" operation="yes"/>
+					<dns3 value="*" operation="yes"/>
+				</int-resolve>
+				<ext-resolve operation="yes">
+					<dns1 value="*" operation="yes"/>
+					<dns2 value="*" operation="yes"/>
+					<dns3 value="*" operation="yes"/>
+				</ext-resolve>
+				<opendns-device-id value="*" operation="yesWithValue"/>
+				<enable operation="yes">
+					<cr/>
+					<AH-DELTA-ASSISTANT name="*"/>
+				</enable>
+			</dns-server>
+		</mgt0>
+	</interface>
+	<vpn>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<xauth-client-list name="*" operation="yesWithValue">
+			<local/>
+			<client-name name="*" operation="yesWithValue">
+				<password value="*"/>
+			</client-name>
+		</xauth-client-list>
+		<server-ipsec-tunnel name="*" operation="yesWithValue">
+			<vpn-mode value="*"/>
+		</server-ipsec-tunnel>
+		<client-ipsec-tunnel name="*" operation="yesWithValue">
+			<vpn-mode value="*"/>
+		</client-ipsec-tunnel>
+		<ipsec-tunnel name="*" operation="yesWithShow">
+			<client-list value="*"/>
+			<gateway value="*">
+				<client-name value="*">
+					<password value="*"/>
+				</client-name>
+			</gateway>
+			<ike>
+				<phase1>
+					<encryption-algorithm value="*" operation="yes"/>
+					<hash value="*" operation="yes"/>
+					<lifetime value="*" operation="yes"/>
+					<dh-group value="*" operation="yes"/>
+					<auth-method value="*" operation="yes"/>
+					<psk value="*" operation="yes"/>
+				</phase1>
+				<phase2>
+					<encryption-algorithm value="*" operation="yes"/>
+					<hash value="*" operation="yes"/>
+					<lifetime value="*" operation="yes"/>
+					<pfs-group value="*" operation="yes"/>
+				</phase2>
+			</ike>
+			<local-ike-id operation="yes">
+				<address value="*"/>
+				<asn1dn value="*"/>
+				<fqdn value="*"/>
+				<ufqdn value="*"/>
+			</local-ike-id>
+			<peer-ike-id>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<address name="*" operation="yesWithValue"/>
+				<asn1dn name="*" operation="yesWithValue"/>
+				<fqdn name="*" operation="yesWithValue"/>
+				<ufqdn name="*" operation="yesWithValue"/>
+			</peer-ike-id>
+			<nat-traversal>
+				<enable operation="yes"/>
+			</nat-traversal>
+			<dpd operation="yes">
+				<idle-interval value="*">
+					<retry value="*">
+						<retry-interval value="*"/>
+					</retry>
+				</idle-interval>
+			</dpd>
+		</ipsec-tunnel>
+		<tunnel-policy name="*" operation="yesWithValue">
+			<password value="*" operation="yes"/>
+			<server>
+				<ipsec-tunnel name="*" operation="yes"/>
+			</server>
+			<client>
+				<ipsec-tunnel name="*" operation="yesWithValue">
+					<gre-gateway value="*" operation="yesWithValue"/>
+					<primary operation="yes"/>
+				</ipsec-tunnel>
+			</client>
+		</tunnel-policy>
+		<l3-tunnel-exception name="*" operation="yesWithValue"/>
+	</vpn>
+	<ntp>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<enable operation="yes"/>
+		<server name="*" operation="yesWithValue">
+			<cr operation="yes">
+				<cr/>
+				<via-vpn-tunnel operation="yes"/>
+			</cr>
+			<second operation="yes">
+				<cr/>
+				<via-vpn-tunnel operation="yes"/>
+			</second>
+			<third operation="yes">
+				<cr/>
+				<via-vpn-tunnel operation="yes"/>
+			</third>
+			<fourth operation="yes">
+				<cr/>
+				<via-vpn-tunnel operation="yes"/>
+			</fourth>
+		</server>
+		<interval value="*" operation="yes"/>
+	</ntp>
+	<ip>
+		<route>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<default>
+				<gateway name="*" operation="yesWithValue">
+					<metric value="*" operation="yesWithValue"/>
+				</gateway>
+			</default>
+			<net name="*" operation="yesWithValue"/>
+			<host name="*" operation="yesWithValue"/>
+		</route>
+		<path-mtu-discovery>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="yes"/>
+		</path-mtu-discovery>
+		<tcp-mss-threshold>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="yes"/>
+			<threshold-size value="*" operation="yes"/>
+			<l3-vpn-threshold-size value="*" operation="yes"/>
+		</tcp-mss-threshold>
+	</ip>
+	<capwap>
+		<max-discoveries>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<counter value="*" operation="yes"/>
+		</max-discoveries>
+		<client>
+			<enable operation="yes"/>
+			<discovery>
+				<maximum>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<interval value="*" operation="yes"/>
+				</maximum>
+				<interval value="*" operation="yes"/>
+				<method>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<broadcast operation="yes"/>
+				</method>
+			</discovery>
+			<event>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="yes"/>
+			</event>
+			<join>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<timeout value="*" operation="yes"/>
+			</join>
+			<neighbor>
+				<dead>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<interval value="*" operation="yes"/>
+				</dead>
+				<heartbeat>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<interval name="*" operation="yes"/>
+				</heartbeat>
+			</neighbor>
+			<silent>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<interval value="*" operation="yes"/>
+			</silent>
+			<dtls>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable>
+					<no-disconnect operation="yes"/>
+				</enable>
+				<accept-bootstrap-passphrase operation="yes"/>
+				<bootstrap-passphrase value="*" operation="yes"/>
+				<hm-defined-passphrase value="*" operation="yes">
+					<key-id value="*"/>
+				</hm-defined-passphrase>
+				<handshake-wait-time value="*" operation="yes"/>
+				<max-retries value="*" operation="yes"/>
+				<psk value="*" operation="yes"/>
+				<session-delete-wait-time value="*" operation="yes"/>
+				<negotiation>
+					<enable operation="yes"/>
+				</negotiation>
+			</dtls>
+			<server>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<port value="*" operation="yes">
+					<no-disconnect operation="yes"/>
+				</port>
+				<cr-primary>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<name value="*" operation="yes">
+						<no-disconnect/>
+						<via-vpn-tunnel/>
+					</name>
+				</cr-primary>
+				<backup>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<name value="*" operation="yes">
+						<no-disconnect/>
+						<via-vpn-tunnel/>
+					</name>
+				</backup>
+			</server>
+			<vhm-name value="*" operation="yes"/>
+			<transport operation="yes">
+				<http operation="yes"/>
+			</transport>
+			<pci-alert>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="yes"/>
+			</pci-alert>
+		</client>
+	</capwap>
+	<routing>
+		<route-request>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="yes"/>
+			<interval value="*" operation="yes"/>
+		</route-request>
+		<internal-sub-network name="*" operation="yesWithValue">
+			<tunnel-dist-only operation="yes"/>
+		</internal-sub-network>
+		<protocol>
+			<ripv2>
+				<advertise>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<eth0 operation="yes"/>
+					<eth1 operation="yes"/>
+				</advertise>
+				<auth-mode value="*" operation="yesWithValue">
+					<key value="*"/>
+				</auth-mode>
+			</ripv2>
+			<ospf>
+				<advertise>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<eth0 operation="yes"/>
+					<eth1 operation="yes"/>
+				</advertise>
+				<area value="*" operation="yes"/>
+				<router-id value="*" operation="yes"/>
+				<auth-mode value="*" operation="yesWithValue">
+					<key value="*"/>
+				</auth-mode>
+			</ospf>
+			<bgp>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<keepalive value="*" operation="yes"/>
+				<neighbor name="*" operation="yesWithValue"/>
+				<system-number value="*" operation="yes"/>
+				<router-id value="*" operation="yes"/>
+				<auth-mode value="*" operation="yesWithValue">
+					<key value="*"/>
+				</auth-mode>
+			</bgp>
+			<type value="*" operation="yes"/>
+			<enable operation="yes"/>
+		</protocol>
+	</routing>
+	<config>
+		<rollback>
+			<enable operation="yes">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</enable>
+		</rollback>
+	</config>
+</configuration>

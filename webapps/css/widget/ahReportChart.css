@@ -1,0 +1,261 @@
+div.rpContainer {
+	float: left;
+	margin-top: 20px;
+	margin-right: 80px;
+}
+div.reportTopDescStyle {
+	
+}
+div.reportTitleCtlStyle {
+	text-align: right;
+}
+div.reportTitleStyle {
+	font-size: 22px;
+	font-weight: bold;
+}
+div.reportSubTitleStyle {
+	font-size: 12px;
+	color: #999999;
+	padding-left: 3px;
+	padding-top: 3px;
+}
+div.reportTipStyle {
+	font-size: 12px;
+}
+div.reportCustomContentStyle {
+	font-size: 12px;
+}
+div.reportSummaryStyle {
+	font-size: 12px;
+	line-height: 1.5em;
+	padding-left: 3px;
+}
+
+div.rpTopDescStyleDash {
+	padding-bottom: 25px;
+	padding-top: 5px;
+	background-color: #FFFFFF;
+}
+div.rpTitleCtlStyleDash {
+	text-align: right;
+	float: right;
+	/*width: 180px;*/
+	height: 22px;
+	display: inline-block;
+}
+div.rpTitleCtlStyleTitleDash {
+	text-align: right;
+	float: right;
+	height: 22px;
+	display: inline-block;
+	min-width: 40px;
+	max-width: 10%;
+}
+.rpTitleCtlStyleTitleDash button.btn {
+	height: 20px;
+}
+.rpTitleCtlStyleTitleDash button.btn > i{
+	margin-top: -2px;
+}
+.rpTitleCtlStyleTitleDash button.btn > span {
+	margin-top: 3px;
+}
+div.rpTitleStyleDashOutter {
+	font-size: 20px;
+	font-weight: bold;
+	float: left;
+	width: 90%;
+	overflow: hidden;
+	word-wrap:break-word;
+	word-break:break-all;
+	display: inline;
+}
+div.rpTitleStyleDash {
+	float: left;
+	font-size: 16px;
+	width: 95%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis; /*For Opera*/
+	-ms-text-overflow: ellipsis; /*For IE8*/
+	-moz-binding: url(assets/xml/ellipsis.xml#ellipsis); /*For Firefox3.x*/
+	word-wrap: normal;
+	font-weight: normal;
+}
+div.rpTitleMarkStyleDash {
+	font-size: 20px;
+	font-weight: bold;
+	color: #FF9933;
+	float: left;
+	word-wrap:break-word;
+	display: inline;
+}
+
+div.anchorTextContainer {
+	float: left;
+	display: inline-block;
+}
+div.anchorTextContainer a {
+	margin: 3px 5px 2px 5px;
+	font-size: 13px;
+	color: #0093D1;
+	text-decoration: none;
+}
+div.anchorTextContainer a:hover {
+	font-size: 13px;
+	color: #0093D1;
+	text-decoration: underline;
+}
+.reportLoadingIcon {
+	background: url(../../images/waitingSquare.gif) no-repeat scroll 0 0 transparent;
+	width: 16px;
+	height: 16px;
+	color: #FFFFFF;
+	font-size: 14px;
+}
+.reportProcessingImage {
+	background: url(../../images/waiting.gif) no-repeat scroll 0 0 transparent;
+	width: 220px;
+	height: 19px;
+	display: inline-block;
+	font-size: 15px;
+	filter: alpha(opacity=100);
+	-webkit-opacity: 1;
+	-moz-opacity: 1;
+	opacity: 1;
+}
+.reportLoadingTipText {
+	background-color:#000000;
+	color:#FFFFFF;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+	filter: alpha(opacity=100);
+	-webkit-opacity: 1;
+	-moz-opacity: 1;
+	opacity: 1;
+}
+.reportLoadingContainer {
+	text-align: center;
+}
+
+.rpSuccInfo {
+	font-size: 12px;
+	vertical-align: middle;
+	line-height: 19px;
+	color: #002848;
+}
+.rpWarnInfo {
+	font-size: 12px;
+	font-weight: bold;
+	color: blue;
+	vertical-align: middle;
+	line-height: 19px;
+}
+.rpErrInfo {
+	font-size: 12px;
+	font-weight: bold;
+	color: red;
+	vertical-align: middle;
+	line-height: 19px;
+}
+.rpBtnLineTip {
+	height: 16px;
+	vertical-align: middle;
+	display: inline-block;
+	margin-bottom: 3px;
+}
+.rpCustomCtlBtnDash {
+	border-top: 1px solid #DEDCD5;
+	height: 25px;
+}
+
+/* start: define some styles for control buttons of chart */
+.chart_exportBtn {
+	background: url(../../images/chart/download.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+.chart_printBtn {
+	background: url(../../images/chart/printer.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+.chart_clockBtn {
+	background: url(../../images/chart/clock.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+.chart_optionsBtn {
+	background: url(../../images/chart/options.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+.chart_emailBtn {
+	background: url(../../images/chart/mail.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+.chart_closeBtn {
+	background: url(../../images/cancel.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+.chart_configBtn {
+	background: url(../../images/chart/settings.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+.chart_startBtn {
+	background: url(../../images/chart/start.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	display: inline-block;
+}
+.chart_pauseBtn {
+	background: url(../../images/chart/pause.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	display: inline-block;
+}
+.chart_topologyBtn {
+	background: url(../../images/chart/topology.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+.chart_zoomInBtn {
+	background: url(../../images/chart/zoom_in.png) no-repeat scroll 0 0 transparent;
+	width: 20px;
+	height: 16px;
+	cursor: pointer;
+	float: right;
+	display: inline-block;
+}
+/* end: define some styles for control buttons of chart */

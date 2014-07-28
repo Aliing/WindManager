@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="homeLayout" extends="hmLayout">
+		<put-attribute name="leftWidth" value="175" />
+	</definition>
+	
+	<definition name="startHereDetail" template="/jsp/home/startHereDetail.jsp">
+	</definition>
+	
+	<definition name="startHereMgr" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/startHere.jsp" />
+	</definition>
+	
+	<definition name="hmSettings" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/hmSettings.jsp" />
+	</definition>
+	
+	<definition name="oemSettings" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/oemSettings.jsp" />
+	</definition>
+	
+	<definition name="hmServices" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/hmServices.jsp" />
+	</definition>
+	
+	<definition name="haMonitor" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/haMonitoring.jsp" />
+	</definition>
+	
+	<definition name="portalSettings" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/portalSettings.jsp" />
+	</definition>
+	
+	<definition name="spportAccess" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/spportAccess.jsp" />
+	</definition>
+	
+	<definition name="vhmList" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/vhmList.jsp" />
+	</definition>
+
+	<definition name="vhm" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/vhm.jsp" />
+	</definition>
+
+	<definition name="systemOverview" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/systemOverview.jsp" />
+	</definition>
+
+	<definition name="userList" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/userList.jsp" />
+	</definition>
+
+	<definition name="user" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/user.jsp" />
+	</definition>
+
+	<definition name="userEx" extends="layoutBlank">
+		<put-attribute name="body" value="/jsp/home/user.jsp" />
+	</definition>
+	
+	<definition name="userGroupList" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/userGroupList.jsp" />
+	</definition>
+
+	<definition name="userGroup" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/userGroup.jsp" />
+	</definition>
+
+	<definition name="userPasswordModify" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/userPassword.jsp" />
+	</definition>
+	
+	<definition name="changePassword4Plan" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/jsp/home/changePassword4Plan.jsp" />
+	</definition>
+
+	<definition name="restartSoftware" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/restartSoftware.jsp" />
+	</definition>
+
+	<definition name="clearDB" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/clearDB.jsp" />
+	</definition>
+
+	<definition name="backupDB" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/backupDB.jsp" />
+	</definition>
+
+	<definition name="restoreDB" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/restoreDB.jsp" />
+	</definition>
+
+	<definition name="shutDownApp" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/shutDownApp.jsp" />
+	</definition>
+
+	<definition name="rebootApp" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/rebootApp.jsp" />
+	</definition>
+
+	<definition name="updateSoftware" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/updateSoftware.jsp" />
+	</definition>
+	
+	<definition name="connectivityTestResult" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/jsp/home/connectivityTestResult.jsp" />
+	</definition>
+
+	<definition name="updateSoftwareExt" template="/tiles/layoutExt.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="body"
+			value="/jsp/home/updateSoftware.jsp" />
+	</definition>
+
+	<definition name="supportBundle" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/supportBundle.jsp" />
+	</definition>
+
+	<definition name="systemLog" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/systemLog.jsp" />
+	</definition>
+
+	<definition name="upgradeLogList" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/upgradeLogList.jsp" />
+	</definition>
+
+	<definition name="upgradeLog" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/upgradeLog.jsp" />
+	</definition>
+
+	<definition name="auditLog" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/auditLog.jsp" />
+	</definition>
+	
+	<definition name="hmKddrLog" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/hmKddrLog.jsp" />
+	</definition>
+
+	<!--add by wpliang for l3firewallLog 2011/06/13-->
+	<definition name="l3firewallLog" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/l3firewallLog.jsp" />
+	</definition>
+	
+	<definition name="mailList" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/mailList.jsp" />
+	</definition>
+
+	<definition name="helpSetting" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/helpSetting.jsp" />
+	</definition>
+	
+	<definition name="licenseMgr" extends="homeLayout">
+		<put-attribute name="body" value="/jsp/home/licenseMgr.jsp" />
+	</definition>
+
+	<definition name="mibFileMgmt" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/mibFileMgmt.jsp" />
+	</definition>
+	
+	<definition name="cidClientsMgmt" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/cidClientsMgmt.jsp" />
+	</definition>
+
+	<definition name="dictionaryFileMgmt" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/dictionaryFileMgmt.jsp" />
+	</definition>
+
+	<definition name="hmAccess" extends="homeLayout">
+		<put-attribute name="body"
+			value="/jsp/home/hmAccess.jsp" />
+	</definition>
+
+	<definition name="openDNSDevice"  template="/jsp/home/openDNSDevice.jsp" />
+</tiles-definitions>

@@ -1,0 +1,3038 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<reset-button>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<reset-config-enable operation="yes"/>
+	</reset-button>
+	<console>
+		<serial-port>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="yes"/>
+		</serial-port>
+	</console>
+	<track name="*">
+		<enable operation="yes"/>
+		<multi-dst-logic value="or"/>
+		<action operation="no">
+			<AH-DELTA-ASSISTANT operation="yes"/>
+		</action>
+		<action operation="no"/>
+		<retry value="2"/>
+		<old-interval value="6"/>
+		<timeout value="2"/>
+	</track>
+	<cac>
+		<enable operation="no"/>
+		<airtime-per-second value="500"/>
+		<roaming>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<airtime-percentage value="20"/>
+		</roaming>
+	</cac>
+	<lldp>
+		<cr>
+			<cr operation="no"/>
+			<receive-only operation="no"/>
+		</cr>
+		<holdtime value="90"/>
+		<max-entries value="64"/>
+		<timer value="30"/>
+		<cdp>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<cr operation="no"/>
+			<max-entries value="64"/>
+		</cdp>
+		<max-power value="154"/>
+	</lldp>
+	<system>
+		<temperature>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<high-threshold value="75"/>
+		</temperature>
+		<smart-poe>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="yes"/>
+		</smart-poe>
+		<led>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<brightness operation="no">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</brightness>
+		</led>
+		<icmp-redirect>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+		</icmp-redirect>
+		<web-server>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="yes"/>
+		</web-server>
+	</system>
+	<service name="*">
+		<protocol value="tcp">
+			<timeout value="300"/>
+			<timeout value="100"/>
+			<timeout value="100"/>
+		</protocol>
+		<protocol value="udp"/>
+		<protocol value="*"/>
+	</service>
+	<logging>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<buffered>
+			<level value="debug"/>
+		</buffered>
+		<debug operation="no"/>
+		<facility value="local6"/>
+		<flash>
+			<level value="error"/>
+		</flash>
+		<server name="*">
+			<level value="info"/>
+			<via-vpn-tunnel operation="no"/>
+		</server>
+		<trap>
+			<level value="info"/>
+		</trap>
+	</logging>
+	<snmp>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<contact value="admin@aerohive.com"/>
+		<location value="change_me"/>
+		<reader>
+			<version>
+				<v1>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<community name="hivecommunity"/>
+				</v1>
+				<v2c>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<community name="hivecommunity"/>
+				</v2c>
+				<any>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<community name="hivecommunity"/>
+				</any>
+				<v3>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+				</v3>
+			</version>
+		</reader>
+		<trap-host>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<v1 name="*">
+				<port value="162"/>
+				<community value="public"/>
+				<via-vpn-tunnel operation="no"/>
+			</v1>
+			<v2c name="*">
+				<port value="162"/>
+				<community value="public"/>
+				<via-vpn-tunnel operation="no"/>
+			</v2c>
+			<v3>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</v3>
+		</trap-host>
+		<trap-info>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<over-capwap operation="yes"/>
+			<over-snmp operation="no"/>
+		</trap-info>
+	</snmp>
+	<amrp>
+		<metric>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<poll-interval value="60"/>
+			<type value="normal"/>
+		</metric>
+		<vpn-tunnel>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<heartbeat>
+				<interval value="10">
+					<retry value="10"/>
+				</interval>
+			</heartbeat>
+		</vpn-tunnel>
+		<interface>
+			<eth0>
+				<priority value="0"/>
+			</eth0>
+			<eth1>
+				<priority value="0"/>
+			</eth1>
+			<agg0>
+				<priority value="0"/>
+			</agg0>
+			<red0>
+				<priority value="0"/>
+			</red0>
+		</interface>
+	</amrp>
+	<clock>
+		<time-zone>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<cr value="0">
+				<cr value=""/>
+			</cr>
+		</time-zone>
+	</clock>
+	<dns>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+	</dns>
+	<location>
+		<aerohive>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<list-match>
+				<enable operation="yes"/>
+			</list-match>
+			<rssi-update-threshold value="3"/>
+			<rssi-valid-period value="60"/>
+			<rssi-hold-time value="0"/>
+			<report-interval value="60"/>
+			<suppress-report value="0"/>
+		</aerohive>
+		<aeroscout>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<rogue-ap operation="no"/>
+			<station operation="no"/>
+			<tag operation="no"/>
+		</aeroscout>
+		<tzsp>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<mcast-mac value="01-18-8e-00-00-00"/>
+		</tzsp>
+		<rate-threshold>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<tag value="1000"/>
+			<station value="200"/>
+			<rogue-ap value="50"/>
+		</rate-threshold>
+	</location>
+	<alg>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<ftp>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<inactive-data-timeout value="30"/>
+			<max-duration value="60"/>
+			<qos value="0"/>
+		</ftp>
+		<tftp>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<inactive-data-timeout value="30"/>
+			<max-duration value="60"/>
+			<qos value="0"/>
+		</tftp>
+		<sip>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<inactive-data-timeout value="60"/>
+			<max-duration value="720"/>
+			<qos value="6"/>
+		</sip>
+		<dns>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<qos value="0"/>
+		</dns>
+		<http>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+		</http>
+	</alg>
+	<mobility-threshold>
+		<gre-tunnel>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<permitted-load>
+				<high operation="yesWithShow" multi-selected="low|medium"/>
+			</permitted-load>
+		</gre-tunnel>
+	</mobility-threshold>
+	<admin>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<auth>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<cr>
+				<local/>
+			</cr>
+			<radius-method>
+				<pap operation="yesWithShow" multi-selected="chap|ms-chap-v2"/>
+			</radius-method>
+		</auth>
+		<min-password-length value="5"/>
+		<root-admin value="admin">
+			<password value="TsVWuXvoOgNnEr4Kf15e11wRla."/>
+		</root-admin>
+	</admin>
+	<user-group name="*">
+		<password-generation-method value="manual"/>
+		<auto-generation>
+			<password-length value="8"/>
+		</auto-generation>
+		<cache-mode value="mandatory"/>
+		<psk-format>
+			<character-pattern>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<digits operation="yes"/>
+				<letters operation="yes"/>
+				<special-characters operation="yes"/>
+			</character-pattern>
+			<combo-pattern value="or"/>
+		</psk-format>
+		<psk-generation-method>
+			<password-only operation="yesWithShow" multi-selected="username-and-password"/>
+			<username-and-password>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</username-and-password>
+		</psk-generation-method>
+		<vlan-id value="1"/>
+		<user-attribute value="0"/>
+		<reauth-interval value="1800"/>
+	</user-group>
+	<mobility-policy name="*">
+		<dnxp>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<nomadic-roaming operation="no"/>
+			<unroam-threshold value="0 60"/>
+		</dnxp>
+		<inxp>
+			<gre-tunnel>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</gre-tunnel>
+		</inxp>
+	</mobility-policy>
+	<security>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<wlan-idp>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<profile name="*">
+				<ap-policy>
+					<cr operation="no"/>
+					<ap-oui>
+						<cr operation="no"/>
+					</ap-oui>
+					<ssid>
+						<cr operation="no"/>
+						<entry name="*">
+							<encryption>
+								<cr operation="no"/>
+								<open operation="yesWithShow" multi-selected="wep|wpa"/>
+							</encryption>
+						</entry>
+					</ssid>
+					<short-preamble operation="no"/>
+					<short-beacon operation="no"/>
+					<wmm operation="no"/>
+				</ap-policy>
+				<adhoc operation="no"/>
+				<ap-detection>
+					<connected>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<cr operation="no"/>
+					</connected>
+				</ap-detection>
+				<mitigate>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<period value="1"/>
+					<duration value="14400">
+						<quiet-time value="3600"/>
+					</duration>
+					<deauth-time value="60"/>
+				</mitigate>
+			</profile>
+		</wlan-idp>
+	</security>
+	<radio>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<profile name="*">
+			<phymode value="11b/g"/>
+			<acsp>
+				<access>
+					<channel-auto-select>
+						<time-range value="*">
+							<station value="0"/>
+						</time-range>
+					</channel-auto-select>
+				</access>
+				<max-tx-power value="20"/>
+				<max-tx-power value="20"/>
+				<channel-model>
+					<_3-channels operation="yes"/>
+				</channel-model>
+				<all-channels-model>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<enable operation="no"/>
+				</all-channels-model>
+				<interference-switch>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<iu-threshold value="25"/>
+					<crc-err-threshold value="25"/>
+					<no-station-enable operation="yesWithShow" multi-selected="disable|enable"/>
+				</interference-switch>
+			</acsp>
+			<backhaul>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<failover operation="yes">
+					<cr/>
+					<trigger-time value="2"/>
+					<hold-time value="30"/>
+				</failover>
+			</backhaul>
+			<beacon-period value="100"/>
+			<max-client value="100"/>
+			<scan>
+				<access>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<cr operation="yes"/>
+					<interval value="10"/>
+					<voice operation="no"/>
+					<client>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<cr operation="yes"/>
+						<power-save operation="no"/>
+					</client>
+				</access>
+			</scan>
+			<short-preamble operation="yes"/>
+			<channel-width value="20"/>
+			<wmm>
+				<ac>
+					<background>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<aifs operation="yes" value="7"/>
+						<cwmax operation="yes" value="10"/>
+						<cwmin operation="yes" value="4"/>
+						<noack operation="no"/>
+						<txoplimit operation="yes" value="0"/>
+					</background>
+					<best-effort>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<aifs operation="yes" value="3"/>
+						<cwmax operation="yes" value="6"/>
+						<cwmin operation="yes" value="4"/>
+						<noack operation="no"/>
+						<txoplimit operation="yes" value="0"/>
+					</best-effort>
+					<video>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<aifs operation="yes" value="1"/>
+						<cwmax operation="yes" value="4"/>
+						<cwmin operation="yes" value="3"/>
+						<noack operation="no"/>
+						<txoplimit operation="yes" value="3008"/>
+					</video>
+					<voice>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<aifs operation="yes" value="1"/>
+						<cwmax operation="yes" value="3"/>
+						<cwmin operation="yes" value="2"/>
+						<noack operation="no"/>
+						<txoplimit operation="yes" value="1504"/>
+					</voice>
+				</ac>
+			</wmm>
+			<ampdu operation="yes"/>
+			<short-guard-interval operation="no"/>
+			<transmit-chain value="3"/>
+			<receive-chain value="3"/>
+			<deny-client operation="no"/>
+			<dfs>
+				<cr operation="no"/>
+				<radar-detect-only operation="no"/>
+			</dfs>
+			<interference-map>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+				<crc-err-threshold value="20"/>
+				<cu-threshold value="20"/>
+				<short-term-interval value="5"/>
+			</interference-map>
+			<benchmark>
+				<phymode>
+					<_11a>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+					</_11a>
+					<_11b>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+					</_11b>
+					<_11g>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+					</_11g>
+					<_11n>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+					</_11n>
+				</phymode>
+			</benchmark>
+			<band-steering>
+				<enable operation="no"/>
+				<mode value="balance-band"/>
+				<prefer-5g>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<suppression-limit value="5"/>
+				</prefer-5g>
+				<balance-band>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<threshold value="80"/>
+				</balance-band>
+			</band-steering>
+			<client-load-balance>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+				<mode value="airtime"/>
+				<hold-time value="60"/>
+				<sta-mini-airtime value="4"/>
+				<interference-limit value="40"/>
+				<crc-error-limit value="30"/>
+				<neighbor-load-query-interval value="60"/>
+			</client-load-balance>
+			<weak-snr-suppress>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+				<threshold value="15"/>
+			</weak-snr-suppress>
+			<safety-net>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="yes"/>
+				<timeout value="15"/>
+			</safety-net>
+			<high-density>
+				<enable operation="no"/>
+				<mgmt-frame-tx-rate>
+					<low/>
+				</mgmt-frame-tx-rate>
+				<continuous-probe-suppress>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<enable operation="no"/>
+				</continuous-probe-suppress>
+				<broadcast-probe-suppress>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<enable operation="no"/>
+				</broadcast-probe-suppress>
+			</high-density>
+			<detect-bssid-spoofing operation="no"/>
+		</profile>
+	</radio>
+	<qos>
+		<classifier-profile name="def-null-cls">
+			<cr/>
+		</classifier-profile>
+		<classifier-profile name="def-land-cls">
+			<cr/>
+			<_8021p operation="yes"/>
+			<service operation="yes"/>
+		</classifier-profile>
+		<classifier-profile name="def-ap-cls">
+			<cr/>
+			<_80211e operation="yes"/>
+			<service operation="yes"/>
+		</classifier-profile>
+		<classifier-profile name="def-mesh-cls">
+			<cr/>
+			<_80211e operation="yes"/>
+		</classifier-profile>
+		<classifier-map>
+			<_8021p name="0 2"/>
+			<_8021p name="1 0"/>
+			<_8021p name="2 1"/>
+			<_8021p name="3 3"/>
+			<_8021p name="4 4"/>
+			<_8021p name="5 5"/>
+			<_8021p name="6 6"/>
+			<_8021p name="7 7"/>
+			<_80211e name="0 2"/>
+			<_80211e name="1 0"/>
+			<_80211e name="2 1"/>
+			<_80211e name="3 3"/>
+			<_80211e name="4 4"/>
+			<_80211e name="5 5"/>
+			<_80211e name="6 6"/>
+			<_80211e name="7 7"/>
+			<diffserv name="0 2"/>
+			<diffserv name="1 2"/>
+			<diffserv name="2 2"/>
+			<diffserv name="3 2"/>
+			<diffserv name="4 2"/>
+			<diffserv name="5 2"/>
+			<diffserv name="6 2"/>
+			<diffserv name="7 2"/>
+			<diffserv name="8 0"/>
+			<diffserv name="9 0"/>
+			<diffserv name="10 0"/>
+			<diffserv name="11 0"/>
+			<diffserv name="12 0"/>
+			<diffserv name="13 0"/>
+			<diffserv name="14 0"/>
+			<diffserv name="15 0"/>
+			<diffserv name="16 1"/>
+			<diffserv name="17 1"/>
+			<diffserv name="18 1"/>
+			<diffserv name="19 1"/>
+			<diffserv name="20 1"/>
+			<diffserv name="21 1"/>
+			<diffserv name="22 1"/>
+			<diffserv name="23 1"/>
+			<diffserv name="24 3"/>
+			<diffserv name="25 3"/>
+			<diffserv name="26 3"/>
+			<diffserv name="27 3"/>
+			<diffserv name="28 3"/>
+			<diffserv name="29 3"/>
+			<diffserv name="30 3"/>
+			<diffserv name="31 3"/>
+			<diffserv name="32 4"/>
+			<diffserv name="33 4"/>
+			<diffserv name="34 4"/>
+			<diffserv name="35 4"/>
+			<diffserv name="36 4"/>
+			<diffserv name="37 4"/>
+			<diffserv name="38 4"/>
+			<diffserv name="39 4"/>
+			<diffserv name="40 5"/>
+			<diffserv name="41 5"/>
+			<diffserv name="42 5"/>
+			<diffserv name="43 5"/>
+			<diffserv name="44 5"/>
+			<diffserv name="45 5"/>
+			<diffserv name="46 5"/>
+			<diffserv name="47 5"/>
+			<diffserv name="48 6"/>
+			<diffserv name="49 6"/>
+			<diffserv name="50 6"/>
+			<diffserv name="51 6"/>
+			<diffserv name="52 6"/>
+			<diffserv name="53 6"/>
+			<diffserv name="54 6"/>
+			<diffserv name="55 6"/>
+			<diffserv name="56 7"/>
+			<diffserv name="57 7"/>
+			<diffserv name="58 7"/>
+			<diffserv name="59 7"/>
+			<diffserv name="60 7"/>
+			<diffserv name="61 7"/>
+			<diffserv name="62 7"/>
+			<diffserv name="63 7"/>
+			<interface name="*" contains="eth0,eth1,eth2,eth3,eth4,agg0,red0">
+				<cr value="2"/>
+			</interface>
+			<oui name="00-1d-a2">
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+				<comment value="Cisco Wi-Fi Phone Model 7921"/>
+			</oui>
+			<oui name="00-1b-63">
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+				<comment value="Apple iPhone"/>
+			</oui>
+			<oui name="00-0c-cc">
+				<qos value="5"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+				<comment value="Aeroscout Wi-Fi Tags"/>
+			</oui>
+			<oui name="00-09-ef">
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+				<comment value="Vocera VoIP client"/>
+			</oui>
+			<oui name="00-15-70">
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+				<comment value="Symbol Wi-Fi device"/>
+			</oui>
+			<oui name="00-17-59">
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+				<comment value="Cisco Wi-Fi Phone Model 7920"/>
+			</oui>
+			<oui name="00-17-9a">
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+				<comment value="D-Link SIP Phone"/>
+			</oui>
+			<ssid name="*">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<cr value="2"/>
+			</ssid>
+			<service name="any">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="dhcp-client">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="5"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="dhcp-server">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="5"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="dns">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="5"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="ftp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="ftp-data">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="0"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="http">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="https">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="icmp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="imap-tcp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="imap-udp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="pop3-tcp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="pop3-udp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="radius">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="5"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="radius-acct">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="5"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="sip">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="smtp-tcp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="smtp-udp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="snmp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="snmp-trap">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="ssh">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="telnet">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="tftp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="3"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="vocera-control">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="5"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="vocera-media">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="voip-svp">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="6"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+			<service name="*">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<qos value="2"/>
+				<action>
+					<permit operation="yesWithShow" multi-selected="deny"/>
+				</action>
+			</service>
+		</classifier-map>
+		<marker-profile name="def-null-mkr">
+			<cr/>
+		</marker-profile>
+		<marker-profile name="def-land-mkr">
+			<cr/>
+		</marker-profile>
+		<marker-profile name="def-ap-mkr">
+			<cr/>
+			<_80211e/>
+		</marker-profile>
+		<marker-profile name="def-mesh-mkr">
+			<cr/>
+			<_80211e/>
+		</marker-profile>
+		<marker-map>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<_8021p name="0">
+				<cr value="1"/>
+			</_8021p>
+			<_8021p name="1">
+				<cr value="2"/>
+			</_8021p>
+			<_8021p name="2">
+				<cr value="0"/>
+			</_8021p>
+			<_8021p name="3">
+				<cr value="3"/>
+			</_8021p>
+			<_8021p name="4">
+				<cr value="4"/>
+			</_8021p>
+			<_8021p name="5">
+				<cr value="5"/>
+			</_8021p>
+			<_8021p name="6">
+				<cr value="6"/>
+			</_8021p>
+			<_8021p name="7">
+				<cr value="7"/>
+			</_8021p>
+			<_80211e name="0">
+				<cr value="1"/>
+			</_80211e>
+			<_80211e name="1">
+				<cr value="2"/>
+			</_80211e>
+			<_80211e name="2">
+				<cr value="0"/>
+			</_80211e>
+			<_80211e name="3">
+				<cr value="3"/>
+			</_80211e>
+			<_80211e name="4">
+				<cr value="4"/>
+			</_80211e>
+			<_80211e name="5">
+				<cr value="5"/>
+			</_80211e>
+			<_80211e name="6">
+				<cr value="6"/>
+			</_80211e>
+			<_80211e name="7">
+				<cr value="7"/>
+			</_80211e>
+			<diffserv name="0">
+				<cr value="8"/>
+			</diffserv>
+			<diffserv name="1">
+				<cr value="16"/>
+			</diffserv>
+			<diffserv name="2">
+				<cr value="0"/>
+			</diffserv>
+			<diffserv name="3">
+				<cr value="24"/>
+			</diffserv>
+			<diffserv name="4">
+				<cr value="32"/>
+			</diffserv>
+			<diffserv name="5">
+				<cr value="40"/>
+			</diffserv>
+			<diffserv name="6">
+				<cr value="48"/>
+			</diffserv>
+			<diffserv name="7">
+				<cr value="56"/>
+			</diffserv>
+		</marker-map>
+		<policy name="def-user-qos">
+			<cr/>
+			<user-profile value="1000000 10"/>
+			<user value="1000000"/>
+			<qos name="0">
+				<cr value="wrr 1000000 10"/>
+			</qos>
+			<qos name="1">
+				<cr value="wrr 1000000 20"/>
+			</qos>
+			<qos name="2">
+				<cr value="wrr 1000000 30"/>
+			</qos>
+			<qos name="3">
+				<cr value="wrr 1000000 40"/>
+			</qos>
+			<qos name="4">
+				<cr value="wrr 1000000 50"/>
+			</qos>
+			<qos name="5">
+				<cr value="wrr 1000000 60"/>
+			</qos>
+			<qos name="6">
+				<cr value="strict 20000 0"/>
+			</qos>
+			<qos name="7">
+				<cr value="strict 20000 0"/>
+			</qos>
+		</policy>
+		<airtime>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+		</airtime>
+	</qos>
+	<airscreen>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<action name="*">
+			<type>
+				<local-ban>
+					<interval value="3600"/>
+				</local-ban>
+			</type>
+		</action>
+		<source name="*">
+			<type>
+				<client>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+				</client>
+			</type>
+		</source>
+		<behavior name="*">
+			<type>
+				<reconnection>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<connection-case value="any"/>
+					<interval value="60"/>
+					<threshold value="10"/>
+				</reconnection>
+			</type>
+		</behavior>
+	</airscreen>
+	<user-profile name="*">
+		<ip-policy-default-action value="deny"/>
+		<mac-policy-default-action value="deny"/>
+		<security>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+		</security>
+		<cac>
+			<airtime-percentage value="0"/>
+		</cac>
+		<performance-sentinel>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<guaranteed-bandwidth value="500"/>
+			<action>
+				<log operation="yes"/>
+				<boost operation="no"/>
+			</action>
+		</performance-sentinel>
+		<airscreen>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+		</airscreen>
+	</user-profile>
+	<os-detection>
+		<enable operation="yes"/>
+		<method>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<user-agent operation="no"/>
+			<dhcp-option55 operation="yes"/>
+		</method>
+	</os-detection>
+	<mobile-device-policy name="*">
+		<apply>
+			<multiple-times operation="yes"/>
+		</apply>
+		<client-classification>
+			<mac operation="no"/>
+			<domain operation="no"/>
+			<os operation="no"/>
+		</client-classification>
+	</mobile-device-policy>
+	<security-object name="*">
+		<security>
+			<preauth operation="no"/>
+			<additional-auth-method>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<mac-based-auth>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<cr operation="no"/>
+					<auth-method>
+						<pap operation="yesWithShow" multi-selected="chap|ms-chap-v2"/>
+					</auth-method>
+					<fallback-to-ecwp operation="no"/>
+				</mac-based-auth>
+				<captive-web-portal operation="no">
+					<timer-display operation="no">
+						<alert value="5"/>
+					</timer-display>
+					<timeout value="720"/>
+					<reg-user-profile-attr value="0"/>
+					<auth-user-profile-attr value="0"/>
+					<auth-method>
+						<pap operation="yesWithShow" multi-selected="chap|ms-chap-v2"/>
+					</auth-method>
+					<internal-servers operation="no"/>
+					<redirect>
+						<cr operation="no"/>
+						<new-window operation="no"/>
+					</redirect>
+					<external-server>
+						<primary>
+							<success-register operation="no"/>
+							<no-radius-auth operation="no"/>
+							<no-roaming-at-login operation="no"/>
+						</primary>
+					</external-server>
+					<internal-pages>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<no-success-page operation="no"/>
+						<no-failure-page operation="no"/>
+					</internal-pages>
+					<success-redirect>
+						<external-page>
+							<delay value="5"/>
+						</external-page>
+						<original-page>
+							<delay value="5"/>
+						</original-page>
+					</success-redirect>
+					<failure-redirect>
+						<external-page>
+							<delay value="5"/>
+						</external-page>
+						<login-page>
+							<delay value="5"/>
+						</login-page>
+					</failure-redirect>
+					<login-page-method>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<http302 operation="no"/>
+					</login-page-method>
+					<process-sip-info>
+						<cr/>
+					</process-sip-info>
+					<check-use-policy operation="no"/>
+				</captive-web-portal>
+				<mobile-device-manager>
+					<jss>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<enable operation="no"/>
+						<os-object name="*" operation="yesWithValue">
+							<ios/>
+						</os-object>
+					</jss>
+				</mobile-device-manager>
+			</additional-auth-method>
+			<protocol-suite>
+				<open operation="yes" multi-selected="wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared"/>
+				<wep-open name="0" multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-shared">
+					<hex-key value="*">
+						<default/>
+					</hex-key>
+					<ascii-key value="*">
+						<default/>
+					</ascii-key>
+				</wep-open>
+				<wep-shared name="0" multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open">
+					<hex-key value="*">
+						<default/>
+					</hex-key>
+					<ascii-key value="*">
+						<default/>
+					</ascii-key>
+				</wep-shared>
+				<wpa-auto-psk multi-selected="open|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<hex-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</hex-key>
+					<ascii-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</ascii-key>
+					<replay-window value="0"/>
+					<local-tkip-counter-measure operation="yes"/>
+					<remote-tkip-counter-measure operation="yes"/>
+				</wpa-auto-psk>
+				<wpa-tkip-psk multi-selected="open|wpa-auto-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<hex-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</hex-key>
+					<ascii-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</ascii-key>
+					<replay-window value="0"/>
+					<local-tkip-counter-measure operation="yes"/>
+					<remote-tkip-counter-measure operation="yes"/>
+				</wpa-tkip-psk>
+				<wpa-aes-psk multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<hex-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</hex-key>
+					<ascii-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</ascii-key>
+					<replay-window value="0"/>
+				</wpa-aes-psk>
+				<wpa2-tkip-psk multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<hex-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</hex-key>
+					<ascii-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</ascii-key>
+					<replay-window value="0"/>
+					<local-tkip-counter-measure operation="yes"/>
+					<remote-tkip-counter-measure operation="yes"/>
+				</wpa2-tkip-psk>
+				<wpa2-aes-psk multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<hex-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</hex-key>
+					<ascii-key value="*">
+						<rekey-period value="0"/>
+						<non-strict operation="yesWithShow" multi-selected="strict"/>
+						<gmk-rekey-period value="0"/>
+						<ptk-timeout value="4000"/>
+						<ptk-retry value="3"/>
+						<gtk-timeout value="4000"/>
+						<gtk-retry value="3"/>
+						<ptk-rekey-period value="0"/>
+					</ascii-key>
+					<replay-window value="0"/>
+				</wpa2-aes-psk>
+				<wpa-auto-8021x multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<rekey-period value="0"/>
+					<non-strict operation="yesWithShow" multi-selected="strict"/>
+					<gmk-rekey-period value="0"/>
+					<ptk-timeout value="4000"/>
+					<ptk-retry value="3"/>
+					<gtk-timeout value="4000"/>
+					<gtk-retry value="3"/>
+					<roaming>
+						<proactive-pmkid-response operation="no"/>
+					</roaming>
+					<ptk-rekey-period value="0"/>
+					<replay-window value="0"/>
+					<local-tkip-counter-measure operation="yes"/>
+					<remote-tkip-counter-measure operation="yes"/>
+					<reauth-interval operation="no"/>
+				</wpa-auto-8021x>
+				<wpa-tkip-8021x multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<rekey-period value="0"/>
+					<non-strict operation="yesWithShow" multi-selected="strict"/>
+					<gmk-rekey-period value="0"/>
+					<ptk-timeout value="4000"/>
+					<ptk-retry value="3"/>
+					<gtk-timeout value="4000"/>
+					<gtk-retry value="3"/>
+					<ptk-rekey-period value="0"/>
+					<replay-window value="0"/>
+					<local-tkip-counter-measure operation="yes"/>
+					<remote-tkip-counter-measure operation="yes"/>
+					<reauth-interval operation="no"/>
+				</wpa-tkip-8021x>
+				<wpa-aes-8021x multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<rekey-period value="0"/>
+					<non-strict operation="yesWithShow" multi-selected="strict"/>
+					<gmk-rekey-period value="0"/>
+					<ptk-timeout value="4000"/>
+					<ptk-retry value="3"/>
+					<gtk-timeout value="4000"/>
+					<gtk-retry value="3"/>
+					<ptk-rekey-period value="0"/>
+					<replay-window value="0"/>
+					<reauth-interval operation="no"/>
+				</wpa-aes-8021x>
+				<wpa2-tkip-8021x multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-aes-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<rekey-period value="0"/>
+					<non-strict operation="yesWithShow" multi-selected="strict"/>
+					<gmk-rekey-period value="0"/>
+					<ptk-timeout value="4000"/>
+					<ptk-retry value="3"/>
+					<gtk-timeout value="4000"/>
+					<gtk-retry value="3"/>
+					<roaming>
+						<proactive-pmkid-response operation="no"/>
+					</roaming>
+					<ptk-rekey-period value="0"/>
+					<replay-window value="0"/>
+					<local-tkip-counter-measure operation="yes"/>
+					<remote-tkip-counter-measure operation="yes"/>
+					<reauth-interval operation="no"/>
+				</wpa2-tkip-8021x>
+				<wpa2-aes-8021x multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wep40-8021x|wep104-8021x|wep-open|wep-shared">
+					<rekey-period value="0"/>
+					<non-strict operation="yesWithShow" multi-selected="strict"/>
+					<gmk-rekey-period value="0"/>
+					<ptk-timeout value="4000"/>
+					<ptk-retry value="3"/>
+					<gtk-timeout value="4000"/>
+					<gtk-retry value="3"/>
+					<ptk-rekey-period value="0"/>
+					<replay-window value="0"/>
+					<roaming>
+						<proactive-pmkid-response operation="no"/>
+					</roaming>
+					<reauth-interval operation="no"/>
+				</wpa2-aes-8021x>
+				<wep40-8021x multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep104-8021x|wep-open|wep-shared">
+					<rekey-period value="600"/>
+				</wep40-8021x>
+				<wep104-8021x multi-selected="open|wpa-auto-psk|wpa-tkip-psk|wpa-aes-psk|wpa2-tkip-psk|wpa2-aes-psk|wpa-auto-8021x|wpa-tkip-8021x|wpa-aes-8021x|wpa2-tkip-8021x|wpa2-aes-8021x|wep40-8021x|wep-open|wep-shared">
+					<rekey-period value="600"/>
+				</wep104-8021x>
+			</protocol-suite>
+			<aaa>
+				<radius-server>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<primary value="*">
+						<auth-port value="1812"/>
+						<via-vpn-tunnel operation="no"/>
+					</primary>
+					<backup1 value="*">
+						<auth-port value="1812"/>
+						<via-vpn-tunnel operation="no"/>
+					</backup1>
+					<backup2 value="*">
+						<auth-port value="1812"/>
+						<via-vpn-tunnel operation="no"/>
+					</backup2>
+					<backup3 value="*">
+						<auth-port value="1812"/>
+						<via-vpn-tunnel operation="no"/>
+					</backup3>
+					<accounting>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<primary value="*">
+							<acct-port value="1813"/>
+							<via-vpn-tunnel operation="no"/>
+						</primary>
+						<backup1 value="*">
+							<acct-port value="1813"/>
+							<via-vpn-tunnel operation="no"/>
+						</backup1>
+						<backup2 value="*">
+							<acct-port value="1813"/>
+							<via-vpn-tunnel operation="no"/>
+						</backup2>
+						<backup3 value="*">
+							<acct-port value="1813"/>
+							<via-vpn-tunnel operation="no"/>
+						</backup3>
+					</accounting>
+					<retry-interval value="600"/>
+					<account-interim-interval value="20"/>
+					<dynamic-auth-extension operation="no"/>
+					<inject>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<operator-name operation="no"/>
+					</inject>
+				</radius-server>
+				<user-profile-mapping>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<enable operation="no"/>
+					<attribute-id value="11"/>
+				</user-profile-mapping>
+			</aaa>
+			<private-psk>
+				<cr operation="no"/>
+				<default-psk-disabled operation="no"/>
+				<radius-auth>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<cr operation="no"/>
+					<pap operation="yesWithShow" multi-selected="chap|ms-chap-v2"/>
+				</radius-auth>
+				<same-user-limit value="0"/>
+				<mac-binding-enable operation="no"/>
+				<external-server operation="no"/>
+			</private-psk>
+			<roaming>
+				<cache>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<update-interval value="60">
+						<ageout value="60"/>
+					</update-interval>
+				</cache>
+			</roaming>
+			<local-cache>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<timeout value="86400"/>
+			</local-cache>
+			<eap>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<timeout value="30"/>
+				<retries value="3"/>
+			</eap>
+		</security>
+		<default-user-profile-attr value="0"/>
+		<web-server>
+			<port value="80"/>
+			<index-file value="index.html"/>
+			<success-file value="success.html"/>
+			<failure-file value="failure.html"/>
+			<web-page>
+				<mandatory-field value="4">
+					<optional-field value="2"/>
+				</mandatory-field>
+			</web-page>
+		</web-server>
+		<dhcp-server>
+			<lease-time value="10"/>
+			<renewal-response operation="no"/>
+		</dhcp-server>
+		<user-profile-allowed operation="yes">
+			<all operation="yesWithShow" multi-selected="cr"/>
+		</user-profile-allowed>
+		<walled-garden>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+		</walled-garden>
+		<user-profile-sequence value="mac-ssid-cwp"/>
+		<ppsk-web-server>
+			<https operation="no"/>
+			<auth-user operation="no"/>
+		</ppsk-web-server>
+	</security-object>
+	<performance-sentinel>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<notification-interval value="600"/>
+	</performance-sentinel>
+	<ssid name="*">
+		<cr/>
+		<dtim-period value="1"/>
+		<frag-threshold value="2346"/>
+		<hide-ssid operation="no"/>
+		<ignore-broadcast-probe operation="no"/>
+		<rts-threshold value="2346"/>
+		<manage>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<SNMP operation="no"/>
+			<SSH operation="yes"/>
+			<Telnet operation="no"/>
+			<ping operation="yes"/>
+		</manage>
+		<security>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<screening>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<arp-flood operation="no">
+					<threshold value="100"/>
+					<action>
+						<alarm value="10" operation="yes" multi-selected="ban-forever|disconnect|ban|drop"/>
+					</action>
+				</arp-flood>
+				<icmp-flood operation="no">
+					<threshold value="20"/>
+					<action>
+						<alarm value="10" operation="yes" multi-selected="ban-forever|disconnect|ban|drop"/>
+					</action>
+				</icmp-flood>
+				<udp-flood operation="no">
+					<threshold value="50"/>
+					<action>
+						<alarm value="10" operation="yes" multi-selected="ban-forever|disconnect|ban|drop"/>
+					</action>
+				</udp-flood>
+				<syn-flood operation="no">
+					<threshold value="1000"/>
+					<action>
+						<alarm value="10" operation="yes" multi-selected="ban-forever|disconnect|ban|drop"/>
+					</action>
+				</syn-flood>
+				<address-sweep operation="no">
+					<threshold value="100"/>
+					<action>
+						<alarm value="10" operation="yes" multi-selected="ban-forever|disconnect|ban|drop"/>
+					</action>
+				</address-sweep>
+				<port-scan operation="no">
+					<threshold value="100"/>
+					<action>
+						<alarm value="10" operation="yes" multi-selected="ban-forever|disconnect|ban|drop"/>
+					</action>
+				</port-scan>
+				<ip-spoof operation="no">
+					<threshold value="3"/>
+					<action>
+						<alarm value="10" operation="yes" multi-selected="ban-forever|disconnect|ban|drop"/>
+					</action>
+				</ip-spoof>
+				<tcp-syn-check operation="no"/>
+				<radius-attack operation="no">
+					<threshold value="5"/>
+					<action>
+						<alarm value="10" operation="yes" multi-selected="ban-forever|ban"/>
+					</action>
+				</radius-attack>
+			</screening>
+			<wlan>
+				<dos>
+					<ssid-level>
+						<frame-type>
+							<AH-DELTA-ASSISTANT operation="yes"/>
+							<probe-req>
+								<cr operation="yes"/>
+								<threshold value="12000"/>
+								<alarm value="60"/>
+							</probe-req>
+							<probe-resp>
+								<cr operation="yes"/>
+								<threshold value="24000"/>
+								<alarm value="60"/>
+							</probe-resp>
+							<assoc-req>
+								<cr operation="yes"/>
+								<threshold value="6000"/>
+								<alarm value="60"/>
+							</assoc-req>
+							<assoc-resp>
+								<cr operation="yes"/>
+								<threshold value="2400"/>
+								<alarm value="60"/>
+							</assoc-resp>
+							<auth>
+								<cr operation="yes"/>
+								<threshold value="6000"/>
+								<alarm value="60"/>
+							</auth>
+							<deauth>
+								<cr operation="yes"/>
+								<threshold value="1200"/>
+								<alarm value="60"/>
+							</deauth>
+							<disassoc>
+								<cr operation="yes"/>
+								<threshold value="1200"/>
+								<alarm value="60"/>
+							</disassoc>
+							<eapol>
+								<cr operation="yes"/>
+								<threshold value="6000"/>
+								<alarm value="60"/>
+							</eapol>
+						</frame-type>
+					</ssid-level>
+					<station-level>
+						<frame-type>
+							<AH-DELTA-ASSISTANT operation="yes"/>
+							<probe-req>
+								<cr operation="yes"/>
+								<threshold value="1200"/>
+								<alarm value="60"/>
+							</probe-req>
+							<probe-resp>
+								<cr operation="yes"/>
+								<threshold value="2400"/>
+								<alarm value="60"/>
+							</probe-resp>
+							<assoc-req>
+								<cr operation="yes"/>
+								<threshold value="600"/>
+								<alarm value="60"/>
+								<ban value="60"/>
+							</assoc-req>
+							<assoc-resp>
+								<cr operation="yes"/>
+								<threshold value="240"/>
+								<alarm value="60"/>
+							</assoc-resp>
+							<auth>
+								<cr operation="yes"/>
+								<threshold value="600"/>
+								<alarm value="60"/>
+								<ban value="60"/>
+							</auth>
+							<deauth>
+								<cr operation="yes"/>
+								<threshold value="120"/>
+								<alarm value="60"/>
+							</deauth>
+							<disassoc>
+								<cr operation="yes"/>
+								<threshold value="120"/>
+								<alarm value="60"/>
+							</disassoc>
+							<eapol>
+								<cr operation="yes"/>
+								<threshold value="600"/>
+								<alarm value="60"/>
+								<ban value="60"/>
+							</eapol>
+						</frame-type>
+					</station-level>
+				</dos>
+			</wlan>
+		</security>
+		<dns-server operation="no"/>
+		<wmm operation="yes"/>
+		<uapsd operation="no"/>
+		<_11a-rate-set value="6-basic 9 12-basic 18 24-basic 36 48 54"/>
+		<_11g-rate-set value="1-basic 2-basic 5.5-basic 11-basic 6 9 12 18 24 36 48 54"/>
+		<_11n-mcs-expand-rate-set value="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"/>
+		<inter-station-traffic operation="yes"/>
+		<max-client value="100"/>
+		<mode>
+			<legacy operation="no"/>
+		</mode>
+		<airscreen>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+		</airscreen>
+		<client-age-out value="5"/>
+		<multicast>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<conversion-to-unicast value="disable"/>
+			<cu-threshold value="60"/>
+			<member-threshold value="10"/>
+		</multicast>
+	</ssid>
+	<hive name="*">
+		<frag-threshold value="2346"/>
+		<rts-threshold value="2346"/>
+		<manage>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<SNMP operation="no"/>
+			<SSH operation="yes"/>
+			<Telnet operation="no"/>
+			<ping operation="yes"/>
+		</manage>
+		<neighbor>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<connecting-threshold operation="yes" value="medium">
+				<polling-interval value="1"/>
+			</connecting-threshold>
+		</neighbor>
+		<security>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<wlan>
+				<dos>
+					<hive-level>
+						<frame-type>
+							<AH-DELTA-ASSISTANT operation="yes"/>
+							<probe-req>
+								<cr operation="yes"/>
+								<threshold value="12000"/>
+								<alarm value="60"/>
+							</probe-req>
+							<probe-resp>
+								<cr operation="yes"/>
+								<threshold value="24000"/>
+								<alarm value="60"/>
+							</probe-resp>
+							<assoc-req>
+								<cr operation="yes"/>
+								<threshold value="6000"/>
+								<alarm value="60"/>
+							</assoc-req>
+							<assoc-resp>
+								<cr operation="yes"/>
+								<threshold value="2400"/>
+								<alarm value="60"/>
+							</assoc-resp>
+							<auth>
+								<cr operation="yes"/>
+								<threshold value="6000"/>
+								<alarm value="60"/>
+							</auth>
+							<deauth>
+								<cr operation="yes"/>
+								<threshold value="1200"/>
+								<alarm value="60"/>
+							</deauth>
+							<disassoc>
+								<cr operation="yes"/>
+								<threshold value="1200"/>
+								<alarm value="60"/>
+							</disassoc>
+							<eapol>
+								<cr operation="yes"/>
+								<threshold value="6000"/>
+								<alarm value="60"/>
+							</eapol>
+						</frame-type>
+					</hive-level>
+					<station-level>
+						<frame-type>
+							<AH-DELTA-ASSISTANT operation="yes"/>
+							<probe-req>
+								<cr operation="yes"/>
+								<threshold value="1200"/>
+								<alarm value="60"/>
+							</probe-req>
+							<probe-resp>
+								<cr operation="yes"/>
+								<threshold value="2400"/>
+								<alarm value="60"/>
+							</probe-resp>
+							<assoc-req>
+								<cr operation="yes"/>
+								<threshold value="600"/>
+								<alarm value="60"/>
+								<ban value="60"/>
+							</assoc-req>
+							<assoc-resp>
+								<cr operation="yes"/>
+								<threshold value="240"/>
+								<alarm value="60"/>
+							</assoc-resp>
+							<auth>
+								<cr operation="yes"/>
+								<threshold value="600"/>
+								<alarm value="60"/>
+								<ban value="60"/>
+							</auth>
+							<deauth>
+								<cr operation="yes"/>
+								<threshold value="120"/>
+								<alarm value="60"/>
+							</deauth>
+							<disassoc>
+								<cr operation="yes"/>
+								<threshold value="120"/>
+								<alarm value="60"/>
+							</disassoc>
+							<eapol>
+								<cr operation="yes"/>
+								<threshold value="600"/>
+								<alarm value="60"/>
+								<ban value="60"/>
+							</eapol>
+						</frame-type>
+					</station-level>
+				</dos>
+			</wlan>
+		</security>
+		<wlan-idp>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<max-mitigator-num value="1"/>
+			<mitigation-mode>
+				<semi-automatic/>
+			</mitigation-mode>
+			<in-net-ap operation="no"/>
+		</wlan-idp>
+	</hive>
+	<bonjour-gateway>
+		<enable operation="yes"/>
+		<filter>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+		</filter>
+	</bonjour-gateway>
+	<interface>
+		<eth0>
+			<mode>
+				<backhaul multi-selected="bridge-access|bridge-802.1q" operation="yesWithShow"/>
+				<bridge-access multi-selected="backhaul|bridge-802.1q" operation="notDefault">
+					<user-profile-attribute value="0"/>
+				</bridge-access>
+				<bridge-802.1q multi-selected="backhaul|bridge-access" operation="notDefault">
+					<user-profile-attribute value="0"/>
+				</bridge-802.1q>
+			</mode>
+			<speed value="auto"/>
+			<duplex value="auto"/>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<SNMP operation="no"/>
+				<SSH operation="yes"/>
+				<Telnet operation="no"/>
+				<ping operation="yes"/>
+			</manage>
+			<shutdown operation="no"/>
+			<rate-limit>
+				<broadcast>
+					<cr value="10000"/>
+					<enable operation="yes"/>
+				</broadcast>
+				<multicast>
+					<cr value="20000"/>
+					<enable operation="yes"/>
+				</multicast>
+				<unicast>
+					<cr value="1000000"/>
+					<enable operation="no"/>
+				</unicast>
+			</rate-limit>
+			<qos-classifier name="def-land-cls"/>
+			<qos-marker name="def-land-mkr"/>
+			<mac-learning>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+				<idle-timeout value="180"/>
+			</mac-learning>
+			<inter-station-traffic operation="yes"/>
+			<bind operation="no">
+				<red0>
+					<primary/>
+				</red0>
+			</bind>
+			<link-discovery>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<lldp operation="yes"/>
+				<cdp operation="yes"/>
+			</link-discovery>
+			<allowed-vlan>
+				<all multi-selected="auto|cr"/>
+			</allowed-vlan>
+		</eth0>
+		<eth1>
+			<mode>
+				<backhaul multi-selected="bridge-access|bridge-802.1q" operation="yesWithShow"/>
+				<bridge-access multi-selected="backhaul|bridge-802.1q" operation="notDefault">
+					<user-profile-attribute value="0"/>
+				</bridge-access>
+				<bridge-802.1q multi-selected="backhaul|bridge-access" operation="notDefault">
+					<user-profile-attribute value="0"/>
+				</bridge-802.1q>
+			</mode>
+			<speed value="auto"/>
+			<duplex value="auto"/>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<SNMP operation="no"/>
+				<SSH operation="yes"/>
+				<Telnet operation="no"/>
+				<ping operation="yes"/>
+			</manage>
+			<shutdown operation="no"/>
+			<rate-limit>
+				<broadcast>
+					<cr value="10000"/>
+					<enable operation="yes"/>
+				</broadcast>
+				<multicast>
+					<cr value="20000"/>
+					<enable operation="yes"/>
+				</multicast>
+				<unicast>
+					<cr value="1000000"/>
+					<enable operation="no"/>
+				</unicast>
+			</rate-limit>
+			<qos-classifier name="def-land-cls"/>
+			<qos-marker name="def-land-mkr"/>
+			<mac-learning>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+				<idle-timeout value="180"/>
+			</mac-learning>
+			<inter-station-traffic operation="yes"/>
+			<bind operation="no"/>
+			<link-discovery>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<lldp operation="yes"/>
+				<cdp operation="yes"/>
+			</link-discovery>
+			<allowed-vlan>
+				<all multi-selected="auto|cr"/>
+			</allowed-vlan>
+		</eth1>
+		<red0>
+			<mode operation="yes">
+				<backhaul multi-selected="bridge-access|bridge-802.1q" operation="yesWithShow"/>
+				<bridge-access multi-selected="backhaul|bridge-802.1q" operation="notDefault">
+					<user-profile-attribute value="0"/>
+				</bridge-access>
+				<bridge-802.1q multi-selected="backhaul|bridge-access" operation="notDefault">
+					<user-profile-attribute value="0"/>
+				</bridge-802.1q>
+			</mode>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<SNMP operation="no"/>
+				<SSH operation="yes"/>
+				<Telnet operation="no"/>
+				<ping operation="yes"/>
+			</manage>
+			<shutdown operation="no"/>
+			<rate-limit>
+				<broadcast>
+					<cr value="10000"/>
+					<enable operation="yes"/>
+				</broadcast>
+				<multicast>
+					<cr value="20000"/>
+					<enable operation="yes"/>
+				</multicast>
+				<unicast>
+					<cr value="1000000"/>
+					<enable operation="no"/>
+				</unicast>
+			</rate-limit>
+			<qos-classifier name="def-land-cls"/>
+			<qos-marker name="def-land-mkr"/>
+			<mac-learning>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+				<idle-timeout value="180"/>
+			</mac-learning>
+			<inter-station-traffic operation="yes"/>
+			<link-discovery>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<lldp operation="yes"/>
+				<cdp operation="yes"/>
+			</link-discovery>
+			<allowed-vlan>
+				<all multi-selected="auto|cr"/>
+			</allowed-vlan>
+		</red0>
+		<agg0>
+			<mode operation="yes">
+				<backhaul multi-selected="bridge-access|bridge-802.1q" operation="yesWithShow"/>
+				<bridge-access multi-selected="backhaul|bridge-802.1q" operation="notDefault">
+					<user-profile-attribute value="0"/>
+				</bridge-access>
+				<bridge-802.1q multi-selected="backhaul|bridge-access" operation="notDefault">
+					<user-profile-attribute value="0"/>
+				</bridge-802.1q>
+			</mode>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<SNMP operation="no"/>
+				<SSH operation="yes"/>
+				<Telnet operation="no"/>
+				<ping operation="yes"/>
+			</manage>
+			<shutdown operation="no"/>
+			<rate-limit>
+				<broadcast>
+					<cr value="10000"/>
+					<enable operation="yes"/>
+				</broadcast>
+				<multicast>
+					<cr value="20000"/>
+					<enable operation="yes"/>
+				</multicast>
+				<unicast>
+					<cr value="1000000"/>
+					<enable operation="no"/>
+				</unicast>
+			</rate-limit>
+			<qos-classifier name="def-land-cls"/>
+			<qos-marker name="def-land-mkr"/>
+			<mac-learning>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+				<idle-timeout value="180"/>
+			</mac-learning>
+			<inter-station-traffic operation="yes"/>
+			<link-discovery>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<lldp operation="yes"/>
+				<cdp operation="yes"/>
+			</link-discovery>
+			<allowed-vlan>
+				<all multi-selected="auto|cr"/>
+			</allowed-vlan>
+		</agg0>
+		<mgt0>
+			<hive name="hive0"/>
+			<vlan value="1"/>
+			<native-vlan value="1"/>
+			<dhcp>
+				<client>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<cr operation="yes"/>
+					<fallback-to-static-ip operation="no"/>
+					<timeout value="20"/>
+					<address-only operation="no"/>
+				</client>
+				<keepalive>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+				</keepalive>
+			</dhcp>
+			<default-ip-prefix value="192.168.0.0/16"/>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0>
+		<mgt0.1>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.1>
+		<mgt0.2>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.2>
+		<mgt0.3>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.3>
+		<mgt0.4>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.4>
+		<mgt0.5>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.5>
+		<mgt0.6>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.6>
+		<mgt0.7>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.7>
+		<mgt0.8>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.8>
+		<mgt0.9>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.9>
+		<mgt0.10>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.10>
+		<mgt0.11>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.11>
+		<mgt0.12>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.12>
+		<mgt0.13>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.13>
+		<mgt0.14>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.14>
+		<mgt0.15>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.15>
+		<mgt0.16>
+			<manage>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<ping operation="yes"/>
+			</manage>
+			<dhcp-server>
+				<authoritative-flag operation="yes"/>
+				<arp-check operation="yes"/>
+				<options>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<default-gateway>
+						<nat-support operation="no"/>
+					</default-gateway>
+					<lease-time value="86400"/>
+				</options>
+				<enable operation="no"/>
+			</dhcp-server>
+			<ip-helper>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</ip-helper>
+		</mgt0.16>
+		<wifi0>
+			<mode>
+				<access multi-selected="backhaul|dual|wan"/>
+			</mode>
+			<ssid name="*">
+				<shutdown operation="no"/>
+				<mode name="*">
+					<AH-DELTA-ASSISTANT operation="yes"/>
+				</mode>
+			</ssid>
+			<hive value="hive0">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<shutdown>
+					<cr operation="no"/>
+				</shutdown>
+			</hive>
+			<radio>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<antenna>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<internal operation="yesWithShow" multi-selected="external"/>
+					<diversity operation="yes"/>
+				</antenna>
+				<profile name="radio_ng0"/>
+				<channel name="auto"/>
+				<power value="auto"/>
+				<range value="300"/>
+				<adaptive-cca>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<enable operation="yes"/>
+					<max-cca value="55"/>
+					<default-cca value="33"/>
+				</adaptive-cca>
+			</radio>
+			<wlan-idp>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</wlan-idp>
+			<link-discovery>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<lldp operation="yes"/>
+				<cdp operation="yes"/>
+			</link-discovery>
+		</wifi0>
+		<wifi1>
+			<mode>
+				<dual multi-selected="access|backhaul|wan"/>
+			</mode>
+			<ssid name="*">
+				<shutdown operation="no"/>
+				<mode name="*">
+					<AH-DELTA-ASSISTANT operation="yes"/>
+				</mode>
+			</ssid>
+			<hive value="hive0">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<shutdown>
+					<cr operation="no"/>
+				</shutdown>
+			</hive>
+			<radio>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<antenna>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<internal operation="yesWithShow" multi-selected="external"/>
+					<diversity operation="yes"/>
+				</antenna>
+				<profile name="radio_na0"/>
+				<channel name="auto"/>
+				<power value="auto"/>
+				<range value="300"/>
+				<adaptive-cca>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<enable operation="yes"/>
+					<max-cca value="55"/>
+					<default-cca value="33"/>
+				</adaptive-cca>
+			</radio>
+			<wlan-idp>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</wlan-idp>
+			<link-discovery>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<lldp operation="yes"/>
+				<cdp operation="yes"/>
+			</link-discovery>
+		</wifi1>
+	</interface>
+	<forwarding-engine>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<inter-ssid-flood>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="yes"/>
+		</inter-ssid-flood>
+		<proxy-arp>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="yes"/>
+		</proxy-arp>
+		<max-ip-sessions-per-station operation="no"/>
+		<max-mac-sessions-per-station operation="no"/>
+		<log>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<firewall-dropped-packets operation="no"/>
+			<to-self-sessions operation="no"/>
+		</log>
+		<drop>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<ip-fragmented-packets operation="no"/>
+			<to-self-non-management-traffic operation="no"/>
+		</drop>
+		<tunnel>
+			<tcp-mss-threshold>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="yes"/>
+			</tcp-mss-threshold>
+		</tunnel>
+		<mac-sessions>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<sync-vlan operation="no"/>
+		</mac-sessions>
+	</forwarding-engine>
+	<vpn>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<server-ipsec-tunnel name="*">
+			<vpn-mode value="layer-2"/>
+		</server-ipsec-tunnel>
+		<client-ipsec-tunnel name="*">
+			<vpn-mode value="layer-2"/>
+		</client-ipsec-tunnel>
+		<ipsec-tunnel name="*">
+			<ike>
+				<phase1>
+					<encryption-algorithm value="aes128"/>
+					<hash value="sha1"/>
+					<dh-group value="group2"/>
+					<auth-method value="hybrid"/>
+				</phase1>
+				<phase2>
+					<encryption-algorithm value="aes128"/>
+					<hash value="sha1"/>
+					<lifetime value="3600"/>
+					<pfs-group value="group2"/>
+				</phase2>
+			</ike>
+			<peer-ike-id>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</peer-ike-id>
+			<nat-traversal>
+				<enable operation="yes"/>
+			</nat-traversal>
+			<dpd>
+				<idle-interval value="10">
+					<retry value="5">
+						<retry-interval value="3"/>
+					</retry>
+				</idle-interval>
+			</dpd>
+		</ipsec-tunnel>
+	</vpn>
+	<roaming>
+		<cache>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<update-interval value="60">
+				<ageout value="60"/>
+			</update-interval>
+		</cache>
+		<hop value="1"/>
+		<neighbor>
+			<query-interval value="10">
+				<query-times value="5"/>
+			</query-interval>
+			<include>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</include>
+			<exclude>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</exclude>
+		</neighbor>
+		<port value="3000"/>
+		<cache-broadcast>
+			<neighbor-type>
+				<access>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<enable operation="yes"/>
+				</access>
+				<backhaul>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<enable operation="yes"/>
+				</backhaul>
+			</neighbor-type>
+		</cache-broadcast>
+	</roaming>
+	<access-console>
+		<mode value="auto"/>
+		<security>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<protocol-suite>
+				<wpa-aes-psk>
+					<ascii-key value="NucmmMsOvbEmova96#rD5Pfae62wygaQdlhpO"/>
+				</wpa-aes-psk>
+			</protocol-suite>
+		</security>
+		<max-client value="2"/>
+		<hide-ssid operation="no"/>
+		<telnet operation="yes"/>
+	</access-console>
+	<ntp>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<enable operation="yes"/>
+		<server name="*">
+			<cr>
+				<via-vpn-tunnel operation="no"/>
+			</cr>
+			<second>
+				<via-vpn-tunnel operation="no"/>
+			</second>
+			<third>
+				<via-vpn-tunnel operation="no"/>
+			</third>
+			<fourth>
+				<via-vpn-tunnel operation="no"/>
+			</fourth>
+		</server>
+		<interval value="1440"/>
+	</ntp>
+	<aaa>
+		<attribute>
+			<operator-name>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<namespace-id value="REALM"/>
+			</operator-name>
+		</attribute>
+		<radius-server>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<primary value="*">
+				<auth-port value="1812"/>
+				<via-vpn-tunnel operation="no"/>
+			</primary>
+			<backup1 value="*">
+				<auth-port value="1812"/>
+				<via-vpn-tunnel operation="no"/>
+			</backup1>
+			<backup2 value="*">
+				<auth-port value="1812"/>
+				<via-vpn-tunnel operation="no"/>
+			</backup2>
+			<backup3 value="*">
+				<auth-port value="1812"/>
+				<via-vpn-tunnel operation="no"/>
+			</backup3>
+			<accounting>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<primary value="*">
+					<acct-port value="1813"/>
+					<via-vpn-tunnel operation="no"/>
+				</primary>
+				<backup1 value="*">
+					<acct-port value="1813"/>
+					<via-vpn-tunnel operation="no"/>
+				</backup1>
+				<backup2 value="*">
+					<acct-port value="1813"/>
+					<via-vpn-tunnel operation="no"/>
+				</backup2>
+				<backup3 value="*">
+					<acct-port value="1813"/>
+					<via-vpn-tunnel operation="no"/>
+				</backup3>
+			</accounting>
+			<local>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<cache>
+					<cr operation="no"/>
+					<lifetime value="86400"/>
+				</cache>
+				<STA-auth>
+					<type>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<leap>
+							<cr operation="yes"/>
+						</leap>
+						<peap>
+							<cr operation="yes"/>
+						</peap>
+						<ttls>
+							<cr operation="yes"/>
+						</ttls>
+						<tls operation="yes">
+							<cr/>
+							<check-cert-cn operation="no"/>
+							<check-in-db operation="no"/>
+						</tls>
+						<cr>
+							<peap>
+								<AH-DELTA-ASSISTANT operation="yes"/>
+								<check-in-db operation="no"/>
+							</peap>
+							<ttls>
+								<AH-DELTA-ASSISTANT operation="yes"/>
+								<check-in-db operation="no"/>
+							</ttls>
+						</cr>
+					</type>
+				</STA-auth>
+				<attr-map>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+				</attr-map>
+				<db-type>
+					<active-directory>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<primary>
+							<global-catalog operation="no"/>
+							<server>
+								<via-vpn-tunnel operation="no"/>
+							</server>
+							<domain name="*"/>
+							<tls-enable operation="no"/>
+						</primary>
+						<backup1>
+							<global-catalog operation="no"/>
+							<server>
+								<via-vpn-tunnel operation="no"/>
+							</server>
+							<domain name="*"/>
+							<tls-enable operation="no"/>
+						</backup1>
+						<backup2>
+							<global-catalog operation="no"/>
+							<server>
+								<via-vpn-tunnel operation="no"/>
+							</server>
+							<domain name="*"/>
+							<tls-enable operation="no"/>
+						</backup2>
+						<backup3>
+							<global-catalog operation="no"/>
+							<server>
+								<via-vpn-tunnel operation="no"/>
+							</server>
+							<domain name="*"/>
+							<tls-enable operation="no"/>
+						</backup3>
+					</active-directory>
+					<ldap-server>
+						<primary>
+							<server>
+								<via-vpn-tunnel operation="no"/>
+							</server>
+							<filter-attr value="cn"/>
+							<protocol value="ldap"/>
+							<port value="389"/>
+							<no-strip-filter operation="no"/>
+						</primary>
+						<backup1>
+							<server>
+								<via-vpn-tunnel operation="no"/>
+							</server>
+							<filter-attr value="cn"/>
+							<protocol value="ldap"/>
+							<port value="389"/>
+							<no-strip-filter operation="no"/>
+						</backup1>
+						<backup2>
+							<server>
+								<via-vpn-tunnel operation="no"/>
+							</server>
+							<filter-attr value="cn"/>
+							<protocol value="ldap"/>
+							<port value="389"/>
+							<no-strip-filter operation="no"/>
+						</backup2>
+						<backup3>
+							<server>
+								<via-vpn-tunnel operation="no"/>
+							</server>
+							<filter-attr value="cn"/>
+							<protocol value="ldap"/>
+							<port value="389"/>
+							<no-strip-filter operation="no"/>
+						</backup3>
+						<sub-type>
+							<AH-DELTA-ASSISTANT operation="yes"/>
+							<edirectory operation="no">
+								<acct-policy-check operation="no"/>
+							</edirectory>
+						</sub-type>
+					</ldap-server>
+					<open-directory>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<primary>
+							<tls-enable operation="no"/>
+							<filter-attr value="uid"/>
+							<no-strip-filter operation="no"/>
+						</primary>
+						<backup1>
+							<tls-enable operation="no"/>
+							<filter-attr value="uid"/>
+							<no-strip-filter operation="no"/>
+						</backup1>
+						<backup2>
+							<tls-enable operation="no"/>
+							<filter-attr value="uid"/>
+							<no-strip-filter operation="no"/>
+						</backup2>
+						<backup3>
+							<tls-enable operation="no"/>
+							<filter-attr value="uid"/>
+							<no-strip-filter operation="no"/>
+						</backup3>
+					</open-directory>
+					<library-sip-server>
+						<AH-DELTA-ASSISTANT operation="yes"/>
+						<primary>
+							<port value="6001"/>
+							<login-enable operation="no"/>
+							<separator operation="yes" value="|"/>
+						</primary>
+					</library-sip-server>
+				</db-type>
+				<port value="1812"/>
+				<user-group name="*">
+					<reauth-time value="1800"/>
+				</user-group>
+				<LDAP-auth>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<primary>
+						<type>
+							<tls>
+								<ca-cert>
+									<client-cert>
+										<private-key>
+											<private-key-password>
+												<verify-server value="try"/>
+											</private-key-password>
+										</private-key>
+									</client-cert>
+								</ca-cert>
+							</tls>
+						</type>
+					</primary>
+					<backup1>
+						<type>
+							<tls>
+								<ca-cert>
+									<client-cert>
+										<private-key>
+											<private-key-password>
+												<verify-server value="try"/>
+											</private-key-password>
+										</private-key>
+									</client-cert>
+								</ca-cert>
+							</tls>
+						</type>
+					</backup1>
+					<backup2>
+						<type>
+							<tls>
+								<ca-cert>
+									<client-cert>
+										<private-key>
+											<private-key-password>
+												<verify-server value="try"/>
+											</private-key-password>
+										</private-key>
+									</client-cert>
+								</ca-cert>
+							</tls>
+						</type>
+					</backup2>
+					<backup3>
+						<type>
+							<tls>
+								<ca-cert>
+									<client-cert>
+										<private-key>
+											<private-key-password>
+												<verify-server value="try"/>
+											</private-key-password>
+										</private-key>
+									</client-cert>
+								</ca-cert>
+							</tls>
+						</type>
+					</backup3>
+				</LDAP-auth>
+				<local-check-period value="300"/>
+				<remote-check-period value="30"/>
+				<retry-interval value="600"/>
+				<shared-secret-auto-gen operation="yes"/>
+				<enable operation="no"/>
+			</local>
+			<retry-interval value="600"/>
+			<account-interim-interval value="20"/>
+			<dynamic-auth-extension operation="no"/>
+			<name name="*">
+				<auth-port value="1812"/>
+				<acct-port value="1813"/>
+				<tls-port value="2083"/>
+			</name>
+			<proxy>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<dead-time value="300"/>
+				<retry-delay value="5">
+					<retry-count value="3"/>
+				</retry-delay>
+				<realm>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<format value="nai"/>
+					<cr name="*">
+						<no-strip operation="no"/>
+					</cr>
+				</realm>
+				<inject>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<operator-name operation="no"/>
+				</inject>
+				<radsec>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<auth-port value="1812"/>
+					<acct-port value="1813"/>
+					<tls-port value="2083"/>
+					<enable operation="no"/>
+				</radsec>
+			</proxy>
+			<keepalive>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+				<interval value="60"/>
+				<retry value="3"/>
+				<retry-interval value="10"/>
+			</keepalive>
+		</radius-server>
+		<mac-format>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<delimiter value="colon"/>
+			<style value="no-delimiter"/>
+			<case-sensitivity value="lower-case"/>
+		</mac-format>
+		<ppsk-server>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<auto-save-interval value="600"/>
+			<radius-server>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<primary>
+					<auth-port value="1812"/>
+					<via-vpn-tunnel operation="no"/>
+				</primary>
+				<backup1>
+					<auth-port value="1812"/>
+					<via-vpn-tunnel operation="no"/>
+				</backup1>
+				<backup2>
+					<auth-port value="1812"/>
+					<via-vpn-tunnel operation="no"/>
+				</backup2>
+				<backup3>
+					<auth-port value="1812"/>
+					<via-vpn-tunnel operation="no"/>
+				</backup3>
+			</radius-server>
+		</ppsk-server>
+	</aaa>
+	<designated-server>
+		<idm-proxy>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<announce operation="no"/>
+			<dynamic operation="no"/>
+		</idm-proxy>
+	</designated-server>
+	<ip>
+		<route>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+		</route>
+	</ip>
+	<capwap>
+		<max-discoveries>
+			<counter value="3"/>
+		</max-discoveries>
+		<client>
+			<enable operation="yes"/>
+			<discovery>
+				<maximum>
+					<interval value="10"/>
+				</maximum>
+				<interval value="5"/>
+			</discovery>
+			<event>
+				<enable operation="no"/>
+			</event>
+			<join>
+				<timeout value="60"/>
+			</join>
+			<neighbor>
+				<dead>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<interval value="105"/>
+				</dead>
+				<heartbeat>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<interval name="30"/>
+				</heartbeat>
+			</neighbor>
+			<silent>
+				<interval value="15"/>
+			</silent>
+			<dtls>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable>
+					<no-disconnect operation="yes"/>
+				</enable>
+				<accept-bootstrap-passphrase operation="yes"/>
+				<handshake-wait-time value="60"/>
+				<max-retries value="3"/>
+				<session-delete-wait-time value="5"/>
+				<negotiation>
+					<enable operation="yes"/>
+				</negotiation>
+			</dtls>
+			<server>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<port value="12222">
+					<no-disconnect operation="yes"/>
+				</port>
+				<cr-primary>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+				</cr-primary>
+				<backup>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+				</backup>
+			</server>
+			<pci-alert>
+				<AH-DELTA-ASSISTANT operation="yes"/>
+				<enable operation="no"/>
+			</pci-alert>
+		</client>
+	</capwap>
+	<report>
+		<statistic>
+			<enable operation="yes"/>
+			<period value="10"/>
+			<alarm-threshold>
+				<interface>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<crc-error-rate value="30"/>
+					<tx-drop-rate value="40"/>
+					<rx-drop-rate value="40"/>
+					<tx-retry-rate value="40"/>
+					<airtime-consumption value="50"/>
+				</interface>
+				<client>
+					<AH-DELTA-ASSISTANT operation="yes"/>
+					<tx-drop-rate value="40"/>
+					<rx-drop-rate value="40"/>
+					<tx-retry-rate value="40"/>
+					<airtime-consumption value="30"/>
+				</client>
+			</alarm-threshold>
+		</statistic>
+	</report>
+	<boot-param>
+		<netdump>
+			<AH-DELTA-ASSISTANT operation="yes"/>
+			<enable operation="no"/>
+			<dump-file operation="yes"/>
+		</netdump>
+	</boot-param>
+	<data-collection>
+		<AH-DELTA-ASSISTANT operation="yes"/>
+		<enable operation="no"/>
+	</data-collection>
+	<config>
+		<rollback>
+			<enable operation="no">
+				<AH-DELTA-ASSISTANT operation="yes"/>
+			</enable>
+		</rollback>
+	</config>
+</configuration>

@@ -1,0 +1,85 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+.ie8 div.portTemplate ul.port-list li.basic-port {
+  background: url(../images/ports/ie/AH-switch-port-basic.png) 0 0 no-repeat;
+  margin-bottom: 12px;
+}
+.ie8 div.portTemplate ul.port-list li.sfp-port {
+  background: url(../images/ports/ie/AH-switch-port-sfp.png) 0 0 no-repeat;
+  margin-bottom: 12px;
+}
+.ie8 div.portTemplate ul.port-list li.usb-port {
+  background: url(../images/ports/ie/usb/AH-USB.png) 0 0 no-repeat;
+}
+.ie8 div.portTemplate ul.port-list li.lte-port {
+  background: url(../images/ports/ie/lte/AH-LTE.png) 0 0 no-repeat;
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.access-port {
+  background-image: url(../images/ports/ie/AH-switch-port-access.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.ip-port {
+  background-image: url(../images/ports/ie/AH-switch-port-phone.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.ap-port {
+  background-image: url(../images/ports/ie/AH-switch-port-wifi.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.monitor-port {
+  background-image: url(../images/ports/ie/AH-switch-port-monitor.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.t8021q-port {
+  background-image: url(../images/ports/ie/AH-switch-port-trunk.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.wan-port {
+  background-image: url(../images/ports/ie/AH-switch-port-wan.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.wan-port-passive {
+  background-image: url(../images/ports/ie/AH-switch-port-wan-disable.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.access-port.poe {
+  background-image: url(../images/ports/ie/AH-switch-port-access-poe.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.ip-port.poe {
+  background-image: url(../images/ports/ie/AH-switch-port-phone-poe.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.ap-port.poe {
+  background-image: url(../images/ports/ie/AH-switch-port-wifi-poe.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.monitor-port.poe {
+  background-image: url(../images/ports/ie/AH-switch-port-monitor-poe.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.t8021q-port.poe {
+  background-image: url(../images/ports/ie/AH-switch-port-trunk-poe.png);
+}
+.ie8 div.portTemplate ul.port-list li.basic-port.wan-port.poe {
+  background-image: url(../images/ports/ie/AH-switch-port-wan-poe.png);
+}
+.ie8 div.portTemplate ul.port-list li.sfp-port.access-port {
+  background-image: url(../images/ports/ie/AH-switch-port-sfp-access.png);
+}
+.ie8 div.portTemplate ul.port-list li.sfp-port.ip-port {
+  background-image: url(../images/ports/ie/AH-switch-port-sfp-phone.png);
+}
+.ie8 div.portTemplate ul.port-list li.sfp-port.ap-port {
+  background-image: url(../images/ports/ie/AH-switch-port-sfp-wifi.png);
+}
+.ie8 div.portTemplate ul.port-list li.sfp-port.monitor-port {
+  background-image: url(../images/ports/ie/AH-switch-port-sfp-monitor.png);
+}
+.ie8 div.portTemplate ul.port-list li.sfp-port.t8021q-port {
+  background-image: url(../images/ports/ie/AH-switch-port-sfp-trunk.png);
+}
+.ie8 div.portTemplate ul.port-list li.sfp-port.wan-port {
+  background-image: url(../images/ports/ie/AH-switch-port-sfp-wan.png);
+}
+.ie8 div.portTemplate ul.port-list li.usb-port.disabled {
+  background: url(../images/ports/ie/usb/AH-USB-INACTIVE.png) 0 0 no-repeat;
+}
+.ie8 div.portTemplate ul.port-list li.usb-port.wan-port {
+  background: url(../images/ports/ie/usb/AH-USB-Cloud.png) 0 0 no-repeat;
+}
+.ie8 div.portTemplate ul.port-list li.usb-port.wan-port.disabled {
+  background: url(../images/ports/ie/usb/AH-USB-CLOUD-INACTIVE.png) 0 0 no-repeat;
+}

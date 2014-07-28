@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	
+	<cli-parse>
+		<cmd><![CDATA[ interface <ethx/y|aggx> spanning-tree mst-instance <number> priority <number> ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<interface>
+						<eth name="{1}" keyWord="{port}">
+							<spanning-tree>
+								<mst-instance name="{2}">
+									<priority value="{3}"/>
+								</mst-instance>
+							</spanning-tree>
+						</eth>
+						<agg name="{1}" keyWord="{port}">
+							<spanning-tree>
+								<mst-instance name="{2}">
+									<priority value="{3}"/>
+								</mst-instance>
+							</spanning-tree>
+						</agg>
+					</interface>
+				</configuration>
+			]]>
+		</xml>
+		<group-post-process class="com.ah.be.config.cli.parse.ParamGroupPostProcess" method="processInterfacePort"/>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd><![CDATA[ interface <ethx/y|aggx> spanning-tree mst-instance <number> path-cost <number> ]]></cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<interface>
+						<eth name="{1}" keyWord="{port}">
+							<spanning-tree>
+								<mst-instance name="{2}">
+									<path-cost value="{3}"/>
+								</mst-instance>
+							</spanning-tree>
+						</eth>
+						<agg name="{1}" keyWord="{port}">
+							<spanning-tree>
+								<mst-instance name="{2}">
+									<path-cost value="{3}"/>
+								</mst-instance>
+							</spanning-tree>
+						</agg>
+					</interface>
+				</configuration>
+			]]>
+		</xml>
+		<group-post-process class="com.ah.be.config.cli.parse.ParamGroupPostProcess" method="processInterfacePort"/>
+	</cli-parse>
+
+</clis>

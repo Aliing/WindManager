@@ -1,0 +1,1697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:aaa="http://www.aerohive.com/configuration/aaa" xmlns:ssid="http://www.aerohive.com/configuration/ssid" targetNamespace="http://www.aerohive.com/configuration/ssid">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:import namespace="http://www.aerohive.com/configuration/aaa" schemaLocation="aaa.xsd"/>
+	<xsd:complexType name="ssid-wlan-dos">
+		<xsd:sequence>
+			<xsd:element name="ssid-level" type="general:dos-ssid-level" minOccurs="0"/>
+			<xsd:element name="station-level" type="general:dos-station-level" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wep-rekey-period">
+		<xsd:attribute name="value" use="optional" default="600">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="600"/>
+					<xsd:maxInclusive value="50000000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-rekey-period">
+		<xsd:attribute name="value" use="optional" default="0">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="50000000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-ptk-timeout">
+		<xsd:attribute name="value" use="optional" default="4000">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="100"/>
+					<xsd:maxInclusive value="8000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-ptk-retry">
+		<xsd:attribute name="value" use="optional" default="3">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="1"/>
+					<xsd:maxInclusive value="10"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-gtk-timeout">
+		<xsd:attribute name="value" use="optional" default="4000">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="100"/>
+					<xsd:maxInclusive value="8000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-gtk-retry">
+		<xsd:attribute name="value" use="optional" default="3">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="1"/>
+					<xsd:maxInclusive value="10"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-gmk-rekey-period">
+		<xsd:attribute name="value" use="optional" default="0">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="50000000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-replay-window">
+		<xsd:attribute name="value" use="optional" default="0">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="10"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-roaming">
+		<xsd:sequence>
+			<xsd:element name="proactive-pmkid-response" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-ptk-rekey-period">
+		<xsd:attribute name="value" use="optional" default="0">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="50000000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="reauth-interval-cr">
+		<xsd:attribute name="value" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="600"/>
+					<xsd:maxInclusive value="86400"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-reauth-interval">
+		<xsd:sequence>
+			<xsd:element name="cr" type="ssid:reauth-interval-cr" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="wpa-psk-key">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="strict" type="general:ah-act-show"/>
+				<xsd:element name="non-strict" type="general:ah-act-show"/>
+			</xsd:choice>
+			<xsd:element name="gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="ptk-timeout" type="ssid:protocol-ptk-timeout" minOccurs="0"/>
+			<xsd:element name="ptk-retry" type="ssid:protocol-ptk-retry" minOccurs="0"/>
+			<xsd:element name="gtk-timeout" type="ssid:protocol-gtk-timeout" minOccurs="0"/>
+			<xsd:element name="gtk-retry" type="ssid:protocol-gtk-retry" minOccurs="0"/>
+			<xsd:element name="ptk-rekey-period" type="ssid:protocol-ptk-rekey-period" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wpa-tkip-psk">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="hex-key" type="ssid:wpa-psk-key"/>
+				<xsd:element name="ascii-key" type="ssid:wpa-psk-key"/>
+			</xsd:choice>
+			<xsd:element name="replay-window" type="ssid:protocol-replay-window" minOccurs="0"/>
+			<xsd:element name="local-tkip-counter-measure" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="remote-tkip-counter-measure" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wpa-aes-psk">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="hex-key" type="ssid:wpa-psk-key"/>
+				<xsd:element name="ascii-key" type="ssid:wpa-psk-key"/>
+			</xsd:choice>
+			<xsd:element name="replay-window" type="ssid:protocol-replay-window" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-mfp-method">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="bip" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wpa-aes-mfp">
+		<xsd:choice minOccurs="0">
+			<xsd:element name="mandatory" type="ssid:protocol-mfp-method" minOccurs="0"/>
+			<xsd:element name="optional" type="ssid:protocol-mfp-method" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wpa2-aes-psk">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="hex-key" type="ssid:wpa-psk-key"/>
+				<xsd:element name="ascii-key" type="ssid:wpa-psk-key"/>
+			</xsd:choice>
+			<xsd:element name="replay-window" type="ssid:protocol-replay-window" minOccurs="0"/>
+			<xsd:element name="mfp" type="ssid:protocol-wpa-aes-mfp" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wpa-tkip-8021x">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="strict" type="general:ah-act-show"/>
+				<xsd:element name="non-strict" type="general:ah-act-show"/>
+			</xsd:choice>
+			<xsd:element name="gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="ptk-timeout" type="ssid:protocol-ptk-timeout" minOccurs="0"/>
+			<xsd:element name="ptk-retry" type="ssid:protocol-ptk-retry" minOccurs="0"/>
+			<xsd:element name="gtk-timeout" type="ssid:protocol-gtk-timeout" minOccurs="0"/>
+			<xsd:element name="gtk-retry" type="ssid:protocol-gtk-retry" minOccurs="0"/>
+			<xsd:element name="ptk-rekey-period" type="ssid:protocol-ptk-rekey-period" minOccurs="0"/>
+			<xsd:element name="replay-window" type="ssid:protocol-replay-window" minOccurs="0"/>
+			<xsd:element name="local-tkip-counter-measure" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="remote-tkip-counter-measure" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="reauth-interval" type="ssid:protocol-reauth-interval" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wpa-tkip-8021x-roaming">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="strict" type="general:ah-act-show"/>
+				<xsd:element name="non-strict" type="general:ah-act-show"/>
+			</xsd:choice>
+			<xsd:element name="gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="ptk-timeout" type="ssid:protocol-ptk-timeout" minOccurs="0"/>
+			<xsd:element name="ptk-retry" type="ssid:protocol-ptk-retry" minOccurs="0"/>
+			<xsd:element name="gtk-timeout" type="ssid:protocol-gtk-timeout" minOccurs="0"/>
+			<xsd:element name="gtk-retry" type="ssid:protocol-gtk-retry" minOccurs="0"/>
+			<xsd:element name="roaming" type="ssid:protocol-roaming" minOccurs="0"/>
+			<xsd:element name="ptk-rekey-period" type="ssid:protocol-ptk-rekey-period" minOccurs="0"/>
+			<xsd:element name="replay-window" type="ssid:protocol-replay-window" minOccurs="0"/>
+			<xsd:element name="local-tkip-counter-measure" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="remote-tkip-counter-measure" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="reauth-interval" type="ssid:protocol-reauth-interval" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wpa-aes-8021x">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="strict" type="general:ah-act-show"/>
+				<xsd:element name="non-strict" type="general:ah-act-show"/>
+			</xsd:choice>
+			<xsd:element name="gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="ptk-timeout" type="ssid:protocol-ptk-timeout" minOccurs="0"/>
+			<xsd:element name="ptk-retry" type="ssid:protocol-ptk-retry" minOccurs="0"/>
+			<xsd:element name="gtk-timeout" type="ssid:protocol-gtk-timeout" minOccurs="0"/>
+			<xsd:element name="gtk-retry" type="ssid:protocol-gtk-retry" minOccurs="0"/>
+			<xsd:element name="ptk-rekey-period" type="ssid:protocol-ptk-rekey-period" minOccurs="0"/>
+			<xsd:element name="replay-window" type="ssid:protocol-replay-window" minOccurs="0"/>
+			<xsd:element name="reauth-interval" type="ssid:protocol-reauth-interval" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wpa-aes-8021x-roaming">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-rekey-period" type="ssid:protocol-rekey-period" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="strict" type="general:ah-act-show"/>
+				<xsd:element name="non-strict" type="general:ah-act-show"/>
+			</xsd:choice>
+			<xsd:element name="gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="old-gmk-rekey-period" type="ssid:protocol-gmk-rekey-period" minOccurs="0"/>
+			<xsd:element name="ptk-timeout" type="ssid:protocol-ptk-timeout" minOccurs="0"/>
+			<xsd:element name="ptk-retry" type="ssid:protocol-ptk-retry" minOccurs="0"/>
+			<xsd:element name="gtk-timeout" type="ssid:protocol-gtk-timeout" minOccurs="0"/>
+			<xsd:element name="gtk-retry" type="ssid:protocol-gtk-retry" minOccurs="0"/>
+			<xsd:element name="ptk-rekey-period" type="ssid:protocol-ptk-rekey-period" minOccurs="0"/>
+			<xsd:element name="replay-window" type="ssid:protocol-replay-window" minOccurs="0"/>
+			<xsd:element name="roaming" type="ssid:protocol-roaming" minOccurs="0"/>
+			<xsd:element name="reauth-interval" type="ssid:protocol-reauth-interval" minOccurs="0"/>
+			<xsd:element name="mfp" type="ssid:protocol-wpa-aes-mfp" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wep-open">
+		<xsd:choice minOccurs="0">
+			<xsd:element name="hex-key">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="default" type="xsd:string" fixed="" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="value" type="xsd:string" use="required"/>
+					<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ascii-key">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="default" type="xsd:string" fixed="" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="value" type="xsd:string" use="required"/>
+					<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="name" use="optional" default="0">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="3"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-wep-8021x">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="rekey-period" type="ssid:protocol-wep-rekey-period" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-802dot1x">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="send-multicast-eap" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-suite-type">
+		<xsd:choice minOccurs="0">
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="open" type="general:ah-only-act"/>
+			<xsd:element name="wep-open" type="ssid:protocol-wep-open" minOccurs="0" maxOccurs="4"/>
+			<xsd:element name="wep-shared" type="ssid:protocol-wep-open" minOccurs="0" maxOccurs="4"/>
+			<xsd:element name="wpa-auto-psk" type="ssid:protocol-wpa-tkip-psk"/>
+			<xsd:element name="wpa-tkip-psk" type="ssid:protocol-wpa-tkip-psk"/>
+			<xsd:element name="wpa-aes-psk" type="ssid:protocol-wpa-aes-psk"/>
+			<xsd:element name="wpa2-tkip-psk" type="ssid:protocol-wpa-tkip-psk"/>
+			<xsd:element name="wpa2-aes-psk" type="ssid:protocol-wpa2-aes-psk"/>
+			<xsd:element name="wpa-auto-8021x" type="ssid:protocol-wpa-tkip-8021x-roaming"/>
+			<xsd:element name="wpa-tkip-8021x" type="ssid:protocol-wpa-tkip-8021x"/>
+			<xsd:element name="wpa-aes-8021x" type="ssid:protocol-wpa-aes-8021x"/>
+			<xsd:element name="wpa2-tkip-8021x" type="ssid:protocol-wpa-tkip-8021x-roaming"/>
+			<xsd:element name="wpa2-aes-8021x" type="ssid:protocol-wpa-aes-8021x-roaming"/>
+			<xsd:element name="wep40-8021x" type="ssid:protocol-wep-8021x"/>
+			<xsd:element name="wep104-8021x" type="ssid:protocol-wep-8021x"/>
+			<xsd:element name="_802.1x" type="ssid:protocol-802dot1x" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="screening-action">
+		<xsd:choice minOccurs="0">
+			<xsd:element name="alarm">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="10">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="1000000000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ban-forever" type="general:ah-only-act"/>
+			<xsd:element name="disconnect" type="general:ah-only-act"/>
+			<xsd:element name="ban">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="1">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="1000000000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="drop">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="1">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="1000000000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="screening-radius-attack-action">
+		<xsd:choice minOccurs="0">
+			<xsd:element name="ban-forever" type="xsd:string" fixed=""/>
+			<xsd:element name="alarm">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="10">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="100000000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ban">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="3600">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="100000000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="user-profile-deny-action">
+		<xsd:sequence>
+			<xsd:element name="ban" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence minOccurs="0">
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="cr" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="60">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="1"/>
+											<xsd:maxInclusive value="100000000"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="strict" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ban-forever" type="ssid:up-deny-ban-disconnect" minOccurs="0"/>
+			<xsd:element name="disconnect" type="ssid:up-deny-ban-disconnect" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="up-deny-ban-disconnect">
+		<xsd:sequence minOccurs="0">
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="strict" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ppsk-same-user-limit-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ppsk-auth-method">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="pap" type="general:ah-act-show" minOccurs="0"/>
+				<xsd:element name="chap" type="general:ah-act-show" minOccurs="0"/>
+				<xsd:element name="ms-chap-v2" type="general:ah-act-show" minOccurs="0"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="security-private-psk">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="default-psk-disabled" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="radius-auth" type="ssid:ppsk-auth-method" minOccurs="0"/>
+			<xsd:element name="same-user-limit" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="ssid:ppsk-same-user-limit-value" use="optional" default="0"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ppsk-server" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="mac-binding-enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="external-server" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="self-reg-enable" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ssid-cache-update-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="10"/>
+			<xsd:maxInclusive value="36000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ssid-cache-ageout-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="1000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ssid-cache-ageout">
+		<xsd:attribute name="value" type="ssid:ssid-cache-ageout-value" use="optional" default="60"/>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-cache-update-interval">
+		<xsd:sequence>
+			<xsd:element name="ageout" type="ssid:ssid-cache-ageout" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="ssid:ssid-cache-update-interval-value" use="optional" default="60"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-roaming-cache">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="update-interval" type="ssid:ssid-cache-update-interval" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-security-roaming">
+		<xsd:sequence>
+			<xsd:element name="cache" type="ssid:ssid-roaming-cache" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="local-cache-timeout-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="60"/>
+			<xsd:maxInclusive value="8640000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="local-cache-timeout">
+		<xsd:attribute name="value" type="ssid:local-cache-timeout-value" use="optional" default="60"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="security-local-cache">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="timeout" type="ssid:local-cache-timeout" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ssid-eap-timeout-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="5"/>
+			<xsd:maxInclusive value="300"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ssid-eap-timeout">
+		<xsd:attribute name="value" type="ssid:ssid-eap-timeout-value" use="optional" default="30"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="ssid-eap-retries-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ssid-eap-retries">
+		<xsd:attribute name="value" type="ssid:ssid-eap-retries-value" use="optional" default="3"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="timer-display-alert-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="timer-display-alert">
+		<xsd:attribute name="value" type="ssid:timer-display-alert-value" use="optional" default="5"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-external-server-rank">
+		<xsd:sequence>
+			<xsd:element name="login-page" type="general:ah-string" minOccurs="0"/>
+			<xsd:element name="password-encryption" minOccurs="0">
+				<xsd:complexType>
+					<xsd:choice>
+						<xsd:element name="uam-basic" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="uam-shared" type="general:ah-encrypted-string" minOccurs="0"/>
+					</xsd:choice>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="success-register" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="no-radius-auth" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="no-roaming-at-login" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-external-server">
+		<xsd:sequence>
+			<xsd:element name="primary" type="ssid:cwp-external-server-rank" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="walled-garden-service-port">
+		<xsd:attribute name="name" type="general:ah-port-value" use="optional"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="walled-garden-service-protocol">
+		<xsd:sequence>
+			<xsd:element name="port" type="ssid:walled-garden-service-port" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="general:ah-protocol-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="walled-garden-service">
+		<xsd:sequence>
+			<xsd:element name="protocol" type="ssid:walled-garden-service-protocol" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="web" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="all" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="walled-garden-server">
+		<xsd:sequence>
+			<xsd:element name="service" type="ssid:walled-garden-service" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="cwp-multi-language-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="chinese-simple"/>
+			<xsd:enumeration value="chinese-traditional"/>
+			<xsd:enumeration value="dutch"/>
+			<xsd:enumeration value="english"/>
+			<xsd:enumeration value="french"/>
+			<xsd:enumeration value="german"/>
+			<xsd:enumeration value="korean"/>
+			<xsd:enumeration value="spanish"/>
+			<xsd:enumeration value="italian"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="cwp-multi-language">
+		<xsd:attribute name="value" type="ssid:cwp-multi-language-value" default="english"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-walled-garden">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="ip-address" type="ssid:walled-garden-server" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="hostname" type="ssid:walled-garden-server" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="cwp-redirect-delay-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="5"/>
+			<xsd:maxInclusive value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="cwp-redirect-delay">
+		<xsd:attribute name="value" type="ssid:cwp-redirect-delay-value" default="5"/>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-redirect-original-page">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="delay" type="ssid:cwp-redirect-delay" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-redirect-external-page">
+		<xsd:sequence>
+			<xsd:element name="delay" type="ssid:cwp-redirect-delay" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-redirect-login-page">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="delay" type="ssid:cwp-redirect-delay" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ssid-client-age-out-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="security-preauth">
+		<xsd:sequence>
+			<xsd:element name="interface" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-server-name">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-string" minOccurs="0"/>
+			<xsd:element name="cert-dn" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-process-sip-info">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="block-redirect" type="general:ah-string-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="http-auth-user-password">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="mdm-http-auth">
+		<xsd:sequence>
+			<xsd:element name="user" type="ssid:http-auth-user-password" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mdm-os-object">
+		<xsd:choice>
+			<xsd:element name="ios" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="mac-os" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobile-device-manager-jss">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="url-root-path" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="http-auth" type="ssid:mdm-http-auth" minOccurs="0"/>
+			<xsd:element name="os-object" type="ssid:mdm-os-object" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdm-airwatch-send-message-type">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="email" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="push" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="sms" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdm-airwatch-send-message">
+		<xsd:sequence>
+			<xsd:element name="type" type="ssid:mdm-airwatch-send-message-type" minOccurs="0"/>
+			<xsd:element name="title" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="content" type="general:ah-string-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdm-airwatch-non-compliant">
+		<xsd:sequence>
+			<xsd:element name="guest-upid" type="general:ah-int-act" minOccurs="0"/>
+			<xsd:element name="send-message" type="ssid:mdm-airwatch-send-message" minOccurs="0"/>
+			<xsd:element name="disconnect-for-vlan-change" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdm-airwatch-poll-status">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="interval" type="general:ah-int-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobile-device-manager-airwatch">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="url-enrollment" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="url-rest-api" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="api-key" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="http-auth" type="ssid:mdm-http-auth" minOccurs="0"/>
+			<xsd:element name="os-object" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="non-compliant" type="ssid:mdm-airwatch-non-compliant" minOccurs="0"/>
+			<xsd:element name="poll-status" type="ssid:mdm-airwatch-poll-status" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdm-aerohive-api-key">
+		<xsd:sequence>
+			<xsd:element name="api-instance-id" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mdm-aerohive-onboard">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="access-ssid" type="general:ah-name-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mobile-device-manager-aerohive">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="url-root-path" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="os-object" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="api-key" type="ssid:mdm-aerohive-api-key" minOccurs="0"/>
+			<xsd:element name="onboard" type="ssid:mdm-aerohive-onboard" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="auth-method-mobile-device-manager">
+		<xsd:sequence>
+			<xsd:element name="jss" type="ssid:mobile-device-manager-jss" minOccurs="0"/>
+			<xsd:element name="airwatch" type="ssid:mobile-device-manager-airwatch" minOccurs="0"/>
+			<xsd:element name="aerohive" type="ssid:mobile-device-manager-aerohive" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-self-reg-via-idm">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="api" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="crl-file" type="general:ah-string-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="cloud-cwp-api-key">
+		<xsd:sequence>
+			<xsd:element name="api-nonce" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cwp-cloud-cwp">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="service-id" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="customer-id" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="url-root-path" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="api-key" type="ssid:cloud-cwp-api-key" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="security-additional-auth-method">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="mac-based-auth" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="auth-method" type="general:ah-auth-method" minOccurs="0"/>
+						<xsd:element name="fallback-to-ecwp" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="captive-web-portal" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="timer-display" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+									<xsd:element name="new-window" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="alert" type="ssid:timer-display-alert" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="timeout" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="480">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="1"/>
+											<xsd:maxInclusive value="120960"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="reg-user-profile-attr" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="0"/>
+											<xsd:maxInclusive value="4095"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="auth-user-profile-attr" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="0"/>
+											<xsd:maxInclusive value="4095"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="auth-method" type="general:ah-auth-method" minOccurs="0"/>
+						<xsd:element name="internal-servers" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="pass-through" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="vlan" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" type="general:vlan-value"/>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="redirect" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="new-window" type="general:ah-only-act" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="external-server" type="ssid:cwp-external-server" minOccurs="0"/>
+						<xsd:element name="internal-pages" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="no-success-page" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="no-failure-page" type="general:ah-only-act" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="success-redirect" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="external-page" type="ssid:cwp-redirect-external-page" minOccurs="0"/>
+									<xsd:element name="original-page" type="ssid:cwp-redirect-original-page" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="failure-redirect" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="external-page" type="ssid:cwp-redirect-external-page" minOccurs="0"/>
+									<xsd:element name="login-page" type="ssid:cwp-redirect-login-page" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="login-page-method" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="http302" type="general:ah-only-act" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="walled-garden" type="ssid:cwp-walled-garden" minOccurs="0"/>
+						<xsd:element name="server-name" type="ssid:cwp-server-name" minOccurs="0"/>
+						<xsd:element name="process-sip-info" type="ssid:cwp-process-sip-info" minOccurs="0"/>
+						<xsd:element name="check-use-policy" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="default-language" type="ssid:cwp-multi-language" minOccurs="0"/>
+						<xsd:element name="anonymous-access" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="self-reg-via-idm" type="ssid:cwp-self-reg-via-idm" minOccurs="0"/>
+						<xsd:element name="report-guest-info" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="cloud-cwp" type="ssid:cwp-cloud-cwp" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mobile-device-manager" type="ssid:auth-method-mobile-device-manager" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="security-eap">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="timeout" type="ssid:ssid-eap-timeout" minOccurs="0"/>
+			<xsd:element name="retries" type="ssid:ssid-eap-retries" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="user-profile-mapping-attribute-id">
+		<xsd:attribute name="value" type="general:ah-attribute-id-value" default="11"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="user-profile-mapping-vendor-attribute-id">
+		<xsd:attribute name="value" type="general:ah-attribute-id-value"/>
+	</xsd:complexType>
+	<xsd:complexType name="user-profile-mapping-vendor-id">
+		<xsd:sequence>
+			<xsd:element name="attribute-id" type="ssid:user-profile-mapping-vendor-attribute-id" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="general:ah-vendor-id-value"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="aaa-user-profile-mapping">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="attribute-id" type="ssid:user-profile-mapping-attribute-id" minOccurs="0"/>
+			<xsd:element name="vendor-id" type="ssid:user-profile-mapping-vendor-id" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="security-aaa">
+		<xsd:sequence>
+			<xsd:element name="radius-server" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="primary" type="aaa:radius-server-type" minOccurs="0"/>
+						<xsd:element name="backup1" type="aaa:radius-server-type" minOccurs="0"/>
+						<xsd:element name="backup2" type="aaa:radius-server-type" minOccurs="0"/>
+						<xsd:element name="backup3" type="aaa:radius-server-type" minOccurs="0"/>
+						<xsd:element name="accounting" type="aaa:radius-accounting-all" minOccurs="0"/>
+						<xsd:element name="retry-interval" type="aaa:radius-retry-interval" minOccurs="0"/>
+						<xsd:element name="account-interim-interval" type="aaa:radius-account-interim-interval" minOccurs="0"/>
+						<xsd:element name="dynamic-auth-extension" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="inject" type="aaa:radius-nas-inject" minOccurs="0"/>
+						<xsd:element name="idm" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="user-profile-mapping" type="ssid:aaa-user-profile-mapping" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="auth-mode-port-based">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="failure-user-profile-attr" type="general:ah-int-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="auth-mode-host-based">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="multiple-domain" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="security-auth-mode">
+		<xsd:sequence>
+			<xsd:element name="port-based" type="ssid:auth-mode-port-based" minOccurs="0"/>
+			<xsd:element name="host-based" type="ssid:auth-mode-host-based" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="security-initial-auth-method">
+		<xsd:sequence>
+			<xsd:element name="mac-based-auth" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="security-parameters">
+		<xsd:sequence>
+			<xsd:element name="preauth" type="ssid:security-preauth" minOccurs="0"/>
+			<xsd:element name="initial-auth-method" type="ssid:security-initial-auth-method" minOccurs="0"/>
+			<xsd:element name="auth-mode" type="ssid:security-auth-mode" minOccurs="0"/>
+			<xsd:element name="additional-auth-method" type="ssid:security-additional-auth-method" minOccurs="0"/>
+			<xsd:element name="protocol-suite" type="ssid:protocol-suite-type" minOccurs="0"/>
+			<xsd:element name="aaa" type="ssid:security-aaa" minOccurs="0"/>
+			<xsd:element name="private-psk" type="ssid:security-private-psk" minOccurs="0"/>
+			<xsd:element name="roaming" type="ssid:ssid-security-roaming" minOccurs="0"/>
+			<xsd:element name="local-cache" type="ssid:security-local-cache" minOccurs="0"/>
+			<xsd:element name="eap" type="ssid:security-eap" minOccurs="0"/>
+			<xsd:element name="ft" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="security-default-user-profile-attr-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="4095"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="security-default-user-profile-attr">
+		<xsd:attribute name="value" type="ssid:security-default-user-profile-attr-value" use="optional" default="0"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="security-dhcp-server">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="lease-time" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="10">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="5"/>
+								<xsd:maxInclusive value="36000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="renewal-response" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="keep-silent" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="renew-nak-unicast" type="xsd:string" fixed="" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="security-user-profile-allowed">
+		<xsd:choice>
+			<xsd:element name="all" type="general:ah-act-show" minOccurs="0"/>
+			<xsd:element name="cr" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="security-user-profile-deny">
+		<xsd:sequence>
+			<xsd:element name="action" type="ssid:user-profile-deny-action" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="security-web-server">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="port" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="80">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0"/>
+								<xsd:maxInclusive value="65535"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="index-file" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="xsd:string" use="optional" default="index.html"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="success-file" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="xsd:string" use="optional" default="success.html"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="failure-file" type="general:ah-string" minOccurs="0"/>
+			<xsd:element name="ssl" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="server-key" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="0"/>
+											<xsd:maxInclusive value="15"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="web-page" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mandatory-field" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="optional-field" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="2">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="0"/>
+														<xsd:maxInclusive value="8"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+								<xsd:attribute name="value" use="optional" default="4">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="0"/>
+											<xsd:maxInclusive value="8"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="security-object-ppsk-web-server">
+		<xsd:sequence>
+			<xsd:element name="web-directory" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="bind-to-ppsk-ssid" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="login-page" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="login-script" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="https" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="auth-user" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="network-access-security-obj">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="security" type="ssid:security-parameters" minOccurs="0"/>
+			<xsd:element name="default-user-profile-attr" type="ssid:security-default-user-profile-attr" minOccurs="0"/>
+			<xsd:element name="web-server" type="ssid:security-web-server" minOccurs="0"/>
+			<xsd:element name="web-directory" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="dhcp-server" type="ssid:security-dhcp-server" minOccurs="0"/>
+			<xsd:element name="user-profile-allowed" type="ssid:security-user-profile-allowed" minOccurs="0"/>
+			<xsd:element name="user-profile-deny" type="ssid:security-user-profile-deny" minOccurs="0"/>
+			<xsd:element name="walled-garden" type="ssid:cwp-walled-garden" minOccurs="0"/>
+			<xsd:element name="user-profile-sequence" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="mobile-device-policy" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="ppsk-web-server" type="ssid:security-object-ppsk-web-server" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:simpleType name="ssid-multicast-conversion-to-unicast-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="auto"/>
+			<xsd:enumeration value="always"/>
+			<xsd:enumeration value="disable"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ssid-multicast-cu-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ssid-multicast-member-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ssid-multicast-conversion-to-unicast">
+		<xsd:attribute name="value" type="ssid:ssid-multicast-conversion-to-unicast-value" default="auto"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-multicast-cu-threshold">
+		<xsd:attribute name="value" type="ssid:ssid-multicast-cu-threshold-value" default="30"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-multicast-member-threshold">
+		<xsd:attribute name="value" type="ssid:ssid-multicast-member-threshold-value" default="10"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-multicast">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="conversion-to-unicast" type="ssid:ssid-multicast-conversion-to-unicast" minOccurs="0"/>
+			<xsd:element name="cu-threshold" type="ssid:ssid-multicast-cu-threshold" minOccurs="0"/>
+			<xsd:element name="member-threshold" type="ssid:ssid-multicast-member-threshold" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-admctl-ac">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:int"/>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-rrm-quiet-period">
+		<xsd:sequence>
+			<xsd:element name="duration" type="general:ah-int-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:int"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-rrm-quiet">
+		<xsd:sequence>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="period" type="ssid:ssid-rrm-quiet-period" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-rrm">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="quiet" type="ssid:ssid-rrm-quiet" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-admctl">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="ac" type="ssid:ssid-admctl-ac" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--connection alarm definition start-->
+	<xsd:simpleType name="connection-alarming-egress_multicast-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minExclusive value="0"/>
+			<xsd:maxExclusive value="10000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="connection-alarming-egress_multicast-threshold">
+		<xsd:attribute name="value" type="ssid:connection-alarming-egress_multicast-threshold-value" use="optional" default="5000"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="connection-alarming-egress_multicast">
+		<xsd:sequence>
+			<xsd:element name="threshold" type="ssid:connection-alarming-egress_multicast-threshold" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ssid-connection-alarming">
+		<xsd:sequence>
+			<xsd:element name="egress_multicast" type="ssid:connection-alarming-egress_multicast" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--connection alarm definition end-->
+	<xsd:complexType name="ssid-obj">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="default-user-profile-attr" type="ssid:security-default-user-profile-attr" minOccurs="0"/>
+			<xsd:element name="dtim-period" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="1">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="255"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="frag-threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="2346">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="256"/>
+								<xsd:maxInclusive value="2346"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="hide-ssid" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="ignore-broadcast-probe" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="rts-threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="2346">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="256"/>
+								<xsd:maxInclusive value="2346"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="manage" type="general:ah-manage" minOccurs="0"/>
+			<xsd:element name="security-object" type="general:ah-name-act-value" minOccurs="0"/>
+			<xsd:element name="security" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="preauth" type="ssid:security-preauth" minOccurs="0"/>
+						<xsd:element name="additional-auth-method" type="ssid:security-additional-auth-method" minOccurs="0"/>
+						<xsd:element name="mac-filter" type="general:ah-name-act-value" minOccurs="0"/>
+						<xsd:element name="protocol-suite" type="ssid:protocol-suite-type" minOccurs="0"/>
+						<xsd:element name="screening" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="arp-flood" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="threshold" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="100">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="1000000"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="action" type="ssid:screening-action" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="icmp-flood" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="threshold" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="20">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="100"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="action" type="ssid:screening-action" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="udp-flood" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="threshold" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="50">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="100"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="action" type="ssid:screening-action" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="syn-flood" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="threshold" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="1000">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="1000000"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="action" type="ssid:screening-action" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="address-sweep" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="threshold" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="100">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="10000"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="action" type="ssid:screening-action" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="port-scan" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="threshold" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="100">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="10000"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="action" type="ssid:screening-action" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="ip-spoof" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="threshold" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="3">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="2"/>
+																	<xsd:maxInclusive value="10"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="action" type="ssid:screening-action" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="tcp-syn-check" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="radius-attack" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="threshold" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="5">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="3600"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="action" type="ssid:screening-radius-attack-action" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="wlan" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="dos" type="ssid:ssid-wlan-dos" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="aaa" type="ssid:security-aaa" minOccurs="0"/>
+						<xsd:element name="private-psk" type="ssid:security-private-psk" minOccurs="0"/>
+						<xsd:element name="roaming" type="ssid:ssid-security-roaming" minOccurs="0"/>
+						<xsd:element name="local-cache" type="ssid:security-local-cache" minOccurs="0"/>
+						<xsd:element name="eap" type="ssid:security-eap" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="web-server" type="ssid:security-web-server" minOccurs="0"/>
+			<xsd:element name="web-directory" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="schedule" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="dns-server" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="dhcp-server" type="ssid:security-dhcp-server" minOccurs="0"/>
+			<xsd:element name="qos-classifier" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="qos-marker" type="general:ah-name-act" minOccurs="0"/>
+			<xsd:element name="wmm" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="uapsd" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="user-profile-allowed" type="ssid:security-user-profile-allowed" minOccurs="0"/>
+			<xsd:element name="user-profile-deny" type="ssid:security-user-profile-deny" minOccurs="0"/>
+			<xsd:element name="_11a-rate-set" type="general:ah-string-act-quote-prohibited" minOccurs="0"/>
+			<xsd:element name="_11g-rate-set" type="general:ah-string-act-quote-prohibited" minOccurs="0"/>
+			<xsd:element name="_11n-mcs-rate-set" type="general:ah-string-act-quote-prohibited" minOccurs="0"/>
+			<xsd:element name="_11n-mcs-expand-rate-set" type="general:ah-string-act-quote-prohibited" minOccurs="0"/>
+			<xsd:element name="_11ac-mcs-rate-set" type="general:ah-string-act-quote-prohibited" minOccurs="0"/>
+			<xsd:element name="roaming" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="cache" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="update-interval" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="ageout" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="60">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="1000"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+											<xsd:attribute name="value" use="optional" default="60">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="10"/>
+														<xsd:maxInclusive value="36000"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="inter-station-traffic" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="max-client" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="100">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="100"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="user-group" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="mode" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="legacy" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="airscreen" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="rule" type="general:ah-name-act" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="client-age-out" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="ssid:ssid-client-age-out-value" default="5"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="multicast" type="ssid:ssid-multicast" minOccurs="0"/>
+			<xsd:element name="rrm" type="ssid:ssid-rrm" minOccurs="0"/>
+			<xsd:element name="wnm" type="general:ah-enable" minOccurs="0"/>
+			<xsd:element name="bss-load" type="general:ah-enable" minOccurs="0"/>
+			<xsd:element name="admctl" type="ssid:ssid-admctl" minOccurs="0"/>
+			<xsd:element name="connection-alarming" type="ssid:ssid-connection-alarming" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="client-mode-ssid-protocol-suite">
+		<xsd:choice>
+			<xsd:element name="ascii" type="general:ah-encrypted-string" minOccurs="0"/>
+			<xsd:element name="hex" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="client-mode-ssid-connect">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="ssid" type="general:ah-name" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="client-mode-ssid">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="passphrase" type="ssid:client-mode-ssid-protocol-suite" minOccurs="0"/>
+			<xsd:element name="wep-key" type="ssid:client-mode-ssid-protocol-suite" minOccurs="0"/>
+			<xsd:element name="priority" type="general:ah-int-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="client-mode-obj">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="ssid" type="ssid:client-mode-ssid" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="band-mode" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="connect" type="ssid:client-mode-ssid-connect" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

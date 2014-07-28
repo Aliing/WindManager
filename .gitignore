@@ -1,0 +1,6 @@
+#git ignore file
+
+.settings/
+bin/
+.classpath
+.project

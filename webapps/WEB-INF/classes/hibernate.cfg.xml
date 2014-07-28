@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- for MySQL 
+			<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+			</property>
+			<property name="connection.driver_class">
+			com.mysql.jdbc.Driver
+			</property>
+			<property name="connection.url">
+			jdbc:mysql://localhost/hm
+			</property>
+			<property name="connection.username">root</property>
+			<property name="connection.password">mysql</property>
+		-->
+
+		<!--  for PostgreSQL -->
+		<property name="dialect">
+			org.hibernate.dialect.PostgreSQL82Dialect
+		</property>
+		<property name="connection.driver_class">
+			org.postgresql.Driver
+		</property>
+		<property name="connection.url">
+			jdbc:postgresql://10.155.20.76:5432/hm
+		</property>
+		<!-- Supplied through Java API in HibernateUtil class
+			<property name="connection.username">hivemanager</property>
+			<property name="connection.password">aerohive</property>
+		-->
+		<!-- #hibernate.query.substitutions yes 'Y', no 'N' -->
+
+		<!-- JDBC connection pool (the built-in)
+			<property name="connection.pool_size">1</property>
+		-->
+		
+		<!-- Connection Pool for C3P0 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">100</property>
+		<property name="hibernate.c3p0.timeout">120</property>
+		<property name="hibernate.c3p0.max_statements">0</property>
+		<!-- Amazon ELB has a 60 seconds idle timeout to all connections, so smaller number should be given for "hibernate.c3p0.idle_test_period" -->
+		<property name="hibernate.c3p0.idle_test_period">30</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		
+		<!-- JDBC Settings -->
+        <property name="jdbc.fetch_size">50</property>
+		<property name="jdbc.batch_size">20</property>
+		<property name="jdbc.batch_versioned_data">true</property>
+		<property name="jdbc.use_scrollable_resultset">true</property>
+		<property name="jdbc.use_get_generated_keys">true</property>
+		<property name="jdbc.use_streams_for_binary">true</property>
+
+		<!-- Connection Settings -->
+		<property name="connection.release_mode">auto</property>
+		<property name="connection.aggressive_release">false</property>
+
+		<!-- Enable autocommit if no explicit transaction is used
+			<property name="connection.autocommit">true</property>
+		-->
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Disable the second-level cache  
+		<property name="cache.provider_class">
+			org.hibernate.cache.NoCacheProvider
+		</property>
+		-->
+
+        <!--
+        <property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        -->
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="cache.use_query_cache">true</property>
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="cache.region_prefix">hm_cache</property>
+
+        <!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+		<property name="format_sql">true</property>
+
+		<property name="default_batch_fetch_size">8</property>
+        <property name="default_entity_mode">pojo</property>
+		<property name="order_updates">true</property>
+        <property name="order_inserts">true</property>
+		<property name="generate_statistics">false</property>
+        <property name="use_identifier_rollback">false</property>
+		<property name="use_sql_comments">false</property>
+
+        <!-- HQL parser
+            org.hibernate.hql.classic.ClassicQueryTranslatorFactory for Hibernate 2.x
+            org.hibernate.hql.ast.ASTQueryTranslatorFactory for Hibernate 3.x
+        <property name="query.factory_class">
+            org.hibernate.hql.ast.ASTQueryTranslatorFactory
+        </property>
+        -->
+
+		<!-- Drop and re-create the database schema on startup 
+			<property name="hbm2ddl.auto">update</property>
+			<property name="hbm2ddl.auto">create</property>
+		-->
+
+	</session-factory>
+
+</hibernate-configuration>

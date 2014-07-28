@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Copyright (C) 2006-2012 Aerohive Networks
+#
+# yZhong@AeroHive.com
+#
+##
+
+. $(dirname "$0")/extension
+
+keySSH $1 >&2
+cat ${KEY}.pub

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!-- Hive Config -->
+	<definition name="tvConfigLayout" extends="hmLayout">
+		<put-attribute name="leftWidth" value="175" />
+	</definition>
+	<definition name="tvGuide" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvGuide.jsp" />
+	</definition>
+	
+	<definition name="tvClassList" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvClassList.jsp" />
+	</definition>
+	<definition name="tvClass" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvClass.jsp" />
+	</definition>
+	
+	<definition name="tvComputerCartList" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvComputerCartList.jsp" />
+	</definition>
+	<definition name="tvComputerCart" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvComputerCart.jsp" />
+	</definition>
+	
+	<definition name="tvStudentRosterList" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvStudentRosterList.jsp" />
+	</definition>
+	<definition name="tvStudentRoster" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvStudentRoster.jsp" />
+	</definition>
+	
+	<definition name="tvResourceMapList" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvResourceMapList.jsp" />
+	</definition>
+	<definition name="tvResourceMap" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvResourceMap.jsp" />
+	</definition>
+	<definition name="tvScheduleMap" extends="tvConfigLayout">
+		<put-attribute name="body"
+			value="/config/teacherView/tvScheduleMap.jsp" />
+	</definition>
+	
+
+</tiles-definitions>

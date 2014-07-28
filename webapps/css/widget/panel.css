@@ -1,0 +1,69 @@
+@CHARSET "UTF-8";
+
+div.ahPanel {
+    border: none;
+    border-style: none;
+    overflow: visible;
+    background-color: transparent;
+}
+
+.ul {
+	width: 40px;
+	height: 40px;
+	background: url(../../images/hm_v2/popup/HM-Popup-UL.png) no-repeat left top;
+}
+
+.um {
+	height: 40px;
+	background: url(../../images/hm_v2/popup/HM-Popup-UM.png) repeat-x center top;
+}
+
+.ur {
+	width: 40px;
+	height: 40px;
+	background: url(../../images/hm_v2/popup/HM-Popup-UR.png) no-repeat right top;
+}
+
+.ml {
+	width: 40px;
+	height: 100%;
+	background: transparent url(../../images/hm_v2/popup/HM-Popup-ML.png) repeat-y
+		0% 50%;
+}
+
+.mm {
+	height: 100%;
+	background-color: #f9f9f7;
+}
+
+.mr {
+	width: 40px;
+	height: 100%;
+	background: transparent url(../../images/hm_v2/popup/HM-Popup-MR.png) repeat-y
+		100% 50%;
+}
+
+.bl {
+	width: 40px;
+	height: 40px;
+	background: url(../../images/hm_v2/popup/HM-Popup-LL.png) no-repeat left
+		bottom;
+}
+
+.bm {
+	height: 40px;
+	background: url(../../images/hm_v2/popup/HM-Popup-LM.png) repeat-x center
+		bottom;
+}
+
+.br {
+	width: 40px;
+	height: 40px;
+	background: url(../../images/hm_v2/popup/HM-Popup-LR.png) no-repeat right
+		bottom;
+}
+
+img.close-icon {
+	width: 16px;
+	height: 16px;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	
+	<cli-gen key="security_object.user-profile-deny.action.strict">
+		<constraints>
+			<version>3.5.1.0=+</version>
+		</constraints>
+		<cmd><![CDATA[ security-object <string> user-profile-deny action {1:ban|2:ban-forever|3:disconnect} [ {true:strict|false:} ]  ]]></cmd>
+		<cli-default value="{*, 3, false}"/>
+	</cli-gen>
+	
+	<cli-gen key="security_object.user-profile-deny.action.ban.time">
+		<constraints>
+			<version>3.5.1.0=+</version>
+		</constraints>
+		<cmd><![CDATA[ security-object <string> user-profile-deny action ban [ <number> ] ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="security_object.cloud-cwp.enable">
+		<constraints name-ref="spt_cloud_cwp"/>
+		<cmd><![CDATA[ {false:no|true:} security-object <string> security additional-auth-method captive-web-portal cloud-cwp enable ]]></cmd>
+		<cli-default value="{*, false}"/>
+	</cli-gen>
+	
+	<cli-gen key="security_object.cloud-cwp.url-root-path">
+		<constraints name-ref="spt_cloud_cwp"/>
+		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp url-root-path <string> ]]></cmd>
+		<cli-default value="{*, https://acpp.aerohive.com}"/>
+	</cli-gen>
+	
+	<cli-gen key="security_object.cloud-cwp.customer-id">
+		<constraints name-ref="spt_cloud_cwp"/>
+		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp customer-id <string> ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="security_object.cloud-cwp.service-id">
+		<constraints name-ref="spt_cloud_cwp"/>
+		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp service-id <number> ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="security_object.cloud-cwp.api-key.api-nonce">
+		<constraints name-ref="spt_cloud_cwp"/>
+		<cmd><![CDATA[ security-object <string> security additional-auth-method captive-web-portal cloud-cwp api-key <string> api-nonce <string> ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="security_object.walled-garden.hostname.service">
+		<constraints>
+			<version><![CDATA[ >=3.4.2.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ security-object <string> walled-garden hostname <string> [ service {all|web} ] ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="security_object.security.aaa.radius-server.idm">
+		<constraints>
+			<version><![CDATA[ >=6.2.1.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ {false:no|true:} security-object <string> security aaa radius-server idm ]]></cmd>
+		<cli-default value="{false, *}"/>
+	</cli-gen>
+	
+</clis>

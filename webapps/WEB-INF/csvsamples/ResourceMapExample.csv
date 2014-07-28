@@ -1,0 +1,2 @@
+#ResourceMapName,#IPAddress,#Port,#Description
+test-resourcemap, 127.0.0.1, 8888, test-description.

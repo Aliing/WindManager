@@ -1,0 +1,90 @@
+.sub_tabview_selected {
+      font-weight: bold;
+      background-color: white;
+      color: #000000;
+      cursor: pointer;
+}
+.sub_tabview_not_selected {
+      color: #C84B00;
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: bold;
+}
+.sub_tabview_mouseout {
+      color: #C84B00;
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: bold;
+}
+.sub_tabview_mouseover {
+      color: #000000;
+      cursor: pointer;
+      font-weight: bold;
+}
+.sub_tabview_title.sub_tabview_mouseover {
+	  color: #000000;
+}
+.sub_tabview_content_hide {
+      display: none;
+}
+.sub_tabview_content_show {
+      display: '';
+}
+.sub_tabview_disabled {
+      background-color: gray;
+      cursor: arrow;
+}
+.sub_tabview_hide {
+      display: none;
+}
+.sub_tabview_title, .sub_tabview_title.sub_tabview_not_selected {
+	vertical-align: middle;
+	text-align: left;
+	font-family: century gothic, helvetica light, helvetica, arial, sans serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #C84B00;
+	line-height: 20px;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	/*margin-right: -2px;*/
+	padding-left: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	z-index: 2;
+	position: relative;
+	background-color: #E5E5E5;
+	border: none;
+	border-top-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+}
+div.sub_tabview_content {
+	overflow-x: hidden;
+	overflow-y: auto;
+	height:140px;
+	width:230px;
+	border:2px solid #cccccc;
+	background-color: #FFFFFF;
+}
+.sub_tabview_title.sub_tabview_selected {
+	border-left: 2px solid #cccccc;
+	border-top: 2px solid #cccccc;
+	border-bottom: 2px solid #cccccc;
+	margin-right: -2px;
+	color: #000000;
+	border-top-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+	background-color: #FFFFFF;
+}
+.sub_tabview_title.sub_tabview_selected .sub_tabview_title_other_content {
+	  display: '';
+}
+.sub_tabview_title.sub_tabview_not_selected .sub_tabview_title_other_content {
+	  display: none;
+}
+.sub_tabview_title.sub_tabview_mouseout .sub_tabview_title_other_content {
+	  display: none;
+}
+.sub_tabview_title.sub_tabview_mouseover .sub_tabview_title_other_content {
+	  display: none;
+}

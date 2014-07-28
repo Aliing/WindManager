@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:hive="http://www.aerohive.com/configuration/hive" targetNamespace="http://www.aerohive.com/configuration/hive">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:simpleType name="connecting-threshold-value">
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="-90"/>
+					<xsd:maxInclusive value="-55"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="low"/>
+					<xsd:enumeration value="medium"/>
+					<xsd:enumeration value="high"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:complexType name="connect-polling-interval">
+		<xsd:attribute name="value" use="optional" default="1">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="1"/>
+					<xsd:maxInclusive value="60"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="hive-wlan-dos">
+		<xsd:sequence>
+			<xsd:element name="hive-level" type="general:dos-ssid-level" minOccurs="0"/>
+			<xsd:element name="station-level" type="general:dos-station-level" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-mitigator-reeval-period-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="1440"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-mitigator-reeval-period">
+		<xsd:attribute name="value" type="hive:wlan-idp-mitigator-reeval-period-value" use="optional" default="5"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-max-mitigator-num-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="1024"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-max-mitigator-num">
+		<xsd:attribute name="value" type="hive:wlan-idp-max-mitigator-num-value" use="optional" default="1"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mitigation-mode-auto-action">
+		<xsd:choice>
+			<xsd:element name="mitigate" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="report" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mitigation-mode-auto">
+		<xsd:sequence>
+			<xsd:element name="action" type="hive:mitigation-mode-auto-action" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="wlan-idp-mitigation-mode">
+		<xsd:sequence>
+			<xsd:element name="automatic" type="hive:mitigation-mode-auto" minOccurs="0"/>
+			<xsd:element name="semi-automatic" type="hive:mitigation-mode-auto" minOccurs="0"/>
+			<xsd:element name="manual" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="hive-wlan-idp">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="mitigator-reeval-period" type="hive:wlan-idp-mitigator-reeval-period" minOccurs="0"/>
+			<xsd:element name="max-mitigator-num" type="hive:wlan-idp-max-mitigator-num" minOccurs="0"/>
+			<xsd:element name="mitigation-mode" type="hive:wlan-idp-mitigation-mode" minOccurs="0"/>
+			<xsd:element name="in-net-ap" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="hive-obj">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="frag-threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="2346">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="256"/>
+								<xsd:maxInclusive value="2346"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="native-vlan" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="1">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="4095"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="rts-threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="2346">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="2346"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="password" type="general:ah-encrypted-string-act" minOccurs="0"/>
+			<xsd:element name="manage" type="general:ah-manage" minOccurs="0"/>
+			<xsd:element name="neighbor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="connecting-threshold" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="polling-interval" type="hive:connect-polling-interval" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="value" type="hive:connecting-threshold-value" use="required"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="security" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="mac-filter" type="general:ah-name-act-value" minOccurs="0"/>
+						<xsd:element name="wlan" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="dos" type="hive:hive-wlan-dos" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="wlan-idp" type="hive:hive-wlan-idp" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

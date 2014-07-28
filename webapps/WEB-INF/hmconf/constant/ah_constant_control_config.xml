@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constant-configs>
+	<hiveap_product_name filename="device_product_name.xml"
+		class="com.ah.be.parameter.constant.parser.AhDeviceProductNameParser" />
+	<device_page_style filename="device_page_style_config.xml"
+		class="com.ah.be.parameter.constant.parser.AhDeviceStyleParser" />
+</constant-configs>

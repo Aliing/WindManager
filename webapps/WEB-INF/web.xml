@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_9" version="3.0"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	metadata-complete="true"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+	<display-name>Aerohive Management System</display-name>
+
+	<!-- CAS Configuration Option -->
+
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>
+			 org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+		</filter-class>
+		<init-param>
+			<param-name>packages</param-name>
+			<param-value>dojo-111</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>
+			org.apache.struts2.tiles.StrutsTilesListener
+		</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>
+			org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG
+		</param-name>
+		<param-value>/WEB-INF/classes/tiles-defs.xml,/WEB-INF/classes/tiles-home.xml,/WEB-INF/classes/tiles-config.xml,/WEB-INF/classes/tiles-config-v2.xml,/WEB-INF/classes/tiles-monitor.xml,/WEB-INF/classes/tiles-dash.xml,/WEB-INF/classes/tiles-tools.xml,/WEB-INF/classes/tiles-gml.xml,/WEB-INF/classes/tiles-tv.xml</param-value>
+	</context-param>
+  <context-param>
+    <param-name>configuration</param-name>
+    <param-value>/HiveManager/work/configuration.properties</param-value>
+  </context-param>
+
+	<listener>
+		<listener-class>com.ah.util.HmContextListener</listener-class>
+	</listener>
+  <listener>
+    <listener-class>com.ah.common.async.ServLet$ContextListener</listener-class>
+  </listener>
+  <listener>
+		<listener-class>com.ah.util.HmHttpSessionListener</listener-class>
+	</listener>
+    <servlet>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>com.ah.be.rest.server.resources;com.ah.be.rest.ahmdm.server.resources;com.ah.bo.mgmt.impl</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RESTService</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+	        <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+	        <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>com.ah.ws.rest.server.resources</param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
+            <param-value>com.ah.ws.rest.server.auth.AuthenticationRequestFilter</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>RESTService</servlet-name>
+         <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+	<!-- Precompiled Servlets -->
+
+	<servlet>
+      <servlet-name>hhmuploadserver</servlet-name>
+      <servlet-class>com.ah.be.admin.hhmoperate.https.Upload_server</servlet-class>
+    </servlet>
+
+    <servlet>
+      <servlet-name>hhmmessageserver</servlet-name>
+      <servlet-class>com.ah.be.admin.hhmoperate.https.Msg_server</servlet-class>
+    </servlet>
+
+	<servlet>
+		<servlet-name>hhmrestorecheck</servlet-name>
+		<servlet-class>com.ah.be.admin.hhmoperate.https.RestoreCheck_server</servlet-class>
+	</servlet>
+
+    <!-- debug server servlet -->
+    <servlet>
+        <servlet-name>debugserver</servlet-name>
+        <servlet-class>com.ah.debugserver.DebugServer</servlet-class>
+    </servlet>
+
+    <!-- Socket Proxy Servlet -->
+	<servlet>
+      <servlet-name>proxy</servlet-name>
+      <servlet-class>com.ericdaugherty.soht.server.SocketProxyServlet</servlet-class>
+    </servlet>
+
+    <!-- File Upload Servlet -->
+	<servlet>
+      <servlet-name>upload</servlet-name>
+      <servlet-class>com.ah.upload.FileUploadServlet</servlet-class>
+    </servlet>
+    <servlet>
+      <servlet-name>healthcheck</servlet-name>
+      <servlet-class>com.ah.ha.hc.HealthCheckServlet</servlet-class>
+    </servlet>
+    <!-- Axis Servlet -->
+    <servlet>
+        <servlet-name>AxisServlet</servlet-name>
+        <servlet-class>org.apache.axis2.transport.http.AxisServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>report</servlet-name>
+        <servlet-class>com.ah.nms.json.Report</servlet-class>
+        <async-supported>true</async-supported>
+    </servlet>
+
+     <!-- SOAP Monitor Servlet -->
+    <!-- servlet>
+        <servlet-name>SOAPMonitorService</servlet-name>
+        <display-name>SOAPMonitorService</display-name>
+        <servlet-class>org.apache.axis2.soapmonitor.servlet.SOAPMonitorService</servlet-class>
+        <init-param>
+            <param-name>SOAPMonitorPort</param-name>
+            <param-value>5001</param-value>
+        </init-param>
+        <init-param>
+            <param-name>SOAPMonitorHostName</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+    </servlet -->
+
+    <servlet-mapping>
+      <servlet-name>hhmuploadserver</servlet-name>
+      <url-pattern>/hhmuploadserver</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>hhmmessageserver</servlet-name>
+      <url-pattern>/hhmmessageserver</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>hhmrestorecheck</servlet-name>
+		<url-pattern>/hhmrestorecheck</url-pattern>
+	</servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>debugserver</servlet-name>
+        <url-pattern>/debugserver</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>proxy</servlet-name>
+      <url-pattern>/proxy</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>upload</servlet-name>
+      <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>healthcheck</servlet-name>
+      <url-pattern>/healthcheck</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>report</servlet-name>
+        <url-pattern>/report/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- servlet-mapping>
+        <servlet-name>SOAPMonitorService</servlet-name>
+        <url-pattern>/SOAPMonitor</url-pattern>
+    </servlet-mapping -->
+
+    <mime-mapping>
+        <extension>inc</extension>
+        <mime-type>text/plain</mime-type>
+    </mime-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+
+	<error-page>
+      <error-code>400</error-code>
+      <location>/error/error.html</location>
+    </error-page>
+	
+	<error-page>
+        <error-code>403</error-code>
+      <location>/error/error.html</location>
+    </error-page>
+	
+    <error-page>
+      <error-code>404</error-code>
+      <location>/error/error.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+       <location>/error/error.html</location>
+    </error-page>
+    
+	<error-page>
+      <error-code>501</error-code>
+      <location>/error/error.html</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>503</error-code>
+        <location>/error/error.html</location>
+    </error-page>
+
+    <!-- Security Constraint -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Prevent access the raw config contents</web-resource-name>
+            <url-pattern>*.ini</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>Prevent access the resources contents</web-resource-name>
+            <url-pattern>/resources/*</url-pattern>
+        </web-resource-collection>
+        
+        <web-resource-collection>
+            <!-- Resource Display Name -->
+            <web-resource-name>HM Resources</web-resource-name>
+
+             <!-- Protected Resource -->
+            <url-pattern>/res/*</url-pattern>
+
+            <!-- Constrained HTTP Methods -->
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>HEAD</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>OPTIONS</http-method>
+        </web-resource-collection>
+        <web-resource-collection>
+            <!-- Resource Display Name -->
+            <web-resource-name>Upload Service</web-resource-name>
+
+             <!-- Protected Servlet -->
+            <url-pattern>/upload</url-pattern>
+
+            <!-- Constrained HTTP Methods -->
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>HEAD</http-method>
+            <http-method>PUT</http-method>
+            <http-method>DELETE</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>OPTIONS</http-method>
+        </web-resource-collection>
+        <web-resource-collection>
+            <!-- Resource Display Name -->
+            <web-resource-name>Report API</web-resource-name>
+
+             <!-- Protected Resource -->
+            <url-pattern>/report/*</url-pattern>
+
+            <!-- Constrained HTTP Methods -->
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <!-- Anyone with one of the listed roles may access the protected resources -->
+            <role-name>hm-resource-protector</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <!-- This is used to prevent other entities from observing the contents of the transmission -->
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <login-config>
+        <!-- 'DIGEST' is so far, while 'CLIENT-CERT' is the final -->
+        <auth-method>DIGEST</auth-method>
+        <realm-name>Hive Manager Application</realm-name>
+    </login-config>
+
+    <security-role>
+        <!-- Which is used to map to a specific Tomcat user role that is defined in the $Tomcat install/conf/tomcat-users.xml -->
+        <role-name>hm-resource-protector</role-name>
+    </security-role>
+	
+	<session-config>
+	     <tracking-mode>COOKIE</tracking-mode>
+	</session-config>
+</web-app>

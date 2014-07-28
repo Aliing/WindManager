@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<search>
+	<ignores>
+			<ignore name="id"/>
+			<ignore name="version"/>
+			<ignore name="selected"/>
+			<ignore name="defaultFlag"/>
+	</ignores>
+	
+	<tables>
+		<!-- Configuration Begin-->
+		<table action="hiveProfiles" bo="com.ah.bo.mobility.HiveProfile" key="hiveProfiles" node="Hives" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="configGuide" bo="null" key="configGuide" node="Guided Configuration" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="configTemplate" bo="com.ah.bo.hiveap.ConfigTemplate" key="configTemplate" node="Network Policies" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="configurationMenu" bo="null" key="addHiveAP" node="Device Config" subject="00" bool="true" mode="00" type="configuration">
+			<urlparam name="operation">addHiveAP</urlparam>
+		</table>
+		<table action="ssidProfiles" bo="com.ah.bo.wlan.SsidProfile" key="ssidProfiles" node="SSIDs" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<table action="portAccess" bo="com.ah.bo.port.PortAccessProfile" key="portAccess" node="Port Types" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="userProfiles" bo="com.ah.bo.useraccess.UserProfile" key="userProfiles" node="User Profiles" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="vpnNetworks" bo="com.ah.bo.network.VpnNetwork" key="vpnNetworks" node="Networks" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+        <table action="vpnServices" bo="com.ah.bo.network.VpnService" key="vpnServices" node="VPN Services" subject="01" bool="true" mode="00" type="configuration">
+        </table>
+		<table action="autoProvisioningConfig" bo="com.ah.bo.hiveap.HiveApAutoProvision" key="autoProvisioning" node="Auto Provisioning" subject="00" bool="enabled" mode="00" type="configuration">
+		</table>
+        <table action="radioProfile" bo="com.ah.bo.wlan.RadioProfile" key="radioProfiles" node="Radio Profiles" subject="00" bool="enabled" mode="00" type="configuration">
+        </table>
+		
+		<!-- Common Object Begin-->
+        <table action="accessConsole" bo="com.ah.bo.network.AccessConsole" key="accessConsole" node="Access Consoles" subject="00" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="algConfiguration" bo="com.ah.bo.network.AlgConfiguration" key="algConfiguration" node="ALG Services" subject="00" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="bonjourGatewaySettings" bo="com.ah.bo.network.BonjourGatewaySettings" key="bonjourGatewaySettings" node="Bonjour Gateway Settings" subject="00" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="domainObject" bo="com.ah.bo.network.DomainObject" key="domainObject" node="Device Domain Objects" subject="00" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="vlanDhcpServer" bo="com.ah.bo.network.VlanDhcpServer" key="vlanDhcpServer" node="DHCP Server &amp; Relay" subject="01" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="dnsService" bo="com.ah.bo.network.DnsServiceProfile" key="dnsService" node="DNS Service" subject="01" bool="enabled" mode="10" type="configuration">
+        </table>
+		<table action="ipAddress" bo="com.ah.bo.network.IpAddress" key="ipAddress" node="IP Objects/Host Names" subject="01" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="lldpcdpProfiles" bo="com.ah.bo.network.LLDPCDPProfile" key="lldpcdpProfiles" node="LLDP/CDP Profiles" subject="00" bool="enabled" mode="10" type="configuration">
+        </table>
+		<table action="macAddress" bo="com.ah.bo.network.MacOrOui" key="macAddress" node="MAC Addresses/OUIs" subject="10" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="networkService" bo="com.ah.bo.network.NetworkService" key="networkService" node="Network Services" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<table action="osObject" bo="com.ah.bo.network.OsObject" key="osObject" node="OS Objects" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="pppoe" bo="com.ah.bo.network.PPPoE" key="pppoe" node="PPPoE" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="pseProfile" bo="com.ah.bo.network.PseProfile" key="pseProfile" node="PSE Profiles" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="radiusAttrs" bo="com.ah.bo.network.RadiusAttrs" key="radiusAttrs" node="RADIUS Operator-Name Attribute" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="routingProfilePolicy" bo="com.ah.bo.network.RoutingProfilePolicy" key="routingProfilePolicy" node="Routing Policies" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="scheduler" bo="com.ah.bo.wlan.Scheduler" key="scheduler" node="Schedules" subject="00" bool="true" mode="00" type="configuration">
+        </table>
+        <table action="tunnelSetting" bo="com.ah.bo.mobility.TunnelSetting" key="identityBasedTunnels" node="Tunnel Policies" subject="00" bool="enabled" mode="10" type="configuration">
+            <ignore>userProfile</ignore>
+        </table>
+		<table action="vlan" bo="com.ah.bo.network.Vlan" key="vlan" node="VLANs" subject="00" bool="true" mode="10" type="configuration">
+			<ignore>userProfile</ignore>						
+		</table>
+		<table action="vlanGroup" bo="com.ah.bo.network.VlanGroup" key="vlanGroup" node="VLAN Group" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="wifiClinetPerferredSsid" bo="com.ah.bo.hiveap.WifiClientPreferredSsid" key="wifiClinetPerferredSsid" node="WiFi Client Preferred SSID" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="appService" bo="com.ah.bo.network.Application" key="appService" node="Application Services" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<!-- Common Object end-->
+		
+		<!-- Security Policies start-->
+		<table action="ipDos" bo="com.ah.bo.network.DosPrevention" key="ipDos" node="IP DoS" subject="00" bool="enabled" mode="00" type="configuration">
+			<filter name="dosType" type="DosType">2</filter>
+		</table>
+		<table action="ipPolicy" bo="com.ah.bo.network.IpPolicy" key="ipPolicies" node="IP Policies" subject="00" bool="enabled" mode="10" type="configuration">
+            <ignore>userProfileFrom</ignore>
+            <ignore>userProfileTo</ignore>      
+            <ignore>userProfile</ignore>
+        </table>
+		<table action="macDos" bo="com.ah.bo.network.DosPrevention" key="macDos" node="MAC DoS" subject="00" bool="enabled" mode="00" type="configuration">
+			<filter name="dosType" type="DosType">0,1</filter>		
+		</table>
+		<table action="macFilters" bo="com.ah.bo.network.MacFilter" key="macFilters" node="MAC Filters" subject="00" bool="enabled" mode="00" type="configuration">
+		</table>
+		<table action="macPolicy" bo="com.ah.bo.network.MacPolicy" key="macPolicies" node="MAC Policies" subject="00" bool="enabled" mode="10" type="configuration">
+			<ignore>userProfileFrom</ignore>
+			<ignore>userProfileTo</ignore>		
+		</table>
+		<table action="ipFilter" bo="com.ah.bo.network.IpFilter" key="ipFilters" node="Mgt IP Filters" subject="00" bool="enabled" mode="10" type="configuration">
+		</table>
+		<table action="firewallPolicy" bo="com.ah.bo.network.FirewallPolicy" key="l3FirewallPolicies" node="Network Firewall Policies" subject="00" bool="enabled" mode="10" type="configuration">
+		</table>
+		<table action="serviceFilter" bo="com.ah.bo.network.ServiceFilter" key="managementFilters" node="Traffic Filters" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="idsPolicy" bo="com.ah.bo.network.IdsPolicy" key="idsPolicies" node="WIPS Policies" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<table action="configmdm" bo="com.ah.bo.hiveap.ConfigTemplateMdm" key="configmdm" node="MDM Configuration" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<table action="mdmProfiles" bo="com.ah.bo.hiveap.MdmProfiles" key="mdmProfiles" node="MDM Profiles" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<!-- Security Policies end-->
+		
+		<!-- QoS Policies start-->
+		<table action="qosClassification" bo="com.ah.bo.mobility.QosClassification" key="qosClassification" node="Classifier Maps" subject="00" bool="enabled" mode="00" type="configuration">
+		</table>
+		<table action="qosMarking" bo="com.ah.bo.mobility.QosMarking" key="qosMarking" node="Marker Maps" subject="00" bool="enabled" mode="00" type="configuration">
+        </table>
+        <table action="qosRateControl" bo="com.ah.bo.mobility.QosRateControl" key="qosRateControl" node="Rate Control &amp; Queuing" subject="00" bool="enabled" mode="00" type="configuration">
+        </table>
+		<!-- QoS Policies end-->
+		
+		<!-- Management Services start-->
+		<table action="mgmtServiceDns" bo="com.ah.bo.useraccess.MgmtServiceDns" key="mgmtServiceDns" node="DNS Assignments" subject="01" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="mgmtIpTrack" bo="com.ah.bo.useraccess.MgmtServiceIPTrack" key="mgmtIpTrack" node="IP Tracking" subject="01" bool="true" mode="10" type="configuration">
+        </table>
+        <table action="locationServer" bo="com.ah.bo.useraccess.LocationServer" key="locationServer" node="Location Servers" subject="00" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="mgmtServiceOption" bo="com.ah.bo.useraccess.MgmtServiceOption" key="mgmtServiceOption" node="Management Options" subject="00" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="mgmtServiceTime" bo="com.ah.bo.useraccess.MgmtServiceTime" key="mgmtServiceTime" node="NTP Assignments" subject="01" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="onBoardUISetting" bo="null" key="onBoardUISetting" node="ClientMgmt UI Setting" subject="00" bool="enabled" mode="10" type="configuration">
+		</table>
+        <table action="mgmtServiceSnmp" bo="com.ah.bo.useraccess.MgmtServiceSnmp" key="mgmtServiceSnmp" node="SNMP Assignments" subject="01" bool="enabled" mode="10" type="configuration">
+        </table>
+        <table action="mgmtServiceSyslog" bo="com.ah.bo.useraccess.MgmtServiceSyslog" key="mgmtServiceSyslog" node="Syslog Assignments" subject="01" bool="enabled" mode="10" type="configuration">
+        </table>
+		<!-- Management Services end-->
+		
+		<!-- Authentication start-->
+		<table action="radiusAssignment" bo="com.ah.bo.useraccess.RadiusAssignment" key="radiusServerAssignments" node="AAA Client Settings" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="activeDirectoryOrLdap" bo="com.ah.bo.useraccess.ActiveDirectoryOrOpenLdap" key="activeDirectoryOrLdap" node="AAA User Directory Settings" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="radiusOnHiveAp" bo="com.ah.bo.useraccess.RadiusOnHiveap" key="radiusServiceOnHiveAps" node="Aerohive AAA Server Settings" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="captivePortalWeb" bo="com.ah.bo.wlan.Cwp" key="captivePortalWeb" node="Captive Web Portals" subject="00" bool="true" mode="00" type="configuration">
+        </table>
+        <table action="librarySip" bo="com.ah.bo.useraccess.RadiusLibrarySip" key="librarySip" node="Library SIP Policy" subject="00" bool="true" mode="10" type="configuration">
+        </table>
+        <table action="localUserGroup" bo="com.ah.bo.useraccess.LocalUserGroup" key="localUserGroups" node="Local User Groups" subject="00" bool="true" mode="10" type="configuration">
+        </table>
+        <table action="localUser" bo="com.ah.bo.useraccess.LocalUser" key="localUsers" node="Local Users" subject="00" bool="true" mode="00" type="configuration">
+        </table>
+        <table action="radiusProxy" bo="com.ah.bo.useraccess.RadiusProxy" key="radiusProxy" node="RADIUS Proxy" subject="00" bool="true" mode="10" type="configuration">
+        </table>
+        <table action="userAttribute" bo="com.ah.bo.useraccess.UserProfileAttribute" key="userAttributeGroups" node="User Attribute Groups" subject="00" bool="true" mode="10" type="configuration">
+            <ignore>userProfile</ignore>
+        </table>
+		<!-- Authentication end-->
+		
+		<!-- Key and Certificates start-->
+		<table action="certificates" bo="null" key="certificates" node="Certificate Mgmt" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<table action="cwpCertMgmt" bo="com.ah.bo.wlan.CwpCertificate" key="cwpCertMgmt" node="CWP Certificate Mgmt" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<table action="hiveManagerCA" bo="null" key="hiveManagerCA" node="HiveManager CA" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="serverCSR" bo="null" key="serverCSR" node="Server CSR" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<!-- Key and Certificates end-->
+		
+		
+		<table action="usbModem" bo="com.ah.bo.network.USBModem" key="usbModem" node="USB Modem" subject="00" bool="enabled" mode="10" type="configuration">
+		</table>
+		
+		<table action="compliancePolicy" bo="com.ah.bo.network.CompliancePolicy" key="compliancePolicy" node="Compliance Policy" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		
+		<table action="tvGuide" bo="null" key="tvGuide" node="Guided TeacherView" subject="00" bool="true" mode="00" type="configuration">
+		</table>
+		<table action="tvClass" bo="com.ah.bo.teacherView.TvClass" key="tvClass" node="Classes" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="tvComputerCart" bo="com.ah.bo.teacherView.TvComputerCart" key="tvComputerCart" node="Computer Cart" subject="10" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="tvStudentRoster" bo="com.ah.bo.teacherView.TvStudentRoster" key="tvStudentRoster" node="Student Roster" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		<table action="tvResourceMap" bo="com.ah.bo.teacherView.TvResourceMap" key="tvResourceMap" node="Resource Map" subject="00" bool="true" mode="10" type="configuration">
+		</table>
+		
+		<!-- Configuration End-->
+		
+		<!-- Device Begin-->
+		<!-- All Devices Begin -->
+		<!-- new view-->
+		<table action="hiveAp" bo="null" key="managedHiveAps" node="All Devices" subject="11" bool="enabled" mode="10" type="hiveap">
+			<urlparam name="operation">new2</urlparam>
+		</table>
+		
+		<!-- monitor view-->
+		<table action="hiveApMonitor" bo="null" key="managedHiveAps" node="All Devices" subject="11" bool="enabled" mode="10" type="hiveap">
+			<urlparam name="operation">hiveApDetails</urlparam>
+		</table>
+		
+		<!-- list view, data-->
+		<table action="hiveAp" bo="com.ah.bo.hiveap.HiveAp" key="managedHiveAps" node="All Devices" subject="11" bool="enabled" mode="10" type="hiveap">
+			<ignore>mapLeafNode</ignore>
+			<ignore>mapContainer</ignore>
+			
+			<filter name="manageStatus" type="short">0,1</filter>
+			
+			<urlparam name="hmListType">managedHiveAps</urlparam>
+			<urlparam name="operation">managedHiveAps</urlparam>
+		</table>
+		<!-- All Devices End -->
+		
+		<!-- Access Points Begin -->
+		<!-- new view-->
+		<table action="hiveAp" bo="null" key="managedHiveAps" node="Aerohive APs" subject="11" bool="enabled" mode="00" type="hiveap">
+			<urlparam name="operation">new2</urlparam>
+		</table>
+		
+		<!-- monitor view-->
+		<table action="hiveApMonitor" bo="null" key="managedHiveAps" node="Aerohive APs" subject="11" bool="enabled" mode="00" type="hiveap">
+			<urlparam name="operation">hiveApDetails</urlparam>
+		</table>
+		
+		<!-- HiveAPs - list view, data-->
+		<table action="hiveAp" bo="com.ah.bo.hiveap.HiveAp" key="managedHiveAps" node="Aerohive APs" subject="11" bool="enabled" mode="00" type="hiveap">
+			<ignore>mapLeafNode</ignore>
+			<ignore>mapContainer</ignore>
+			
+			<filter name="deviceType" type="short">0</filter>
+			<filter name="manageStatus" type="short">0,1</filter>
+			
+			<urlparam name="hmListType">managedDeviceAPs</urlparam>
+			<urlparam name="operation">managedHiveAps</urlparam>
+		</table>
+		
+		<!-- table action="hiveAp" bo="com.ah.bo.hiveap.HiveAp" key="newHiveAps" node="New Devices" subject="11" bool="enabled" type="hiveap">
+			
+			
+			<ignore>mapLeafNode</ignore>
+			<ignore>mapContainer</ignore>
+			
+			<filter name="manageStatus" type="short">0</filter>
+			
+			<urlparam name="hmListType">newHiveAps</urlparam>
+		</table>
+		
+		<table action="hiveAp" bo="com.ah.bo.hiveap.HiveAp" key="autoDiscovered" node="Automatically Discovered" subject="11" bool="enabled" type="hiveap">
+			
+			
+			<ignore>mapLeafNode</ignore>
+			<ignore>mapContainer</ignore>
+			
+			<filter name="manageStatus" type="short">0</filter>
+			<filter name="origin" type="short">1</filter>
+			
+			<urlparam name="hmListType">autoDiscovered</urlparam>
+		</table>
+		
+		<table action="hiveAp" bo="com.ah.bo.hiveap.HiveAp" key="manuallyProvisioned" node="Manually Provisioned" subject="10" bool="enabled" type="hiveap">
+			
+			
+			<ignore>mapLeafNode</ignore>
+			<ignore>mapContainer</ignore>
+			
+			<filter name="manageStatus" type="short">0</filter>
+			<filter name="origin" type="short">0</filter>
+			
+			<urlparam name="hmListType">manuallyProvisioned</urlparam>
+		</table -->
+		
+		<table action="idp" bo="com.ah.bo.hiveap.Idp" key="friendlyAps" node="Friendly APs" subject="10" bool="enabled" mode="00" type="hiveap">
+			
+			
+			<filter name="stationType" type="short">1</filter>
+			<filter name="idpType" type="short">2,3</filter>
+			
+			<urlparam name="listType">friendlyAps</urlparam>
+		</table>
+		
+		<table action="idp" bo="com.ah.bo.hiveap.Idp" key="rogueAps" node="Rogue APs" subject="10" bool="enabled" mode="00" type="hiveap">
+			
+			
+			<filter name="stationType" type="short">1</filter>
+			<filter name="idpType" type="short">1</filter>
+			
+			<urlparam name="listType">rogueAps</urlparam>
+		</table>
+		<!-- Access Points End-->
+		
+		<!-- Hive Routers Begin-->
+		<!-- new view-->
+		<table action="hiveAp" bo="null" key="managedHiveAps" node="Routers" subject="11" bool="enabled" mode="10" type="hiveap">
+			<urlparam name="operation">new2</urlparam>
+		</table>
+		
+		<!-- monitor view-->
+		<table action="hiveApMonitor" bo="null" key="managedHiveAps" node="Routers" subject="11" bool="enabled" mode="10" type="hiveap">
+			<urlparam name="operation">hiveApDetails</urlparam>
+		</table>
+		
+		<!-- list view, data-->
+		<table action="hiveAp" bo="com.ah.bo.hiveap.HiveAp" key="managedHiveAps" node="Routers" subject="11" bool="enabled" mode="10" type="hiveap">
+			<ignore>mapLeafNode</ignore>
+			<ignore>mapContainer</ignore>
+			
+			<filter name="deviceType" type="short">1</filter>
+			<filter name="manageStatus" type="short">0,1</filter>
+			
+			<urlparam name="hmListType">managedRouters</urlparam>
+			<urlparam name="operation">managedHiveAps</urlparam>
+		</table>
+		<!-- Hive Routers End -->
+		
+		<!-- Hive Switches Begin-->
+		<!-- new view-->
+		<table action="hiveAp" bo="null" key="managedHiveAps" node="Switches" subject="11" bool="enabled" mode="10" type="hiveap">
+			<urlparam name="operation">new2</urlparam>
+		</table>
+		
+		<!-- monitor view-->
+		<table action="hiveApMonitor" bo="null" key="managedHiveAps" node="Switches" subject="11" bool="enabled" mode="10" type="hiveap">
+			<urlparam name="operation">hiveApDetails</urlparam>
+		</table>
+		
+		<!-- list view, data-->
+		<table action="hiveAp" bo="com.ah.bo.hiveap.HiveAp" key="managedHiveAps" node="Switches" subject="11" bool="enabled" mode="10" type="hiveap">
+			<ignore>mapLeafNode</ignore>
+			<ignore>mapContainer</ignore>
+			
+			<filter name="deviceType" type="short">4</filter>
+			<filter name="manageStatus" type="short">0,1</filter>
+			
+			<urlparam name="hmListType">managedSwitches</urlparam>
+			<urlparam name="operation">managedHiveAps</urlparam>
+		</table>
+		<!-- Hive Switches End -->
+		
+		<!-- VPN Gateways Begin-->
+		<!-- new view-->
+		<table action="hiveAp" bo="null" key="managedHiveAps" node="VPN Gateways" subject="11" bool="enabled" mode="10" type="hiveap">
+			<urlparam name="operation">new2</urlparam>
+		</table>
+		
+		<!-- monitor view-->
+		<table action="hiveApMonitor" bo="null" key="managedHiveAps" node="VPN Gateways" subject="11" bool="enabled" mode="10" type="hiveap">
+			<urlparam name="operation">hiveApDetails</urlparam>
+		</table>
+		
+		<!-- list view, data-->
+		<table action="hiveAp" bo="com.ah.bo.hiveap.HiveAp" key="managedHiveAps" node="VPN Gateways" subject="11" bool="enabled" mode="10" type="hiveap">
+			<ignore>mapLeafNode</ignore>
+			<ignore>mapContainer</ignore>
+			
+			<filter name="deviceType" type="short">2</filter>
+			<filter name="manageStatus" type="short">0,1</filter>
+			
+			<urlparam name="hmListType">managedVPNGateways</urlparam>
+			<urlparam name="operation">managedHiveAps</urlparam>
+		</table>
+		<!-- VPN Gateways End -->
+		
+		<table action="hiveApUpdateRts" bo="com.ah.bo.hiveap.HiveApUpdateResult" key="hiveApUpdateRts" node="Device Update Results" subject="11" bool="enabled" mode="00" type="hiveap">
+			
+		</table>
+		<!-- Device End-->
+		
+		<!-- Topology Begin -->
+		<table action="mapNodes" bo="com.ah.bo.monitor.MapContainerNode" key="hiveApMaps" node="Topology" subject="00" bool="enabled" mode="00" type="topo">
+			<ignore>parentMap</ignore>
+			<ignore>childNodes</ignore>
+		</table>
+		<!-- Topology End-->
+		
+		<!-- Client Begin -->
+		<!-- wireless client -->
+		<table action="clientMonitor" bo="com.ah.bo.performance.AhClientSession" key="clientMonitor" node="Active Clients" subject="11" bool="enabled" mode="00" type="client">
+			<filter name="connectstate" type="byte">1</filter>
+			<filter name="clientChannel" type="byte" operator="10">1</filter>
+		</table>
+		
+		<!-- wired client -->
+		<table action="clientMonitor" bo="com.ah.bo.performance.AhClientSession" key="clientMonitor" node="Wired Clients" subject="11" bool="enabled" mode="10" type="client">
+			<filter name="connectstate" type="byte">1</filter>
+			<filter name="clientChannel" type="byte" operator="-1">1</filter>
+		</table>
+		
+		<table action="idp" bo="com.ah.bo.hiveap.Idp" key="rogueClient" node="Rogue Clients" subject="10" bool="enabled" mode="00" type="client">
+			<filter name="stationType" type="short">2</filter>
+			<filter name="idpType" type="short">1</filter>
+			<urlparam name="listtype">rogueClient</urlparam>
+		</table>
+		
+		
+		<table action="clientModifications" bo="com.ah.bo.performance.AhClientEditValues" key="clientModifications" node="Client Properties" subject="11" bool="enabled" mode="00" type="client">
+		
+		<filter name="type" type="short">0</filter>
+		
+		</table>
+		
+		<table action="watchList" bo="com.ah.bo.monitor.LocationClientWatch" key="watchList" node="Location Watch List" subject="00" bool="enabled" mode="00" type="client">
+			
+		</table>
+		
+		<table action="clientSurvey" bo="com.ah.bo.monitor.Trex" key="clientSurvey" node="Site Survey" subject="10" bool="enabled" mode="00" type="client">
+			
+		</table>
+		<!-- Client End-->
+		
+		<!-- Admin Begin-->
+		<table action="startHereMgr" bo="null" key="startHereMgr" node="Start Here" subject="00" bool="enabled" mode="00" type="admin">
+			
+		</table>
+		
+		<table action="reports" bo="null" key="summary" node="Dashboard" subject="00" bool="enabled" mode="00" type="admin">
+			<urlparam name="operation">summary</urlparam>
+		</table>
+		
+		<table action="userPasswordModify" bo="null" key="userPasswordModify" node="Account Preferences" subject="00" bool="enabled" mode="00" type="admin">
+		</table>
+		
+		<table action="vhmManagement" bo="com.ah.bo.admin.HmDomain" key="vhmManagement" node="VHM Management" subject="01" bool="enabled" mode="01" type="admin">
+			
+		</table>
+		
+		<table action="restartSoftware" bo="null" key="restartSoftware" node="Restart HM Processes" subject="00" bool="enabled" mode="01" type="admin">
+			
+		</table>
+		
+		<table action="rebootApp" bo="null" key="rebootApp" node="Reboot Appliance" subject="00" bool="enabled" mode="00" type="admin">
+			
+		</table>
+		
+		<table action="shutDownApp" bo="null" key="shutDownApp" node="Shut down Appliance" subject="00" bool="enabled" mode="01" type="admin">
+		
+		</table>
+		
+		<table action="clearDB" bo="null" key="clearDB" node="Erase Database" subject="00" bool="enabled" mode="00" type="admin">
+		
+		</table>
+		
+		<table action="backupDB" bo="null" key="backupDB" node="Back up Database" subject="00" bool="enabled" mode="00" type="admin">
+		
+		</table>
+		
+		<table action="restoreDB" bo="null" key="restoreDB" node="Restore Database" subject="00" bool="enabled" mode="00" type="admin">
+		
+		</table>
+		
+		<table action="updateSoftware" bo="null" key="updateSoftware" node="Update Software" subject="00" bool="enabled" mode="00" type="admin">
+		
+		</table>
+		
+		<table action="supportBundle" bo="null" key="supportBundle" node="Tech Support Data" subject="00" bool="enabled" mode="01" type="admin">
+		
+		</table>
+		
+		<table action="userGroups" bo="com.ah.bo.admin.HmUserGroup" key="adminGroups" node="Admin Groups" subject="00" bool="enabled" mode="00" type="admin">
+			
+			
+			<ignore>users</ignore>
+		</table>
+		
+		<table action="users" bo="com.ah.bo.admin.HmUser" key="administrators" node="Administrators" subject="00" bool="enabled" mode="00" type="admin">
+			
+			
+			<ignore>userGroup</ignore>
+			<ignore>password</ignore>
+		</table>
+		
+		<table action="systemLog" bo="com.ah.bo.admin.HmSystemLog" key="systemLog" node="System Log" subject="00" bool="enabled" mode="01" type="admin">
+			
+		</table>
+		
+		
+		<table action="auditLog" bo="com.ah.bo.admin.HmAuditLog" key="auditLog" node="Audit Log" subject="01" bool="enabled" mode="00" type="admin">
+			
+		</table>
+		
+		<table action="upgradeLog" bo="com.ah.bo.admin.HmUpgradeLog" key="upgradeLog" node="Upgrade Log" subject="00" bool="enabled" mode="00" type="admin">
+			
+		</table>
+
+		<table action="l3firewallLog" bo="com.ah.bo.admin.HmL3FirewallLog" key="l3firewallLog" node="L3 Firewall Log" subject="00" bool="enabled" mode="10" type="admin">
+		</table>
+		
+		<table action="hmSettings" bo="null" key="hmSettings" node="HiveManager Settings" subject="00" bool="enabled" mode="00" type="admin">
+		</table>
+
+		<table action="hmServices" bo="null" key="hmServices" node="HiveManager Services" subject="00" bool="enabled" mode="00" type="admin">
+		</table>
+		
+		<!-- table action="routing" bo="null" key="routingConfig" node="Routing" subject="01" bool="enabled" type="admin">
+				
+		</table>
+		
+		<table action="dateTimeConfig" bo="null" key="dateTimeConfig" node="Date/Time" subject="00" bool="enabled" type="admin">
+		
+		</table>
+		
+		<table action="logConfig" bo="null" key="logConfig" node="Log Settings" subject="00" bool="enabled" type="admin">
+		
+		</table>
+		
+		<table action="emailConfig" bo="null" key="emailConfig" node="Email Notification Settings" subject="00" bool="enabled" type="admin">
+		
+		</table>
+		
+		<table action="mailList" bo="com.ah.bo.admin.MailNotification4VHM" key="mailList" node="HM Notification Mail List" subject="00" bool="enabled" type="admin">
+						
+		</table>
+		
+		<table action="capwapConfig" bo="null" key="capwapConfig" node="CAPWAP Settings" subject="00" bool="enabled" type="admin">
+			
+		</table>
+		
+		<table action="managementSettings" bo="null" key="managementsettings" node="Management Settings" subject="00" bool="enabled" type="admin">
+			
+		</table -->
+		
+		<table action="mailList" bo="com.ah.bo.admin.MailNotification4VHM" key="mailList" node="HM Notification Mail List" subject="00" bool="enabled" mode="01" type="admin">
+			
+		</table>
+		
+		<!-- table action="helpSetting" bo="null" key="helpSetting" node="Help Settings" subject="00" bool="enabled" type="admin">
+			
+		</table -->
+		
+		<table action="auxiliaryFileMgmt" bo="null" key="mibFiles" node="MIB Files" subject="00" bool="enabled" mode="01" type="admin">
+			<urlparam name="operation">mibFiles</urlparam>
+		</table>
+		
+		<table action="auxiliaryFileMgmt" bo="null" key="radiusDicts" node="RADIUS Dictionary" subject="00" bool="enabled" mode="01" type="admin">
+			<urlparam name="operation">radiusDicts</urlparam>
+		</table>
+		
+		<table action="auxiliaryFileMgmt" bo="null" key="macouiDictionary" node="MAC OUI Dictionary" subject="00" bool="enabled" mode="01" type="admin">
+			<urlparam name="operation">macouiDictionary</urlparam>
+		</table>
+		
+		<!-- table action="haJoin" bo="null" key="haJoin" node="Join" subject="00" bool="enabled" type="admin">
+		</table>
+
+		<table action="haSwitchOver" bo="null" key="haSwitchOver" node="Switch Over" subject="00" bool="enabled" type="admin">
+		</table>
+
+		<table action="userPasswordModify" bo="null" key="userPasswordModify" node="Change My Settings" subject="00" bool="enabled" type="admin">
+		</table -->
+
+		<table action="licenseMgr" bo="null" key="licenseMgr" node="License Management" subject="00" bool="enabled" mode="00" type="admin">
+		</table>
+		
+		
+		<!-- Admin End-->
+		
+		<!-- Fault Begin-->
+		<table action="events" bo="null" key="events" node="Events" subject="00" bool="enabled" mode="00" type="fault">
+			
+		</table>
+		
+		<table action="alarms" bo="null" key="alarms" node="Alarms" subject="00" bool="enabled" mode="00" type="fault">
+			
+		</table>
+		<!-- Fault End-->
+		
+		<!-- Tool Begin-->
+		<table action="planTool" bo="null" key="planTool" node="Planning Tool" subject="00" bool="enabled" mode="00" type="tool">
+			
+		</table>
+		
+		<table action="hiveApToolkit" bo="null" key="clientConnectMonitor" node="Client Monitor" subject="00" bool="enabled" mode="00" type="tool">
+			<urlparam name="operation">toolDebugClient</urlparam>
+		</table>
+		
+		<table action="hiveApToolkit" bo="null" key="vlanProbe" node="VLAN Probe" subject="00" bool="enabled" mode="00" type="tool">
+			<urlparam name="operation">toolVlanProbe</urlparam>
+		</table>
+		
+		<!--
+		remove this feature since from Cairo (4.0Beta2) 
+		<table action="hiveApToolkit" bo="null" key="packetCapture" node="Packet Capture" subject="00" bool="enabled" mode="00" type="tool">
+			<urlparam name="operation">toolPacketCapture</urlparam>
+		</table>
+		-->
+		
+		<table action="apSimulator" bo="null" key="apSimulator" node="Device and Client Simulator" subject="00" bool="enabled" mode="00" type="tool">
+		</table>
+		
+		<table action="radiusTest" bo="null" key="radiusTest" node="RADIUS Test" subject="00" bool="enabled" mode="00" type="tool">
+		</table>
+		
+		<table action="adLdapTest" bo="null" key="adLdapTest" node="AD and LDAP Test" subject="00" bool="enabled" mode="00" type="tool">
+		</table>
+		
+		<table action="librarySipTest" bo="null" key="librarySipTest" node="Library SIP Test" subject="00" bool="enabled" mode="00" type="tool">
+		</table>
+		
+		<table action="idmTest" bo="null" key="idmTest" node="IDM Test" subject="00" bool="enabled" mode="00" type="tool">
+		</table>
+		<!-- Tool End-->
+	</tables>
+</search>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:security="http://www.aerohive.com/configuration/security" targetNamespace="http://www.aerohive.com/configuration/security">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="mac-filter-action">
+		<xsd:sequence>
+			<xsd:element name="comment" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mac-filter-type">
+		<xsd:choice minOccurs="0">
+			<xsd:element name="permit" type="security:mac-filter-action"/>
+			<xsd:element name="deny" type="security:mac-filter-action"/>
+		</xsd:choice>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-mitigate-period-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="10"/>
+			<xsd:maxInclusive value="600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-mitigate-period">
+		<xsd:attribute name="value" type="security:wlan-idp-mitigate-period-value" use="optional" default="10"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-mitigate-quiet-time-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="2592000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-mitigate-quiet-time">
+		<xsd:attribute name="value" type="security:wlan-idp-mitigate-quiet-time-value" use="optional" default="3600"/>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-mitigate-duration-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="2592000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-mitigate-duration">
+		<xsd:sequence>
+			<xsd:element name="quiet-time" type="security:wlan-idp-mitigate-quiet-time" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="security:wlan-idp-mitigate-duration-value" use="optional" default="14400"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-mitigate-deauth-time-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="2592000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-mitigate-deauth-time">
+		<xsd:attribute name="value" type="security:wlan-idp-mitigate-deauth-time-value" use="optional" default="60"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="wlan-idp-mitigate">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="period" type="security:wlan-idp-mitigate-period" minOccurs="0"/>
+			<xsd:element name="duration" type="security:wlan-idp-mitigate-duration" minOccurs="0"/>
+			<xsd:element name="deauth-time" type="security:wlan-idp-mitigate-deauth-time" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-sta-report-ageout-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-sta-report-ageout">
+		<xsd:attribute name="value" type="security:wlan-idp-sta-report-ageout-value" use="optional" default="10"/>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-sta-report-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="60"/>
+			<xsd:maxInclusive value="86400"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-sta-report-interval">
+		<xsd:sequence>
+			<xsd:element name="ageout" type="security:wlan-idp-sta-report-ageout" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="security:wlan-idp-sta-report-interval-value" use="optional" default="3600"/>
+	</xsd:complexType>
+	<xsd:simpleType name="wlan-idp-sta-report-duration-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="60"/>
+			<xsd:maxInclusive value="600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="wlan-idp-sta-report-duration">
+		<xsd:sequence>
+			<xsd:element name="interval" type="security:wlan-idp-sta-report-interval" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="security:wlan-idp-sta-report-duration-value" use="optional" default="300"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="wlan-idp-sta-report">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="duration" type="security:wlan-idp-sta-report-duration" minOccurs="0"/>
+			<xsd:element name="age-time" type="general:ah-int-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="security-obj">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="mac-filter" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="default" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="general:ah-permit-deny-value" use="optional" default="permit"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="address" type="security:mac-filter-type" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="oui" type="security:mac-filter-type" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="name" type="xsd:string" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="wlan-idp" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="profile" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+									<xsd:element name="ap-policy" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="ap-oui" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+															<xsd:element name="entry" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="ssid" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+															<xsd:element name="entry" minOccurs="0" maxOccurs="unbounded">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+																		<xsd:element name="encryption" minOccurs="0">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+																					<xsd:choice minOccurs="0">
+																						<xsd:element name="open" type="general:ah-act-show"/>
+																						<xsd:element name="wep" type="general:ah-act-show"/>
+																						<xsd:element name="wpa" type="general:ah-act-show"/>
+																					</xsd:choice>
+																				</xsd:sequence>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																	<xsd:attribute name="name" type="xsd:string" use="required"/>
+																	<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="short-preamble" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="short-beacon" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="wmm" type="general:ah-only-act" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="adhoc" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="ap-detection" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="connected" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+															<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+															<xsd:element name="vlan" minOccurs="0" maxOccurs="unbounded">
+																<xsd:complexType>
+																	<xsd:attribute name="name" use="required">
+																		<xsd:simpleType>
+																			<xsd:restriction base="xsd:int">
+																				<xsd:minInclusive value="1"/>
+																				<xsd:maxInclusive value="4094"/>
+																			</xsd:restriction>
+																		</xsd:simpleType>
+																	</xsd:attribute>
+																	<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="client-mac-in-net" type="general:ah-only-act" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="old-mitigate" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="period" minOccurs="0">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="duration" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="quiet-time" minOccurs="0">
+																			<xsd:complexType>
+																				<xsd:attribute name="value" default="3600">
+																					<xsd:simpleType>
+																						<xsd:restriction base="xsd:int">
+																							<xsd:minInclusive value="60"/>
+																							<xsd:maxInclusive value="86400"/>
+																						</xsd:restriction>
+																					</xsd:simpleType>
+																				</xsd:attribute>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																	<xsd:attribute name="value" use="optional" default="14400">
+																		<xsd:simpleType>
+																			<xsd:restriction base="xsd:int">
+																				<xsd:minInclusive value="0"/>
+																				<xsd:maxInclusive value="2592000"/>
+																			</xsd:restriction>
+																		</xsd:simpleType>
+																	</xsd:attribute>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+														<xsd:attribute name="value" use="optional" default="1">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="86400"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="mitigate" type="security:wlan-idp-mitigate" minOccurs="0"/>
+									<xsd:element name="sta-report" type="security:wlan-idp-sta-report" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="name" type="xsd:string" use="required"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

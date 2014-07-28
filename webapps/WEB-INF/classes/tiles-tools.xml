@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="apSimulator" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/simulator.jsp" />
+	</definition>
+	
+	<definition name="clientMgmtTest" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/clientMgmtTest.jsp" />
+	</definition>
+	
+	<definition name="radiusTest" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/radiusTest.jsp" />
+	</definition>
+	
+	<definition name="adLdapTest" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/adLdapTest.jsp" />
+	</definition>
+	
+	<definition name="librarySipTest" extends="hmLayout">
+		<!--put-attribute name="body" value="/jsp/tools/librarySipTest.jsp"-->
+		<put-attribute name="body" value="/jsp/tools/librarySipTest.jsp" />
+	</definition>
+	
+	<definition name="blankSimulator" extends="layoutBlank">
+		<put-attribute name="body" value="/jsp/tools/simulator.jsp" />
+	</definition>
+	
+	<definition name="toolPacketCapture" extends="hmLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/packetCapture.jsp" />
+	</definition>
+
+	<definition name="planTool" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/planTool.jsp" />
+	</definition>
+
+	<definition name="spectralAnalysisTool" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/spectralAnalysis.jsp" />
+	</definition>
+
+	<definition name="spectrumAnalyzer" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/spectrumAnalyzer.jsp" />
+	</definition>
+	
+	<definition name="snpInterference" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/interferenceList.jsp" />
+	</definition>
+	
+	<definition name="rtt" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/rtt.jsp" />
+	</definition>
+
+	<definition name="toolClientDebug" extends="hmLayout">
+		<put-attribute name="body" value="/config/hiveAps/clientDebug.jsp" />
+	</definition>
+	
+	<definition name="toolVlanProbe" extends="hmLayout">
+		<put-attribute name="body" value="/config/hiveAps/vlanProbe.jsp" />
+	</definition>
+	
+	<definition name="retrieveCAId" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/cloudauthCustomerId.jsp" />
+	</definition>
+
+	<definition name="idmTest" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/tools/idmTest.jsp" />
+	</definition>
+	
+	<definition name="schedulerDebug" extends="layoutBlank">
+		<put-attribute name="body" value="/jsp/tools/debug/schedulerDebug.jsp" />
+	</definition>
+</tiles-definitions>

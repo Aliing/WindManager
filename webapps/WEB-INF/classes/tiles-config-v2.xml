@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="cwpListDialog" template="/config/wlanAccess/cwpListDialog.jsp">
+	</definition>
+	
+	<definition name="cwpDrawer" template="/config/wlanAccess/cwp.jsp">
+	</definition>
+	
+	<definition name="cwpDialog" extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/cwp.jsp" />
+	</definition>
+	
+	<definition name="configGuide2" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/configGuide2.jsp" />
+	</definition>
+	
+	<definition name="mgtVlan" template="/config/netObjects/mgtVlanDlg.jsp" >
+	</definition>
+	
+	<definition name="selectVpnProfile" template="/config/security/vpnSelectDlg.jsp" >
+	</definition>
+	
+	<definition name="finishSelectVpn" template="/config/hiveAps/configTemplate2.jsp" >
+	</definition>
+	
+	<definition name="vpnOnly" template="/config/security/vpnService.jsp" >
+	</definition>
+	
+	<definition name="fwPolicyListNew" template="/config/security/firewallPolicyListNew.jsp">
+	</definition>
+	
+	<definition name="networkPolicyConfig" template="/config/hiveAps/configTemplate2.jsp">
+	</definition>
+	<definition name="ssidSelectPage" template="/config/hiveAps/ssidSelectPage.jsp">
+	</definition>
+	<definition name="configTemplateNetworkSelectPage" template="/config/hiveAps/configTemplateNetworkSelectPage.jsp">
+	</definition>
+	<definition name="userGroupSelectPage" template="/config/hiveAps/userGroupSelectPage.jsp">
+	</definition>
+	<definition name="userGroupSelectPage4Lan" template="/config/hiveAps/userGroupSelectPage4Lan.jsp">
+	</definition>
+	<definition name="userGroupOnly" template="/config/useraccess/localUserGroup.jsp">
+	</definition>
+	
+	<definition name="ssid2Only" template="/config/wlanAccess/ssid2.jsp">
+	</definition>
+	
+	<definition name="vpnNetworkOnly" template="/config/security/vpnNetwork.jsp">
+	</definition>
+	
+	<definition name="networkPolicySelect" template="/config/hiveAps/networkPolicySelect.jsp">
+    </definition>
+    <definition name="networkPolicyModify" template="/config/hiveAps/networkPolicyModify.jsp">
+    </definition>
+    <definition name="networkPolicyNew" template="/config/hiveAps/networkPolicyNew.jsp">
+    </definition>
+	<definition name="hiveProfileNewJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netMobility/hive.jsp" />
+	</definition> 
+    <definition name="listUserProfiles4Ssid" template="/config/useraccess/userProfileSelect.jsp">
+    </definition>
+    <definition name="userProfilesV2Json" template="/config/useraccess/userProfile.jsp" />
+	
+	<definition name="schedulerListDialog" template="/config/wlanAccess/schedulerListDialog.jsp">
+	</definition>
+	<definition name="schedulerDrawer" template="/config/wlanAccess/scheduler.jsp">
+	</definition>
+	<definition name="schedulerDialog"  extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/scheduler.jsp" />
+	</definition>
+	
+	<definition name="manageAPGuid" template="/config/hiveAps/managedHiveApsList2.jsp">
+	</definition>
+	
+	<definition name="hiveApFilter" template="/config/hiveAps/hiveApFilter.jsp">
+	</definition>
+	
+	<definition name="configUploadOptionJson" template="/config/hiveAps/configUploadOptionEx.jsp">
+    </definition>
+    
+    <definition name="hiveApCountryCodeInputJson" template="/config/hiveAps/hiveApUpdateCountryCode.jsp"/>
+	
+	<definition name="qosSettingsNew" template="/config/hiveAps/qosSettingsForNetwork.jsp">
+	</definition>
+	
+	<definition name="MgtAdvancedSettingNew" template="/config/hiveAps/mgtAdvancedSettingsForNetwork.jsp">
+	</definition>
+	
+	<definition name="radiusServerListNew" template="/config/useraccess/radiusServerListNew.jsp">
+	</definition>
+	
+	<definition name="hiveApMultiEditJson" template="/config/hiveAps/hiveApMulti.jsp">
+	</definition>
+
+	<!-- LAN Profile -->
+	<definition name="lanProfileList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/lanAccess/lanList.jsp" />
+	</definition>
+	<definition name="lanProfile" extends="hiveConfig">
+		<put-attribute name="body" value="/config/lanAccess/lan.jsp" />
+	</definition>
+	<definition name="selectNetworks4LAN" template="/config/lanAccess/dialog/networks4LAN.jsp"/>
+	<definition name="lanUserProfileSelect" template="/config/useraccess/userProfileSelectLan.jsp" />
+    <definition name="lanProfileTemplate" template="/config/lanAccess/tiles/lan4NetworkPolicy.jsp" />	
+
+	<definition name="macDosDetail"  template="/config/security/macDos.jsp"/>
+	<!-- <definition name="macDosOnly"  template="/config/security/macDosJson.jsp"/> -->
+	<definition name="macDosOnly"  extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/macDosJson.jsp" />
+	</definition>
+	
+	<definition name="ipDosDetail"  template="/config/security/ipDos.jsp"/>
+	<!-- <definition name="ipDosOnly" template="/config/security/ipDosJson.jsp"/> -->
+	<definition name="ipDosOnly"  extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/ipDosJson.jsp" />
+	</definition>
+	
+	<definition name="macFilterDetail"  template="/config/netObjects/macFilter.jsp"/>
+	<definition name="macFileterDlg"  extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/macFilterJson.jsp" />
+	</definition>
+	
+	<definition name="trafficFilterDlg"  extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/serviceFilter.jsp" />
+	</definition>
+	
+	<definition name="ssidPpskServer" template="/config/hiveAps/ssidPpskSelectPage.jsp"/>
+	
+	<!-- VLAN -->
+	<definition name="vlanDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/vlan.jsp" />
+	</definition>
+	<definition name="vlanJson" template="/config/netObjects/vlan.jsp" />
+	<definition name="selectVlans4LAN" template="/config/lanAccess/dialog/vlans4LAN.jsp"/>
+	
+	<definition name="hiveapDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/hiveAps/hiveAp2.jsp" />
+	</definition>
+	
+	<definition name="domainObjectOnly" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/netObjects/domainObject.jsp" />
+	</definition>
+
+	<definition name="ipPolicyDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/ipPolicy.jsp" />
+	</definition>
+	
+	<definition name="vlanGroupDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/vlanGroup.jsp" />
+	</definition>
+	
+	<definition name="macPolicyDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/macPolicy.jsp" />
+	</definition>
+	<definition name="macAddressDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/macOrOui.jsp" />
+	</definition>
+
+	<definition name="vpnNetworkJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/vpnNetwork.jsp" />
+	</definition>
+	<definition name="userProfileJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/userProfile.jsp" />
+	</definition> 
+	<definition name="userProfileVlanMappingDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/userProfileVlanMapping.jsp" />
+	</definition> 
+	<definition name="vlanItemsDisplay" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/vlanItems.jsp" />
+	</definition> 
+	<definition name="dnsJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/mgmtServiceDns.jsp" />
+	</definition>
+
+	<definition name="iptrackOnly" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/mgmtIpTrack.jsp"/>
+	</definition>
+
+	<definition name="qosMarkingJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/qos/qosMarking.jsp" />
+	</definition>
+	<definition name="qosClassificationJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/qos/classification.jsp" />
+	</definition>
+	<definition name="networkServiceJson" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/netObjects/networkService.jsp" />
+	</definition>
+	
+	<definition name="radiusJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/radiusOnHiveap.jsp" />
+	</definition>
+	
+	<definition name="radiusProxyJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/radiusProxy.jsp" />
+	</definition>
+	
+	<definition name="routingPolicyJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/routingPolicy.jsp" />
+	</definition>
+	<definition name="routingProfilePolicyJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/routingProfilePolicy.jsp" />
+	</definition>
+	<definition name="configmdmJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/configmdm.jsp" />
+	</definition>
+	<definition name="mdmProfilesJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/mdmProfiles.jsp" />
+	</definition>
+	<definition name="mdmProfilesDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/mdmProfiles.jsp" />
+	</definition>	
+	<definition name="dnsProfileJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/dnsService.jsp" />
+	</definition>
+	<definition name="tunnelSettingJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netMobility/tunnelSetting.jsp" />
+	</definition>
+	<definition name="qosRateControlJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/qos/qosRateControl.jsp" />
+	</definition>
+	<definition name="onBoardUISettingJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useracces/onBoardUISetting.jsp" />
+	</definition>
+	<definition name="onBoardUISettingDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useracces/onBoardUISetting.jsp" />
+	</definition>
+
+	<definition name="snmpJson" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceSnmp.jsp" />
+	</definition>
+	
+	<definition name="mstpJson" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config//netObjects/mstpRegion.jsp" />
+	</definition>
+	
+	<definition name="mgmtServiceSyslogJson" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceSyslog.jsp" />
+	</definition>
+	
+	<definition name="mgmtServiceTimeJson" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceTime.jsp" />
+	</definition>
+
+	<definition name="mgtOptionJson"  extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/mgmtServiceOption.jsp" />
+	</definition>
+	<definition name="ipFilterJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/ipFilter.jsp"/>
+	</definition>
+	<definition name="idsPolicyJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/idsPolicy.jsp"/>
+	</definition>
+	<definition name="lldpCdpJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/lldpcdpProfile.jsp"/>
+	</definition>	
+	<definition name="algConfigurationDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/algConfiguration.jsp"/>
+	</definition>
+	<!-- Added from Holleywood Start-->
+	<definition name="cliBlobDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/cliBlob.jsp"/>
+	</definition>
+	<!-- Added from Holleywood end-->
+	<definition name="userAttributeJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/userAttribute.jsp" />
+	</definition>
+	
+	<definition name="accessConsoleDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/accessConsole.jsp" />
+	</definition>
+	
+	<definition name="pppoeDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/pppoe.jsp" />
+	</definition>
+	
+	<definition name="pseProfileDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/pseProfile.jsp" />
+	</definition>
+
+	<definition name="localUserGroupJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/localUserGroup.jsp" />
+	</definition>
+	
+	<definition name="radiusServerNew" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusAssignment.jsp" />
+	</definition>
+	
+	<definition name="osObjectJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/osObject.jsp" />
+	</definition>
+
+	<definition name="importCertificateJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/jsp/config/importCertificate.jsp" />
+	</definition>
+	
+	<definition name="radioProfileNew" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/wlanAccess/radioProfile.jsp" />
+	</definition>
+
+	<definition name="activeDirectoryJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/activeDirectoryOrLdap.jsp" />
+	</definition>
+
+	<definition name="radiusLibSipJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/radiusLibrarySip.jsp" />
+	</definition>
+	
+	<definition name="createCwpCertJson" extends="layoutBlank">
+		<put-attribute name="body" value="/jsp/config/createCwpCert.jsp" />
+	</definition>
+	
+	<definition name="editCwpCertJson" extends="layoutBlank">
+		<put-attribute name="body" value="/jsp/config/editCwpCert.jsp" />
+	</definition>
+	<definition name="locationServerJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/locationServer.jsp" />
+	</definition>
+	<definition name="vlanDhcpServerJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/vlanDhcpServer.jsp" />
+	</definition>	
+	<definition name="radiusOptNameJson" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/radiusAttr.jsp" />
+	</definition>
+	
+	<definition name="selectBonjourGw" template="/config/netObjects/bonjourGatewaySelectPage.jsp"/>
+	<definition name="bonjourGatewaySettingDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/bonjourGatewaySetting.jsp" />
+	</definition>
+	
+	<definition name="appProfileJsonDlg" extends="layoutBlank">
+		<put-attribute name="body" value="/config/netObjects/appProfile.jsp" />
+	</definition>
+	
+    <!-- Ports Template Profile start-->
+    <definition name="portProfileList" extends="hiveConfig">
+        <put-attribute name="body" value="/config/lanAccess/portsList.jsp" />
+    </definition>
+    <definition name="portProfile" extends="hiveConfig">
+        <put-attribute name="body" value="/config/lanAccess/ports.jsp" />
+    </definition>
+    <definition name="portProfileJson" template="/config/lanAccess/ports.jsp" />
+    
+    <definition name="deviceModelPanel" template="/config/lanAccess/dialog/deviceModelsPanel.jsp"/>
+    <definition name="portsPanel" template="/config/lanAccess/dialog/portsConfigPanel.jsp"/>
+    <definition name="listPortTemplates" template="/config/lanAccess/dialog/listPortTemplates.jsp"/>
+    <definition name="listAccess4Port" template="/config/lanAccess/dialog/listPortAccess.jsp"/>
+    <definition name="monitor4Port" template="/config/lanAccess/dialog/monitor4PortTemplate.jsp"/>
+    
+    <definition name="access4NetworkPolicy" template="/config/lanAccess/tiles/accessProfile4NetworkPolicy.jsp" />
+    <definition name="portTemplate4NetworkPolicy" template="/config/lanAccess/tiles/portTemplate4NetworkPolicy.jsp" />
+    <definition name="portScript4NetworkPolicy" template="/config/lanAccess/tiles/portScript4NetworkPolicy.jsp" />
+    <definition name="portInterface" template="/config/lanAccess/tiles/portInterface.jsp" />
+    <definition name="portPseJson" template="/config/lanAccess/profiles/portsPse.jsp" />
+    <definition name="portInterfaceScript" template="/config/lanAccess/tiles/portInterfaceScript.jsp" />
+	<definition name="portItemDlg" template="/config/lanAccess/dialog/listPortTemplateItem.jsp"/>
+    <!-- Ports Template Profile end-->
+    
+    <!-- Ports Access Profile start-->
+    <definition name="portAccessProfileList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/lanAccess/profiles/portAccessProfileList.jsp" />
+	</definition>
+    <definition name="portAccessProfile" extends="hiveConfig">
+        <put-attribute name="body" value="/config/lanAccess/profiles/portAccessProfile.jsp" />
+    </definition>
+    <definition name="portAccessProfileJson" template="/config/lanAccess/profiles/portAccessProfile.jsp" />
+    <definition name="portAuthJson" template="/config/lanAccess/profiles/portsAuth.jsp" />
+    <definition name="portQosJson" template="/config/lanAccess/profiles/portsQos.jsp" />
+    <definition name="portOptionalSettingJson" template="/config/lanAccess/profiles/portsOptionalSettings.jsp" />
+    <definition name="showVlans4Access" template="/config/lanAccess/dialog/vlans4Access.jsp" />
+    <definition name="showUserProfile4Access" template="/config/lanAccess/dialog/userProfile4Access.jsp" />
+    <definition name="showConfigMdmAccess" template="/config/lanAccess/profiles/configMdmAccess.jsp" />
+    
+    <definition name="lanProfileInput" extends="hiveConfig">
+        <put-attribute name="body" value="/config/lanAccess/profiles/br/lanProfile.jsp" />
+    </definition>
+    <definition name="lanProfileJson" template="/config/lanAccess/profiles/br/lanProfile.jsp" />
+    <definition name="lanAuthJson" template="/config/lanAccess/profiles/br/lanAuth.jsp" />
+    <definition name="lanOptionalSettingJson" template="/config/lanAccess/profiles/br/lanOptionalSettings.jsp" />
+    <!-- Ports Access Profile end-->
+    
+    <definition name="templateVlanNetworkMapping" template="/config/hiveAps/configTemplateVlanNetwork.jsp" />
+	<definition name="vlanMappingSelectPage" template="/config/hiveAps/vlanMappingSelectPage.jsp"></definition>
+	
+	<definition name="switchSettings" template="/config/devices/switchSettings.jsp" />
+	<definition name="portMirroring" template="/config/lanAccess/profiles/portMirroring.jsp" />
+	<definition name="selectService" template="/config/qos/selectService.jsp" />
+	<definition name="selectAppService" template="/config/qos/selectAppService.jsp" />
+	<definition name="selectIpPolicyService" template="/config/qos/selectService.jsp" />
+	<definition name="selectIpPolicyAppService" template="/config/qos/selectAppService.jsp" />
+	<definition name="appServiceSettings" template="/config/netObjects/appServiceSettings.jsp" />
+	<definition name="appServiceJson" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/netObjects/appService.jsp" />
+	</definition>
+	<definition name="onLoadSelectedService"  template="/config/netObjects/onLoadSelectedService.jsp" />
+	
+	<!-- IDM Trial -->
+	<definition name="idmTrialSection" template="/config/wlanAccess/idmTrialDialogs.jsp"/>
+	<definition name="customApp"  template="/config/netObjects/customApplication.jsp" />
+</tiles-definitions>

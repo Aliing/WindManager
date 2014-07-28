@@ -1,0 +1,99 @@
+.FixedWidth {position:relative;width:100%;}
+.widgetRec {
+	background-color: #fff;
+	color: #000;
+	width: 100%;
+	margin: 2px;
+	margin-bottom: 8px;
+	text-align: left;
+	font-size: 100%;
+	overflow: hidden;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+#Column1, #Column2 {
+    float: left;
+    width: 49%;
+		/* Min-height: */
+		min-height: 400px;
+		height: auto !important; 
+		height: 400px;
+}
+#Column2 {
+	margin-left: 10px;
+}
+.widgetHandle {
+	width: 100%;
+	height: 14px;
+	border-bottom: 0;
+	text-align: left;
+	color: #fff;
+	background-color: #424242;
+	font-weight: bold;
+	padding: 4px 0;
+	cursor: move;
+	overflow: hidden;
+}	
+
+.widgetContext {
+	width: 100%;
+	overflow: hidden;
+	text-align: left;
+	-moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+}
+
+.widgetHandle a.close  {
+    float: right;
+    display: inline;
+    background: url(../images/buttons.gif) no-repeat -24px 0;
+    width: 14px;
+    height: 14px;
+    margin: 0px 4px 4px 2px;
+    text-indent: -9999em;
+    outline: none;
+}
+
+.widgetHandle a.min  {
+    float: left;
+    display: inline;
+    background: url(../images/buttons.gif) no-repeat -52px 0;
+    width: 14px;
+    height: 14px;
+    text-indent: -9999em;
+    margin: 0px 4px 4px 2px;
+    outline: none;
+}
+
+.widgetHandle span {
+    padding: 0 3px;
+    float: left;
+}
+
+.collapsed .widgetHandle a.min {background-position:-38px 0;}
+.collapsed .widgetContext {display:none !important;}
+
+/* auto complete*/
+a.acDropdown {
+    background: url(../images/hm/select_button_sprite.gif) no-repeat scroll left top transparent;
+    display: inline-block;
+    font-size: 0;
+    height: 16px;
+    outline: 0 none;
+    position: absolute;
+    right: 4px;
+    text-decoration: none;
+    top: 4px;
+    width: 15px;
+    z-index: 2;
+}
+a.acDropdown:HOVER, 
+a.acDropdown:FOCUS {
+	background-position: 0 -16px;
+}
+.yui-skin-sam .yui-ac-input {
+	position: static;
+	width: 16.5em;
+}

@@ -1,0 +1,519 @@
+<?xml version="1.0"?>
+<project name="ahcs-platform" default="all" basedir=".">
+	<property name="src.path" value="src" />
+	<property name="gen.path" value="gen" />
+	<property name="test.path" value="test" />
+	<property name="webapps.path" value="webapps" />
+	<property name="lib.path" value="${webapps.path}/WEB-INF/lib" />
+	<property name="src.web.xml" value="${webapps.path}/WEB-INF/web.xml" />
+	<property name="cas.ini" value="${webapps.path}/WEB-INF/cas-hm.ini" />
+	<property name="gen.web.xml" value="${gen.path}/fragment_web.xml" />
+	<property environment="myenv" />
+	<property name="tomcat.home" value="${myenv.CATALINA_HOME}" />
+	<property name="build.root" value="${myenv.HM_ROOT}" />
+	<property name="build.applets" value="${build.root}/applets" />
+	<property name="build.versionXML" value="${build.root}/schema/versionXML" />
+	<property name="build.classes" value="${build.root}/WEB-INF/classes" />
+	<property name="build.web.xml" value="${build.root}/WEB-INF/web.xml" />
+    <property name="jaxb.xjc.target" value="2.2" />
+    <property name="soht.jar" value="soht-client.jar" />
+    <property file="${tomcat.home}/conf/catalina.properties" />
+ <!-- <property name="jibx.home" value="${myenv.JIBX_HOME}" />
+    <property name="axis.home" value="${myenv.AXIS2_HOME}" /> -->
+    <property name="ws.build.dir" location="${basedir}/ws-gen" />
+    <property name="ws.build.client" location="${ws.build.dir}/client" />
+    <property name="ws.build.server" location="${ws.build.dir}/server" />
+    <property name="ws.client.package.name" value="com.ah.hm.ws.platform.client" />
+    <property name="ws.server.package.name" value="com.ah.hm.ws.platform.service" />
+    <property name="ws.date.binding.framework" value="adb" />
+    <property name="wsdl.path" value="${webapps.path}/WEB-INF/wsdl/HmService.wsdl" />
+    <property name="ws.archive.name" value="HmService" />
+    <property name="ws.skeleton.interface.name" value="HmService" />
+    <property name="ws.skeleton.class.name" value="HmServiceImpl" />
+    <property name="ws.exception.base.class" value="org.apache.axis2.AxisFault" />
+    <property name="ws.scope" value="transportsession" />
+    <property name="ws.axis2.xml" value="${build.root}/WEB-INF/conf/axis2.xml" />
+
+	<target name="all" depends="init, copy, jaxb-gen, generate-ws, copy-web-xml, cas-combine, compile, deploy-ws, applets, versionCTL" />
+	<target name="pre-compile" depends="init, copy, jaxb-gen, compile, applets, compile-jsp, web-xml, cas-combine, versionCTL" />
+	<target name="release" depends="init, copy, jaxb-gen, compile, applets, compile-jsp, web-xml, cas-combine, versionCTL" />
+
+	<!-- Java CLASSPATH -->
+	<path id="default.classpath">
+		<fileset dir="${lib.path}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<path id="compile.classpath">
+		<fileset dir="${lib.path}" includes="*.jar" />
+		<fileset dir="${tomcat.home}/bin">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${tomcat.home}/lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<path id="run.classpath">
+		<fileset dir="${lib.path}" includes="*.jar" >
+			<exclude name="**/axis2*.jar" />
+			<exclude name="**/batik*.jar" />
+		</fileset>
+		<pathelement location="${build.classes}" />
+	</path>
+
+    <!-- JiBX CLASSPATH
+    <path id="jibx.classpath">
+        <fileset dir="${jibx.home}/lib" includes="**/*.jar" />
+    </path> -->
+
+    <!-- Axis CLASSPATH
+    <path id="axis.classpath">
+        <fileset dir="${axis.home}/lib" includes="**/*.jar" />
+    </path> -->
+
+	<target name="compile">
+		<javac destdir="${build.classes}" debug="on" optimize="on" deprecation="on" includeAntRuntime="false" fork="true" memorymaximumsize="900M">
+			<classpath>
+				<path refid="compile.classpath" />
+			</classpath>
+			<src path="${src.path}" />
+			<src path="${gen.path}" />
+			<src path="${test.path}" />
+		</javac>
+	</target>
+
+	<target name="compile-jsp" depends="jspc">
+		<javac destdir="${build.classes}" debug="on" optimize="on" deprecation="on" includeAntRuntime="false" fork="true" memorymaximumsize="900M">
+			<classpath>
+				<path refid="compile.classpath" />
+			</classpath>
+			<src path="${src.path}" />
+			<src path="${gen.path}" />
+			<src path="${test.path}" />
+		</javac>
+	</target>
+
+	<!-- Pre-compile JSPs -->
+	<target name="jspc">
+		<taskdef classname="org.apache.jasper.JspC" name="jasper2">
+			<classpath id="jspc.classpath">
+				<pathelement location="${java.home}/../lib/tools.jar" />
+				<fileset dir="${tomcat.home}/bin">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${tomcat.home}/lib">
+					<include name="*.jar" />
+				</fileset>
+				<pathelement path="${build.classes}" />
+				<pathelement path="bin" />
+				<fileset dir="${lib.path}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</taskdef>
+		<jasper2 validateXml="false" uriroot="${webapps.path}" webXmlFragment="${gen.web.xml}" outputDir="${gen.path}" />
+	</target>
+
+	<!-- Combine cas configuration into web.xml -->
+	<target name="cas-combine">
+		<loadfile property="cas.web.xml" srcFile="${cas.ini}" encoding="UTF-8" />
+		<replaceregexp file="${build.web.xml}">
+			<regexp pattern=".!-- CAS Configuration Option -->" />
+			<substitution expression="${cas.web.xml}" />
+		</replaceregexp>
+	</target>
+
+	<!-- Included precompiled servlets into web.xml -->
+	<target name="web-xml">
+		<delete includeEmptyDirs="true" quiet="false" file="${build.web.xml}" />
+		<copy tofile="${build.web.xml}" file="${src.web.xml}" />
+		<loadfile property="generated.servlets" srcFile="${gen.web.xml}" encoding="UTF-8" />
+		<replaceregexp file="${build.web.xml}">
+			<regexp pattern=".!-- Precompiled Servlets -->" />
+			<substitution expression="${generated.servlets}" />
+		</replaceregexp>
+	</target>
+
+	<!-- No pre-compile -->
+	<target name="copy-web-xml">
+		<copy tofile="${build.web.xml}" file="${src.web.xml}" />
+		<replace file="${build.web.xml}">
+			<replacefilter token="Precompiled Servlets" />
+			<replacetoken>
+				<![CDATA[<!-- precompiled servlets -->]]></replacetoken>
+			<replacevalue>No pre-compile</replacevalue>
+		</replace>
+	</target>
+
+	<!-- JAXB Compiler: jaxb-xjc.jar -->
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask" classpathref="default.classpath" />
+	<target name="jaxb-gen" depends="init">
+		<xjc target="${jaxb.xjc.target}" schema="${src.path}/xml/HiveProfile.xsd" removeOldOutput="yes" destdir="${gen.path}" package="com.ah.xml.hiveprofile">
+			<produces dir="${gen.path}/com/ah/xml/hiveprofile" includes="**/*" />
+		</xjc>
+		<xjc target="${jaxb.xjc.target}" schema="${src.path}/xml/Navigation.xsd" removeOldOutput="yes" destdir="${gen.path}" package="com.ah.xml.navigation">
+			<produces dir="${gen.path}/com/ah/xml/navigation" includes="**/*" />
+		</xjc>
+		<xjc target="${jaxb.xjc.target}" schema="${src.path}/xml/DeviceProperties.xsd" removeOldOutput="yes" destdir="${gen.path}" package="com.ah.xml.deviceProperties">
+			<produces dir="${gen.path}/com/ah/xml/deviceProperties" includes="**/*" />
+		</xjc>
+		<xjc target="${jaxb.xjc.target}" schema="${src.path}/xml/CountryCodes.xsd" removeOldOutput="yes" destdir="${gen.path}" package="com.ah.xml.countrycodes">
+			<produces dir="${gen.path}/com/ah/xml/countrycodes" includes="**/*" />
+		</xjc>
+		<!--
+		<xjc target="${jaxb.xjc.target}" schema="${src.path}/xml/ImageConfig.xsd" removeOldOutput="yes" destdir="${src.path}" package="com.ah.be.config.image.imageconfig">
+			<produces dir="${src.path}/com/ah/be/config/image/imageconfig" includes="**/*" />
+		</xjc>
+		-->
+
+        <!--
+		<delete includeEmptyDirs="true" quiet="true">
+			<fileset dir="${gen.path}/com/ah/xml/be/config" />
+			<filelist files="java" />
+		</delete>
+        -->
+
+		<xjc target="${jaxb.xjc.target}" removeOldOutput="yes" destdir="${gen.path}" package="com.ah.xml.be.config">
+            <schema dir="${webapps.path}/schema" includes="*.xsd" />
+			<produces dir="${gen.path}/com/ah/xml/be/config" includes="**/*" />
+		</xjc>
+		<!--
+		<xjc target="${jaxb.xjc.target}" schema="${src.path}/xml/cli_config.xsd" removeOldOutput="yes" 
+			destdir="${src.path}" package="com.ah.be.config.cli.xsdbean">
+			<produces dir="${src.path}/com/ah/be/config/cli/xsdbean" includes="**/*" />
+		</xjc>
+		-->
+	</target>
+
+   <!-- Generate client linkage code from WSDL -->
+    <target name="generate-ws-client">
+        <echo message="Running WSDL2Java task" />
+        <delete quiet="true" dir="${ws.build.client}/gen" />
+        <mkdir dir="${ws.build.client}/gen" />
+        <java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true" failonerror="true">
+			<sysproperty key="log4j.configuration" value="file:${webapps.path}/WEB-INF/classes/log4j.properties" />
+			<classpath>
+				<!--
+           			<path refid="axis.classpath" />
+                	<path refid="jibx.classpath" />
+                -->
+                <path refid="compile.classpath" />
+            </classpath>
+            <!-- -d parameter selects the data binding framework -->
+            <arg value="-d" />
+            <arg value="${ws.date.binding.framework}" />
+            <!-- -ebc parameter makes the generated Exceptions inherited from org.apache.axis2.AxisFault -->
+            <arg value="-ebc" />
+            <arg value="${ws.exception.base.class}" />
+            <!-- -o parameter sets the output root directory -->
+            <arg value="-o" />
+            <arg value="${ws.build.client}/gen" />
+            <!-- -p parameter gives the package for Axis2 code generation -->
+            <arg value="-p" />
+            <arg value="${ws.client.package.name}" />
+            <!-- -s parameter generates synchronous methods only -->
+       <!-- <arg value="-s" /> -->
+            <!-- -sp parameter suppresses namespace prefixes (Optimization that reduces size of soap request/response) -->
+            <arg value="-sp" />
+            <!-- -uri parameter provides the WSDL input -->
+            <arg value="-uri" />
+            <arg value="${wsdl.path}" />
+            <!-- -uw parameter unwraps the input and output messages for operations -->
+            <arg value="-uw" />
+            <!-- -Ebindingfile parameter gives the JiBX binding definition -->
+            <arg value="-Ebindingfile" />
+            <arg value="${webapps.path}/WEB-INF/wsdl/binding.xml" />
+        </java>
+
+        <!-- Delete old client linkage code generated -->
+        <delete includeEmptyDirs="true" quiet="true" dir="${gen.path}/com/ah/hm/ws/platform/client" />
+
+        <!-- Copy new client linkage code generated -->
+		<copy todir="${gen.path}">
+            <fileset dir="${ws.build.client}/gen/src" />
+		</copy>
+    </target>
+
+    <!-- Generate server linkage code from WSDL -->
+    <target name="generate-ws-server">
+        <echo message="Running WSDL2Java task" />
+        <delete quiet="true" dir="${ws.build.server}/gen" />
+        <mkdir dir="${ws.build.server}/gen" />
+        <java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true" failonerror="true">
+			<sysproperty key="log4j.configuration" value="file:${webapps.path}/WEB-INF/classes/log4j.properties" />
+            <classpath>
+				<!--
+           			<path refid="axis.classpath" />
+                	<path refid="jibx.classpath" />
+                -->
+                <path refid="compile.classpath" />
+            </classpath>
+            <!-- -d parameter selects the data binding framework -->
+            <arg value="-d" />
+            <arg value="${ws.date.binding.framework}" />
+            <!-- -ebc parameter makes the generated Exceptions inherited from org.apache.axis2.AxisFault -->
+            <arg value="-ebc" />
+            <arg value="${ws.exception.base.class}" />
+            <!-- -o parameter sets the output root directory -->
+            <arg value="-o" />
+            <arg value="${ws.build.server}/gen" />
+            <!-- -p parameter gives the package for Axis2 code generation -->
+            <arg value="-p" />
+            <arg value="${ws.server.package.name}" />
+            <!-- -sp parameter suppresses namespace prefixes (Optimization that reduces size of soap request/response) -->
+            <arg value="-sp" />
+            <!-- -ss parameter says generate server code -->
+            <arg value="-ss" />
+            <!-- -sd parameter says generate server deployment files -->
+            <arg value="-sd" />
+            <!-- -ssi parameter generates an interface for the service implementation -->
+            <arg value="-ssi" />
+            <!-- -sin parameter generates the skeleton interface name -->
+            <arg value="-sin" />
+            <arg value="${ws.skeleton.interface.name}" />
+            <!-- -scn parameter generates the skeleton class name -->
+            <arg value="-scn" />
+            <arg value="${ws.skeleton.class.name}" />
+            <!-- -uri parameter provides the WSDL input -->
+            <arg value="-uri" />
+            <arg value="${wsdl.path}" />
+            <!-- -uw unwraps the input and output messages for operations -->
+            <arg value="-uw" />
+            <!-- -Ebindingfile parameter gives the JiBX binding definition -->
+            <arg value="-Ebindingfile" />
+            <arg value="${webapps.path}/WEB-INF/wsdl/binding.xml" />
+        </java>
+
+        <!-- Replace implementation class in deployment descriptor, so that the message receiver will load an instance of our class rather than the generated skeleton -->
+        <replace file="${ws.build.server}/gen/resources/services.xml" encoding="UTF-8" token="${ws.skeleton.class.name}" value="impl.${ws.skeleton.class.name}" />
+
+        <!-- Append the "scope" attribute into the "service" element, so that enables the session management on this service -->
+        <replace file="${ws.build.server}/gen/resources/services.xml" encoding="UTF-8"
+                 token="&lt;service name=&quot;${ws.archive.name}&quot;&gt;"
+                 value="&lt;service name=&quot;${ws.archive.name}&quot; scope=&quot;${ws.scope}&quot;&gt;" />
+
+        <!-- Delete the generated skeleton implementation class -->
+        <delete quiet="true" file="${ws.build.server}/gen/src/com/ah/hm/ws/platform/service/${ws.skeleton.class.name}.java" />
+
+        <!-- Delete old server linkage code generated -->
+        <delete includeEmptyDirs="true" quiet="true" dir="${gen.path}/com/ah/hm" excludes="ws/platform/client/**/*.java" />
+
+        <!-- Copy new server linkage code generated -->
+		<copy todir="${gen.path}">
+            <fileset dir="${ws.build.server}/gen/src" />
+		</copy>
+    </target>
+
+    <target name="generate-ws" depends="generate-ws-client,generate-ws-server" />
+
+    <!-- Package server code to be a .aar file -->
+    <target name="package-ws" depends="compile">
+        <jar jarfile="${build.root}/WEB-INF/services/${ws.archive.name}.jar">
+            <fileset dir="${build.classes}">
+                <include name="com/ah/hm/ws/platform/" />
+                <exclude name="com/ah/hm/ws/platform/client/" />
+            </fileset>
+            <metainf file="${ws.build.server}/gen/resources/services.xml" />
+        </jar>
+
+        <!-- Repack to include the binding classes when using JiBX as the binding framework for Axis2
+        Somewhat lame to add files to the jar, but hard to avoid -->
+   <!-- <jar jarfile="${build.root}/WEB-INF/services/${ws.archive.name}.aar" basedir="${ws.build.server}" includes="lib/*" update="true" /> -->
+    </target>
+
+    <target name="deploy-ws" depends="package-ws,copy">
+        <!-- Replace the transport port variables in the axis2.xml with the actual port numbers read from the "Catalina.properties" -->
+        <replace file="${ws.axis2.xml}" encoding="UTF-8" token="http.port" value="${http.port}" />
+        <replace file="${ws.axis2.xml}" encoding="UTF-8" token="https.port" value="${https.port}" />
+
+        <!-- Generate a "services.list" file (in the "services" repository) in which all of web services to be deployed are listed -->
+        <touch file="${build.root}/WEB-INF/services/services.list" />
+        <echo file="${build.root}/WEB-INF/services/services.list" message="${ws.archive.name}.aar&#xD;&#xA;" encoding="UTF-8" />
+    </target>
+
+    <target name="build-ws-server" depends="generate-ws-server,deploy-ws" />
+    <target name="build-ws" depends="generate-ws,deploy-ws" />
+
+	<target name="clean">
+		<delete includeEmptyDirs="true" quiet="true">
+			<fileset dir="${build.root}" />
+			<fileset dir="${gen.path}" />
+            <fileset dir="${ws.build.dir}" />
+			<filelist files="schema.ddl," />
+		</delete>
+	</target>
+
+	<target name="init">
+		<mkdir dir="${build.root}" />
+		<mkdir dir="${gen.path}" />
+	</target>
+
+	<!-- JAXB 2.1 Runtime: jaxb-api.jar, jaxb-impl.jar, jsr173_1.0_api.jar, activation.jar -->
+	<!-- Exclude jaxb-xjc.jar: JAXB Compiler -->
+	<!-- Exclude jaxb-[api|impl].jar, jaxb1-impl.jar: these jars needs to go in $JAVA_HOME\jre\lib\endorsed
+	     (see http://java.sun.com/j2se/1.5.0/docs/guide/standards) -->
+	<!-- This is to override the JAXB 2.0 which is bundled with Java 1.6 -->
+	<target name="copy">
+		<copy todir="${build.root}" includeEmptyDirs="false">
+			<fileset dir="${webapps.path}">
+				<exclude name="**/servlet-api.jar" />
+				<exclude name="**/jsp-api.jar" />
+				<exclude name="**/jaxb-xjc.jar" />
+				<exclude name="**/jaxb-api.jar" />
+				<exclude name="**/jaxb-impl.jar" />
+                <exclude name="**/axis2-adb-codegen-*.jar" />
+                <exclude name="**/axis2-ant-plugin-*.jar" />
+                <exclude name="**/axis2-codegen-*.jar" />
+                <exclude name="**/axis2-java2wsdl-*.jar" />
+                <exclude name="**/jalopy-*.jar" />
+                <exclude name="**/juli-*.jar" />
+				<exclude name="**/junit-*.jar" />
+				<exclude name="**/web.xml" />
+	<!--		<exclude name="**/*-debug.js" />   -->
+				<exclude name="**/README" />
+<!--            <exclude name="schema/**/*.xsd" />				-->
+			</fileset>
+		</copy>
+		<copy todir="${build.classes}">
+			<fileset dir="${src.path}">
+				<include name="**/devices.properties"/>
+				<include name="**/os_dhcp_fingerprints_default.txt"/>
+			</fileset>
+		</copy>
+		<!-- add execute privilege for *.sh -->
+		<!-- changed the shell dir
+		<chmod perm="a+x"
+				dir="${build.root}/WEB-INF/shell"
+				includes="*.sh"
+		/>
+		-->
+
+		<!-- Don't use validation frameworks
+		<copy todir="${build.classes}" includeEmptyDirs="false">
+			<fileset dir="${src.path}">
+				<include name="**/*.xml" />
+			</fileset>
+		</copy>
+		-->
+	</target>
+
+	<target name="applets" depends="compile">
+         <!-- Copy *.properties -->
+        <copy todir="${build.classes}/com/ericdaugherty/soht/client/" includeEmptyDirs="false">
+            <fileset dir="${src.path}/com/ericdaugherty/soht/client/">
+                <include name="**/*.properties" />
+            </fileset>
+        </copy>
+
+        <mkdir dir="${build.applets}" />
+
+        <!-- Archive ${soht.jar} -->
+        <jar jarfile="${build.applets}/${soht.jar}">
+            <fileset dir="${build.classes}">
+                <include name="com/ericdaugherty/soht/client/" />
+            </fileset>
+            <metainf file="${src.path}/com/ericdaugherty/LICENSE.txt" />
+        </jar>
+	</target>
+
+    <target name="sign" depends="applets">
+        <echo message="====================================" />
+        <!-- <input message="Please enter keystore password:" addproperty="keypass" /> -->
+        <echo message="Signing applets..." />
+        <signjar destDir="${build.applets}" alias="${key.alias}" keystore="${keystore.path}" storepass="${keystore.pass}" storetype="${keystore.type}" sigfile="soht" force="true">
+            <path>
+                <fileset dir="${build.applets}" includes="**/*.jar" />
+            </path>
+        </signjar>
+        <echo message="Applets signing is complete." />
+        <echo message="====================================" />
+    </target>
+
+	<!-- Schema create -->
+	<target name="schemacreate" depends="sc" />
+	<target name="sc" depends="compile">
+		<java fork="true" classname="com.ah.util.HibernateUtil" classpathref="run.classpath">
+			<arg value="create" />
+		</java>
+	</target>
+
+	<!-- Schema export -->
+	<target name="schemaexport" depends="se" />
+	<target name="se" depends="compile">
+		<java fork="true" classname="com.ah.util.HibernateUtil" classpathref="run.classpath">
+			<arg value="export" />
+		</java>
+	</target>
+
+	<!-- Schema drop -->
+	<target name="schemadrop" depends="sd" />
+	<target name="sd" depends="compile">
+		<java fork="true" classname="com.ah.util.HibernateUtil" classpathref="run.classpath">
+			<arg value="drop" />
+		</java>
+	</target>
+
+	<!-- test hive profiles -->
+	<target name="test-hp" depends="compile">
+		<java fork="true" classname="com.ah.test.HiveProfilesTest" classpathref="run.classpath">
+			<arg value="${action}" />
+		</java>
+	</target>
+
+	<target name="test-hp-all" depends="compile">
+		<java fork="true" classname="com.ah.test.HiveProfilesTest" classpathref="run.classpath">
+			<arg value="all" />
+		</java>
+	</target>
+
+	<!-- test SSH client -->
+	<target name="connect" depends="compile">
+		<java fork="true" classname="com.ah.ssh.ConnectAp" classpathref="run.classpath">
+			<arg value="${action}" />
+		</java>
+	</target>
+
+	<target name="shell" depends="compile">
+		<java fork="true" classname="com.ah.ssh.SwingShell" classpathref="run.classpath">
+			<arg value="${action}" />
+		</java>
+	</target>
+
+	<target name="term" depends="compile">
+		<java fork="true" classname="com.jcraft.jcterm.JCTermSwingFrame" classpathref="run.classpath">
+			<arg value="${action}" />
+		</java>
+	</target>
+
+	<target name="sshtools" depends="compile">
+		<java fork="true" classname="com.sshtools.common.ui.SshToolsApplicationClientPanel" classpathref="run.classpath">
+			<arg value="${action}" />
+		</java>
+	</target>
+
+	<!-- test all -->
+	<target name="test" depends="compile">
+		<java fork="true" classname="com.ah.test.util.RunTest" classpathref="run.classpath">
+			<arg value="${threads}" />
+			<jvmarg line="-Xms256m -Xmx512m" />
+		</java>
+	</target>
+
+	<!-- generate multi-version control file -->
+	<target name="versionCTL" depends="compile">
+		<java fork="true" classname="com.ah.be.config.create.common.GenerateVersionControlFile" failonerror="true" timeout="300000">
+			<classpath>
+				<fileset dir="${lib.path}">
+					<include name="dom4j*.jar" />
+					<include name="jaxen*.jar" />
+				</fileset>
+				<dirset dir="${build.classes}" />
+			</classpath>
+			<arg value="${webapps.path}/schema" />
+			<arg value="${build.root}/schema/versionXML" />
+		</java>
+	</target>
+
+</project>

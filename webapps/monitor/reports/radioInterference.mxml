@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="8" paddingTop="8" paddingRight="8" paddingBottom="8">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.charts.HitData;
+			import mx.charts.series.LineSeries;
+			import mx.charts.series.items.LineSeriesItem;
+			var initURL: String; 
+			public function dateParseFunction(s:String):Date { 
+			    var temp:Array = s.split(" ");    
+			    var datepart:String = temp[0];    
+			    var datearray:Array = datepart.split("-"); 
+			    var timepart:String = temp[1];    
+			    var timearray:Array = timepart.split(":");   
+			    var intMon:int =datearray[1];
+			    var intDay:int =datearray[2];
+			    var intHour:int =timearray[0];
+			    var intMin:int =timearray[1]; 
+			 
+			    var testDate:Date = new Date();
+				var offhour:Number = testDate.getTimezoneOffset()/60 *-1;
+				var offmin:Number = testDate.getTimezoneOffset()%60 *-1
+			  	var newDate:Date = new Date(datearray[0],intMon-1,intDay,intHour+offhour,intMin+offmin);   
+			  	
+			  	return newDate;    
+			}
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url =initURL+ "reportList.action?operation=getFlashData&key=" + new Date().time;
+				httpSvc.send();				
+			 }
+		    public function myDataTipFunction(e:HitData):String {
+		
+		       	var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Value:</I>" + e.item.count + "\n";
+		
+		        return s
+		    }	
+			
+        ]]>
+    </mx:Script>
+  <mx:Panel width="100%" height="510" headerHeight="8">
+    <mx:Accordion width="100%" height="100%">
+        <mx:Canvas label="Wifi0 Data (%)" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+				<mx:LineChart id="wifi0Data" height="80%" width="100%" 
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunction"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+		
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.averageTxUc.item}"
+								displayName="Average TX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.averageRxUc.item}"
+								displayName="Average RX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF0000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.averageInterferenceCu.item}"
+								displayName="Average Interference CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.shotTermTxCu.item}"
+								displayName="Short Term Average TX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFFFF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.shotTermRxCu.item}"
+								displayName="Short Term Average RX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FFFF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.shotTermInterferenceCu.item}"
+								displayName="Short Term Average Interference CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF00FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.snapShotTxCu.item}"
+								displayName="Snapshot Average TX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x660000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.snapShotRxCu.item}"
+								displayName="Snapshot Average RX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x006600"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.snapShotInterferenceCu.item}"
+								displayName="Snapshot Average Interference CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x330066"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{wifi0Data}" width="100%" height="20%" fontSize="9" markerHeight="10" markerWidth="8"/>
+         	</mx:VBox>
+        </mx:Canvas>
+        <mx:Canvas label="Wifi1 Data (%)" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+				<mx:LineChart id="wifi1Data" height="80%" width="100%" 
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunction"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+		
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.averageTxUc.item}"
+								displayName="Average TX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.averageRxUc.item}"
+								displayName="Average RX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF0000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.averageInterferenceCu.item}"
+								displayName="Average Interference CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.shotTermTxCu.item}"
+								displayName="Short Term Average TX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFFFF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.shotTermRxCu.item}"
+								displayName="Short Term Average RX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FFFF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.shotTermInterferenceCu.item}"
+								displayName="Short Term Average Interference CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF00FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.snapShotTxCu.item}"
+								displayName="Snapshot Average TX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x660000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.snapShotRxCu.item}"
+								displayName="Snapshot Average RX CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x006600"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.snapShotInterferenceCu.item}"
+								displayName="Snapshot Average Interference CU">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x330066"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{wifi1Data}" width="100%" height="20%" fontSize="9" markerHeight="10" markerWidth="8"/>
+         	</mx:VBox>
+         </mx:Canvas>
+        <mx:Canvas label="Noise Floor (dBm)" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="noiseFloor" height="80%" width="100%"
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunction"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.averageNoiseFloor.item}"
+								displayName="Wifi0 Average Noise Floor">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.averageNoiseFloor.item}"
+								displayName="Wifi1 Average Noise Floor">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x660066"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.shortTermNoiseFloor.item}"
+								displayName="Wifi0 Short Term Average Noise Floor">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF0000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.shortTermNoiseFloor.item}"
+								displayName="Wifi1 Short Term Average Noise Floor">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x666600"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.snapShotNoiseFloor.item}"
+								displayName="Wifi0 Snapshot Average Noise Floor">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.snapShotNoiseFloor.item}"
+								displayName="Wifi1 Snapshot Average Noise Floor">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x006666"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{noiseFloor}" width="100%" height="15%" fontSize="9" markerHeight="10" markerWidth="8"/>
+         	</mx:VBox>
+         </mx:Canvas>
+        <mx:Canvas label="CRC Error Rate (%)" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="crcErrorRate" height="85%" width="100%"
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunction"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi0.crcErrorRate.item}"
+								displayName="Wifi0 CRC Error Rate">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.radioInterference.wifi1.crcErrorRate.item}"
+								displayName="Wifi1 CRC Error Rate">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF0000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{crcErrorRate}" width="100%" height="15%" fontSize="9" markerHeight="10" markerWidth="8"/>
+         	</mx:VBox>
+         </mx:Canvas>
+	</mx:Accordion>
+  </mx:Panel>
+</mx:Application>

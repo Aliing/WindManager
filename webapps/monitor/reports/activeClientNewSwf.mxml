@@ -1,0 +1,603 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+		xmlns:comp="com.connectedpixel.charts.*"
+	 	creationComplete="init()"
+		paddingLeft="4" paddingTop="4" paddingRight="4" horizontalGap="0" verticalGap="0" paddingBottom="4">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+        	import mx.controls.Label;
+        	import mx.controls.Alert;
+			import mx.collections.ArrayCollection;
+			import mx.charts.events.LegendMouseEvent;
+			import mx.charts.HitData;
+			import mx.charts.series.LineSeries;
+			import mx.charts.series.items.LineSeriesItem;
+			import mx.rpc.events.ResultEvent;
+			import mx.events.SliderEvent;
+        	import mx.controls.VSlider;
+        	import mx.charts.CategoryAxis;
+        	import com.connectedpixel.charts.ScrollableAxisRenderer;
+        	import mx.charts.series.ColumnSeries;
+        	import mx.containers.HBox;
+        	import mx.charts.ColumnChart;
+        	import mx.containers.GridItem;
+        	import mx.containers.Grid;
+        	import mx.containers.GridRow;
+        	import mx.graphics.IFill;
+		    import mx.graphics.SolidColor;
+		    import mx.charts.ChartItem;
+		    import mx.charts.series.items.ColumnSeriesItem;
+			var initURL: String; 
+			
+			public function dateParseFunction(s:String):Date { 
+			    var temp:Array = s.split(" ");    
+			    var datepart:String = temp[0];    
+			    var datearray:Array = datepart.split("-"); 
+			    var timepart:String = temp[1];    
+			    var timearray:Array = timepart.split(":");   
+			    var intMon:int =datearray[1];
+			    var intDay:int =datearray[2];
+			    var intHour:int =timearray[0];
+			    var intMin:int =timearray[1]; 
+			 
+			    var testDate:Date = new Date();
+				var offhour:Number = testDate.getTimezoneOffset()/60 *-1;
+				var offmin:Number = testDate.getTimezoneOffset()%60 *-1
+			  	var newDate:Date = new Date(datearray[0],intMon-1,intDay,intHour+offhour,intMin+offmin);   
+			  	
+			  	return newDate;    
+			}
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url =initURL+ "clientMonitor.action?operation=getFlashDataNew&key=" + new Date().time;
+				httpSvc.addEventListener("result", httpResult);
+				httpSvc.send();				
+			 }
+			 
+			 public function myFillFunction(element:ChartItem, index:Number):IFill {
+		        var c:SolidColor = new SolidColor(0x00CC00);
+		        var curItem:ColumnSeriesItem = ColumnSeriesItem(element);
+		        var item:ColumnSeries = ColumnSeries(curItem.element);
+		        var typeNum:Number = Number(item.yField); 
+		        try {
+		        switch (typeNum) {
+					case 1000:c.color = 0x800000;break;
+					case 2000:c.color = 0x951500;break;
+					case 5500:c.color = 0xAA2B00;break;
+					case 6000:c.color = 0xBF4000;break;
+					case 6500:c.color = 0xD45500;break;
+					case 9000:c.color = 0xEA6B00;break;
+					case 11000:c.color = 0xFF8000;break;
+					case 12000:c.color = 0xFF8C00;break;
+					case 13000:c.color = 0xFF9700;break;
+					case 13500:c.color = 0xFFA300;break;
+					case 15000:c.color = 0xFFAE00;break;
+					case 18000:c.color = 0xFFBA00;break;
+					case 19500:c.color = 0xFFC500;break;
+					case 24000:c.color = 0xFFD100;break;
+					case 26000:c.color = 0xFFDC00;break;
+					case 27000:c.color = 0xFFE800;break; 
+					case 30000:c.color = 0xFFF300;break; 
+					case 36000:c.color = 0xFFFF00;break; 
+					case 39000:c.color = 0xD4FF0B;break; 
+					case 40500:c.color = 0xAAFF15;break; 
+					case 45000:c.color = 0x80FF20;break; 
+					case 48000:c.color = 0x55FF2B;break; 
+					case 52000:c.color = 0x2BFF35;break; 
+					case 54000:c.color = 0x00FF40;break; 
+					case 58000:c.color = 0x00FF58;break;  
+					case 58500:c.color = 0x00FF70;break;  
+					case 60000:c.color = 0x00FF88;break;  
+					case 65000:c.color = 0x00FF9F;break;  
+					case 78000:c.color = 0x00FFB7;break;  
+					case 81000:c.color = 0x00FFCF;break;  
+					case 90000:c.color = 0x00FFE7;break;  
+					case 104000:c.color = 0x00FFFF;break; 
+					case 108000:c.color = 0x00F1FE;break; 
+					case 117000:c.color = 0x01E4FC;break; 
+					case 120000:c.color = 0x01D6FB;break; 
+					case 121500:c.color = 0x01C8F9;break; 
+					case 130000:c.color = 0x02BBF8;break; 
+					case 135000:c.color = 0x02ADF6;break; 
+					case 150000:c.color = 0x029FF5;break; 
+					case 156000:c.color = 0x0292F4;break; 
+					case 162000:c.color = 0x0384F2;break; 
+					case 175000:c.color = 0x0376F1;break; 
+					case 180000:c.color = 0x066DE3;break; 
+					case 195000:c.color = 0x0963D4;break; 
+					case 216000:c.color = 0x0C5AC6;break; 
+					case 240000:c.color = 0x0F50B8;break; 
+					case 243000:c.color = 0x1246AA;break; 
+					case 270000:c.color = 0x153D9C;break; 
+					case 300000:c.color = 0x18338D;break; 
+					case 324000:c.color = 0x1B2A7F;break; 
+					case 360000:c.color = 0x1E2071;break; 
+					case 364000:c.color = 0x211662;break; 
+					case 405000:c.color = 0x240C54;break; 
+					case 450000:c.color = 0x270346;break; 
+		        }
+		        } catch (err: Error) {
+		        	Alert.show(err.message);
+		        }
+		        return c;
+		    }
+			 
+			 public function httpResult(event:ResultEvent):void {
+                //var result:Object = event.result;
+                // tx rate chart
+                //Alert.show("1:"+ httpSvc.lastResult.report.activeClientSwf.transmit.rateDistribution.item.length);
+                if (httpSvc.lastResult.report.activeClientSwf.transmit.rateDistribution!=null){
+                	var txRateChart:ColumnChart = new ColumnChart();
+                	txRateChart.showDataTips=true;
+                	txRateChart.type="stacked";
+                	txRateChart.dataTipFunction=myDataTipFunctionForColumn;
+					txRateChart.dataProvider=httpSvc.lastResult.report.activeClientSwf.transmit.rateDistribution.item;
+					
+					var currentSeries:Array=new Array();
+					if (httpSvc.lastResult.report.activeClientSwf.transmit.rateType.keySet.length>0) {
+						var rateType:ArrayCollection = httpSvc.lastResult.report.activeClientSwf.transmit.rateType.keySet;
+	                	for(var i:int=0;i<rateType.length;i++){
+		                	var localSeries:ColumnSeries = new ColumnSeries();
+		                	localSeries.yField=rateType[i].typeString;
+		                	localSeries.xField="date";
+		                	localSeries.displayName = rateType[i].typeString;
+		                	localSeries.fillFunction=myFillFunction;
+		                	currentSeries.push(localSeries);
+		                }
+				    } else {
+				    	var localSeries:ColumnSeries = new ColumnSeries();
+	                	localSeries.yField=httpSvc.lastResult.report.activeClientSwf.transmit.rateType.keySet.typeString;
+	                	localSeries.xField="date";
+	                	localSeries.displayName = httpSvc.lastResult.report.activeClientSwf.transmit.rateType.keySet.typeString;
+	                	localSeries.fillFunction=myFillFunction;
+	                	currentSeries.push(localSeries);
+				    }
+	                txRateChart.series = currentSeries;
+	                
+	                var dAxis:CategoryAxis = new CategoryAxis();
+        			dAxis.categoryField="date";
+        			txRateChart.horizontalAxis = dAxis;
+
+					var vSlider0:VSlider = new VSlider();
+					if (httpSvc.lastResult.report.activeClientSwf.transmit.rateDistribution.item.length>5){
+		 				var renderer:Array = new Array();
+		                var scrBar0:ScrollableAxisRenderer = new ScrollableAxisRenderer();
+		                scrBar0.axis=dAxis;
+		                scrBar0.horizontal=true;
+		                scrBar0.placement="bottom";
+		                scrBar0.maxVisibleColumns=8;
+		                renderer.push(scrBar0);
+		                txRateChart.horizontalAxisRenderers=renderer;
+		                
+		                vSlider0.minimum=5;
+		                vSlider0.maximum=httpSvc.lastResult.report.activeClientSwf.transmit.rateDistribution.item.length;
+		                vSlider0.value=scrBar0.maxVisibleColumns;
+		                vSlider0.showDataTip=false;
+		                vSlider0.addEventListener(SliderEvent.CHANGE, function v0Change():void{scrBar0.maxVisibleColumns=vSlider0.value});
+		                vSlider0.snapInterval=1;
+		                vSlider0.allowTrackClick=true;
+		                vSlider0.liveDragging=true;
+		                vSlider0.alpha=1.0;
+		                vSlider0.buttonMode=true;
+	                } 
+	                
+	                var hBox:HBox = new HBox();
+	                hBox.percentHeight=100;
+	                hBox.percentWidth=100;
+	                hBox.addChild(txRateChart);
+	                if (httpSvc.lastResult.report.activeClientSwf.transmit.rateDistribution.item.length>5){
+	                	hBox.addChild(vSlider0);
+	                }
+	                txRateDis.addChild(hBox);
+	                txRateChart.percentWidth=95;
+                	txRateChart.percentHeight=100;
+                	if (httpSvc.lastResult.report.activeClientSwf.transmit.rateDistribution.item.length>5){
+		                vSlider0.percentWidth=5;
+		                vSlider0.percentHeight=100;
+	                }
+                } else {
+                	//Alert.show("ddd");
+                	 var nodataLabel0:Label= new Label();
+                	 txRateDis.addChild(nodataLabel0);
+                	 nodataLabel0.text="There is no data to display.";
+                	 nodataLabel0.percentWidth=100;
+                	 nodataLabel0.percentHeight=100;
+                	 nodataLabel0.visible=true;
+                }
+                // rx rate chart
+                if (httpSvc.lastResult.report.activeClientSwf.receive.rateDistribution!=null){
+                	var rxRateChart:ColumnChart = new ColumnChart();
+                	rxRateChart.showDataTips=true;
+                	rxRateChart.type="stacked";
+                	rxRateChart.dataTipFunction=myDataTipFunctionForColumn;
+					rxRateChart.dataProvider=httpSvc.lastResult.report.activeClientSwf.receive.rateDistribution.item;
+					
+					var currentSeries:Array=new Array();
+					
+					if (httpSvc.lastResult.report.activeClientSwf.receive.rateType.keySet.length>0){
+						var rateType:ArrayCollection = httpSvc.lastResult.report.activeClientSwf.receive.rateType.keySet;
+		                for(var i:int=0;i<rateType.length;i++){
+		                	var localSeries:ColumnSeries = new ColumnSeries();
+		                	localSeries.yField=rateType[i].typeString;
+		                	localSeries.xField="date";
+		                	localSeries.displayName = rateType[i].typeString;
+		                	localSeries.fillFunction=myFillFunction;
+		                	currentSeries.push(localSeries);
+		                }
+				    } else {
+				    	var localSeries:ColumnSeries = new ColumnSeries();
+		                	localSeries.yField=httpSvc.lastResult.report.activeClientSwf.receive.rateType.keySet.typeString;
+		                	localSeries.xField="date";
+		                	localSeries.displayName = httpSvc.lastResult.report.activeClientSwf.receive.rateType.keySet.typeString;
+		                	localSeries.fillFunction=myFillFunction;
+		                	currentSeries.push(localSeries);
+				    }
+	                rxRateChart.series = currentSeries;
+	                
+	                var dAxis:CategoryAxis = new CategoryAxis();
+        			dAxis.categoryField="date";
+        			rxRateChart.horizontalAxis = dAxis;
+
+ 					var vSlider1:VSlider = new VSlider();
+ 					if (httpSvc.lastResult.report.activeClientSwf.receive.rateDistribution.item.length>5){
+		 				var renderer:Array = new Array();
+		                var scrBar1:ScrollableAxisRenderer = new ScrollableAxisRenderer();
+		                scrBar1.axis=dAxis;
+		                scrBar1.horizontal=true;
+		                scrBar1.placement="bottom";
+		                scrBar1.maxVisibleColumns=8;
+		                renderer.push(scrBar1);
+		                rxRateChart.horizontalAxisRenderers=renderer;
+		                
+		                vSlider1.minimum=5;
+		                vSlider1.maximum=httpSvc.lastResult.report.activeClientSwf.receive.rateDistribution.item.length;
+		                vSlider1.value=scrBar1.maxVisibleColumns;
+		                vSlider1.showDataTip=false;
+		                vSlider1.addEventListener(SliderEvent.CHANGE, function v1Change():void{scrBar1.maxVisibleColumns=vSlider1.value});
+		                vSlider1.snapInterval=1;
+		                vSlider1.allowTrackClick=true;
+		                vSlider1.liveDragging=true;
+		                vSlider1.alpha=1.0;
+		                vSlider1.buttonMode=true;
+	                }
+	                
+	                var hBox:HBox = new HBox();
+	                hBox.percentHeight=100;
+	                hBox.percentWidth=100;
+	                hBox.addChild(rxRateChart);
+	                if (httpSvc.lastResult.report.activeClientSwf.receive.rateDistribution.item.length>5){
+	                	hBox.addChild(vSlider1);
+	                }
+	                rxRateDis.addChild(hBox);
+	                rxRateChart.percentWidth=95;
+                	rxRateChart.percentHeight=100;
+                	if (httpSvc.lastResult.report.activeClientSwf.receive.rateDistribution.item.length>5){
+		                vSlider1.percentWidth=5;
+		                vSlider1.percentHeight=100;
+	                }
+	                
+                } else {
+                	 var nodataLabel1:Label= new Label();
+                	 rxRateDis.addChild(nodataLabel1);
+                	 nodataLabel1.text="There is no data to display.";
+                	 nodataLabel1.percentWidth=100;
+                	 nodataLabel1.percentHeight=100;
+                	 nodataLabel1.visible=true;
+                }
+
+                loadPanel.height=0;
+                dataPanel.height=400;
+            }
+			 
+		    public function myDataTipFunction(e:HitData):String {
+		
+		       	var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Value:</I>" + e.item.count + " frames\n";
+		
+		        return s
+		    }	
+		    public function myDataTipFunctionNoFrame(e:HitData):String {
+		
+		       	var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Value:</I>" + e.item.count + "\n";
+		
+		        return s
+		    }
+		    
+		    public function myDataTipFunctionForRateDis(e:HitData):String {
+		
+		       	var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Value:</I>" + e.item.count + "\n";
+		        s += "<I>Detail:</I>" + e.item.detail + "\n";
+		
+		        return s
+		    }
+		    
+		    public function myDataTipFunctionForColumn(e:HitData):String {
+		       	var s:String;
+		       	var colData: String = ColumnSeries(e.element).yField;
+		       	var col:Number = parseFloat(colData);
+		       	col = col/1000;
+		       	
+		        s = "<B>" + col.toString() + " Mbps" + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        if (e.chartItem.item[colData]==null || isNaN(e.chartItem.item[colData]) || e.chartItem.item[colData]=='undefined'){
+		        	s += "<I>"+ col.toString() + " Mbps" +":</I>" + "0%\n";
+		        } else {
+		        	if(e.chartItem.item[colData].toString().length>3){
+			        	try{
+			        		s += "<I>"+ col.toString() + " Mbps" +":</I>" + parseInt(e.chartItem.item[colData].toString()) + "%\n";
+			        	} catch (err:Error){
+			        		s += "<I>"+ col.toString() + " Mbps" +":</I>" + "0%\n";
+			        	} 
+		        	} else {
+		        		s += "<I>"+ col.toString() + " Mbps" +":</I>" + e.chartItem.item[colData] + "%\n";
+		        	}
+		        }
+		        
+		        return s
+		    }
+		    
+		   private function mv(event:LegendMouseEvent,ch:LineChart):void{
+		        for(var i:int=0;i<ch.series.length;i++){
+		            var tmpSeries:LineSeries = ch.series[i];
+		            if(tmpSeries.displayName != event.item.label){
+		            	tmpSeries.visible=false;
+		            }
+		        }
+		    }
+		   private function mo(event:LegendMouseEvent,ch:LineChart):void{
+		        for(var i:int=0;i<ch.series.length;i++){
+		            var tmpSeries:LineSeries = ch.series[i];
+		            tmpSeries.visible=true;
+		       }
+		   }
+		    
+
+        ]]>
+    </mx:Script>
+    <mx:Panel width="100%" id="loadPanel" height="400" headerHeight="0" borderThickness="0"  verticalGap="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+        <mx:Label text="Loading..." width="162" height="50" fontSize="21" color="#FB0404"/>
+    </mx:Panel>
+  	<mx:Panel width="100%" id="dataPanel" height="0" headerHeight="0" borderThickness="0" verticalGap="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+    <mx:Accordion width="100%" height="398" headerHeight="18" >
+        <mx:Canvas label="Total Frames Count and Dropped Frames Count" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="frameCountChart" height="90%" width="100%" 
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunction"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+		
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.transmit.totalDataFrames.item}"
+								displayName="Tx Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+						
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.receive.totalDataFrames.item}"
+								displayName="Rx Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF0000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.transmit.frameDrop.item}"
+								displayName="Tx Frames Dropped">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.receive.frameDrop.item}"
+								displayName="Rx Frames Dropped">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFFFF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart>
+         		<mx:Legend dataProvider="{frameCountChart}" width="100%" height="10%" fontSize="9" markerHeight="10" markerWidth="8" itemMouseOver="mv(event,frameCountChart)" itemMouseOut="mo(event,frameCountChart)"/>
+			</mx:VBox>
+		</mx:Canvas> 
+        <mx:Canvas label="Airtime Utilization (%) and Client Health Score" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="percentCountChart" height="90%" width="100%"
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunctionNoFrame"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+			        
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis  id="h1" 
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		        	
+		        	<mx:horizontalAxisRenderers>
+			            <mx:AxisRenderer placement="bottom" axis="{h1}"/>
+			        </mx:horizontalAxisRenderers>
+			        
+			        <mx:verticalAxisRenderers>
+			            <mx:AxisRenderer placement="left" axis="{v1}">
+			            </mx:AxisRenderer>
+			            <mx:AxisRenderer placement="right" axis="{v2}">
+			            </mx:AxisRenderer>
+			        </mx:verticalAxisRenderers>
+		           
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.transmit.airTime.item}"
+								displayName="Tx Airtime" horizontalAxis="{h1}">
+							<mx:verticalAxis>
+			        			<mx:LinearAxis id="v1" baseAtZero="true" title="Airtime"/>
+			        		</mx:verticalAxis>
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF00FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.receive.airTime.item}"
+								displayName="Rx Airtime" horizontalAxis="{h1}" verticalAxis="{v1}">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF0000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+						
+						<mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.clientScore.item}"
+								displayName="Overall Health" horizontalAxis="{h1}">
+							<mx:verticalAxis>
+			        			<mx:LinearAxis id="v2" baseAtZero="true" title="Health"/> 
+			        		</mx:verticalAxis>
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.clientRadioScore.item}"
+								displayName="Radio Score" horizontalAxis="{h1}" verticalAxis="{v2}">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.clientIpNetworkScore.item}"
+								displayName="IP Network Score" horizontalAxis="{h1}" verticalAxis="{v2}">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFFFF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.clientApplicationScore.item}"
+								displayName="Application Score" horizontalAxis="{h1}" verticalAxis="{v2}">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FFFF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{percentCountChart}" width="100%" height="10%" fontSize="9" markerHeight="10" markerWidth="8" itemMouseOver="mv(event,percentCountChart)" itemMouseOut="mo(event,percentCountChart)"/>
+			</mx:VBox>
+		</mx:Canvas> 
+        <mx:Canvas label="Bandwidth (Kbps)" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="bandwidthChart" height="90%" width="100%"
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunctionNoFrame"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.bandWidth.item}"
+								displayName="Bandwidth">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{bandwidthChart}" width="100%" height="10%" fontSize="9" markerHeight="10" markerWidth="8"/>
+			</mx:VBox>
+		</mx:Canvas> 
+        <mx:Canvas label="SLA Violation Traps" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="slaCountChart" height="90%" width="100%"
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunctionNoFrame"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.slaCount.item}"
+								displayName="SLA Violation Traps">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{slaCountChart}" width="100%" height="10%" fontSize="9" markerHeight="10" markerWidth="8"/>
+			</mx:VBox>
+		</mx:Canvas> 
+        <mx:Canvas label="Transmitted Bit Rate Distribution" width="100%" id="txRateDis" height="100%">
+    		
+		</mx:Canvas> 
+        <mx:Canvas label="Received Bit Rate Distribution" width="100%" height="100%" id="rxRateDis">
+		</mx:Canvas>
+        <mx:Canvas label="Bit Rate Success Distribution (%)" width="100%" height="100%" id="txRateSuccDis">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="rateSuccessDistributionChart" height="90%" width="100%"
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunctionForRateDis"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.transmit.rateSuccDistribution.item}"
+								displayName="Tx Rate Success">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+						<mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.activeClientSwf.receive.rateSuccDistribution.item}"
+								displayName="Rx Rate Success">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{rateSuccessDistributionChart}" width="100%" height="10%" fontSize="9" markerHeight="10" markerWidth="8" itemMouseOver="mv(event,rateSuccessDistributionChart)" itemMouseOut="mo(event,rateSuccessDistributionChart)"/>
+			</mx:VBox>
+		</mx:Canvas> 
+	</mx:Accordion>
+	</mx:Panel>
+</mx:Application>

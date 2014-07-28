@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	<project-path>F:\eclipse\workspace\HM_Hollywood_6.2</project-path>
+	
+	<version-file>
+		<operation>format</operation>
+		<depend-path exists="true">/configuration/service</depend-path>
+		<file-name>*</file-name>
+	</version-file>
+	
+</config>

@@ -1,0 +1,103 @@
+*{margin:0;padding:0}
+ul{list-style:none}
+fieldset{
+	padding: 0 10px 10px 10px;
+	margin: 0;
+}
+
+.mt10{margin-top:10px}
+.w170{width:170px}
+.red{color:red}
+.r-textarea{width:170px;height:50px}
+.fn-hid{display:none}
+.fn-dis{display:block}
+span.form-error{padding-left:10px;color:red}
+input.form-error{border:1px solid red}
+
+.area-wrap,
+.deinfo-aera-client{background:#fff;padding:5px}
+.deinfo-aera-client{padding:10px}
+.deinfo-area{background:#fff;border:1px solid #999;padding:5px}
+.deinfo-area{padding:10px}
+.map-area{width:600px;height:400px}
+.mdm-set-item{margin-top:10px}
+.mdm-set-item-title{background-repeat:no-repeat;background-position: 0 0;padding-left:20px;font-weight:700;cursor:pointer}
+.mdm-set-item-title-normal{background-image:url(../images/expand_plus.gif)}
+.mdm-set-item-title-reverse{background-image:url(../images/expand_minus.gif)}
+.mdm-set-item-config{text-align:center;padding:30px 0}
+.mdm-set-item-config span{padding:5px 10px;border-radius:3px;font-weight:700;background:#eee;cursor:pointer;color:#666;border:1px solid #ddd;}
+.mdm-set-item-con-wrap{display:none}
+.mdm-set-item-con-wrap .mdm-set-item-content:nth-child(odd){background:#efefef}
+.mdm-set-item-content{padding:10px 0 10px 40px;display:none}
+.mdm-set-item-content-enroll{padding:0px 0 0px 40px}
+.mdm-set-item-con-wrap .mdm-set-item-content{display:block}
+.mdm-set-item-content.first,.mdm-set-item-con-wrap.first{display:block}
+.mdm-set-item-content.first{background:#fff !important}
+.mdm-set-item-ar{text-align:right;padding-right:50px;}
+.mdm-set-item-ar span{font-size:16px;font-weight:700;background:#eee;border-radius:10px;padding:0 5px;border:1px solid #ddd;cursor:pointer}
+
+.mdm-set-item-table td{vertical-align:top;padding:10px 0px 5px}
+.mdm-set-item-table caption{padding:15px 0 5px;text-align:left;font-weight:700;font-size:12px}
+
+.datatable{
+	border-collapse : collapse;
+	border:1px solid #bcbdbf;
+	border-width:1px 0;
+}
+.datatable th{
+	height: 20px;
+	border-bottom: 1px solid #bcbdbf;
+	border-top: 1px solid #bcbdbf;
+	line-height: 28px;
+	color: #333333;
+	font-weight: blod;
+	cursor: pointer;
+	text-align: left;
+	padding: 0px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	white-space: nowrap;
+	padding-left: 5px;
+	background-color:#dedede;
+}
+.datatable th:hover{
+	background-color: #f6f6f6;
+}
+.datatable tr.even{
+	background:#f6f6f6;
+}
+.datatable td{
+	text-align: left;
+	height: 25px;
+	max-width: 115px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	white-space: nowrap;
+	padding-left: 5px;
+}
+
+#content{width:700px;}  /************del*************/
+/***************add new****************/
+.w130{width : 130px;}
+.ml5{margin-left:5px;}
+.domain-host,
+.domain-action{
+	display:inline-block;
+	width : 135px;
+	font-weight : bold;
+	text-align:center;
+}
+label{
+	padding-left:5px;
+}
+.domain-reduce,
+.domain-add{
+	padding:1px 5px;
+	background:#333;
+	color : #fff;
+	font-weight : 700;
+	font-size:14px;
+	cursor:pointer
+}

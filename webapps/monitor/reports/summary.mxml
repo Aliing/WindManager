@@ -1,0 +1,1461 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="8" paddingTop="8" paddingRight="8" paddingBottom="8">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import flash.net.navigateToURL;
+			import mx.charts.HitData;
+			import mx.charts.events.ChartItemEvent;
+			import flash.external.ExternalInterface;
+			var initURL: String; 
+            public function dateParseFunction(s:String):Date { 
+                // Get an array of Strings from the comma-separated String passed in.
+				// var a:Array = s.split(",");
+                // Create the new Date object.
+				// var newDate:Date = new Date(a[0],a[1],a[2],a[3]);
+				//var newDate:Date = new Date(d);
+                //return newDate;
+                
+			    var temp:Array = s.split(" ");    
+			    var datepart:String = temp[0];    
+			    var datearray:Array = datepart.split("-"); 
+			    var timepart:String = temp[1];    
+			    var timearray:Array = timepart.split(":");   
+			    var intMon:int =datearray[1];
+			    var intDay:int =datearray[2];
+			    var intHour:int =timearray[0];
+			    var intMin:int =timearray[1]; 
+		     
+		        var testDate:Date = new Date();
+		    	var offhour:Number = testDate.getTimezoneOffset()/60 *-1;
+		    	var offmin:Number = testDate.getTimezoneOffset()%60 *-1
+		      	var newDate:Date = new Date(datearray[0],intMon-1,intDay,intHour+offhour,intMin+offmin);   
+		      	
+		      	return newDate;    
+            }
+            
+         	public function hiveApUpPencentageDataDisplay(e:HitData):String {
+		       	var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Pencentage:</I>" + e.item.count + "%\n";
+		        return s
+		    }
+
+	        public function displaySeverity(data:Object, field:String, index:Number, percentValue:Number):String {
+    	        var temp:String= (" " + percentValue).substr(0,6);
+        	    return data.severity + ": " + data.count + '\n' + temp + "%";
+        	}
+        	
+        	public function displayUserProfile(data:Object, field:String, index:Number, percentValue:Number):String {
+    	        var temp:String= (" " + percentValue).substr(0,6);
+        	    return temp + "%";
+        	}
+
+	        public function displayClientsByType(data:Object, field:String, index:Number, percentValue:Number):String {
+    	        var temp:String = (" " + percentValue).substr(0,6);
+        	    return data.wlanType + ": " + data.count + '\n' + temp + "%";
+        	}
+ 
+		    public function areaChartFunction(e:HitData):String {
+			   	var s:String;
+			    s = "<I>Date Time:</I>" + e.item.date + "\n";
+			    s += "<I>Value:</I>" + e.item.count + "%\n";
+			    return s
+		    }	
+		    
+			public function init():void {
+//				addCallback();
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url =initURL+ "reports.action?operation=summaryData&key=" + new Date().time;
+				httpSvc.send();				
+	            var explodeData:Array = [];
+	            explodeData[0] = 0.15;
+				alarmsSeries.perWedgeExplodeRadius = explodeData;
+				complianceSeries.perWedgeExplodeRadius = explodeData;
+				clientsSeries.perWedgeExplodeRadius = explodeData;
+				clientUserProfileSeries.perWedgeExplodeRadius = explodeData;
+				clientVendorSeries.perWedgeExplodeRadius = explodeData;
+				refreshTimer();
+				mostTraffic.load('../../images/expand_plus.gif');
+				mostClient.load('../../images/expand_plus.gif');
+				mostInterference.load('../../images/expand_plus.gif');
+				longestTimeClient.load('../../images/expand_plus.gif');
+				highAirtime.load('../../images/expand_plus.gif');
+				failureClient.load('../../images/expand_plus.gif');
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 15 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(180000, 5);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				alarmsSeries.setStyle("showDataEffect", "");
+				alarmsSeries.setStyle("hideDataEffect", "");
+				complianceSeries.setStyle("showDataEffect", "");
+				complianceSeries.setStyle("hideDataEffect", "");
+				clientsSeries.setStyle("showDataEffect", "");
+				clientsSeries.setStyle("hideDataEffect", "");
+				clientUserProfileSeries.setStyle("showDataEffect", "");
+				clientUserProfileSeries.setStyle("hideDataEffect", "");
+				clientVendorSeries.setStyle("showDataEffect", "");
+				clientVendorSeries.setStyle("hideDataEffect", "");
+				hiveApUptimeSeries.setStyle("showDataEffect", "");
+				usersSeries.setStyle("showDataEffect", "");
+				roamingSeries.setStyle("showDataEffect", "");
+				bindWidthDataSeries.setStyle("showDataEffect", "");
+				//txDdataSeries.setStyle("showDataEffect", "");
+				httpSvc.url =initURL+ "reports.action?operation=summaryData&key=" + new Date().time;
+				httpSvc.send();
+				
+        	}
+  	
+        	public function autoDiscoverHiveAps():void {
+				var url:String = "hiveAp.action";
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "view";
+				variables.hmListType = "managedHiveAps";
+				variables.dashCondition = "autoDiscoverHiveAps";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+        	
+        	public function manuallyHiveAps():void {
+				var url:String = "hiveAp.action";
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "view";
+				variables.hmListType = "managedHiveAps";
+				variables.dashCondition = "manuallyHiveAps";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+        	
+        	public function managedHiveAps():void {
+				var url:String = "monitorMenu.action";
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "managedHiveAps";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+        	
+        	public function alarmConditionAps():void {
+				var url:String = "hiveAp.action";
+				var variables:URLVariables = new URLVariables();
+				variables.hmListType = "managedHiveAps";
+				variables.operation = "view";
+				variables.dashCondition = "alarm";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+      		public function outofDataAps():void {
+				var url:String = "hiveAp.action";
+				var variables:URLVariables = new URLVariables();
+				variables.hmListType = "managedHiveAps";
+				variables.operation = "view";
+				variables.dashCondition = "outofData";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+//        	public function managedHiveApsOneMac():void {
+//				var url:String = "hiveAp.action";
+//				var variables:URLVariables = new URLVariables();
+//				variables.hmListType = "managedHiveAps";
+//				variables.operation = "view";
+//				variables.filterMac = httpSvc.lastResult.summary.filterApNameMXClient;
+//				//variables.filterMac = "aaaa";
+//	            var request:URLRequest = new URLRequest(url);
+//    	        request.data = variables;
+//				try {
+//					navigateToURL(request, "_self");
+//    	        } catch (error:Error) {
+//					Alert.show('request failed:' + error.message);
+//				}
+//        	}
+//        	public function managedHiveApsMultMac():void {
+//				var url:String = "hiveAp.action";
+//				var variables:URLVariables = new URLVariables();
+//				variables.hmListType = "managedHiveAps";
+//				variables.operation = "view";
+//				variables.filterMac = httpSvc.lastResult.summary.filterHiveApClients;
+//				//variables.filterMac = "bbbb";
+//	            var request:URLRequest = new URLRequest(url);
+//    	        request.data = variables;
+//				try {
+//					navigateToURL(request, "_self");
+//    	        } catch (error:Error) {
+//					Alert.show('request failed:' + error.message);
+//				}
+//        	}
+        	public function friendlyAps():void {
+				var url:String = "monitorMenu.action";
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "friendlyAps";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+        	
+        	public function rogueAps():void {
+				var url:String = "monitorMenu.action";
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "rogueAps";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+        	
+        	public function activeClientSwf():void {
+				var url:String = "monitorMenu.action";
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "clientMonitor";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+        	
+        	public function rogueClient():void {
+				var url:String = "monitorMenu.action";
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "rogueClient";
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+
+			public function addCallback():void {
+				if (ExternalInterface.available) {
+                	try {
+						ExternalInterface.addCallback("sendToActionScript", receivedFromJavaScript);
+					} catch (error:SecurityError) {
+						Alert.show("A SecurityError occurred: " + error.message + "\n");
+					} catch (error:Error) {
+						Alert.show("An Error occurred: " + error.message + "\n");
+					}
+				} else {
+					Alert.show("External interface is not available for this container.");
+				}
+			}			
+			
+			private function receivedFromJavaScript(value:String):void {
+				Alert.show("JavaScript says: " + value + "\n");
+			}
+
+	        private function formatAlarmsTip(hitData:HitData):String {
+				var severity:String = hitData.item.severity;
+				var count:int = hitData.item.count;
+				return "<b>" + severity + ":  " + count + "</b>";
+			}
+			
+			 private function formatUserProfileTip(hitData:HitData):String {
+				var severity:String = hitData.item.userProfileId;
+				var count:int = hitData.item.count;
+				return "<b>" + "Attribute ID "+ severity + ":  " + count + "</b>";
+			}
+
+	        private function formatClientsTip(hitData:HitData):String {
+				var wlanType:String = "802." + hitData.item.wlanType;
+				var count:int = hitData.item.count;
+				return "<b>" + wlanType + ":  " + count + "</b>";
+			}
+
+			public function alarmsView(event:ChartItemEvent):void {
+				var severity:int;
+				switch(event.hitData.item.severity) {
+					case "Critical" :
+						severity = 5;
+						break;
+					case "Major" :
+						severity = 4;
+						break;
+					case "Minor" :
+						severity = 3;
+						break;
+//					case "Info" :
+//						severity = 2;
+//						break;
+					default :
+						severity = 1;
+						break;
+				}
+				var index:int = 5 - severity;
+				if (index ==4) {
+					index = 3
+				}
+				alarmsSeries.setStyle("showDataEffect", "interpolateWedge");
+				alarmsSeries.setStyle("hideDataEffect", "");
+	            var explodeData:Array = [];
+				if (alarmsSeries.perWedgeExplodeRadius.length == 0 ||
+				    alarmsSeries.perWedgeExplodeRadius[index] != 0.15) {
+		    	    explodeData[index] = 0.15;
+					alarmsSeries.perWedgeExplodeRadius = explodeData;
+				} else {
+					var url:String = "alarms.action";
+					var variables:URLVariables = new URLVariables();
+					variables.operation = "search";
+					variables.severity = severity;
+	            	var request:URLRequest = new URLRequest(url);
+	    	        request.data = variables;
+					try {
+	    	            navigateToURL(request, "_self");
+    	    	    } catch (error:Error) {
+						// Alert.show('request failed:' + url);
+					}
+				}
+			}
+
+			public function clientsView(event:ChartItemEvent):void {
+				var index:int;
+				switch(event.hitData.item.wlanType) {
+					case "11a" :
+						index = 0;
+						break;
+					case "11b" :
+						index = 1;
+						break;
+					case "11g" :
+						index = 2;
+						break;
+					case "11na" :
+						index = 3;
+						break;
+					case "11ng" :
+						index = 4;
+						break;
+					default :
+						index = 0;
+						break;
+				}
+				clientsSeries.setStyle("showDataEffect", "interpolateWedge");
+				clientsSeries.setStyle("hideDataEffect", "");
+	            var explodeData:Array = [];
+				if (clientsSeries.perWedgeExplodeRadius.length == 0 ||
+				    clientsSeries.perWedgeExplodeRadius[index] != 0.15) {
+	    	        explodeData[index] = 0.15;
+	    	        clientsSeries.perWedgeExplodeRadius = explodeData;
+				}
+			}
+			
+			public function complianceView(event:ChartItemEvent):void {
+				var index:int;
+				switch(event.hitData.item.severity) {
+					case "Weak" :
+						index = 0;
+						break;
+					case "Acceptable" :
+						index = 1;
+						break;
+					case "Strong" :
+						index = 2;
+						break;
+					default :
+						index = 0;
+						break;
+				}
+
+				complianceSeries.setStyle("showDataEffect", "interpolateWedge");
+				complianceSeries.setStyle("hideDataEffect", "");
+	            var explodeData:Array = [];
+				if (complianceSeries.perWedgeExplodeRadius.length == 0 ||
+				    complianceSeries.perWedgeExplodeRadius[index] != 0.15) {
+		    	    explodeData[index] = 0.15;
+					complianceSeries.perWedgeExplodeRadius = explodeData;
+				} else {
+					var url:String = "reportList.action";
+					var variables:URLVariables = new URLVariables();
+					variables.linkComplianceType = index + 1;
+					variables.buttonType = "compliance";
+					variables.listType = "compliance";
+					variables.operation = "runLink";
+	            	var request:URLRequest = new URLRequest(url);
+	    	        request.data = variables;
+					try {
+	    	            navigateToURL(request, "_self");
+    	    	    } catch (error:Error) {
+						// Alert.show('request failed:' + url);
+					}
+				}
+			}
+			
+		     public function showPanel(strId:String, imgId:String):void {
+		     	if (this[strId].height==0) {
+		     		this[strId].height=220;
+		     		this[imgId].source=httpSvc.lastResult.summary.minPicUrl;
+		     	} else {
+					this[strId].height=0;
+					this[imgId].source=httpSvc.lastResult.summary.maxPicUrl;
+		     	}
+		     }	
+		     
+		     public function changeSize(strId1:String,strId2:String):void{
+		     	if (this[strId1].height>200) {
+		     		this[strId1].height=128;
+		     		this[strId2].height=128;
+		     	} else {
+		     		this[strId1].height=256;
+		     		this[strId2].height=0;
+		     	}
+		     }
+		    public function myMouseOver(event: MouseEvent):void{
+				event.target.blendMode = BlendMode.DIFFERENCE;
+			}
+			public function myMouseOut(event: MouseEvent):void{
+				event.target.blendMode = BlendMode.NORMAL;
+		
+			}
+			public function clickHiveApArea(strColor:int):void{
+				var url:String = "reportList.action";
+				var variables:URLVariables = new URLVariables();
+				variables.linkComplianceType = strColor;
+				variables.listType = "radioReports";
+				variables.buttonType = "hiveApSla";
+				variables.operation = "runLink";
+            	var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+    	            navigateToURL(request, "_self");
+	    	    } catch (error:Error) {
+					// Alert.show('request failed:' + url);
+				}
+			}
+			public function clickClientArea(strColor:int):void{
+					var url:String = "reportList.action";
+					var variables:URLVariables = new URLVariables();
+					variables.linkComplianceType = strColor;
+					variables.listType = "clientReports";
+					variables.buttonType = "clientSla";
+					variables.operation = "runLink";
+	            	var request:URLRequest = new URLRequest(url);
+	    	        request.data = variables;
+					try {
+	    	            navigateToURL(request, "_self");
+    	    	    } catch (error:Error) {
+						// Alert.show('request failed:' + url);
+					}
+			}
+			
+ 			public function linktoActiveClient(clientMac:String):void {
+				var url:String = "clientMonitor.action";
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "search";
+				variables.filterClientMac = clientMac;
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+        	
+        	public function linktoClientSlaReport(clientMac:String):void {
+				var url:String = "reportList.action";
+				var variables:URLVariables = new URLVariables();
+				variables.listType = "clientReports";
+				variables.buttonType = "clientSla";
+				variables.reportLinkClientMac = clientMac;
+				variables.operation = "runLink";
+            	var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+    	            navigateToURL(request, "_self");
+	    	    } catch (error:Error) {
+					// Alert.show('request failed:' + url);
+				}
+        	}
+        	
+        	public function linktoHiveAP(apName:String):void {
+				var url:String = "reportList.action";
+				var variables:URLVariables = new URLVariables();
+				variables.reportAPName = apName;
+				variables.listType = "radioReports";
+				variables.buttonType = "hiveApSla";
+				variables.operation = "runLink";
+            	var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+    	            navigateToURL(request, "_self");
+	    	    } catch (error:Error) {
+					// Alert.show('request failed:' + url);
+				}
+        	}
+
+        ]]>
+    </mx:Script>
+	<mx:Style>
+	.linkButtonStyle{
+		font-weight:"normal";
+		font-family:"Verdana";
+		theme-color:"#FFFFFF";
+		text-align:"left";
+	}
+		
+	</mx:Style>
+	<mx:SeriesZoom id="zoomIn" duration="600"/>
+    <mx:SeriesZoom id="zoomOut" duration="10"/>
+    
+	<mx:SeriesSlide id="slideIn" duration="600" direction="up"/>
+    <mx:SeriesSlide id="slideOut" duration="10" direction="down"/>
+
+	<mx:SeriesInterpolate id="interpolateIn" duration="600"/>
+    <mx:SeriesInterpolate id="interpolateWedge" elementOffset="10"/>
+    
+	<mx:Panel height="610" width="100%" verticalGap="0" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="1" borderStyle="none">
+	    <mx:TabBar width="250" height="22" dataProvider="{viewStack}" barColor="red" paddingLeft="-1">
+	    </mx:TabBar>
+	    <mx:ViewStack id="viewStack" borderThickness="0" verticalGap="0" width="100%" height="587" borderStyle="none">
+		<mx:Canvas label="Network" borderThickness="0" width="100%" height="100%" borderStyle="none">
+		    <mx:Panel layout="vertical" borderStyle="none" height="100%" width="100%" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+		    	<mx:Panel title="HiveAP Information" borderStyle="inset" width="100%" headerHeight="16" height="289" borderThicknessTop="0" borderThicknessBottom="0" layout="vertical" verticalGap="0">
+				    <mx:HBox direction="horizontal" width="100%" borderStyle="none">
+					    <mx:Grid verticalGap="0"  height="265" width="35%" paddingLeft="4" borderStyle="solid">
+				    		<mx:GridRow height="20">
+					    		<mx:GridItem>
+					    			<mx:Label text="Total managed HiveAPs"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:LinkButton label="{httpSvc.lastResult.summary.managedAps}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="managedHiveAps();"/>
+								</mx:GridItem>
+				    		</mx:GridRow>
+				    		<mx:GridRow height="20">
+					    		<mx:GridItem>
+					    			<mx:Label text="Automatically discovered HiveAPs"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:LinkButton label="{httpSvc.lastResult.summary.autoAps}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="autoDiscoverHiveAps();"/>
+								</mx:GridItem>
+				    		</mx:GridRow>
+				    		<mx:GridRow height="20">
+					    		<mx:GridItem>
+					    			<mx:Label text="Manually provisioned HiveAPs"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:LinkButton label="{httpSvc.lastResult.summary.manuallyAps}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="manuallyHiveAps();"/>
+								</mx:GridItem>
+				    		</mx:GridRow>
+		
+				    		<mx:GridRow height="20">
+					    		<mx:GridItem>
+					    			<mx:Label text="Number of friendly APs"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:LinkButton label="{httpSvc.lastResult.summary.friendlyAps}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="friendlyAps();"/>
+								</mx:GridItem>
+				    		</mx:GridRow>
+				    		<mx:GridRow height="20">
+					    		<mx:GridItem>
+					    			<mx:Label text="Number of rogue APs"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:LinkButton label="{httpSvc.lastResult.summary.rogueAps}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="rogueAps();"/>
+								</mx:GridItem>
+				    		</mx:GridRow>	
+				    		<mx:GridRow height="20">
+					    		<mx:GridItem>
+					    			<mx:Label text="Number of HiveAPs with alarm conditions"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:LinkButton label="{httpSvc.lastResult.summary.alarmAps}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="alarmConditionAps();"/>
+								</mx:GridItem>
+				    		</mx:GridRow>	
+				    		<mx:GridRow height="20">
+					    		<mx:GridItem>
+					    			<mx:Label text="HiveAPs with outdated configurations"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:LinkButton label="{httpSvc.lastResult.summary.outofdataAps}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="outofDataAps();"/>
+								</mx:GridItem>
+				    		</mx:GridRow>	
+					    	<mx:GridRow>
+					    		<mx:GridItem borderThickness="0" colSpan="2" verticalAlign="middle" horizontalAlign="left">
+									<mx:Image width="20" height="15" id="mostTraffic" click="showPanel('mostTrafficDetail','mostTraffic')">
+									</mx:Image>
+					    			<mx:LinkButton label="HiveAPs with the most traffic frames (last hour)" click="showPanel('mostTrafficDetail','mostTraffic')" styleName="linkButtonStyle" paddingLeft="-10"/>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	<mx:GridRow height="0" id ="mostTrafficDetail">
+					    		<mx:GridItem colSpan="2">
+									<mx:Panel borderStyle="none" width="100%" height="100%" layout="absolute" headerHeight="1" borderThicknessBottom="1" borderThicknessLeft="1" borderThicknessRight="1" borderThicknessTop="1">
+										<mx:Grid verticalGap="0" paddingTop="2" paddingLeft="15"  width="100%">
+					    					<mx:GridRow>
+					    						<mx:GridItem>
+									    			<mx:Label text="HiveAPs Name" />
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Total" />
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Transmit" />
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Receive" />
+									    		</mx:GridItem>
+					    					</mx:GridRow>
+							    		   <mx:Repeater id="rpTraffic" dataProvider="{httpSvc.lastResult.summary.mostTraffic.item}">
+								    			<mx:GridRow>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpTraffic.currentItem.apName}"/>
+													</mx:GridItem>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpTraffic.currentItem.totalFrames}"/>
+													</mx:GridItem>
+													<mx:GridItem>
+										    			<mx:Label text="{rpTraffic.currentItem.txFrames}"/>
+													</mx:GridItem>
+													<mx:GridItem>
+										    			<mx:Label text="{rpTraffic.currentItem.rxFrames}"/>
+													</mx:GridItem>
+								    			</mx:GridRow> 
+								            </mx:Repeater>  
+					    				</mx:Grid>					
+									</mx:Panel>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	
+					    	<mx:GridRow>
+					    		<mx:GridItem borderThickness="0" colSpan="2" verticalAlign="middle" horizontalAlign="left">
+									<mx:Image width="20" height="15" id="mostClient" click="showPanel('mostClientDetail','mostClient')">
+									</mx:Image>
+					    			<mx:LinkButton label="HiveAPs with the most clients" click="showPanel('mostClientDetail','mostClient')" styleName="linkButtonStyle" paddingLeft="-10"/>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	<mx:GridRow height="0" id ="mostClientDetail" >
+					    		<mx:GridItem colSpan="2">
+									<mx:Panel borderStyle="none" width="100%" height="100%" layout="absolute" headerHeight="1" borderThicknessBottom="1" borderThicknessLeft="1" borderThicknessRight="1" borderThicknessTop="1">
+										<mx:Grid verticalGap="0" paddingTop="2" paddingLeft="15" width="100%">			    					
+											<mx:GridRow>
+					    						<mx:GridItem>
+									    			<mx:Label text="HiveAPs Name"/>
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Client count"/>
+									    		</mx:GridItem>
+					    					</mx:GridRow>
+							    		   <mx:Repeater id="rpClient" dataProvider="{httpSvc.lastResult.summary.mostClient.item}">
+								    			<mx:GridRow>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpClient.currentItem.apName}"/>
+													</mx:GridItem>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpClient.currentItem.clientCount}"/>
+													</mx:GridItem>
+								    			</mx:GridRow> 
+								            </mx:Repeater>  
+					    				</mx:Grid>					
+									</mx:Panel>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	
+					    	<mx:GridRow>
+					    		<mx:GridItem borderThickness="0" colSpan="2" verticalAlign="middle" horizontalAlign="left">
+									<mx:Image width="20" height="15" id="mostInterference" click="showPanel('mostInterferenceDetail','mostInterference')">
+									</mx:Image>
+					    			<mx:LinkButton label="HiveAPs with the most interference based on CRC errors (last hour)" click="showPanel('mostInterferenceDetail','mostInterference')" styleName="linkButtonStyle" paddingLeft="-10"/>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	<mx:GridRow height="0" id ="mostInterferenceDetail" >
+					    		<mx:GridItem colSpan="2">
+									<mx:Panel borderStyle="none" width="100%" height="100%" layout="absolute" headerHeight="1" borderThicknessBottom="1" borderThicknessLeft="1" borderThicknessRight="1" borderThicknessTop="1">
+										<mx:Grid verticalGap="0" paddingTop="2" paddingLeft="15" width="100%">			    					
+											<mx:GridRow>
+					    						<mx:GridItem>
+									    			<mx:Label text="HiveAPs Name"/>
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Wifi0 Rate (%)"/>
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Wifi1 Rate (%)"/>
+									    		</mx:GridItem>
+					    					</mx:GridRow>
+							    		   <mx:Repeater id="rpInterference" dataProvider="{httpSvc.lastResult.summary.mostInterference.item}">
+								    			<mx:GridRow>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpInterference.currentItem.apName}"/>
+													</mx:GridItem>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpInterference.currentItem.wifi0Frames}"/>
+													</mx:GridItem>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpInterference.currentItem.wifi1Frames}"/>
+													</mx:GridItem>
+								    			</mx:GridRow> 
+								            </mx:Repeater>  
+					    				</mx:Grid>					
+									</mx:Panel>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+				   		</mx:Grid>
+				   		<mx:Panel borderStyle="none" height="265" width="30%" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+							<mx:Panel borderStyle="solid" title="Alarms" height="128" width="100%" id="alarm" doubleClickEnabled="true" doubleClick="changeSize('alarm','compliance');" headerHeight="10" borderThicknessBottom="0" borderThicknessLeft="3" borderThicknessRight="3" borderThicknessTop="0">
+								<mx:PieChart height="100%" width="100%" 
+					            	paddingRight="5" paddingLeft="5" itemClick="alarmsView(event);"
+					            	dataTipFunction="formatAlarmsTip"
+					            	showDataTips="true" dataProvider="{httpSvc.lastResult.summary.alarms.item}" > 
+					            	<mx:series>
+					                	<mx:PieSeries labelPosition="callout" field="count"
+												labelFunction="displaySeverity" id="alarmsSeries"
+												showDataEffect="{zoomIn}" 
+												hideDataEffect="{zoomOut}">
+					                    	<mx:calloutStroke>
+					                        	<mx:Stroke weight="0" color="0x888888" alpha="1.0"/>
+					                    	</mx:calloutStroke>
+					                    	<mx:radialStroke>
+					                        	<mx:Stroke weight="0" color="#FFFFFF" alpha="0.20"/>
+					                    	</mx:radialStroke>
+					                    	<mx:stroke>
+					                        	<mx:Stroke color="0" alpha="0.20" weight="2"/>
+					                    	</mx:stroke>
+											<mx:fills>
+												<mx:SolidColor color="red" alpha="1.0" />
+												<mx:SolidColor color="haloOrange" alpha="1.0" />
+												<mx:SolidColor color="yellow" alpha="1.0" />
+												<mx:SolidColor color="haloGreen" alpha="1.0" />
+												<mx:SolidColor color="0xFFFFFF" alpha="1.0" />
+												<mx:SolidColor color="haloBlue" alpha="1.0" />
+												<mx:SolidColor color="0xEE3424" alpha="1.0" />
+											</mx:fills>
+										</mx:PieSeries>
+					            	</mx:series>
+					        	</mx:PieChart>
+				        	</mx:Panel>
+							<mx:Panel borderStyle="solid" title="HiveAPs Configuration Compliance" height="128" width="100%" id="compliance" doubleClickEnabled="true" doubleClick="changeSize('compliance','alarm');" headerHeight="10" borderThicknessBottom="0" borderThicknessLeft="3" borderThicknessRight="3" borderThicknessTop="0">
+								<mx:PieChart height="100%" width="100%" 
+					            	paddingRight="5" paddingLeft="5" itemClick="complianceView(event);"
+					            	dataTipFunction="formatAlarmsTip"
+					            	showDataTips="true" dataProvider="{httpSvc.lastResult.summary.compliance.item}" > 
+					            	<mx:series>
+					                	<mx:PieSeries labelPosition="callout" field="count"
+												labelFunction="displaySeverity" id="complianceSeries"
+												showDataEffect="{zoomIn}" 
+												hideDataEffect="{zoomOut}">
+					                    	<mx:calloutStroke>
+					                        	<mx:Stroke weight="0" color="0x888888" alpha="1.0"/>
+					                    	</mx:calloutStroke>
+					                    	<mx:radialStroke>
+					                        	<mx:Stroke weight="0" color="#FFFFFF" alpha="0.20"/>
+					                    	</mx:radialStroke>
+					                    	<mx:stroke>
+					                        	<mx:Stroke color="0" alpha="0.20" weight="2"/>
+					                    	</mx:stroke>
+											<mx:fills>
+												<mx:SolidColor color="red" alpha="1.0" />
+												<mx:SolidColor color="haloOrange" alpha="1.0" />
+												<mx:SolidColor color="haloGreen" alpha="1.0" />
+												<mx:SolidColor color="0xFFFFFF" alpha="1.0" />
+											</mx:fills>
+										</mx:PieSeries>
+					            	</mx:series>
+					        	</mx:PieChart>
+				        	</mx:Panel>
+			        	</mx:Panel>
+				   		<mx:Panel borderStyle="none" height="265" width="35%" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+							<mx:Panel borderStyle="solid" title="Network Bandwidth Usage (24 hours)" height="128" width="100%" id="bindwithUsage" doubleClickEnabled="true" doubleClick="changeSize('bindwithUsage','apUptime');" headerHeight="10" verticalGap="0" borderThicknessBottom="0" borderThicknessLeft="3" borderThicknessRight="3" borderThicknessTop="0">
+					    	    <mx:LineChart height="100%" id="clientsData" width="100%"
+					        	    paddingRight="5" paddingLeft="5" 
+					            	showDataTips="true">
+					            	<mx:seriesFilters>
+							           <mx:Array/>
+							        </mx:seriesFilters>
+						            <mx:horizontalAxis>
+					    	            <mx:DateTimeAxis
+					    	            	dataUnits="milliseconds"
+					    	            	labelUnits="hours" interval="1"
+					    	            	parseFunction="dateParseFunction"/>
+					        	    </mx:horizontalAxis>
+					
+					            	<mx:verticalAxis>
+					                	<mx:LinearAxis baseAtZero="true" />
+						            </mx:verticalAxis>
+		
+					    	        <mx:series>
+					        	        <mx:LineSeries yField="count" xField="date" id="bindWidthDataSeries" dataProvider="{httpSvc.lastResult.summary.bindWidthRate.item}"
+												displayName="Bandwidth (Kbps)"
+												showDataEffect="{interpolateIn}" >
+								            <mx:lineStroke>
+								                <mx:Stroke color="0x0000FF"/>
+								            </mx:lineStroke>   
+										</mx:LineSeries>
+					            	</mx:series>
+						        </mx:LineChart> 
+						        <mx:Legend dataProvider="{clientsData}" x="50" width="100%" height="20" markerHeight="6"/>
+					        </mx:Panel>
+							<mx:Panel borderStyle="solid" title="HiveAPs Up Percentage" height="128" width="100%" id="apUptime" doubleClickEnabled="true" doubleClick="changeSize('apUptime','bindwithUsage');" headerHeight="10" borderThicknessBottom="0" borderThicknessLeft="3" borderThicknessRight="3" borderThicknessTop="0">
+					    	    <mx:LineChart height="100%" width="100%"
+					        	    paddingRight="5" paddingLeft="5" 
+					        	    dataTipFunction="hiveApUpPencentageDataDisplay"
+					            	showDataTips="true">
+					            	<mx:seriesFilters>
+							           <mx:Array/>
+							        </mx:seriesFilters>
+						            <mx:horizontalAxis>
+					    	            <mx:DateTimeAxis
+					    	            	dataUnits="hours"
+					    	            	parseFunction="dateParseFunction"/>
+					        	    </mx:horizontalAxis>
+					
+					            	<mx:verticalAxis>
+					                	<mx:LinearAxis baseAtZero="true" maximum="100" interval="1"/>
+						            </mx:verticalAxis>
+		
+					    	        <mx:series>
+					        	        <mx:LineSeries yField="count" xField="date" id="hiveApUptimeSeries" dataProvider="{httpSvc.lastResult.summary.hiveapUptime.item}"
+												displayName="HiveAPs Up (%)"
+												showDataEffect="{interpolateIn}" >
+								            <mx:lineStroke>
+								                <mx:Stroke color="0x0000FF"/>
+								            </mx:lineStroke>   
+										</mx:LineSeries>
+					            	</mx:series>
+						        </mx:LineChart> 
+					        </mx:Panel>
+					    </mx:Panel>
+					</mx:HBox>
+				</mx:Panel>
+				<mx:Panel borderStyle="none" title="Client Information" width="100%" height="287" headerHeight="16" borderThicknessTop="0" borderThicknessBottom="0" layout="vertical" verticalGap="0">
+				   	<mx:HBox direction="horizontal" width="100%" paddingTop="2">
+					    <mx:Grid verticalGap="0"  paddingLeft="4" height="265" width="35%" borderStyle="solid">
+					    	<mx:GridRow height="20">
+						    	<mx:GridItem>
+					    			<mx:Label text="Total active clients"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+									<mx:LinkButton label="{httpSvc.lastResult.summary.activeClients}"
+										paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="activeClientSwf();"/>
+								</mx:GridItem>
+					    	</mx:GridRow>
+				    		<mx:GridRow height="20">
+					    		<mx:GridItem>
+					    			<mx:Label text="Number of rogue clients"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:LinkButton label="{httpSvc.lastResult.summary.rogueClients}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+			    	        			click="rogueClient();"/>
+								</mx:GridItem>
+				    		</mx:GridRow>	
+				    		
+				    		<mx:GridRow>
+					    		<mx:GridItem borderThickness="0" colSpan="2"  verticalAlign="middle" horizontalAlign="left">
+									<mx:Image width="20" height="15" id="longestTimeClient" click="showPanel('longestTimeClientDetail','longestTimeClient')">
+									</mx:Image>
+					    			<mx:LinkButton label="Clients with the longest association times" click="showPanel('longestTimeClientDetail','longestTimeClient')" styleName="linkButtonStyle" paddingLeft="-10"/>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	<mx:GridRow height="0" id ="longestTimeClientDetail" >
+					    		<mx:GridItem colSpan="2">
+									<mx:Panel borderStyle="none" width="100%" height="100%" layout="absolute" headerHeight="1" borderThicknessBottom="1" borderThicknessLeft="1" borderThicknessRight="1" borderThicknessTop="1">
+										<mx:Grid verticalGap="0" paddingTop="2" paddingLeft="15" width="100%">			    					
+											<mx:GridRow height="18">
+					    						<mx:GridItem>
+									    			<mx:Label text="Client Mac"/>
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Connected Time"/>
+									    		</mx:GridItem>
+					    					</mx:GridRow>
+							    		   <mx:Repeater id="rpLongestTimeClient" dataProvider="{httpSvc.lastResult.summary.longestTimeClient.item}">
+								    			<mx:GridRow height="18">
+								    				<mx:GridItem>
+														<mx:LinkButton label="{rpLongestTimeClient.currentItem.clientMac}"
+									    				paddingLeft="0"
+														textAlign="left"
+													    fontWeight="bold" 
+														textDecoration="underline"
+														color="#003366"
+														height="18"
+													    textRollOverColor="#003366"
+													    rollOverColor="#FFFFFF"
+													    selectionColor="#FFFFFF"
+													    click="linktoActiveClient(String(event.currentTarget.getRepeaterItem().clientMac))"/>
+													</mx:GridItem>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpLongestTimeClient.currentItem.date}"/>
+													</mx:GridItem>
+								    			</mx:GridRow> 
+								            </mx:Repeater>  
+					    				</mx:Grid>					
+									</mx:Panel>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	
+				    		<mx:GridRow>
+					    		<mx:GridItem borderThickness="0" colSpan="2" verticalAlign="middle" horizontalAlign="left">
+									<mx:Image width="20" height="15" id="highAirtime" click="showPanel('highAirtimeDetail','highAirtime')">
+									</mx:Image>
+					    			<mx:LinkButton label="Clients with the most airtime usage (last hour)" click="showPanel('highAirtimeDetail','highAirtime')" styleName="linkButtonStyle" paddingLeft="-10"/>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	<mx:GridRow height="0" id ="highAirtimeDetail" >
+					    		<mx:GridItem colSpan="2">
+									<mx:Panel borderStyle="none" width="100%" height="100%" layout="absolute" headerHeight="1" borderThicknessBottom="1" borderThicknessLeft="1" borderThicknessRight="1" borderThicknessTop="1">
+										<mx:Grid verticalGap="0" paddingTop="2" paddingLeft="15" width="100%">			    					
+											<mx:GridRow height="18">
+					    						<mx:GridItem>
+									    			<mx:Label text="Client Mac"/>
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Total (ms)"/>
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Transmit (ms)"/>
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Receive (ms)"/>
+									    		</mx:GridItem>
+					    					</mx:GridRow>
+							    		   <mx:Repeater id="rpAirtime" dataProvider="{httpSvc.lastResult.summary.clientAirtime.item}">
+								    			<mx:GridRow height="18">
+								    				<mx:GridItem>
+														<mx:LinkButton label="{rpAirtime.currentItem.clientMac}"
+									    				paddingLeft="0"
+														textAlign="left"
+													    fontWeight="bold" 
+														textDecoration="underline"
+														color="#003366"
+														height="18"
+													    textRollOverColor="#003366"
+													    rollOverColor="#FFFFFF"
+													    selectionColor="#FFFFFF"
+													    click="linktoActiveClient(String(event.currentTarget.getRepeaterItem().clientMac))"/>
+													</mx:GridItem>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpAirtime.currentItem.totalFrames}"/>
+													</mx:GridItem>
+													<mx:GridItem>
+										    			<mx:Label text="{rpAirtime.currentItem.txFrames}"/>
+													</mx:GridItem>
+													<mx:GridItem>
+										    			<mx:Label text="{rpAirtime.currentItem.rxFrames}"/>
+													</mx:GridItem>
+								    			</mx:GridRow> 
+								            </mx:Repeater>  
+					    				</mx:Grid>				
+									</mx:Panel>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+				    		
+				    		<mx:GridRow>
+					    		<mx:GridItem borderThickness="0" colSpan="2" verticalAlign="middle" horizontalAlign="left">
+									<mx:Image width="20" height="15" id="failureClient" click="showPanel('failureClientDetail','failureClient')">
+									</mx:Image>
+					    			<mx:LinkButton label="Clients with the most association failures (last hour)" click="showPanel('failureClientDetail','failureClient')" styleName="linkButtonStyle" paddingLeft="-10"/>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+					    	<mx:GridRow height="0" id ="failureClientDetail" >
+					    		<mx:GridItem colSpan="2">
+									<mx:Panel borderStyle="none" width="100%" height="100%" layout="absolute" headerHeight="1" borderThicknessBottom="1" borderThicknessLeft="1" borderThicknessRight="1" borderThicknessTop="1">
+										<mx:Grid verticalGap="0" paddingTop="2" paddingLeft="15" width="100%">			    					
+											<mx:GridRow height="18">
+					    						<mx:GridItem>
+									    			<mx:Label text="Client Mac"/>
+									    		</mx:GridItem>
+					    						<mx:GridItem>
+									    			<mx:Label text="Failure Count"/>
+									    		</mx:GridItem>
+					    					</mx:GridRow>
+							    		   <mx:Repeater id="rpfailureClient" dataProvider="{httpSvc.lastResult.summary.failureClient.item}">
+								    			<mx:GridRow height="18">
+								    				<mx:GridItem>
+														<mx:LinkButton label="{rpfailureClient.currentItem.clientMac}"
+									    				paddingLeft="0"
+														textAlign="left"
+													    fontWeight="bold" 
+														textDecoration="underline"
+														color="#003366"
+														height="18"
+													    textRollOverColor="#003366"
+													    rollOverColor="#FFFFFF"
+													    selectionColor="#FFFFFF"
+													    click="linktoActiveClient(String(event.currentTarget.getRepeaterItem().clientMac))"/>
+													</mx:GridItem>
+								    				<mx:GridItem>
+										    			<mx:Label text="{rpfailureClient.currentItem.count}"/>
+													</mx:GridItem>
+								    			</mx:GridRow> 
+								            </mx:Repeater>  
+					    				</mx:Grid>					
+									</mx:Panel>
+					    		</mx:GridItem>
+					    	</mx:GridRow>
+				   		</mx:Grid>
+				   		<mx:Panel borderStyle="none" height="265" width="30%" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+							<mx:Panel borderStyle="solid" title="Clients Radio Mode Distribution" height="128" width="100%" id="radioMode" doubleClickEnabled="true" doubleClick="changeSize('radioMode','clientVendor');" headerHeight="10" borderThicknessBottom="0" borderThicknessLeft="3" borderThicknessRight="3" borderThicknessTop="0">
+								<mx:PieChart height="100%" width="100%" 
+					            	paddingRight="5" paddingLeft="5" itemClick="clientsView(event);"
+					            	dataTipFunction="formatClientsTip"
+					            	showDataTips="true" dataProvider="{httpSvc.lastResult.summary.clients.item}" > 
+					            	<mx:series>
+					                	<mx:PieSeries labelPosition="callout" field="count"
+					                			labelFunction="displayClientsByType" id="clientsSeries"
+					                			showDataEffect="{zoomIn}" 
+					                			hideDataEffect="{zoomOut}">
+					                    	<mx:calloutStroke>
+					                        	<mx:Stroke weight="0" color="0x888888" alpha="1.0"/>
+					                    	</mx:calloutStroke>
+					                    	<mx:radialStroke>
+					                        	<mx:Stroke weight="0" color="#FFFFFF" alpha="0.20"/>
+					                    	</mx:radialStroke>
+					                    	<mx:stroke>
+					                        	<mx:Stroke color="0" alpha="0.20" weight="2"/>
+					                    	</mx:stroke>
+					                	</mx:PieSeries>
+					            	</mx:series>            	
+					        	</mx:PieChart>
+				        	</mx:Panel>
+							<mx:Panel borderStyle="solid" title="Clients Vendor Distribution" height="128" width="100%" id="clientVendor" doubleClickEnabled="true" doubleClick="changeSize('clientVendor','radioMode');" headerHeight="10" borderThicknessBottom="0" borderThicknessLeft="3" borderThicknessRight="3" borderThicknessTop="0">
+								<mx:PieChart height="100%" width="100%" 
+					            	paddingRight="5" paddingLeft="5"
+					            	dataTipFunction="formatAlarmsTip"
+					            	showDataTips="true" dataProvider="{httpSvc.lastResult.summary.clientVendor.item}" > 
+					            	<mx:series>
+					                	<mx:PieSeries labelPosition="callout" field="count"
+												labelFunction="displayUserProfile" id="clientVendorSeries"
+												showDataEffect="{zoomIn}" 
+												hideDataEffect="{zoomOut}">
+					                    	<mx:calloutStroke>
+					                        	<mx:Stroke weight="0" color="0x888888" alpha="1.0"/>
+					                    	</mx:calloutStroke>
+					                    	<mx:radialStroke>
+					                        	<mx:Stroke weight="0" color="#FFFFFF" alpha="0.20"/>
+					                    	</mx:radialStroke>
+					                    	<mx:stroke>
+					                        	<mx:Stroke color="0" alpha="0.20" weight="2"/>
+					                    	</mx:stroke>
+										</mx:PieSeries>
+					            	</mx:series>
+					        	</mx:PieChart>
+				        	</mx:Panel>
+			        	</mx:Panel>
+				   		<mx:Panel borderStyle="none" height="265" width="35%" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+							<mx:Panel borderStyle="solid" title="Active Clients and Roamings Count (24 hours)" height="128" width="100%" id="activeClientCount" doubleClickEnabled="true" doubleClick="changeSize('activeClientCount','clientUserProfile');" verticalGap="0" headerHeight="10" borderThicknessBottom="0" borderThicknessLeft="3" borderThicknessRight="3" borderThicknessTop="0">
+					    	    <mx:LineChart id="clients3" height="100%" width="100%"
+					        	    paddingRight="5" paddingLeft="5" 
+					            	showDataTips="true">
+					            	<mx:seriesFilters>
+							           <mx:Array/>
+							        </mx:seriesFilters>
+						            <mx:horizontalAxis>
+					    	            <mx:DateTimeAxis
+					    	            	dataUnits="milliseconds"
+					    	            	labelUnits="hours" interval="1"
+					    	            	parseFunction="dateParseFunction"/>
+					        	    </mx:horizontalAxis>
+					
+					            	<mx:verticalAxis>
+					                	<mx:LinearAxis baseAtZero="true"/>
+						            </mx:verticalAxis>
+					
+					    	        <mx:series>
+					        	        <mx:LineSeries yField="count" xField="date" id="usersSeries" dataProvider="{httpSvc.lastResult.summary.users.item}"
+												displayName="Clients"
+												showDataEffect="{interpolateIn}" >
+								            <mx:lineStroke>
+								                <mx:Stroke color="0x0000FF"/>
+								            </mx:lineStroke>   
+										</mx:LineSeries>
+					        	        <mx:LineSeries yField="count" xField="date" id="roamingSeries" dataProvider="{httpSvc.lastResult.summary.roamings.item}"
+												displayName="Roaming"
+												showDataEffect="{interpolateIn}" >
+								            <mx:lineStroke>
+								                <mx:Stroke color="0xFF0000"/>
+								            </mx:lineStroke>   
+										</mx:LineSeries>
+					            	</mx:series>
+						        </mx:LineChart> 
+						        <mx:Legend dataProvider="{clients3}" x="50" width="100%" height="20" markerHeight="6"/>
+					        </mx:Panel>
+							<mx:Panel borderStyle="solid" title="Active Clients by User Profile" height="128" width="100%" id="clientUserProfile" doubleClickEnabled="true" doubleClick="changeSize('clientUserProfile','activeClientCount');" headerHeight="10" borderThicknessBottom="0" borderThicknessLeft="3" borderThicknessRight="3" borderThicknessTop="0">
+								<mx:PieChart height="100%" width="100%" 
+					            	paddingRight="5" paddingLeft="5"
+					            	dataTipFunction="formatUserProfileTip"
+					            	showDataTips="true" dataProvider="{httpSvc.lastResult.summary.clientUserProfile.item}" > 
+					            	<mx:series>
+					                	<mx:PieSeries labelPosition="callout" field="count"
+												labelFunction="displayUserProfile" id="clientUserProfileSeries"
+												showDataEffect="{zoomIn}" 
+												hideDataEffect="{zoomOut}">
+					                    	<mx:calloutStroke>
+					                        	<mx:Stroke weight="0" color="0x888888" alpha="1.0"/>
+					                    	</mx:calloutStroke>
+					                    	<mx:radialStroke>
+					                        	<mx:Stroke weight="0" color="#FFFFFF" alpha="0.20"/>
+					                    	</mx:radialStroke>
+					                    	<mx:stroke>
+					                        	<mx:Stroke color="0" alpha="0.20" weight="2"/>
+					                    	</mx:stroke>
+										</mx:PieSeries>
+					            	</mx:series>
+					        	</mx:PieChart>
+					        </mx:Panel>
+					    </mx:Panel>
+					</mx:HBox>
+				</mx:Panel>
+		    </mx:Panel>
+		</mx:Canvas>
+		<mx:Canvas label="SLA Conformance" borderThickness="0" width="100%" height="100%" borderStyle="none">
+			<mx:Panel layout="vertical" borderStyle="none" height="100%" width="100%" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+		    	<mx:Panel title="{httpSvc.lastResult.summary.slaApLastHour}" borderStyle="inset" width="100%" headerHeight="16" height="290" borderThicknessTop="0" borderThicknessBottom="0" layout="vertical" verticalGap="0">
+			        <mx:HBox width="100%">
+			         <mx:AreaChart id="hiveApSLA" height="130" width="70%"
+					     paddingRight="5" paddingLeft="5" showDataTips="false"
+					     dataTipFunction="areaChartFunction">
+				            <mx:horizontalAxis>
+			    	            <mx:DateTimeAxis
+			    	            	dataUnits="hours"
+			    	            	parseFunction="dateParseFunction"/>
+			        	    </mx:horizontalAxis>
+
+			                <mx:series>
+			        	        <mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaApBad.item}"
+										displayName="HiveAPs with noncompliant clients"
+										buttonMode="true" mouseOver="myMouseOver(event);" 
+										mouseOut="myMouseOut(event);" click="clickHiveApArea(1)">
+						            <mx:areaStroke>
+						                <mx:Stroke color="0xFF0000"/>
+						            </mx:areaStroke>  
+							        <mx:areaFill>
+						            	<mx:SolidColor color="0xFF0000"/>
+						            </mx:areaFill> 
+						        </mx:AreaSeries>
+						        
+		        	        	<mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaApAction.item}"
+										displayName="HiveAPs with SLA-compliant clients after a boost"
+										buttonMode="true" mouseOver="myMouseOver(event);" 
+										mouseOut="myMouseOut(event);" click="clickHiveApArea(2)">
+						            <mx:areaStroke>
+						                <mx:Stroke color="0xfbd608"/>
+						            </mx:areaStroke>  
+							        <mx:areaFill>
+						            	<mx:SolidColor color="0xfbd608"/>
+						            </mx:areaFill> 
+						        </mx:AreaSeries>
+						        
+			        	        <mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaApClear.item}"
+										displayName="HiveAPs with SLA-compliant clients">
+						            <mx:areaStroke>
+						                <mx:Stroke color="green"/>
+						            </mx:areaStroke>  
+							        <mx:areaFill>
+						            	<mx:SolidColor color="green"/>
+						            </mx:areaFill> 
+						        </mx:AreaSeries>
+				        	</mx:series>
+				     </mx:AreaChart>
+				     <mx:Legend dataProvider="{hiveApSLA}" x="50" width="30%"  markerHeight="6"/>
+				     </mx:HBox>
+				     <mx:Panel title="HiveAPs Whose Clients Have The Most SLA Violations (Last 24 Hours)" borderStyle="inset" width="100%" headerHeight="20" height="135" borderThicknessTop="0" borderThicknessBottom="0" layout="vertical" verticalGap="0">
+						<mx:HBox width="100%" height="100%" borderThickness="0">
+						    <mx:Grid verticalGap="0"  height="100%" width="30%" paddingLeft="4" borderStyle="none">
+					    		<mx:GridRow height="15">
+						    		<mx:GridItem>
+						    			<mx:Label text="HiveAP Name"/>
+									</mx:GridItem>
+						    		<mx:GridItem>
+						    			<mx:Label text="Violation Client Count"/>
+									</mx:GridItem>
+					    		</mx:GridRow>
+				    		   <mx:Repeater id="hiveApMostSla1" dataProvider="{httpSvc.lastResult.summary.hiveApMostSla1.item}">
+					    			<mx:GridRow height="18">
+					    				<mx:GridItem>
+											<mx:LinkButton label="{hiveApMostSla1.currentItem.apName}"
+						    				paddingLeft="0"
+											textAlign="left"
+										    fontWeight="bold" 
+											textDecoration="underline"
+											color="#003366"
+										    textRollOverColor="#003366"
+										    rollOverColor="#FFFFFF"
+										    selectionColor="#FFFFFF"
+										    height="18"
+										    click="linktoHiveAP(String(event.currentTarget.getRepeaterItem().apName))"/>
+										</mx:GridItem>
+					    				<mx:GridItem>
+							    			<mx:Label text="{hiveApMostSla1.currentItem.count}"/>
+										</mx:GridItem>
+					    			</mx:GridRow> 	
+					            </mx:Repeater>  
+							</mx:Grid>
+						    <mx:Grid verticalGap="0"  height="100%" width="30%" paddingLeft="4" borderStyle="none">
+					    		<mx:GridRow height="15">
+						    		<mx:GridItem>
+						    			<mx:Label text="HiveAP Name"/>
+									</mx:GridItem>
+						    		<mx:GridItem>
+						    			<mx:Label text="Violation Client Count"/>
+									</mx:GridItem>
+					    		</mx:GridRow>
+				    		   <mx:Repeater id="hiveApMostSla2" dataProvider="{httpSvc.lastResult.summary.hiveApMostSla2.item}">
+					    			<mx:GridRow height="18">
+					    				<mx:GridItem>
+											<mx:LinkButton label="{hiveApMostSla2.currentItem.apName}"
+						    				paddingLeft="0"
+											textAlign="left"
+										    fontWeight="bold" 
+											textDecoration="underline"
+											color="#003366"
+										    textRollOverColor="#003366"
+										    rollOverColor="#FFFFFF"
+										    selectionColor="#FFFFFF"
+										    height="18"
+										    click="linktoHiveAP(String(event.currentTarget.getRepeaterItem().apName))"/>
+										</mx:GridItem>
+					    				<mx:GridItem>
+							    			<mx:Label text="{hiveApMostSla2.currentItem.count}"/>
+										</mx:GridItem>
+					    			</mx:GridRow> 	    			
+					            </mx:Repeater>  
+							</mx:Grid>
+						</mx:HBox>
+					</mx:Panel>
+				</mx:Panel>
+
+		    	<mx:Panel title="{httpSvc.lastResult.summary.slaClientLastHour}" borderStyle="inset" width="100%" headerHeight="16" height="290" borderThicknessTop="0" borderThicknessBottom="0" layout="vertical" verticalGap="0">
+			         <mx:HBox width="100%">
+			         <mx:AreaChart id="clientSLA" height="130" width="70%"
+					     paddingRight="5" paddingLeft="5" showDataTips="false"
+					     dataTipFunction="areaChartFunction">
+				            <mx:horizontalAxis>
+			    	            <mx:DateTimeAxis
+			    	            	dataUnits="hours"
+			    	            	parseFunction="dateParseFunction"/>
+			        	    </mx:horizontalAxis>
+
+			                <mx:series>
+			        	        <mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaClientBad.item}"
+										displayName="Noncompliant clients"
+										buttonMode="true" mouseOver="myMouseOver(event);" 
+										mouseOut="myMouseOut(event);" click="clickClientArea(1)">
+						            <mx:areaStroke>
+						                <mx:Stroke color="0xFF0000"/>
+						            </mx:areaStroke>  
+							        <mx:areaFill>
+						            	<mx:SolidColor color="0xFF0000"/>
+						            </mx:areaFill> 
+						        </mx:AreaSeries>
+
+			        	        <mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaClientAction.item}"
+										displayName="SLA-compliant clients after a boost"
+										buttonMode="true" mouseOver="myMouseOver(event);" 
+										mouseOut="myMouseOut(event);" click="clickClientArea(2)">
+						            <mx:areaStroke>
+						                <mx:Stroke color="0xfbd608"/>
+						            </mx:areaStroke>  
+							        <mx:areaFill>
+						            	<mx:SolidColor color="0xfbd608"/>
+						            </mx:areaFill> 
+						        </mx:AreaSeries>
+						        
+			        	        <mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaClientClear.item}"
+										displayName="SLA-compliant clients">
+						            <mx:areaStroke>
+						                <mx:Stroke color="green"/>
+						            </mx:areaStroke>  
+							        <mx:areaFill>
+						            	<mx:SolidColor color="green"/>
+						            </mx:areaFill> 
+						        </mx:AreaSeries>
+				        	</mx:series>
+				     </mx:AreaChart>
+				     <mx:Legend dataProvider="{clientSLA}" x="50" width="30%" markerHeight="6"/>
+				     </mx:HBox>	
+    				<mx:Panel title="Clients With The Most SLA Violations (Last 24 Hours)" borderStyle="inset" width="100%" headerHeight="20" height="135" borderThicknessTop="0" borderThicknessBottom="0" layout="vertical" verticalGap="0">
+					<mx:HBox width="100%" height="100%" borderThickness="0">
+					    <mx:Grid verticalGap="0"  height="100%" width="30%" paddingLeft="4" borderStyle="none">
+				    		<mx:GridRow height="15">
+					    		<mx:GridItem>
+					    			<mx:Label text="Client MAC"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:Label text="Violation Count"/>
+								</mx:GridItem>
+				    		</mx:GridRow>
+			    		   <mx:Repeater id="clientMostSla1" dataProvider="{httpSvc.lastResult.summary.clientMostSla1.item}">
+				    			<mx:GridRow height="18">
+				    				<mx:GridItem>
+										<mx:LinkButton label="{clientMostSla1.currentItem.clientMac}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+									    height="18"
+									    click="linktoClientSlaReport(String(event.currentTarget.getRepeaterItem().clientMac))"/>
+									</mx:GridItem>
+				    				<mx:GridItem>
+						    			<mx:Label text="{clientMostSla1.currentItem.count}"/>
+									</mx:GridItem>
+				    			</mx:GridRow> 
+				            </mx:Repeater>  
+						</mx:Grid>
+					    <mx:Grid verticalGap="0"  height="100%" width="30%" paddingLeft="4" borderStyle="none">
+				    		<mx:GridRow height="15">
+					    		<mx:GridItem>
+					    			<mx:Label text="Client MAC"/>
+								</mx:GridItem>
+					    		<mx:GridItem>
+					    			<mx:Label text="Violation Count"/>
+								</mx:GridItem>
+				    		</mx:GridRow>
+			    		   <mx:Repeater id="clientMostSla2" dataProvider="{httpSvc.lastResult.summary.clientMostSla2.item}">
+				    			<mx:GridRow height="18">
+				    				<mx:GridItem>
+										<mx:LinkButton label="{clientMostSla2.currentItem.clientMac}"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+									    height="18"
+									    click="linktoClientSlaReport(String(event.currentTarget.getRepeaterItem().clientMac))"/>
+									</mx:GridItem>
+				    				<mx:GridItem>
+						    			<mx:Label text="{clientMostSla2.currentItem.count}"/>
+									</mx:GridItem>
+				    			</mx:GridRow> 
+				            </mx:Repeater>  
+						</mx:Grid>
+					</mx:HBox>
+					</mx:Panel>
+				</mx:Panel>
+			</mx:Panel>
+		</mx:Canvas>
+	</mx:ViewStack>
+	</mx:Panel>
+</mx:Application>

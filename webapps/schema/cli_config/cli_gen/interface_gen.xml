@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	<cli-gen key="interface.spanning-tree.mst-instance.priority">
+		<constraints name-ref="all-switch-platform" />
+		<cmd><![CDATA[ interface <ethx/y|aggx> spanning-tree mst-instance <number> priority <number> ]]></cmd>
+		<cli-default value="{*, *, 128}"/>
+	</cli-gen>
+	
+	<cli-gen key="interface.spanning-tree.mst-instance.path-cost">
+		<constraints name-ref="all-switch-platform" />
+		<cmd><![CDATA[ interface <ethx/y|aggx> spanning-tree mst-instance <number> path-cost <number> ]]></cmd>
+	</cli-gen>
+	
+</clis>

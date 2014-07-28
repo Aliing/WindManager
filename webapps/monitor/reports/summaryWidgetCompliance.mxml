@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="0" paddingTop="0" paddingRight="0" paddingBottom="0">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import flash.net.navigateToURL;
+			import mx.charts.HitData;
+			import mx.charts.events.ChartItemEvent;
+			import mx.rpc.events.ResultEvent;
+        	private var initURL: String; 
+        	private var timeFinishedFlg: Boolean=true;
+        	
+        	public function init():void {
+        		if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url = initURL+"reports.action?operation=summaryWidgetComplianceData&key=" + new Date().time;
+				httpSvc.addEventListener("result", httpResult);
+				httpSvc.send();				
+	            var explodeData:Array = [];
+	            explodeData[0] = 0.15;
+				complianceSeries.perWedgeExplodeRadius = explodeData;
+				refreshTimer();
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 15 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(180000, 5);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				if (timeFinishedFlg){
+					httpSvc.url = initURL+"reports.action?operation=summaryWidgetComplianceData&key=" + new Date().time;
+					timeFinishedFlg=false;
+					httpSvc.send();
+				}
+        	}
+        	
+        	public function httpResult(event:ResultEvent):void {
+        		if (httpSvc.lastResult.summary.compliance.item[0].count==0 &&
+	        		httpSvc.lastResult.summary.compliance.item[1].count==0 &&
+	        		httpSvc.lastResult.summary.compliance.item[2].count==0){
+        			picChart.height=0;
+        			msgId.height=150;
+        		} else {
+        			picChart.height=150;
+        			msgId.height=0;
+        		}
+        		timeFinishedFlg=true;
+        	}
+        	
+        	private function formatAlarmsTip(hitData:HitData):String {
+				var severity:String = hitData.item.severity;
+				var count:int = hitData.item.count;
+				return "<b>" + severity + ":  " + count + "</b>";
+			}
+			
+			public function displaySeverity(data:Object, field:String, index:Number, percentValue:Number):String {
+    	        var temp:String= (" " + percentValue).substr(0,6);
+        	    return data.severity + ": " + data.count + '\n' + temp + "%";
+        	}
+        	
+			public function complianceView(event:ChartItemEvent):void {
+				var index:int;
+				switch(event.hitData.item.severity) {
+					case "Weak" :
+						index = 0;
+						break;
+					case "Acceptable" :
+						index = 1;
+						break;
+					case "Strong" :
+						index = 2;
+						break;
+					default :
+						index = 0;
+						break;
+				}
+
+	            var explodeData:Array = [];
+				if (complianceSeries.perWedgeExplodeRadius.length == 0 ||
+				    complianceSeries.perWedgeExplodeRadius[index] != 0.15) {
+		    	    explodeData[index] = 0.15;
+					complianceSeries.perWedgeExplodeRadius = explodeData;
+				} else {
+					var url:String = "reportList.action";
+					var variables:URLVariables = new URLVariables();
+					variables.linkComplianceType = index + 1;
+					variables.buttonType = "compliance";
+					variables.listType = "compliance";
+					variables.operation = "runLink";
+					variables.ignore= new Date().time;
+	            	var request:URLRequest = new URLRequest(url);
+	    	        request.data = variables;
+					try {
+	    	            navigateToURL(request, "_self");
+    	    	    } catch (error:Error) {
+						// Alert.show('request failed:' + url);
+					}
+				}
+			}
+        ]]>
+    </mx:Script>
+    <mx:Panel height="100%" width="100%" verticalGap="0" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0" borderStyle="none">
+		<mx:PieChart height="100%" width="100%" id="picChart"
+        	paddingRight="5" paddingLeft="5" itemClick="complianceView(event);"
+        	dataTipFunction="formatAlarmsTip"
+        	showDataTips="true" dataProvider="{httpSvc.lastResult.summary.compliance.item}" > 
+        	<mx:series>
+            	<mx:PieSeries labelPosition="callout" field="count"
+						labelFunction="displaySeverity" id="complianceSeries">
+                	<mx:calloutStroke>
+                    	<mx:Stroke weight="0" color="0x888888" alpha="1.0"/>
+                	</mx:calloutStroke>
+                	<mx:radialStroke>
+                    	<mx:Stroke weight="0" color="#FFFFFF" alpha="0.20"/>
+                	</mx:radialStroke>
+                	<mx:stroke>
+                    	<mx:Stroke color="0" alpha="0.20" weight="2"/>
+                	</mx:stroke>
+					<mx:fills>
+						<mx:SolidColor color="red" alpha="1.0" />
+						<mx:SolidColor color="haloOrange" alpha="1.0" />
+						<mx:SolidColor color="haloGreen" alpha="1.0" />
+						<mx:SolidColor color="0xFFFFFF" alpha="1.0" />
+					</mx:fills>
+				</mx:PieSeries>
+        	</mx:series>
+    	</mx:PieChart>
+    	<mx:Label text="{httpSvc.lastResult.summary.noDataTitle}" id="msgId" width="100%" height="0"/>
+	</mx:Panel>
+</mx:Application>

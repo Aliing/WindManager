@@ -1,0 +1,140 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="tv package" extends="ah-default" namespace="/">
+		<action name="tvGuide"
+			class="com.ah.ui.actions.teacherView.TvGuideAction">
+			<result type="tiles">tvGuide</result>
+			<result type="redirectAction" name="configClasses">
+				<param name="actionName">tvClass</param>
+				<param name="operation">view</param>
+			</result>
+			<result type="redirectAction" name="addClass">
+				<param name="actionName">tvClass</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="configComputerCart">
+				<param name="actionName">tvComputerCart</param>
+				<param name="operation">view</param>
+			</result>
+			<result type="redirectAction" name="addComputerCart">
+				<param name="actionName">tvComputerCart</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="configStudentRoster">
+				<param name="actionName">tvStudentRoster</param>
+				<param name="operation">view</param>
+			</result>
+			<result type="redirectAction" name="addStudentRoster">
+				<param name="actionName">tvStudentRoster</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="configResourceMap">
+				<param name="actionName">tvResourceMap</param>
+				<param name="operation">view</param>
+			</result>
+			<result type="redirectAction" name="addResourceMap">
+				<param name="actionName">tvResourceMap</param>
+				<param name="operation">new</param>
+			</result>
+		</action>
+
+		<action name="tvClass"
+			class="com.ah.ui.actions.teacherView.TvClassAction">
+			<result type="tiles">tvClassList</result>
+			<result type="tiles" name="input">tvClass</result>
+			<result type="redirectAction" name="editCart">
+				<param name="actionName">tvComputerCart</param>
+				<param name="operation">edit</param>
+				<param name="id">${cartId}</param>
+			</result>
+			<result type="redirectAction" name="newCart">
+				<param name="actionName">tvComputerCart</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="newTeacher">
+				<param name="actionName">users</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="tvStudentRoster">
+				<param name="actionName">tvStudentRoster</param>
+				<param name="operation">continue</param>
+				<param name="classId">${id}</param>
+			</result>
+			<result type="redirectAction" name="import">
+				<param name="actionName">importCsvFile</param>
+				<param name="operation">importFiles</param>
+			</result>
+			<result type="redirectAction" name="guidedTeacherView">
+			    <param name="actionName">tvGuide</param>
+			    <param name="operation">back</param>
+			</result>
+		</action>
+		<action name="tvComputerCart"
+			class="com.ah.ui.actions.teacherView.TvComputerCartAction">
+			<result type="tiles">tvComputerCartList</result>
+			<result type="tiles" name="input">tvComputerCart</result>
+			<result type="redirectAction" name="tvClass">
+				<param name="actionName">tvClass</param>
+				<param name="operation">continue</param>
+				<param name="cartId">${id}</param>
+			</result>
+			<result type="redirectAction" name="import">
+				<param name="actionName">importCsvFile</param>
+				<param name="operation">importFiles</param>
+			</result>
+			<result type="redirectAction" name="clientMonitor">
+				<param name="actionName">clientMonitor</param>
+				<param name="operation"/>
+			</result>
+			<result type="redirectAction" name="guidedTeacherView">
+			    <param name="actionName">tvGuide</param>
+			    <param name="operation">back</param>
+			</result>
+		</action>
+		<action name="tvStudentRoster"
+			class="com.ah.ui.actions.teacherView.TvStudentRosterAction">
+			<result type="tiles">tvStudentRosterList</result>
+			<result type="tiles" name="input">tvStudentRoster</result>
+			<result type="redirectAction" name="editClass">
+				<param name="actionName">tvClass</param>
+				<param name="operation">edit</param>
+				<param name="id">${classId}</param>
+			</result>
+			<result type="redirectAction" name="newClass">
+				<param name="actionName">tvClass</param>
+				<param name="operation">new</param>
+			</result>
+			<result type="redirectAction" name="import">
+				<param name="actionName">importCsvFile</param>
+				<param name="operation">importFiles</param>
+			</result>
+			<result type="redirectAction" name="guidedTeacherView">
+			    <param name="actionName">tvGuide</param>
+			    <param name="operation">back</param>
+			</result>
+		</action>
+		<action name="tvResourceMap"
+			class="com.ah.ui.actions.teacherView.TvResourceMapAction">
+			<result type="tiles">tvResourceMapList</result>
+			<result type="tiles" name="input">tvResourceMap</result>
+			<result type="redirectAction" name="import">
+				<param name="actionName">importCsvFile</param>
+				<param name="operation">importFiles</param>
+			</result>
+			<result type="redirectAction" name="guidedTeacherView">
+			    <param name="actionName">tvGuide</param>
+			    <param name="operation">back</param>
+			</result>
+		</action>
+
+		<action name="tvScheduleMap"
+			class="com.ah.ui.actions.teacherView.TvScheduleMapAction">
+			<result type="tiles">tvScheduleMap</result>
+			<result type="tiles" name="input">tvScheduleMap</result>
+		</action>
+
+	</package>
+</struts>

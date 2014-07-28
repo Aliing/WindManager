@@ -1,0 +1,58 @@
+PRE_LOGIN_TITLE:REDIR
+PRE_LOGIN_WAIT:Please wait...
+PRE_LOGIN_CONTENT:If you cannot see the login page, close and then reopen your browser and try again.
+FAIL_RADIUS_UNREACH:Network access is currently unavailable because acknowledgment of your submitted registration has not been received from the authentication server. Please try again later, and if this problem persists, contact your network administrator.
+FAIL_CREDENTIAL_ERR:The authentication server was unable to match the login information you entered with an account, or the account has expired. Check your name and password and try again. If there is still a problem, ask your administrator to check the account.
+FAIL_MANDATED_MISSED:All fields marked with asterisks are required. Please complete all of them and submit your registration again.
+FAIL_PPSK_INVALID_SSID:A password cannot be assigned. Please contact the network administrator and report that the SSID hosting the captive web portal is not bound to an SSID using private PSK authentication.
+FAIL_PPSK_STA_DENIED:A password cannot be assigned because your client has been denied network access. For more information, contact the network administrator.
+FAIL_PPSK_NO_MORE_PSK:No more passwords are available. Please contact the network administrator.
+FAIL_UNKNOWN:Unknown error.
+FAIL_RETURN_TO_LOGIN:You will be redirected to the login page automatically, or you can return to the login page by clicking
+FAIL_HERE:here
+FAIL_REDIR:You will be redirected to 
+FAIL_INTERNAL_ERR:Web server internal error.
+TIMER_TIME_LEFT_PART1:You have registered successfully and can now access the network. Keep this window open to check the time remaining in your account and to log out when done. You currently have
+TIMER_TIME_LEFT_PART2:minutes left.
+TIMER_LOG_OUT:Log Out
+TIMER_SHOW_DETAIL:Show Details
+TIMER_BOOKMARK:Bookmark This Page
+TIMER_NOTE:NOTE
+TIMER_TITLE:Network Access Timer
+TIMER_CUR_AP:Current access point:
+TIMER_PRE_AP:Previous access point:
+TIMER_CUR_LAST_LOGOUT:Last logout:
+TIMER_HIDE_DETAIL:Hide Details
+TIMER_NOTE_PART1:You are connected to the wireless network and can access it for a limited period of time. To conserve access time, log out when not using the network.
+TIMER_NOTE_PART2:We strongly recommend you bookmark this page if you want to close it. A new entry titled "Network Access Timer (
+TIMER_NOTE_PART3:)" will be added to your Favorites list. By opening this link, you can see how much time still remains in your current session.
+TIMER_TIME_LEFT2_PART1:less than 1 minute
+TIMER_NOTE_SESS_TIMEOUT:Your session has timed out.
+TIMER_LOG_OUT_CONFIRM:Are you sure you want to log out?
+TIMER_LEAVE:While you are logged in to the wireless network, keep the Timer page open so that you can check your session status. If you want to close it, add it to your Favorites list first, so that you can reopen it later.
+TIMER_DAY:day
+TIMER_DAYS:days
+TIMER_HOUR:hour
+TIMER_HOURS:hours
+TIMER_MINUTE:minute
+TIMER_MINUTES:minutes
+TIMER_LEFT:left
+TIMER_TO_BOOKMARK:To bookmark this page, press
+TIMER_TIME_OUT:Time out
+TIMER_NO_LONGER_CONNECT:Your device is no longer connected with the AP. Please check the network settings on your device. This page will close in
+TIMER_NO_LONGER_CONNECT2:minutes
+TIMER_NO_CONNECT:Your device is not connected to the network.
+TIMER_NO_CONNECT_ALERT:Your device is no longer connected to the network. Please check the network settings on your device and then try again.
+LOGOUT_TITLE:Logging out
+LOGOUT_LOGOUT_THK:Logged out. Thank you.
+LOGOUT_NOTE:You can now close this page.
+LOGOUT_SUMMARY:Session Summary
+LOGOUT_LEFT_TIME:Left Session Time
+LOGOUT_LEFT_MINUTES:minutes
+LOGOUT_IP:IP Address
+LOGOUT_AP:Access Point
+LOGOUT_LOGOUT_TIME:Logout Time
+LOGOUT_SENT:Bytes Sent
+LOGOUT_RECV:Bytes Received
+LOGOUT_BYTES:bytes
+PPSK_LOGIN_PAGE:Login page

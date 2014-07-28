@@ -1,0 +1,17 @@
+#!/bin/bash
+# cchen@aerohive.com
+#
+#==================catalina.out====================
+log_dir=/HiveManager/tomcat/logs/
+log_catalina_out="catalina.out"
+log_date=`date -d yesterday +%Y-%m-%d`
+
+if [ -f "$log_dir""$log_catalina_out" ];then
+	cd "$log_dir"
+	/bin/cp -f "$log_catalina_out" "catalina.""$log_date".out
+	gzip -f "catalina.""$log_date".out
+	touch -t `date -d yesterday +%Y%m%d`"2359.59" "catalina.""$log_date".out.gz
+	> "$log_catalina_out"
+	/usr/bin/find ${log_dir}"catalina."*".out"* -mtime +10 |xargs rm -f
+fi
+#==================================================

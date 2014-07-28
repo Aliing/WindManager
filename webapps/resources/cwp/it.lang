@@ -1,0 +1,58 @@
+PRE_LOGIN_TITLE:REDIR
+PRE_LOGIN_WAIT:Si prega di attendere ...
+PRE_LOGIN_CONTENT:Se non riesci a visualizzare la pagina di accesso, chiudere e riaprire il browser e riprova.
+FAIL_RADIUS_UNREACH:L’accesso alla rete è temporaneamente non disponibile a causa di una conferma di approvazione sottoposta in fase di registrazione non ricevuta correttamente dal server di autenticazione. Si prega di riprovare più tardi, e se il problema persiste, contattare l’amministratore di rete.
+FAIL_CREDENTIAL_ERR:Il server di autenticazione è stato in grado di eguagliare i dati di accesso che hai inserito con un account, o l'account è scaduto. Controlla il tuo nome utente e password e riprova. Se c'è ancora un problema, chiedere all'amministratore di verificare l'account.
+FAIL_MANDATED_MISSED:Tutti i campi contrassegnati con l'asterisco sono obbligatori. Si prega di compilare tutti e inviare la registrazione di nuovo.
+FAIL_PPSK_INVALID_SSID:La password non può essere assegnato. Si prega di contattare l'amministratore di rete e la relazione che il SSID che ospita il captive portal web non è associato a un SSID utilizzando l'autenticazione PSK privato.
+FAIL_PPSK_STA_DENIED:La password non può essere assegnato perché il client è stato negato l'accesso alla rete. Per ulteriori informazioni, contattare l'amministratore di rete.
+FAIL_PPSK_NO_MORE_PSK:Nessuna password sono più disponibili. Si prega di contattare l'amministratore di rete.
+FAIL_UNKNOWN:Errore sconosciuto.
+FAIL_RETURN_TO_LOGIN:Si verrà reindirizzati alla pagina di accesso automaticamente, oppure è possibile tornare alla pagina di login, fare clic
+FAIL_HERE:qui
+FAIL_REDIR:Si verrà reindirizzati alla
+FAIL_INTERNAL_ERR:Errore del server Web interno.
+TIMER_TIME_LEFT_PART1:Ti sei registrato con successo e ora è possibile accedere alla rete. Tenete aperta questa finestra per controllare il tempo rimanente nel tuo account e di uscire quando fatto. Attualmente hai
+TIMER_TIME_LEFT_PART2:minuti dalla fine.
+TIMER_LOG_OUT:Esci
+TIMER_SHOW_DETAIL:Mostra dettagli
+TIMER_BOOKMARK:Segnala questa pagina
+TIMER_NOTE:NOTARE
+TIMER_TITLE:Accesso alla rete Timer
+TIMER_CUR_AP:Punto di accesso corrente:
+TIMER_PRE_AP:Punto di accesso precedente:
+TIMER_CUR_LAST_LOGOUT:Ultimo logout:
+TIMER_HIDE_DETAIL:Nascondi Dettagli
+TIMER_NOTE_PART1:Si sono collegati alla rete wireless e di un accesso per un periodo limitato di tempo. Per risparmiare tempo di accesso, la sessione quando non si utilizza la rete.
+TIMER_NOTE_PART2:Si consiglia di salvare questa pagina se si desidera per chiuderla. Una nuova voce dal titolo "Timer (Network Access
+TIMER_NOTE_PART3:)" Verrà aggiunto alla tua lista preferiti. Con l'apertura di questo collegamento, è possibile vedere quanto tempo rimane ancora nella sessione corrente.
+TIMER_TIME_LEFT2_PART1:meno di 1 minuto
+TIMER_NOTE_SESS_TIMEOUT:La sessione è scaduta.
+TIMER_LOG_OUT_CONFIRM:Sei sicuro di voler uscire?
+TIMER_LEAVE:Mentre si è connessi alla rete wireless, tenere la pagina Timer aperto in modo da poter verificare lo stato della sessione. Se si desidera chiudere, aggiungerlo all'elenco Preferiti in primo luogo, in modo che è possibile riaprirlo in seguito.
+TIMER_DAY:giorno
+TIMER_DAYS:giorno
+TIMER_HOUR:ora
+TIMER_HOURS:orario
+TIMER_MINUTE:minuto
+TIMER_MINUTES:verbale
+TIMER_LEFT:rimanente
+TIMER_TO_BOOKMARK:Aggiungere questa pagina, premere
+TIMER_TIME_OUT:Time out
+TIMER_NO_LONGER_CONNECT:Il dispositivo non è più collegato con l'AP. Si prega di verificare le impostazioni di rete del dispositivo. Questa pagina si chiude in
+TIMER_NO_LONGER_CONNECT2:verbale
+TIMER_NO_CONNECT:Il dispositivo non è connesso alla rete.
+TIMER_NO_CONNECT_ALERT:Il dispositivo non è più collegato alla rete. Si prega di verificare le impostazioni di rete del dispositivo e riprovare.
+LOGOUT_TITLE:Disconnessione
+LOGOUT_LOGOUT_THK:Disconnesso. Grazie.
+LOGOUT_NOTE:È ora possibile chiudere questa pagina.
+LOGOUT_SUMMARY:Riepilogo della sessione
+LOGOUT_LEFT_TIME:Sessione Tempo rimanente
+LOGOUT_LEFT_MINUTES:verbale
+LOGOUT_IP:Indirizzo IP
+LOGOUT_AP:punto di accesso
+LOGOUT_LOGOUT_TIME:Logout Tempo
+LOGOUT_SENT:Byte inviati
+LOGOUT_RECV:Byte ricevuti
+LOGOUT_BYTES:byte
+PPSK_LOGIN_PAGE:pagina di login

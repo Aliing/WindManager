@@ -1,0 +1,1851 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<countrycodes>
+    <countrycode key="0" name="(0) Default" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="false" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="false" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="8" name="(8) Albania" dfs-product=""/>
+    <countrycode key="12" name="(12) Algeria" dfs-product=""/>
+    <countrycode key="32" name="(32) Argentina" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="51" name="(51) Armenia" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="36" name="(36) Australia" dfs-product="((?!11).)*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="40" name="(40) Austria" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="31" name="(31) Azerbaijan" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="48" name="(48) Bahrain" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="112" name="(112) Belarus" dfs-product=""/>
+    <countrycode key="56" name="(56) Belgium" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="84" name="(84) Belize" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="68" name="(68) Bolivia" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="70" name="(70) Bosnia and Herzegowina" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="76" name="(76) Brazil" dfs-product="6|5|12|8|9">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="96" name="(96) Brunei Darussalam" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="100" name="(100) Bulgaria" dfs-product="25">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="124" name="(124) Canada" dfs-product="6|5|2|3|8|9|15|16|20|21">
+		<channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="116" channelwidth="20-0" isoutdoor="false" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="false" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="false" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="false" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="152" name="(152) Chile" dfs-product="8">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="156" name="(156) People's Republic of China" dfs-product="">
+    	<!-- <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/> -->
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="170" name="(170) Colombia" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="188" name="(188) Costa Rica" dfs-product=""/>
+    <countrycode key="191" name="(191) Croatia" dfs-product="25">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="196" name="(196) Cyprus" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="203" name="(203) Czech Republic" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="208" name="(208) Denmark" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="214" name="(214) Dominican Republic" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="218" name="(218) Ecuador" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="818" name="(818) Egypt" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="222" name="(222) El Salvador" dfs-product=""/>
+    <countrycode key="233" name="(233) Estonia" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="234" name="(234) Faeroe Islands" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="246" name="(246) Finland" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="250" name="(250) France" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="255" name="(255) France2" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="268" name="(268) Georgia" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="276" name="(276) Germany" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="300" name="(300) Greece" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="320" name="(320) Guatemala" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="340" name="(340) Honduras" dfs-product=""/>
+    <countrycode key="344" name="(344) Hong Kong S.A.R., P.R.C." dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="348" name="(348) Hungary" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="352" name="(352) Iceland" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="356" name="(356) India" dfs-product="((?!25|15).)*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false">
+        	<exclude platform="25"/>
+        </channel>   
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false">
+        	<exclude platform="25"/>
+        </channel>           
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false">
+        	<exclude platform="25"/>
+        </channel>           
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false">
+        	<exclude platform="25"/>
+        </channel>           
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false">
+            <exclude platform="25"/>
+        </channel>   
+    </countrycode>
+    <countrycode key="360" name="(364) Indonesia" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="364" name="(364) Iran" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="368" name="(368) Iraq" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="372" name="(372) Ireland" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="376" name="(376) Israel" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+    </countrycode>
+    <countrycode key="380" name="(380) Italy" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="388" name="(388) Jamaica" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="392" name="(392/4014) Japan" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="410" name="(410) Korea" dfs-product="((?!25).)*">
+		<channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+		<channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false">
+            <exclude platform="25"/>
+        </channel>           
+    </countrycode>
+    <countrycode key="400" name="(400) Jordan" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="398" name="(398) Kazakhstan" dfs-product=""/>
+    <countrycode key="404" name="(404) Kenya" dfs-product=""/>
+    <countrycode key="408" name="(408) North Korea" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="411" name="(411) South Korea" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="412" name="(412) South Korea" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="414" name="(414) Kuwait" dfs-product=""/>
+    <countrycode key="428" name="(428) Latvia" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="422" name="(422) Lebanon" dfs-product=""/>
+    <countrycode key="434" name="(434) Libya" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="438" name="(438) Liechtenstein" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="440" name="(440) Lithuania" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="442" name="(442) Luxembourg" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="446" name="(446) Macau" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="807" name="(807) The Former Yugoslav Republic of Macedonia" dfs-product="25">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>        
+    </countrycode>
+    <countrycode key="458" name="(458) Malaysia" dfs-product="((?!25).)*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="470" name="(470) Malta" dfs-product="25">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>      
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="480" name="(480) Mauritius" dfs-product="((?!25).)*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false">
+            <exclude platform="25"/>
+        </channel>           
+    </countrycode>
+    <countrycode key="484" name="(484) Mexico" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="492" name="(492) Principality of Monaco" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="504" name="(504) Morocco" dfs-product=""/>
+    <countrycode key="528" name="(528) Netherlands" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="554" name="(554) New Zealand" dfs-product="((?!11).)*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/> 
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="558" name="(558) Nicaragua" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="578" name="(578) Norway" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="512" name="(512) Oman" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="586" name="(586) Islamic Republic of Pakistan" dfs-product=""/>
+    <countrycode key="591" name="(591) Panama" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="600" name="(600) Paraguay" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="604" name="(604) Peru" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="608" name="(608) Republic of the Philippines" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="616" name="(616) Poland" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="620" name="(620) Portugal" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="630" name="(630) Puerto Rico" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="634" name="(634) Qatar" dfs-product=""/>
+    <countrycode key="642" name="(642) Romania" dfs-product="25">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="643" name="(643) Russia" dfs-product=""/>
+    <countrycode key="682" name="(682) Saudi Arabia" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false">
+            <exclude platform="25" channelwidth="20-0"/>
+        </channel>           
+    </countrycode>
+    <countrycode key="702" name="(702) Singapore" dfs-product="((?!25).)*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>        
+    </countrycode>
+    <countrycode key="703" name="(703) Slovak Republic" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false">
+            <exclude platform="((?!25).)*"/>
+        </channel>   
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false">
+            <exclude platform="((?!25).)*"/>
+        </channel>           
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false">
+            <exclude platform="((?!25).)*"/>
+        </channel>           
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false">
+            <exclude platform="((?!25).)*"/>
+        </channel>           
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"> 
+            <exclude platform="((?!25).)*"/>
+        </channel>                  
+    </countrycode>
+    <countrycode key="705" name="(705) Slovenia" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="710" name="(710) South Africa" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="724" name="(724) Spain" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="144" name="(144) Sri Lanka" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="752" name="(752) Sweden" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="756" name="(756) Switzerland" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>   
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>    
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+            <exclude platform="25"/>
+        </channel>  
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="760" name="(760) Syria" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="158" name="(158) Taiwan" dfs-product="">
+    	<!-- 
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+         -->
+        <channel value="56" channelwidth="20-0" isoutdoor="true"/>
+        <channel value="60" channelwidth="20-0|40-0" isoutdoor="true"/>
+        <channel value="64" channelwidth="20-0|40-1" isoutdoor="true"/>
+        <!-- 
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+         -->
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="764" name="(764) Thailand" dfs-product=".*">
+    	<channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false">
+            <exclude platform="25" channelwidth="20-0"/>
+        </channel>
+    </countrycode>
+    <countrycode key="780" name="(780) Trinidad y Tobago" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="788" name="(788) Tunisia" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="792" name="(792) Turkey" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>        
+    </countrycode>
+    <countrycode key="784" name="(784) U.A.E." dfs-product="12">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>            
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="804" name="(804) Ukraine" dfs-product=""/>
+    <countrycode key="826" name="(826) United Kingdom" dfs-product=".*">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true"/>
+        <channel value="116" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="true">
+        	<exclude platform="25" channelwidth="40-0|80-0"/>
+        </channel>	
+        <channel value="120" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="true">
+        	<exclude platform="25"/>
+        </channel>
+        <channel value="124" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true">
+        	<exclude platform="25"/>
+        </channel>
+        <channel value="128" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="true">
+        	<exclude platform="25"/>
+        </channel>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="true" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="true" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="840" name="(840) United States" dfs-product="6|5|2|3|8|9|15|16|20|21">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="52" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="56" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="64" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="100" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="true"/>
+        <channel value="104" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="true"/>
+        <channel value="108" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="true"/>
+        <channel value="112" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="true"/>
+        <channel value="116" channelwidth="20-0" isoutdoor="false" isdfs="true"/>
+        <channel value="132" channelwidth="20-0|40-0" isoutdoor="false" isdfs="true"/>
+        <channel value="136" channelwidth="20-0|40-1" isoutdoor="false" isdfs="true"/>
+        <channel value="140" channelwidth="20-0" isoutdoor="false" isdfs="true"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="842" name="(842) United States (Public Safety)" dfs-product="">
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="60" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="true"/>
+    </countrycode>
+    <countrycode key="858" name="(858) Uruguay" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="860" name="(860) Uzbekistan" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="862" name="(862) Venezuela" dfs-product="">
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+    </countrycode>
+    <countrycode key="704" name="(704) Viet Nam" dfs-product="">
+        <channel value="36" channelwidth="20-0|40-0|80-0" isoutdoor="false" isdfs="false"/>
+        <channel value="40" channelwidth="20-0|40-1|80-1" isoutdoor="false" isdfs="false"/>
+        <channel value="44" channelwidth="20-0|40-0|80-2" isoutdoor="false" isdfs="false"/>
+        <channel value="48" channelwidth="20-0|40-1|80-3" isoutdoor="false" isdfs="false"/>
+        <channel value="149" channelwidth="20-0|40-0|80-0" isoutdoor="true" isdfs="false"/>
+        <channel value="153" channelwidth="20-0|40-1|80-1" isoutdoor="true" isdfs="false"/>
+        <channel value="157" channelwidth="20-0|40-0|80-2" isoutdoor="true" isdfs="false"/>
+        <channel value="161" channelwidth="20-0|40-1|80-3" isoutdoor="true" isdfs="false"/>
+        <channel value="165" channelwidth="20-0" isoutdoor="true" isdfs="false"/>        
+    </countrycode>
+    <countrycode key="887" name="(887) Yemen" dfs-product=""/>
+    <countrycode key="716" name="(716) Zimbabwe" dfs-product=""/>
+</countrycodes>

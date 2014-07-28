@@ -1,0 +1,162 @@
+#!/bin/bash
+#
+# Copyright (C) 2006-2012 Aerohive Networks
+#
+#
+# general functions
+
+#
+hmpsql()
+{
+	if [ $# -lt 5 ]; then
+		echo "Usage: $0 DB_NAME DB_USERNAME SQLCOMMANDRETRY INTERVAL"
+		return	1
+	fi
+
+	hibernate_cfg="/HiveManager/tomcat/webapps/hm/WEB-INF/classes/hibernate.cfg.xml"
+	if [ ! -e "$hibernate_cfg" ]; then
+		echo "ERROR:The $hibernate_cfg is not exist."
+		return 1
+	fi
+
+	db_url=`grep jdbc:postgresql:\/\/ $hibernate_cfg`
+	if [ $? -ne 0 ]; then
+		return 1
+	fi
+
+
+	db_url=${db_url/jdbc:postgresql:\/\//}
+	db_url=${db_url/\/*/}
+	db_host=${db_url/:*/}
+
+	if [ "$db_host" == "$db_url" ]; then
+		db_port=5432
+	else
+		db_port=${db_url/$db_host:/}
+	fi
+
+	db_name="$1"
+	db_user="$2"
+	exec_sql="$3"
+	check_retry="$4"
+	check_interval="$5"
+	db_password="aerohive"
+	check_flag=0
+	output_flag=0
+
+	if [ ! -z "$6" ]; then
+		db_password="$6"
+	fi
+
+	if [ -z "$7" ]; then
+		output_flag=0
+	else
+		if [ "$7" -eq 0 ]; then
+			output_flag=0
+		else
+			output_flag=1
+		fi
+	fi
+
+	export PGPASSWORD=$db_password
+
+	while [ $check_retry -gt 0 ]
+	do
+		check_retry=`expr $check_retry - 1`
+		if [ $output_flag -eq 0 ]; then
+			result=`psql -h $db_host -p $db_port -d $db_name -U $db_user -c "$exec_sql"`
+		else
+			result=`psql -h $db_host -p $db_port -d $db_name -U $db_user -tA -c "$exec_sql"`
+		fi
+		ret=$?
+		if [ $ret -ne 0 ]; then
+			sleep $check_interval
+			continue
+		else
+			check_flag=1
+			break
+		fi
+	done
+
+	if test $check_flag -eq 0 ; then
+		return 1
+	else
+		echo "$result"
+		return 0
+	fi
+}
+
+
+hmdbcheck()
+{
+	if [ $# -lt 4 ]; then
+		echo "Usage: $0 DB_NAME DB_USERNAME RETRY INTERVAL"
+		return	1
+	fi
+
+	hibernate_cfg="/HiveManager/tomcat/webapps/hm/WEB-INF/classes/hibernate.cfg.xml"
+	if [ ! -e "$hibernate_cfg" ]; then
+		echo "ERROR:The $hibernate_cfg is not exist."
+		return 1
+	fi
+
+	db_url=`grep jdbc:postgresql:\/\/ $hibernate_cfg`
+	if [ $? -ne 0 ]; then
+		return 1
+	fi
+
+
+	db_url=${db_url/jdbc:postgresql:\/\//}
+	db_url=${db_url/\/*/}
+	db_host=${db_url/:*/}
+
+	if [ "$db_host" == "$db_url" ]; then
+		db_port=5432
+	else
+		db_port=${db_url/$db_host:/}
+	fi
+
+	db_name="$1"
+	db_user="$2"
+	exec_sql="drop table hmdbcheck_table"
+	check_retry="$3"
+	check_interval="$4"
+	db_password="aerohive"
+
+	if [ ! -z "$5" ]; then
+		db_password="$6"
+	fi
+
+	error_flag=1
+
+	export PGPASSWORD=$db_password
+
+	while [ $check_retry -gt 0 ]
+	do
+		check_retry=`expr $check_retry - 1`
+		result=`psql -h $db_host -p $db_port -d $db_name -U $db_user -tA -c "$exec_sql" 2>&1`
+		ret=$?
+		if [ $ret -eq 2 ]; then
+			#can not connect to DB
+			sleep $check_interval
+			continue
+		elif [ $ret -eq 1 ] ; then
+			#db is connectable
+			res=$(echo "$result" | grep "read-only")
+			if [ ! -z "$res" ] ; then
+				#db is read-only
+				sleep $check_interval
+				continue
+			fi
+			error_flag=0
+			break;
+		else
+			error_flag=0
+			break
+		fi
+	done
+
+	echo "$result"
+	return $error_flag
+}
+

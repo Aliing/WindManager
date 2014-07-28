@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<c3p0-config>
+	<default-config>
+		<!-- Uncomment these two items to seek for the connection leak problem.
+			<property name="debugUnreturnedConnectionStackTraces">false</property>
+			<property name="unreturnedConnectionTimeout">50</property> -->
+
+		<property name="maxStatementsPerConnection">100</property>
+		<property name="numHelperThreads">10</property>
+		<property name="testConnectionOnCheckin">true</property>
+	</default-config>
+</c3p0-config>

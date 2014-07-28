@@ -1,0 +1,58 @@
+PRE_LOGIN_TITLE:REDIR
+PRE_LOGIN_WAIT:Even geduld alstublieft
+PRE_LOGIN_CONTENT:Indien u de loginpagina niet kan zien, sluit en herstart de browser en probeer het nogmaals.
+FAIL_RADIUS_UNREACH:Toegang tot het netwerk is momenteel niet mogelijk omdat de authenticatie server de door u ingevoerde gegevens niet herkent. Probeert u het alstublieft later nog een keer. Als dit probleem zich voor blijft doen neem dan contact op met de netwerkbeheerder.
+FAIL_CREDENTIAL_ERR:Uw login informatie komt niet overeen met een account, of het account is verlopen. Controleer uw naam en wachtwoord en probeer nogmaals. Als het probleem zich nog steeds voorblijft doen, neem dan contact op met de systeembeheerder.
+FAIL_MANDATED_MISSED:Alle velden met een asterisk zijn verplicht. Vul alle verplichte velden in en probeer het nogmaals.
+FAIL_PPSK_INVALID_SSID:Er kan geen wachtwoord worden toegewezen. Neem contact op met de systeembeheerder en meld dat de SSID met de web login pagina geen Private PSK ondersteunt.
+FAIL_PPSK_STA_DENIED:Er kan geen wachtwoord worden toegewezen omdat toegang geweigerd is voor uw systeem. Voor meer informatie neem contact up met uw systeembeheerder.
+FAIL_PPSK_NO_MORE_PSK:Er zijn geen wachtwoorden meer beschikbaar. Neem contact op met de systeembeheerder.
+FAIL_UNKNOWN:Onbekend probleem.
+FAIL_RETURN_TO_LOGIN:U wordt automatisch doorgezonden naar de login pagina, of u kunt terug naar de login pagina gaan door hier te klikken.
+FAIL_HERE:hier
+FAIL_REDIR:U wordt doorgezonden naar
+FAIL_INTERNAL_ERR:Webserver intern probleem
+TIMER_TIME_LEFT_PART1:Registratie is gelukt. U heeft netwerktoegang. Laat dit venster open zo u de beschikbare tijd kan controleren en zodat u kan uitloggen. U heeft momenteel
+TIMER_TIME_LEFT_PART2:minuten over.
+TIMER_LOG_OUT:Uitloggen
+TIMER_SHOW_DETAIL:Details Weergeven
+TIMER_BOOKMARK:Deze pagina als favoriet toevoegen
+TIMER_NOTE:NOTE
+TIMER_TITLE:Network Access Timer
+TIMER_CUR_AP:Huidig draadloos access point.
+TIMER_PRE_AP:Vorig draadloos access point
+TIMER_CUR_LAST_LOGOUT:Laatste logout
+TIMER_HIDE_DETAIL:Details Verbergen
+TIMER_NOTE_PART1:U bent verbonden met het draadloze netwerk en kunt het voor een bepaalde tijd gebruiken. Log uit wanneer u niet het netwerk gebruikt om tijd te sparen.
+TIMER_NOTE_PART2:We bevelen aan, indien u deze pagina wilt sluiten, om deze pagina als een favoriet toe te voegen. De naam van de favoriet is "Network Access Timer (
+TIMER_NOTE_PART3:)" Door deze favoriet te open kunt u zien hoe veel tijd u nog heeft.
+TIMER_TIME_LEFT2_PART1:minder dan 1 minuut
+TIMER_NOTE_SESS_TIMEOUT:Uw sessie is verlopen.
+TIMER_LOG_OUT_CONFIRM:Weet u zeker dat u wilt uitloggen?
+TIMER_LEAVE:Laat, zo lang u verbonden bent met het draadloos netwerk, de Timer pagina open zodat u uw sessie status kan controleren. Als u de pagina wilt sluiten, maak deze dan een favoriet zodat u de pagina later weer kan openen.
+TIMER_DAY:dag
+TIMER_DAYS:dagen
+TIMER_HOUR:uur
+TIMER_HOURS:uren
+TIMER_MINUTE:minuut
+TIMER_MINUTES:minuten
+TIMER_LEFT:over
+TIMER_TO_BOOKMARK:Om deze pagina als een favoriet toe te voegen, klik
+TIMER_TIME_OUT:Time out
+TIMER_NO_LONGER_CONNECT:Uw systeem is niet meer met de AP verbonden. Controleer de netwerk instellingen. Deze pagina zal sluiten in
+TIMER_NO_LONGER_CONNECT2:minuten
+TIMER_NO_CONNECT:Uw systeem is niet met het netwerk verbonden.
+TIMER_NO_CONNECT_ALERT:Uw systeem is niet meer met het netwerk verbonden. Controleer uw netwerk instellingen en probeer het nogmaals.
+LOGOUT_TITLE:Uitloggen
+LOGOUT_LOGOUT_THK:Uitgelogd. Dank u wel.
+LOGOUT_NOTE:U kunt nu deze pagina sluiten.
+LOGOUT_SUMMARY:Sessie samenvatting
+LOGOUT_LEFT_TIME:Sessie tijd over
+LOGOUT_LEFT_MINUTES:minuten
+LOGOUT_IP:IP Adres
+LOGOUT_AP:Access Point
+LOGOUT_LOGOUT_TIME:Uitlogtijd
+LOGOUT_SENT:Bytes Verzonden
+LOGOUT_RECV:Bytes Ontvangen
+LOGOUT_BYTES:bytes
+PPSK_LOGIN_PAGE:Loginpagina

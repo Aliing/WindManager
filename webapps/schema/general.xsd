@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" targetNamespace="http://www.aerohive.com/configuration/general">
+	<!--types-->
+	<xsd:simpleType name="ah-enum-act">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="yes"/>
+			<xsd:enumeration value="no"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-enum-act-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="yesWithValue"/>
+			<xsd:enumeration value="noWithValue"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-enum-show">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="yesWithShow"/>
+			<xsd:enumeration value="noWithHidden"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-enum-act-value-show">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="yesWithValue"/>
+			<xsd:enumeration value="noWithValue"/>
+			<xsd:enumeration value="yesWithShow"/>
+			<xsd:enumeration value="noWithHidden"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-encrypted-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ah-int">
+		<xsd:attribute name="value" type="xsd:int" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-int-act">
+		<xsd:attribute name="value" type="xsd:int" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-string">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-string-quote-prohibited">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-string-act">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-string-act-quote-prohibited">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-string-act-value">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-only-act">
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-name">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-name-act">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-int-name-act">
+		<xsd:attribute name="name" type="xsd:int" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-name-quote-prohibited">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-name-act-value-quote-prohibited">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-name-act-value">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-encrypted-string">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-encrypted-string-act">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+		<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-encrypted-string-act-quote-prohibited">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+		<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-encrypted-string-act-value">
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-act-show">
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="vlan-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="4094"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="attribute-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="4095"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ban-value">
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minExclusive value="0"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="forever"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="dos-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="2000000000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="dos-alarm">
+		<xsd:attribute name="value" use="optional" default="60">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="2000000000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ban">
+		<xsd:attribute name="value" type="general:ban-value" use="optional" default="60"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level-probe-req">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="12000"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level-probe-resp">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="24000"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level-assoc-req">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="2400"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level-assoc-resp">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="2400"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level-auth">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="1200"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level-deauth">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="1200"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level-disassoc">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="1200"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level-eapol">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="6000"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level-probe-req">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="1200"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level-probe-resp">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="2400"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level-assoc-req">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="240"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+			<xsd:element name="ban" type="general:dos-ban" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level-assoc-resp">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="240"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level-auth">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="120"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+			<xsd:element name="ban" type="general:dos-ban" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level-deauth">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="120"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level-disassoc">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="120"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level-eapol">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="general:dos-threshold-value" use="optional" default="600"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alarm" type="general:dos-alarm" minOccurs="0"/>
+			<xsd:element name="ban" type="general:dos-ban" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dos-ssid-level">
+		<xsd:sequence>
+			<xsd:element name="frame-type" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="probe-req" type="general:dos-ssid-level-probe-req" minOccurs="0"/>
+						<xsd:element name="probe-resp" type="general:dos-ssid-level-probe-resp" minOccurs="0"/>
+						<xsd:element name="assoc-req" type="general:dos-ssid-level-assoc-req" minOccurs="0"/>
+						<xsd:element name="assoc-resp" type="general:dos-ssid-level-assoc-resp" minOccurs="0"/>
+						<xsd:element name="auth" type="general:dos-ssid-level-auth" minOccurs="0"/>
+						<xsd:element name="deauth" type="general:dos-ssid-level-deauth" minOccurs="0"/>
+						<xsd:element name="disassoc" type="general:dos-ssid-level-disassoc" minOccurs="0"/>
+						<xsd:element name="eapol" type="general:dos-ssid-level-eapol" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="dos-station-level">
+		<xsd:sequence>
+			<xsd:element name="frame-type" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="probe-req" type="general:dos-station-level-probe-req" minOccurs="0"/>
+						<xsd:element name="probe-resp" type="general:dos-station-level-probe-resp" minOccurs="0"/>
+						<xsd:element name="assoc-req" type="general:dos-station-level-assoc-req" minOccurs="0"/>
+						<xsd:element name="assoc-resp" type="general:dos-station-level-assoc-resp" minOccurs="0"/>
+						<xsd:element name="auth" type="general:dos-station-level-auth" minOccurs="0"/>
+						<xsd:element name="deauth" type="general:dos-station-level-deauth" minOccurs="0"/>
+						<xsd:element name="disassoc" type="general:dos-station-level-disassoc" minOccurs="0"/>
+						<xsd:element name="eapol" type="general:dos-station-level-eapol" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="ah-enable">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ah-manage">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="SNMP" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="SSH" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="Telnet" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="ping" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ah-permit-deny-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="permit"/>
+			<xsd:enumeration value="deny"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-allow-block-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="allow"/>
+			<xsd:enumeration value="block"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ah-auth-method">
+		<xsd:choice>
+			<xsd:element name="pap" type="general:ah-act-show" minOccurs="0"/>
+			<xsd:element name="chap" type="general:ah-act-show" minOccurs="0"/>
+			<xsd:element name="ms-chap-v2" type="general:ah-act-show" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="ah-percent-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-protocol-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-port-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="65535"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-attribute-id-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ah-vendor-id-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="65535"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ah-user-password">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="optional"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="ah-l3-tunnel-action-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="split"/>
+			<xsd:enumeration value="all"/>
+			<xsd:enumeration value="with-exception"/>
+			<xsd:enumeration value="drop-tunnel-traffic"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ah-l3-tunnel-action">
+		<xsd:attribute name="value" type="general:ah-l3-tunnel-action-value" default="split"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<!--/types-->
+</xsd:schema>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<project-path>F:\eclipse\workspace\HM_Mainline</project-path>
+	
+	<!-- not 330 121 100 200 xml is match  -->
+	<version-file>
+		<operation>remove</operation>
+		<element-path>/configuration/security-object/security/ft</element-path>
+		<file-name>!(*330*|*121*|*100*|*200*)</file-name>
+	</version-file>
+	
+	<!-- operation add: version-file XPath is current path, default-file is parent node path  -->
+	<version-file>
+		<operation>add</operation>
+		<element-path>/configuration/ssid/rrm/enable</element-path>
+		<file-name>*6.0.2.0*</file-name>
+	</version-file>
+	<default-file>
+		<operation>add</operation>
+		<element-path>/configuration/ssid/rrm</element-path>
+		<file-name>*6.0.2.0*</file-name>
+		<content><![CDATA[
+			<enable operation="no"/>
+		]]>
+		</content>
+	</default-file>
+	
+	<!-- Element depend-path: check path "/configuration/mobile-device-policy" exists 
+		and "/configuration/security-object/mobile-device-policy" not exists
+		will do add change, depend-path apply to any operation
+	  -->
+	<version-file>
+		<operation>add</operation>
+		<depend-path exists="true">/configuration/mobile-device-policy</depend-path>
+		<depend-path exists="false">/configuration/security-object/mobile-device-policy</depend-path>
+		
+		<element-path>/configuration/security-object/mobile-device-policy</element-path>
+		<file-name>*</file-name>
+	</version-file>
+	
+	<!-- operation remove: remove element that XPath point to, contains remove child element -->
+	<version-file>
+		<operation>remove</operation>
+		<element-path>/configuration/ssid/rrm/enable</element-path>
+		<file-name>*6.0.2.0*</file-name>
+	</version-file>
+	<default-file>
+		<operation>remove</operation>
+		<element-path>/configuration/ssid/rrm/enable</element-path>
+		<file-name>*6.0.2.0*</file-name>
+	</default-file>
+	
+	<!-- operation override_attribute: only override current element's attribute. -->
+	<version-file>
+		<operation>override_attribute</operation>
+		<element-path>/configuration/ssid/rrm/enable</element-path>
+		<file-name>*6.0.2.0*</file-name>
+	</version-file>
+	<default-file>
+		<operation>override_attribute</operation>
+		<element-path>/configuration/ssid/rrm/enable</element-path>
+		<file-name>*6.0.2.0*</file-name>
+		<content><![CDATA[
+			<enable operation="no"/>
+		]]>
+		</content>
+	</default-file>
+	
+	<!-- operation override: override element with current element and child element -->
+	<version-file>
+		<operation>override</operation>
+		<element-path>/configuration/ssid/rrm/enable</element-path>
+		<file-name>*6.0.2.0*</file-name>
+	</version-file>
+	<default-file>
+		<operation>override</operation>
+		<element-path>/configuration/ssid/rrm/enable</element-path>
+		<file-name>*6.0.2.0*</file-name>
+		<content><![CDATA[
+			<enable operation="no"/>
+		]]>
+		</content>
+	</default-file>
+	
+	<!-- operation auto: auto calculate difference, and merge the difference to destinations -->
+	<version-file>
+		<operation>auto</operation>
+		<new-file-path>D:\Java\apache-tomcat-7.0.34\webapps\hm\schema\versionXML\BranchRouter_200_5.1.5.0.xml</new-file-path>
+		<old-file-path>D:\Java\apache-tomcat-7.0.34\webapps\hm\schema\versionXML\BranchRouter_200_5.1.4.0.xml</old-file-path>
+		<file-name>*5.1.5.0*</file-name>
+	</version-file>
+	<default-file>
+		<operation>auto</operation>
+		<new-file-path>D:\Java\apache-tomcat-7.0.34\webapps\hm\schema\defaultValue\DefaultValue_BranchRouter_200_5.1.5.0.xml</new-file-path>
+		<old-file-path>D:\Java\apache-tomcat-7.0.34\webapps\hm\schema\defaultValue\DefaultValue_BranchRouter_200_5.1.4.0.xml</old-file-path>
+		<file-name>*5.1.5.0*</file-name>
+	</default-file>
+	
+	<!-- format all xml -->
+	<version-file>
+		<operation>format</operation>
+		<file-name>*</file-name>
+	</version-file>
+	<default-file>
+		<operation>format</operation>
+		<file-name>*</file-name>
+	</default-file>
+
+	<!-- add version 5.1.5.0 xml copy from 5.1.4.0 -->
+	<version-file>
+		<operation>add_version</operation>
+		<version>5.1.5.0</version>
+		<base-version>5.1.4.0</base-version>
+	</version-file>
+	<default-file>
+		<operation>add_version</operation>
+		<version>5.1.5.0</version>
+		<base-version>5.1.4.0</base-version>
+	</default-file>
+
+	<!-- remove version 5.1.5.0 -->
+	<version-file>
+		<operation>remove_version</operation>
+		<version>5.1.5.0</version>
+	</version-file>
+	<default-file>
+		<operation>remove_version</operation>
+		<version>5.1.5.0</version>
+	</default-file>
+
+</config>

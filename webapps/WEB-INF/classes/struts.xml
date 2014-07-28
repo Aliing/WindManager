@@ -1,0 +1,1446 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- @Author: Chris Scheers -->
+
+<struts>
+
+	<package name="ah-default" extends="tiles-default">
+		<interceptors>
+			<interceptor name="accessControl"
+				class="com.ah.ui.interceptors.AccessControlInterceptor" />
+			<interceptor name="globalForward"
+				class="com.ah.ui.interceptors.GlobalForwardInterceptor" />
+			<interceptor name="sessionTimeOut"
+				class="com.ah.ui.interceptors.SessionInterceptor" />
+			<interceptor name="hmFileUpload"
+				class="com.ah.ui.interceptors.HmFileUploadInterceptor" />
+
+			<interceptor-stack name="ahStack">
+				<interceptor-ref name="sessionTimeOut" />
+				<interceptor-ref name="hmFileUpload" />
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="accessControl" />
+				<interceptor-ref name="globalForward" />
+			</interceptor-stack>
+
+			<interceptor-stack name="accessStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="accessControl" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="ahStack" />
+
+		<global-results>
+			<!-- Landing page -->
+			<result type="redirectAction">
+				<param name="actionName">topMenu</param>
+				<param name="operation">${operation}</param>
+			</result>
+			<result name="login" type="redirectAction">
+				<param name="actionName">login</param>
+			</result>
+			<result name="license" type="redirectAction">
+				<param name="actionName">license</param>
+				<param name="operation">license</param>
+			</result>
+			<result name="eula" type="redirectAction">
+				<param name="actionName">license</param>
+				<param name="operation">eula</param>
+			</result>
+			<result name="startHere" type="redirectAction">
+				<param name="actionName">startHere</param>
+			</result>
+			<result name="ssl" type="redirectAction">
+				<param name="actionName">ssl</param>
+			</result>
+			<result name="deny" type="redirectAction">
+				<param name="actionName">deny</param>
+			</result>
+			<result name="baseRedirect" type="redirect">
+				<param name="location">${baseRedirectUrl}</param>
+			</result>
+
+			<result name="error503">/tiles/err503.jsp</result>
+
+			<result name="json">/tiles/json.jsp</result>
+		</global-results>
+	</package>
+
+	<package name="global" extends="ah-default" namespace="/">
+
+		<default-interceptor-ref name="accessStack" />
+         <global-results>
+			<result name="updateSoftware" type="redirectAction">
+				<param name="actionName">updateSoftware</param>
+			</result>
+         </global-results>
+		<!-- HM access deny -->
+		<action name="deny" class="com.ah.ui.actions.LoginAction"
+			method="deny">
+			<result type="redirectAction" name="blankPage">blank</result>
+			<result type="tiles" name="denyPage">denyPage</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<action name="blank" class="com.ah.ui.actions.LoginAction"
+			method="blank">
+			<result type="tiles" name="blankPage">blankPage</result>
+			<interceptor-ref name="defaultStack" />
+		</action>
+
+		<!-- SSL -->
+		<action name="ssl" class="com.ah.ui.actions.LoginAction"
+			method="ssl">
+
+			<result type="tiles" name="ssl">ssl</result>
+		</action>
+
+		<!-- Login -->
+		<action name="login" class="com.ah.ui.actions.LoginAction"
+			method="login">
+
+			<result type="tiles" name="login">login</result>
+			<result type="tiles" name="ssl">ssl</result>
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+			<!-- Welcome Page -->
+			<result name="startHere" type="redirectAction">
+				<param name="actionName">startHere</param>
+			</result>
+
+			<!-- end user license agreement -->
+			<result type="tiles" name="eula">eula</result>
+		</action>
+		
+		<!-- recreate user info for MyHive customer user -->
+		<action name="recreateUser" class="com.ah.ui.actions.LoginAction"
+			method="checkUserAndRedirect">
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+			<!-- Welcome Page -->
+			<result name="startHere" type="redirectAction">
+				<param name="actionName">startHere</param>
+			</result>
+
+			<!-- end user license agreement -->
+			<result type="tiles" name="eula">eula</result>
+		</action>
+
+		<!-- Logout -->
+		<action name="logout" class="com.ah.ui.actions.LoginAction"
+			method="logout">
+			<result type="tiles" name="login">login</result>
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+		</action>
+
+		<!-- Authenticate -->
+		<action name="authenticate" class="com.ah.ui.actions.LoginAction"
+			method="authenticate">
+
+			<!-- Login failed, return to login page -->
+			<result type="tiles" name="login">login</result>
+
+			<!-- Welcome Page -->
+			<result name="startHere" type="redirectAction">
+				<param name="actionName">startHere</param>
+			</result>
+
+			<!-- end user license agreement -->
+			<result type="tiles" name="eula">eula</result>
+
+			<!-- passive node redirect to active node -->
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+		</action>
+
+		<action name="mcs" class="com.ah.ui.actions.tools.MCSAction">
+		</action>
+
+		<!-- License -->
+		<action name="license" class="com.ah.ui.actions.LoginAction"
+			method="license">
+			<result type="tiles" name="license">license</result>
+
+			<!-- session expired -->
+			<result type="tiles" name="login">login</result>
+
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+
+			<!-- Welcome Page -->
+			<result name="startHere" type="redirectAction">
+				<param name="actionName">startHere</param>
+			</result>
+
+			<!-- end user license agreement -->
+			<result type="tiles" name="eula">eula</result>
+		</action>
+
+		<!-- Switch Domain -->
+		<action name="switchDomain" class="com.ah.ui.actions.SwitchDomainAction">
+			<result name="json">/tiles/json.jsp</result>
+			<!-- Recreate User -->
+			<result name="recreateUser" type="redirectAction">
+				<param name="actionName">recreateUser</param>
+			</result>
+			<result type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+		</action>
+		
+		<!-- Redirect Between Application  -->
+		<action name="appRedirect" class="com.ah.ui.actions.AppRedirectAction">
+			<result type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+		</action>
+
+		<!-- Push -->
+		<action name="push" class="com.ah.ui.actions.PushAction">
+			<result>/tiles/push.jsp</result>
+			<result type="tiles" name="login">login</result>
+		</action>
+
+		<!-- Search -->
+		<action name="search" class="com.ah.ui.actions.SearchAction">
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="helpSetting" class="com.ah.ui.actions.HelpSettingAction">
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<!-- Welcome Page -->
+		<action name="startHere" class="com.ah.ui.actions.LoginAction"
+			method="startHere">
+			<result type="tiles" name="welcomePage">welcomePage</result>
+
+			<result type="tiles" name="license">license</result>
+
+			<result name="json">/tiles/json.jsp</result>
+			
+			<!-- session expired -->
+			<result type="tiles" name="login">login</result>
+
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+			
+			<result name="newWelcomePageAction" type="redirectAction">
+				<param name="actionName">newStartHere</param>
+			</result>
+		</action>
+		<action name="newStartHere" class="com.ah.ui.actions.LoginAction"
+			method="newStartHere">
+			<result type="tiles" name="welcomePage">newWelcomePage</result>
+			<result type="tiles" name="welcomePageDone">newWelcomePageDone</result>
+			<result type="tiles" name="license">license</result>
+			<result name="json">/tiles/json.jsp</result>
+			<!-- session expired -->
+			<result type="tiles" name="login">login</result>
+			<result name="redirect" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+		</action>
+
+		<!-- Teacher View -->
+		<action name="teacherView"
+			class="com.ah.ui.actions.teacherView.TvRedirectionAction">
+			<result type="tiles">selectClass</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result name="redirect" type="tiles">tvRedirect</result>
+			<result name="redirectLogin" type="redirect">
+				<param name="location">${redirectUrl}</param>
+			</result>
+		</action>
+
+		<!-- Student registration -->
+		<action name="studentRegist"
+			class="com.ah.ui.actions.teacherView.StudentRegisterAction">
+			<result type="tiles" name="registration">registration</result>
+			<result type="tiles" name="registSuccess">registSuccess</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="randValidateCode" class="com.ah.ui.actions.teacherView.RandomAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<!-- Notification Message -->
+        <action name="notificationMsg" class="com.ah.ui.actions.NotificationMsgAction">
+            <result name="json">/tiles/json.jsp</result>
+        </action>
+	</package>
+
+	<include file="struts-home.xml" />
+	<include file="struts-dash.xml" />
+	<include file="struts-monitor.xml" />
+	<include file="struts-config.xml" />
+	<include file="struts-topo.xml" />
+	<include file="struts-tools.xml" />
+	<include file="struts-gml.xml" />
+	<include file="struts-tv.xml" />
+
+	<package name="hmMenu" extends="ah-default">
+		<global-results>
+			<result type="redirectAction" name="home">
+				<param name="actionName">topMenu</param>
+			</result>
+			<result type="redirectAction" name="dash">
+				<param name="actionName">topMenu</param>
+			</result>
+			<result type="redirectAction" name="monitor">
+				<param name="actionName">topMenu</param>
+			</result>
+
+			<result type="redirectAction" name="topology">
+				<param name="actionName">topMenu</param>
+			</result>
+
+			<result type="redirectAction" name="configuration">
+				<param name="actionName">topMenu</param>
+			</result>
+
+			<result type="redirectAction" name="tools">
+				<param name="actionName">topMenu</param>
+			</result>
+
+			<result type="redirectAction" name="hiveReports">
+				<param name="actionName">topMenu</param>
+			</result>
+
+			<result type="redirectAction" name="userMgr">
+				<param name="actionName">topMenu</param>
+			</result>
+
+			<result type="redirectAction" name="userReport">
+				<param name="actionName">topMenu</param>
+			</result>
+			<result type="redirectAction" name="tv">
+				<param name="actionName">topMenu</param>
+			</result>
+		</global-results>
+		<!-- Top menu redirection -->
+		<action name="navigationTree" class="com.ah.ui.actions.HmMenuAction"
+			method="navigationTree">
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<!-- Top menu redirection -->
+		<action name="topMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="topMenu">
+
+			<!-- Home -->
+			<result type="redirectAction" name="home">
+				<param name="actionName">homeMenu</param>
+			</result>
+			<!-- Home -->
+			<result type="redirectAction" name="dash">
+				<param name="actionName">dashMenu</param>
+			</result>
+
+			<!-- Monitor -->
+			<result type="redirectAction" name="monitor">
+				<param name="actionName">monitorMenu</param>
+				<param name="operation">${operation}</param>
+				<param name="start">${start}</param>
+			</result>
+
+			<!-- Topology -->
+			<result type="redirectAction" name="topology">
+				<param name="actionName">maps</param>
+				<param name="operation">${operation}</param>
+				<param name="start">${start}</param>
+			</result>
+
+			<!-- Configuration -->
+			<result type="redirectAction" name="configuration">
+				<param name="actionName">configurationMenu</param>
+				<param name="ts">${ts}</param>
+			</result>
+
+			<!-- Tools -->
+			<result type="redirectAction" name="tools">
+				<param name="actionName">toolsMenu</param>
+				<param name="operation">${operation}</param>
+				<param name="start">${start}</param>
+			</result>
+
+			<!-- User Manager -->
+			<result type="redirectAction" name="userMgr">
+				<param name="actionName">umMenu</param>
+			</result>
+
+			<!-- User Report -->
+			<result type="redirectAction" name="userReport">
+				<param name="actionName">upMenu</param>
+			</result>
+
+			<!-- Report -->
+			<result type="redirectAction" name="hiveReports">
+				<param name="actionName">rpMenu</param>
+			</result>
+
+			<!-- Teacher view -->
+			<result type="redirectAction" name="tv">
+				<param name="actionName">tvMenu</param>
+			</result>
+
+			<!-- Place holder for unsupported features -->
+			<result type="tiles" name="placeHolder">blank</result>
+		</action>
+
+		<!-- Home menu redirection -->
+		<action name="homeMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="homeMenu">
+
+			<result type="redirectAction" name="startHereMgr">
+				<param name="actionName">startHereMgr</param>
+			</result>
+
+			<result type="redirectAction" name="summary">
+				<param name="actionName">reports</param>
+				<param name="operation">summary</param>
+			</result>
+
+			<result type="redirectAction" name="hmSettings">
+				<param name="actionName">hmSettings</param>
+			</result>
+
+			<result type="redirectAction" name="oemSettings">
+			 	<param name="actionName">oemSettings</param>   
+			</result>
+			
+			<result type="redirectAction" name="hmServices">
+				<param name="actionName">hmServices</param>
+			</result>
+
+			<result type="redirectAction" name="haMonitor">
+				<param name="actionName">haMonitor</param>
+			</result>
+
+			<result type="redirectAction" name="portalSettings">
+				<param name="actionName">portalSettings</param>
+			</result>
+
+			<result type="redirectAction" name="systemOverview">
+				<param name="actionName">systemOverview</param>
+			</result>
+
+			<result type="redirectAction" name="administrators">
+				<param name="actionName">users</param>
+			</result>
+
+			<result type="redirectAction" name="userPasswordModify">
+				<param name="actionName">userPasswordModify</param>
+			</result>
+
+			<result type="redirectAction" name="adminGroups">
+				<param name="actionName">userGroups</param>
+			</result>
+
+			<result type="redirectAction" name="restartSoftware">
+				<param name="actionName">restartSoftware</param>
+			</result>
+
+			<result type="redirectAction" name="clearDB">
+				<param name="actionName">clearDB</param>
+			</result>
+
+			<result type="redirectAction" name="backupDB">
+				<param name="actionName">backupDB</param>
+			</result>
+
+			<result type="redirectAction" name="restoreDB">
+				<param name="actionName">restoreDB</param>
+			</result>
+
+			<result type="redirectAction" name="shutDownApp">
+				<param name="actionName">shutDownApp</param>
+			</result>
+
+			<result type="redirectAction" name="rebootApp">
+				<param name="actionName">rebootApp</param>
+			</result>
+
+			<result type="redirectAction" name="updateSoftware">
+				<param name="actionName">updateSoftware</param>
+			</result>
+
+			<result type="redirectAction" name="supportBundle">
+				<param name="actionName">supportBundle</param>
+			</result>
+			
+			<result type="redirectAction" name="systemLog">
+				<param name="actionName">systemLog</param>
+			</result>
+
+			<result type="redirectAction" name="upgradeLog">
+				<param name="actionName">upgradeLog</param>
+			</result>
+			
+		    <result type="redirectAction" name="kddrLog">
+				<param name="actionName">kddrLog</param>
+			</result>
+
+			<result type="redirectAction" name="auditLog">
+				<param name="actionName">auditLog</param>
+			</result>
+
+			<result type="redirectAction" name="licenseMgr">
+				<param name="actionName">licenseMgr</param>
+			</result>
+
+			<result type="redirectAction" name="vhmManagement">
+				<param name="actionName">vhmManagement</param>
+			</result>
+
+			<result type="redirectAction" name="mibFiles">
+				<param name="actionName">auxiliaryFileMgmt</param>
+				<param name="operation">mibFiles</param>
+			</result>
+
+			<result type="redirectAction" name="radiusDicts">
+				<param name="actionName">auxiliaryFileMgmt</param>
+				<param name="operation">radiusDicts</param>
+			</result>
+
+			<result type="redirectAction" name="macouiDictionary">
+				<param name="actionName">auxiliaryFileMgmt</param>
+				<param name="operation">macouiDictionary</param>
+			</result>
+			
+			<result type="redirectAction" name="cidClients">
+				<param name="actionName">auxiliaryFileMgmt</param>
+				<param name="operation">cidClients</param>
+			</result>
+
+			<result type="redirectAction" name="mailList">
+				<param name="actionName">mailList</param>
+			</result>
+
+			<result type="redirectAction" name="hmAccess">
+				<param name="actionName">hmAccess</param>
+			</result>
+
+			<!-- Place holder for unsupported features -->
+			<result type="tiles" name="placeHolder">blank</result>
+		</action>
+		<action name="dashMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="dashMenu">
+			<result type="redirectAction" name="dashboard">
+				<param name="actionName">dashboard</param>
+			</result>
+		
+		</action>
+			
+		<!-- Monitor menu redirection -->
+		<action name="monitorMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="monitorMenu">
+
+			<result type="redirectAction" name="newHiveAps">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">newHiveAps</param>
+			</result>
+
+			<result type="redirectAction" name="deviceHiveAps">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedDeviceAPs</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">monitor</param>
+			</result>
+
+			<result type="redirectAction" name="branchRouters">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedRouters</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">monitor</param>
+			</result>
+
+			<result type="redirectAction" name="switches">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedSwitches</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">monitor</param>
+			</result>
+
+			<result type="redirectAction" name="vpnGateways">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedVPNGateways</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">monitor</param>
+			</result>
+
+			<result type="redirectAction" name="managedHiveAps">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedHiveAps</param>
+				<param name="operation">${operation}</param>
+				<param name="start">${start}</param>
+				<param name="viewType">monitor</param>
+			</result>
+
+			<result type="redirectAction" name="friendlyAps">
+				<param name="actionName">idp</param>
+				<param name="listType">friendlyAps</param>
+			</result>
+
+			<result type="redirectAction" name="rogueAps">
+				<param name="actionName">idp</param>
+				<param name="listType">rogueAps</param>
+			</result>
+
+			<result type="redirectAction" name="hiveApUpdateRts">
+				<param name="actionName">hiveApUpdateRts</param>
+			</result>
+
+			<result type="redirectAction" name="clientMonitor">
+				<param name="actionName">clientMonitor</param>
+			</result>
+
+			<result type="redirectAction" name="rogueClient">
+				<param name="actionName">idp</param>
+				<param name="listType">rogueClient</param>
+			</result>
+			
+			<result type="redirectAction" name="enrolledClients">
+				<param name="actionName">enrolledClients</param>
+			</result>
+			<result type="redirectAction" name="clientModifications">
+				<param name="actionName">clientModifications</param>
+			</result>
+
+			<result type="redirectAction" name="watchList">
+				<param name="actionName">watchList</param>
+			</result>
+
+			<result type="redirectAction" name="clientSurvey">
+				<param name="actionName">clientSurvey</param>
+			</result>
+
+			<result type="redirectAction" name="events">
+				<param name="actionName">events</param>
+			</result>
+
+			<result type="redirectAction" name="alarms">
+				<param name="actionName">alarms</param>
+			</result>
+
+			<result type="redirectAction" name="bonjourGatewayMonitoring">
+                <param name="actionName">bonjourGatewayMonitoring</param>
+            </result>
+
+			<!--One Time password  -->
+			<result type="redirectAction" name="oneTimePassword">
+                <param name="actionName">oneTimePassword</param>
+            </result>
+
+            <!-- Subnetwork Allocation -->
+            <result type="redirectAction" name="subnetworkAllocations">
+                <param name="actionName">subnetworkAllocations</param>
+            </result>
+
+            <result type="redirectAction" name="wiredClient">
+				<param name="actionName">clientMonitor</param>
+				<param name="listType">wired</param>
+			</result>
+
+			<result type="redirectAction" name="wirelessClient">
+				<param name="actionName">clientMonitor</param>
+				<param name="listType">wireless</param>
+			</result>
+
+			<!--add by wpliang for l3firewallLog 2011/06/13 -->
+			<result type="redirectAction" name="l3firewallLog">
+				<param name="actionName">l3firewallLog</param>
+			</result>
+			
+			<result type="redirectAction" name="deviceInventoryMonitor">
+				<param name="actionName">deviceInventory</param>
+				<param name="diMenuType">monitor</param>
+			</result>
+
+			<!-- Place holder for unsupported features -->
+			<result type="tiles" name="placeHolder">blank</result>
+		</action>
+
+		<!-- Monitor menu redirection -->
+		<action name="rpMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="rpMenu">
+			<result type="redirectAction" name="pciCompliance">
+				<param name="actionName">pciCompliance</param>
+			</result>
+
+			<result type="redirectAction" name="networkUsage">
+				<param name="actionName">networkUsageReport</param>
+			</result>
+			<result type="redirectAction" name="recurReport">
+				<param name="actionName">recurReport</param>
+			</result>
+
+			<result type="redirectAction" name="radioReports">
+				<param name="actionName">reportList</param>
+				<param name="listType">radioReports</param>
+				<param name="namespace">/</param>
+			</result>
+			<result type="redirectAction" name="wiredBrReports">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">wiredBrReports</param>
+				<param name="namespace">/</param>
+			</result>
+			<result type="redirectAction" name="wiredCvgReports">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">wiredCvgReports</param>
+				<param name="namespace">/</param>
+			</result>
+			<result type="redirectAction" name="vpnBrReports">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">vpnBrReports</param>
+				<param name="namespace">/</param>
+			</result>
+			<result type="redirectAction" name="vpnCvgReports">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">vpnCvgReports</param>
+				<param name="namespace">/</param>
+			</result>
+			<result type="redirectAction" name="ssidReports">
+				<param name="actionName">reportList</param>
+				<param name="listType">ssidReports</param>
+				<param name="namespace">/</param>
+			</result>
+			<result type="redirectAction" name="clientReports">
+				<param name="actionName">reportList</param>
+				<param name="listType">clientReports</param>
+				<param name="namespace">/</param>
+			</result>
+			<result type="redirectAction" name="channelPowerNoise">
+				<param name="actionName">reportList</param>
+				<param name="listType">channelPowerNoise</param>
+			</result>
+			<result type="redirectAction" name="radioAirTime">
+				<param name="actionName">reportList</param>
+				<param name="listType">radioAirTime</param>
+			</result>
+			<result type="redirectAction" name="radioTrafficMetrics">
+				<param name="actionName">reportList</param>
+				<param name="listType">radioTrafficMetrics</param>
+			</result>
+			<result type="redirectAction" name="radioTroubleShooting">
+				<param name="actionName">reportList</param>
+				<param name="listType">radioTroubleShooting</param>
+			</result>
+			<result type="redirectAction" name="radioInterference">
+				<param name="actionName">reportList</param>
+				<param name="listType">radioInterference</param>
+			</result>
+			<result type="redirectAction" name="ssidTrafficMetrics">
+				<param name="actionName">reportList</param>
+				<param name="listType">ssidTrafficMetrics</param>
+			</result>
+			<result type="redirectAction" name="ssidTroubleShooting">
+				<param name="actionName">reportList</param>
+				<param name="listType">ssidTroubleShooting</param>
+			</result>
+			<result type="redirectAction" name="ssidAirTime">
+				<param name="actionName">reportList</param>
+				<param name="listType">ssidAirTime</param>
+			</result>
+			<result type="redirectAction" name="mostClientsAPs">
+				<param name="actionName">reportList</param>
+				<param name="listType">mostClientsAPs</param>
+			</result>
+			<result type="redirectAction" name="clientSession">
+				<param name="actionName">reportList</param>
+				<param name="listType">clientSession</param>
+			</result>
+			<result type="redirectAction" name="clientCount">
+				<param name="actionName">reportList</param>
+				<param name="listType">clientCount</param>
+			</result>
+			<result type="redirectAction" name="clientAirTime">
+				<param name="actionName">reportList</param>
+				<param name="listType">clientAirTime</param>
+			</result>
+			<result type="redirectAction" name="uniqueClientCount">
+				<param name="actionName">reportList</param>
+				<param name="listType">uniqueClientCount</param>
+			</result>
+			<result type="redirectAction" name="clientAuth">
+				<param name="actionName">reportList</param>
+				<param name="listType">clientAuth</param>
+			</result>
+			<result type="redirectAction" name="clientVendor">
+				<param name="actionName">reportList</param>
+				<param name="listType">clientVendor</param>
+			</result>
+			<result type="redirectAction" name="securityRogueAPs">
+				<param name="actionName">reportList</param>
+				<param name="listType">securityRogueAPs</param>
+			</result>
+			<result type="redirectAction" name="securityRogueClients">
+				<param name="actionName">reportList</param>
+				<param name="listType">securityRogueClients</param>
+			</result>
+			<result type="redirectAction" name="compliance">
+				<param name="actionName">reportList</param>
+				<param name="listType">compliance</param>
+			</result>
+			<result type="redirectAction" name="hiveApNonCompliance">
+				<param name="actionName">reportList</param>
+				<param name="listType">hiveApNonCompliance</param>
+			</result>
+			<result type="redirectAction" name="clientNonCompliance">
+				<param name="actionName">reportList</param>
+				<param name="listType">clientNonCompliance</param>
+			</result>
+			<result type="redirectAction" name="meshNeighbors">
+				<param name="actionName">reportList</param>
+				<param name="listType">meshNeighbors</param>
+			</result>
+			<result type="redirectAction" name="inventory">
+				<param name="actionName">reportList</param>
+				<param name="listType">inventory</param>
+			</result>
+			<result type="redirectAction" name="hiveApSla">
+				<param name="actionName">reportList</param>
+				<param name="listType">hiveApSla</param>
+			</result>
+			<result type="redirectAction" name="clientSla">
+				<param name="actionName">reportList</param>
+				<param name="listType">clientSla</param>
+			</result>
+			<result type="redirectAction" name="maxClient">
+				<param name="actionName">reportList</param>
+				<param name="listType">maxClient</param>
+			</result>
+			<result type="redirectAction" name="hiveApConnection">
+				<param name="actionName">reportList</param>
+				<param name="listType">hiveApConnection</param>
+			</result>
+			<result type="redirectAction" name="customReport">
+				<param name="actionName">customReportList</param>
+				<param name="namespace">/</param>
+			</result>
+			<result type="redirectAction" name="summaryUserUsage">
+				<param name="actionName">reportLoginUser</param>
+				<param name="listType">summaryUserUsage</param>
+			</result>
+			<result type="redirectAction" name="detailUserUsage">
+				<param name="actionName">reportLoginUser</param>
+				<param name="listType">detailUserUsage</param>
+			</result>
+			<result type="redirectAction" name="reportSetting">
+				<param name="actionName">reportSetting</param>
+			</result>
+			<result type="redirectAction" name="retailAnalytics">
+				<param name="actionName">retailAnalytics</param>
+			</result>
+			<result type="redirectAction" name="vpnThroughput">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">vpnThroughput</param>
+			</result>
+			<result type="redirectAction" name="vpnLatency">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">vpnLatency</param>
+			</result>
+			<result type="redirectAction" name="vpnAvailability">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">vpnAvailability</param>
+			</result>
+			<result type="redirectAction" name="wanThroughput">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">wanThroughput</param>
+			</result>
+			<result type="redirectAction" name="wanAvailability">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">wanAvailability</param>
+			</result>
+			<result type="redirectAction" name="gwVpnAvailability">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">gwVpnAvailability</param>
+			</result>
+			<result type="redirectAction" name="gwWanThroughput">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">gwWanThroughput</param>
+			</result>
+			<result type="redirectAction" name="gwWanAvailability">
+				<param name="actionName">vpnReportList</param>
+				<param name="listType">gwWanAvailability</param>
+			</result>
+
+			<!-- Place holder for unsupported features -->
+			<result type="tiles" name="placeHolder">blank</result>
+		</action>
+
+		<!-- Configuration menu redirection -->
+		<action name="configurationMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="configurationMenu">
+
+			<result type="redirectAction" name="addHiveAP">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedHiveAps</param>
+			</result>
+
+			<result type="redirectAction" name="updateConfig">
+				<param name="actionName">configGuide</param>
+				<param name="operation">configHiveApUpdates</param>
+			</result>
+
+			<result type="redirectAction" name="hiveProfiles">
+				<param name="actionName">hiveProfiles</param>
+			</result>
+
+			<result type="redirectAction" name="macDos">
+				<param name="actionName">macDos</param>
+			</result>
+
+			<result type="redirectAction" name="ipDos">
+				<param name="actionName">ipDos</param>
+			</result>
+
+			<result type="redirectAction" name="macFilters">
+				<param name="actionName">macFilters</param>
+			</result>
+
+			<result type="redirectAction" name="ipFilters">
+				<param name="actionName">ipFilter</param>
+			</result>
+
+			<result type="redirectAction" name="managementFilters">
+				<param name="actionName">serviceFilter</param>
+			</result>
+
+			<result type="redirectAction" name="macAddress">
+				<param name="actionName">macAddress</param>
+			</result>
+
+			<result type="redirectAction" name="ipAddress">
+				<param name="actionName">ipAddress</param>
+			</result>
+
+			<result type="redirectAction" name="vlan">
+				<param name="actionName">vlan</param>
+			</result>
+			
+			<result type="redirectAction" name="vlanGroup">
+				<param name="actionName">vlanGroup</param>
+			</result>
+			
+            <result type="redirectAction" name="wifiClinetPerferredSsid">
+                <param name="actionName">wifiClinetPerferredSsid</param>
+            </result>			
+
+			<result type="redirectAction" name="localUserGroups">
+				<param name="actionName">localUserGroup</param>
+			</result>
+			
+			<result type="redirectAction" name="mstpRegion">
+				<param name="actionName">mstpRegion</param>
+			</result>
+			
+			<result type="redirectAction" name="localUsers">
+				<param name="actionName">localUser</param>
+			</result>
+
+			<result type="redirectAction" name="userAttributeGroups">
+				<param name="actionName">userAttribute</param>
+			</result>
+
+			<result type="redirectAction" name="networkService">
+				<param name="actionName">networkService</param>
+			</result>
+
+			<result type="redirectAction" name="qosClassfierAndMarker">
+				<param name="actionName">qosClassfierAndMarker</param>
+			</result>
+
+			<result type="redirectAction" name="qosClassification">
+				<param name="actionName">qosClassification</param>
+			</result>
+
+			<result type="redirectAction" name="qosMarking">
+				<param name="actionName">qosMarking</param>
+			</result>
+
+			<result type="redirectAction" name="qosRateControl">
+				<param name="actionName">qosRateControl</param>
+			</result>
+
+			<result type="redirectAction" name="ssidProfiles">
+				<param name="actionName">ssidProfiles</param>
+			</result>
+
+			<result type="redirectAction" name="ssidProfilesFull">
+				<param name="actionName">ssidProfilesFull</param>
+			</result>
+
+			<result type="redirectAction" name="userProfiles">
+				<param name="actionName">userProfiles</param>
+			</result>
+
+			<result type="redirectAction" name="scheduler">
+				<param name="actionName">scheduler</param>
+			</result>
+
+			<result type="redirectAction" name="mgmtServiceDns">
+				<param name="actionName">mgmtServiceDns</param>
+			</result>
+
+			<result type="redirectAction" name="mgmtServiceSyslog">
+				<param name="actionName">mgmtServiceSyslog</param>
+			</result>
+
+			<result type="redirectAction" name="mgmtServiceOption">
+				<param name="actionName">mgmtServiceOption</param>
+			</result>
+
+			<result type="redirectAction" name="mgmtServiceTime">
+				<param name="actionName">mgmtServiceTime</param>
+			</result>
+
+			<result type="redirectAction" name="mgmtServiceSnmp">
+				<param name="actionName">mgmtServiceSnmp</param>
+			</result>
+
+			<result type="redirectAction" name="locationServer">
+				<param name="actionName">locationServer</param>
+			</result>
+
+			<result type="redirectAction" name="captivePortalWeb">
+				<param name="actionName">captivePortalWeb</param>
+			</result>
+
+			<result type="redirectAction" name="cwpPageCustomization">
+				<param name="actionName">cwpPageCustomization</param>
+			</result>
+
+			<result type="redirectAction" name="interSubnetRoaming">
+				<param name="actionName">interSubnetRoaming</param>
+			</result>
+
+			<result type="redirectAction" name="identityBasedTunnels">
+				<param name="actionName">tunnelSetting</param>
+			</result>
+
+			<result type="redirectAction" name="ipPolicies">
+				<param name="actionName">ipPolicy</param>
+			</result>
+
+			<result type="redirectAction" name="l3FirewallPolicies">
+				<param name="actionName">firewallPolicy</param>
+			</result>
+
+			<result type="redirectAction" name="macPolicies">
+				<param name="actionName">macPolicy</param>
+			</result>
+
+			<result type="redirectAction" name="radiusServerAssignments">
+				<param name="actionName">radiusAssignment</param>
+			</result>
+
+			<result type="redirectAction" name="radiusServiceOnHiveAps">
+				<param name="actionName">radiusOnHiveAp</param>
+			</result>
+
+			<result type="redirectAction" name="activeDirectoryOrLdap">
+				<param name="actionName">activeDirectoryOrLdap</param>
+			</result>
+
+			<result type="redirectAction" name="idsPolicies">
+				<param name="actionName">idsPolicy</param>
+			</result>
+
+			<result type="redirectAction" name="radioProfiles">
+				<param name="actionName">radioProfile</param>
+			</result>
+
+			<result type="redirectAction" name="algConfiguration">
+				<param name="actionName">algConfiguration</param>
+			</result>
+
+			<result type="redirectAction" name="ethernet">
+				<param name="actionName">ethernetAccess</param>
+			</result>
+
+			<result type="redirectAction" name="accessConsole">
+				<param name="actionName">accessConsole</param>
+			</result>
+
+			<result type="redirectAction" name="pppoe">
+				<param name="actionName">pppoe</param>
+			</result>
+
+			<result type="redirectAction" name="pseProfile">
+				<param name="actionName">pseProfile</param>
+			</result>
+
+			<result type="redirectAction" name="bonjourGatewaySettings">
+				<param name="actionName">bonjourGatewaySettings</param>
+			</result>
+
+			<result type="redirectAction" name="vlanDhcpServer">
+				<param name="actionName">vlanDhcpServer</param>
+			</result>
+
+			<result type="redirectAction" name="lldpcdpProfiles">
+				<param name="actionName">lldpcdpProfiles</param>
+			</result>
+
+			<result type="redirectAction" name="configTemplate">
+				<param name="actionName">configTemplate</param>
+			</result>
+
+			<result type="redirectAction" name="hiveManagerCA">
+				<param name="actionName">hiveManagerCA</param>
+			</result>
+
+			<result type="redirectAction" name="serverCSR">
+				<param name="actionName">serverCSR</param>
+			</result>
+
+			<result type="redirectAction" name="certificates">
+				<param name="actionName">certificates</param>
+			</result>
+			
+			<result type="redirectAction" name="clientCA">
+			    <param name="actionName">clientCaMgmt</param>
+			</result>
+
+			<result type="redirectAction" name="cwpCertMgmt">
+				<param name="actionName">cwpCertMgmt</param>
+			</result>
+
+			<result type="redirectAction" name="mgmtIpTrack">
+				<param name="actionName">mgmtIpTrack</param>
+			</result>
+
+			<result type="redirectAction" name="autoProvisioning">
+				<param name="actionName">autoProvisioningConfig</param>
+			</result>
+
+			<result type="redirectAction" name="sshKeysGen">
+				<param name="actionName">sshKeysGen</param>
+			</result>
+
+			<result type="redirectAction" name="vpnServices">
+				<param name="actionName">vpnServices</param>
+			</result>
+
+			<result type="redirectAction" name="vpnNetworks">
+				<param name="actionName">vpnNetworks</param>
+			</result>
+
+			<result type="redirectAction" name="compliancePolicy">
+				<param name="actionName">compliancePolicy</param>
+			</result>
+
+			<result type="redirectAction" name="airScreenRules">
+				<param name="actionName">airScreenRules</param>
+			</result>
+
+			<result type="redirectAction" name="airScreenRuleGroups">
+				<param name="actionName">airScreenRuleGroups</param>
+			</result>
+
+			<result type="redirectAction" name="configGuide">
+				<param name="actionName">configGuide</param>
+				<param name="ts">${ts}</param>
+			</result>
+
+			<result type="redirectAction" name="onBoardUISetting">
+				<param name="actionName">onBoardUISetting</param>
+			</result>
+			<result type="redirectAction" name="radiusProxy">
+				<param name="actionName">radiusProxy</param>
+			</result>
+
+			<result type="redirectAction" name="librarySip">
+				<param name="actionName">librarySip</param>
+			</result>
+
+			<result type="redirectAction" name="osObject">
+				<param name="actionName">osObject</param>
+			</result>
+
+			<result type="redirectAction" name="domainObject">
+				<param name="actionName">domainObject</param>
+			</result>
+
+			<result type="redirectAction" name="dnsService">
+				<param name="actionName">dnsService</param>
+			</result>
+
+			<result type="redirectAction" name="routingProfiles">
+				<param name="actionName">routingProfiles</param>
+			</result>
+
+			<result type="redirectAction" name="usbModem">
+				<param name="actionName">usbModem</param>
+			</result>
+
+			<result type="redirectAction" name="networkPolicy">
+				<param name="actionName">networkPolicy</param>
+			</result>
+
+			<result type="redirectAction" name="lanProfiles">
+				<param name="actionName">portConfigure</param>
+			</result>
+			
+			<result type="redirectAction" name="portAccess">
+				<param name="actionName">portAccess</param>
+			</result>
+
+			<result type="redirectAction" name="radiusAttrs">
+				<param name="actionName">radiusAttrs</param>
+			</result>
+			
+			<result type="redirectAction" name="hiveApUpdateRts">
+				<param name="actionName">hiveApUpdateRts</param>
+			</result>
+			
+			<result type="redirectAction" name="configDeviceHiveAps">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedDeviceAPs</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">config</param>
+			</result>
+
+			<result type="redirectAction" name="configBranchRouters">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedRouters</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">config</param>
+			</result>
+
+			<result type="redirectAction" name="configSwitches">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedSwitches</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">config</param>
+			</result>
+
+			<result type="redirectAction" name="configVpnGateways">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedVPNGateways</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">config</param>
+			</result>
+
+			<result type="redirectAction" name="configHiveAps">
+				<param name="actionName">hiveAp</param>
+				<param name="hmListType">managedHiveAps</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="viewType">config</param>
+			</result>
+
+			<!-- Routing policy -->
+			<result type="redirectAction" name="routingPolicy">
+				<param name="actionName">routingPolicy</param>
+			</result>
+			<!-- Routing Profile policy -->
+			<result type="redirectAction" name="routingProfilePolicy">
+				<param name="actionName">routingProfilePolicy</param>
+			</result>
+			<!-- configmdm -->
+			<result type="redirectAction" name="configmdm">
+				<param name="actionName">configmdm</param>
+			</result>
+			<!-- mdmprofiles -->
+			<result type="redirectAction" name="mdmProfiles">
+				<param name="actionName">mdmProfiles</param>
+			</result>
+			<result type="redirectAction" name="appProfile">
+				<param name="actionName">appProfile</param>
+			</result>
+			<result type="redirectAction" name="appService">
+				<param name="actionName">appService</param>
+			</result>
+			<result type="redirectAction" name="deviceInventory">
+				<param name="actionName">deviceInventory</param>
+			</result>
+			<result type="redirectAction" name="cliBlob">
+				<param name="actionName">supplementalCLI</param>
+			</result>
+			
+			<!-- Place holder for unsupported features -->
+			<result type="tiles" name="placeHolder">blank</result>
+		</action>
+
+		<!-- Tools menu redirection -->
+		<action name="toolsMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="toolsMenu">
+
+			<result type="redirectAction" name="planTool">
+				<param name="actionName">planTool</param>
+				<param name="operation">${operation}</param>
+				<param name="start">${start}</param>
+			</result>
+
+			<result type="redirectAction" name="apSimulator">
+				<param name="actionName">apSimulator</param>
+			</result>
+
+			<result type="redirectAction" name="clientConnectMonitor">
+				<param name="actionName">hiveApToolkit</param>
+				<param name="operation">toolDebugClient</param>
+			</result>
+
+			<result type="redirectAction" name="vlanProbe">
+				<param name="actionName">hiveApToolkit</param>
+				<param name="operation">toolVlanProbe</param>
+			</result>
+
+			<result type="redirectAction" name="packetCapture">
+				<param name="actionName">hiveApToolkit</param>
+				<param name="operation">toolPacketCapture</param>
+			</result>
+
+            <result type="redirectAction" name="clientMgmtTest">
+				<param name="actionName">clientMgmtTest</param>
+			</result>
+
+			<result type="redirectAction" name="radiusTest">
+				<param name="actionName">radiusTest</param>
+			</result>
+
+			<result type="redirectAction" name="adLdapTest">
+				<param name="actionName">adLdapTest</param>
+			</result>
+
+			<result type="redirectAction" name="librarySipTest">
+				<param name="actionName">librarySipTest</param>
+			</result>
+
+			<result type="redirectAction" name="spectralAnalysis">
+				<param name="actionName">spectralAnalysis</param>
+			</result>
+
+			<result type="redirectAction" name="retrieveCACustomerId">
+				<param name="actionName">retrieveCACustomerId</param>
+			</result>
+			
+			 <result type="redirectAction" name="idmTest">
+				<param name="actionName">idmTest</param>
+			</result>
+
+			<!-- Place holder for unsupported features -->
+			<result type="tiles" name="placeHolder">blank</result>
+		</action>
+
+		<!-- User Manager menu redirection -->
+		<action name="umMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="userMgrMenu">
+
+			<result type="redirectAction" name="createAccount">
+				<param name="actionName">temporaryAccount</param>
+				<param name="operationClass">createAccounts</param>
+			</result>
+
+			<result type="redirectAction" name="revokeAccount">
+				<param name="actionName">temporaryAccount</param>
+				<param name="operationClass">revokeAccounts</param>
+			</result>
+
+			<result type="redirectAction" name="permAccount">
+				<param name="actionName">permanentAccount</param>
+			</result>
+
+			<result type="redirectAction" name="printTemplate">
+				<param name="actionName">printTemplate</param>
+			</result>
+		</action>
+
+		<!-- User Report menu redirection -->
+		<action name="upMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="userReportMenu">
+
+			<result type="redirectAction" name="gmClientMonitor">
+				<param name="actionName">gmClientMonitor</param>
+			</result>
+			<result type="redirectAction" name="usersPerDay">
+				<param name="actionName">userReports</param>
+				<param name="userReportType">usersPerDay</param>
+			</result>
+			<result type="redirectAction" name="sessPerDay">
+				<param name="actionName">userReports</param>
+				<param name="userReportType">sessPerDay</param>
+			</result>
+			<result type="redirectAction" name="avgStPerDay">
+				<param name="actionName">userReports</param>
+				<param name="userReportType">avgStPerDay</param>
+			</result>
+			<result type="redirectAction" name="sessPerNas">
+				<param name="actionName">userReports</param>
+				<param name="userReportType">sessPerNas</param>
+			</result>
+		</action>
+
+		<!-- TeacherView menu redirection -->
+		<action name="tvMenu" class="com.ah.ui.actions.HmMenuAction"
+			method="teacherViewMenu">
+			<result type="redirectAction" name="tvGuide">
+				<param name="actionName">tvGuide</param>
+			</result>
+
+			<result type="redirectAction" name="tvClass">
+				<param name="actionName">tvClass</param>
+			</result>
+
+			<result type="redirectAction" name="tvComputerCart">
+				<param name="actionName">tvComputerCart</param>
+			</result>
+
+			<result type="redirectAction" name="tvStudentRoster">
+				<param name="actionName">tvStudentRoster</param>
+			</result>
+
+			<result type="redirectAction" name="tvResourceMap">
+				<param name="actionName">tvResourceMap</param>
+			</result>
+			<result type="redirectAction" name="tvScheduleMap">
+				<param name="actionName">tvScheduleMap</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="HM Test" extends="ah-default" namespace="/">
+		<action name="configTest" class="com.ah.ui.actions.config.TestAction">
+			<result type="tiles" name="test">configTest</result>
+			<result name="mgmt">/monitor/mgmt/layout.jsp</result>
+			<result name="mgmtLeft">/monitor/mgmt/note.jsp</result>
+			<result name="mgmtTop">/monitor/mgmt/top.jsp</result>
+
+			<result type="redirectAction" name="hiveApConfig">
+				<param name="actionName">hiveProfiles</param>
+			</result>
+
+			<result type="redirectAction" name="testSsh">
+				<param name="actionName">sshWebClient</param>
+				<param name="operation">login</param>
+			</result>
+
+			<result name="download" type="stream">
+				<param name="contentType">application/tar</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					filename="${localFilename}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

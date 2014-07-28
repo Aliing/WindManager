@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:roaming="http://www.aerohive.com/configuration/roaming" targetNamespace="http://www.aerohive.com/configuration/roaming">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="cache-query-interval">
+		<xsd:sequence>
+			<xsd:element name="query-times" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="5">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="20"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="value" use="optional" default="200">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="50"/>
+					<xsd:maxInclusive value="1000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cache-update-interval">
+		<xsd:sequence>
+			<xsd:element name="ageout" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="60">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="1000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="value" use="optional" default="60">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="10"/>
+					<xsd:maxInclusive value="36000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="neighbor-query-interval">
+		<xsd:sequence>
+			<xsd:element name="query-times" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="5">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="2"/>
+								<xsd:maxInclusive value="1000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="value" use="optional" default="10">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="5"/>
+					<xsd:maxInclusive value="360000"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="include-ip">
+		<xsd:sequence>
+			<xsd:element name="cr" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cache-broadcast-neighbor-type">
+		<xsd:sequence>
+			<xsd:element name="access" type="general:ah-enable" minOccurs="0"/>
+			<xsd:element name="backhaul" type="general:ah-enable" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="roaming-obj">
+		<xsd:sequence>
+			<xsd:element name="cache" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="query-interval" type="roaming:cache-query-interval" minOccurs="0"/>
+						<xsd:element name="update-interval" type="roaming:cache-update-interval" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="hop" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="1">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0"/>
+								<xsd:maxInclusive value="16"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="neighbor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="query-interval" type="roaming:neighbor-query-interval" minOccurs="0"/>
+						<xsd:element name="include" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="ip" type="roaming:include-ip" minOccurs="0" maxOccurs="unbounded"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="exclude" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="ip" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="port" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="3000">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1500"/>
+								<xsd:maxInclusive value="65000"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="cache-broadcast" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="neighbor-type" type="roaming:cache-broadcast-neighbor-type" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

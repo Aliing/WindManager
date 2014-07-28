@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="8" paddingTop="8" paddingRight="8" paddingBottom="8">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.charts.HitData;
+			import mx.charts.series.LineSeries;
+			import mx.charts.series.items.LineSeriesItem;
+			var initURL: String; 
+			public function dateParseFunction(s:String):Date { 
+			    var temp:Array = s.split(" ");    
+			    var datepart:String = temp[0];    
+			    var datearray:Array = datepart.split("-"); 
+			    var timepart:String = temp[1];    
+			    var timearray:Array = timepart.split(":");   
+			    var intMon:int =datearray[1];
+			    var intDay:int =datearray[2];
+			    var intHour:int =timearray[0];
+			    var intMin:int =timearray[1]; 
+			 
+			    var testDate:Date = new Date();
+				var offhour:Number = testDate.getTimezoneOffset()/60 *-1;
+				var offmin:Number = testDate.getTimezoneOffset()%60 *-1
+			  	var newDate:Date = new Date(datearray[0],intMon-1,intDay,intHour+offhour,intMin+offmin);   
+			  	
+			  	return newDate;    
+			}
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url =initURL+ "reportList.action?operation=getFlashData&key=" + new Date().time;
+				httpSvc.send();				
+			 }
+		    public function myDataTipFunction(e:HitData):String {
+		
+		       	var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Value:</I>" + e.item.count + " frames\n";
+		
+		        return s
+		    }	
+		    public function myDataTipFunctionNoFrame(e:HitData):String {
+		
+		       	var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Value:</I>" + e.item.count + "\n";
+		
+		        return s
+		    }	
+			
+        ]]>
+    </mx:Script>
+  <mx:Panel width="100%" height="510" headerHeight="8">
+    <mx:Accordion width="100%" height="100%">
+        <mx:Canvas label="{httpSvc.lastResult.report.meshNeighbors.transmitTitle}" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+				<mx:LineChart id="transmitData" height="80%" width="100%" 
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunction"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+		
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.transmit.totalDataFrames.item}"
+								displayName="Total Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.transmit.beDataFrames.item}"
+								displayName="WMM Best Effort Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF0000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.transmit.bgDataFrames.item}"
+								displayName="WMM Background Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.transmit.viDataFrames.item}"
+								displayName="WMM Video Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFFFF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.transmit.voDataFrames.item}"
+								displayName="WMM Voice Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FFFF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.transmit.mgtFrames.item}"
+								displayName="Mgt Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF00FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.transmit.unicastDataFrames.item}"
+								displayName="Unicast Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x000066"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{transmitData}" width="100%" height="20%" fontSize="9" markerHeight="10" markerWidth="8"/>
+         	</mx:VBox>
+        </mx:Canvas>
+        <mx:Canvas label="{httpSvc.lastResult.report.meshNeighbors.receiveTitle}" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="receiveData" height="85%" width="100%" 
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunction"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+		
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.receive.totalDataFrames.item}"
+								displayName="Total Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.receive.mgtFrames.item}"
+								displayName="Mgt Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.receive.unicastDataFrames.item}"
+								displayName="Unicast Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0xFF00FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.receive.multicastDataFrames.item}"
+								displayName="Multicast Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x660000"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.receive.broadcastDataFrames.item}"
+								displayName="Broadcast Data Frames">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x006600"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{receiveData}" width="100%" height="15%" fontSize="9" markerHeight="10" markerWidth="8"/>
+         	</mx:VBox>
+        </mx:Canvas>
+        <mx:Canvas label="{httpSvc.lastResult.report.meshNeighbors.rssiTitle}" width="100%" height="100%">
+    		<mx:VBox width="100%" height="100%">
+			    <mx:LineChart id="rssiData" height="90%" width="100%"
+		    	    paddingRight="0" paddingLeft="0" 
+		    	    dataTipFunction="myDataTipFunctionNoFrame"
+		        	showDataTips="true">
+		        	<mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+		            <mx:horizontalAxis>
+			            <mx:DateTimeAxis
+			            	dataUnits="hours"
+			            	parseFunction="dateParseFunction"/>
+		    	    </mx:horizontalAxis>
+		        	<mx:verticalAxis>
+		            	<mx:LinearAxis baseAtZero="true"/>
+		            </mx:verticalAxis>
+			        <mx:series>
+		    	        <mx:LineSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.report.meshNeighbors.rssiData.item}"
+								displayName="RSSI">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x0000FF"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+		        	</mx:series>
+		        </mx:LineChart> 
+         		<mx:Legend dataProvider="{rssiData}" width="100%" height="10%" fontSize="9" markerHeight="10" markerWidth="8"/>
+         	</mx:VBox>
+        </mx:Canvas>
+     </mx:Accordion>
+    </mx:Panel>
+</mx:Application>

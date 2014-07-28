@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="8" paddingTop="8" paddingRight="8" paddingBottom="8">
+
+	<mx:HTTPService id="httpSvc" result="actionAfterHttpRequest()"/>
+
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import flash.net.navigateToURL;
+			import mx.charts.HitData;
+			import mx.charts.events.ChartItemEvent;
+			import flash.external.ExternalInterface;
+			import mx.collections.ArrayCollection;
+			var initURL: String; 
+			
+			public function actionAfterHttpRequest():void {
+				var srAsBr:String = httpSvc.lastResult.apdashboard.deviceInfo.blnDeviceTypeBr;
+				if (srAsBr == "true") {
+					if (panel4Br.visible == false) {
+						panel4Br.visible = true;
+					}
+				} else {
+					if (panel4Br.visible == true) {
+						panel4Br.visible = false;
+					}
+				}
+			}
+			
+            public function dateParseFunction(s:String):Date { 
+			    var temp:Array = s.split(" ");    
+			    var datepart:String = temp[0];    
+			    var datearray:Array = datepart.split("-"); 
+			    var timepart:String = temp[1];    
+			    var timearray:Array = timepart.split(":");   
+			    var intMon:int =datearray[1];
+			    var intDay:int =datearray[2];
+			    var intHour:int =timearray[0];
+			    var intMin:int =timearray[1]; 
+		     
+		        var testDate:Date = new Date();
+		    	var offhour:Number = testDate.getTimezoneOffset()/60 *-1;
+		    	var offmin:Number = testDate.getTimezoneOffset()%60 *-1
+		      	var newDate:Date = new Date(datearray[0],intMon-1,intDay,intHour+offhour,intMin+offmin);   
+		      	
+		      	return newDate;    
+            }
+
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url = initURL + "hiveApMonitor.action?operation=getFlashData&key=" + new Date().time;
+				httpSvc.send();				
+	            var explodeData:Array = [];
+	            explodeData[0] = 0.15;
+				refreshTimer();
+				if (this.height>270) {
+					panel4Br.height=270;
+				} else {
+					panel4Br.height=0;
+				}
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 15 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(30000, 30);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				clientCountSeries.setStyle("showDataEffect", "");
+				cpuSeries.setStyle("showDataEffect", "");
+				memorySeries.setStyle("showDataEffect", "");
+				httpSvc.url = initURL+ "hiveApMonitor.action?operation=getFlashData&key=" + new Date().time;
+				httpSvc.send();
+        	}        	
+
+	        private function formatClientVendorTip(hitData:HitData):String {
+				var name:String = hitData.item.name;
+				name=name.substring(1,name.length-1);
+				var count:int = hitData.item.count;
+				return "<b>" + name + ":  " + count + "</b>";
+			}
+
+			public function displayClientOui(data:Object, field:String, index:Number, percentValue:Number):String {
+    	        var temp:String= (" " + percentValue).substr(0,6);
+        	    return  temp + "%";
+        	}
+			
+			public function myDataTipFunction(e:HitData):String {
+				if (LineSeries(e.element).id == "memorySeries") {
+					return memoryDataTipFunction(e);
+				}
+
+		        var s:String;
+		        var cpuuse:int = e.item.count;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Value:</I>" + cpuuse + "%"+"\n";
+		
+		        return s
+		     }
+		     
+		    public function memoryDataTipFunction(e:HitData):String {
+		        var s:String;
+		        var totalCount:int = httpSvc.lastResult.apdashboard.totalMemo;
+		        var persentuse:int = e.item.count;
+		        var useMemo:int = totalCount * persentuse / 100;
+		        var freeMemory:int = (100 -persentuse)* totalCount /100;
+		        
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Value:</I>" + persentuse + "%"+"\n";
+		        s += "<I>Total Memory (KB):</I>" + totalCount +"\n";
+		        s += "<I>Used Memory (KB):</I>" + useMemo +"\n";
+				s += "<I>Free Memory (KB):</I>" + freeMemory +"\n";
+		        return s
+		     }
+		     public function myVpnAvailabilityTipFunction(e:HitData):String {
+		        var s:String;
+		        if (e.element is ColumnSeries) {
+		        	s = "<B>" + ColumnSeries(e.element).displayName + "</B>\n";
+		        } else {
+		        	s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        }
+		        s += "<I>Date Time:</I>" + e.item.date +"\n";
+		        s += "<I>Value:</I>" + e.item.count + "%"+"\n";
+		        return s;
+		     }
+		     
+		     public function myVpnThroughPutTipFunction(e:HitData):String {
+		        var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date +"\n";
+		        s += "<I>Value:</I>" + e.item.count + " Kbps"+"\n";
+		        return s;
+		     }
+		     
+		     public function myVpnLatencyTipFunction(e:HitData):String {
+		        var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date +"\n";
+		        s += "<I>Value:</I>" + e.item.count + " msec"+"\n";
+		        return s;
+		     }
+        ]]>
+    </mx:Script>
+	
+	<mx:SeriesZoom id="zoomIn" duration="600"/>
+    <mx:SeriesZoom id="zoomOut" duration="10"/>
+    
+	<mx:SeriesSlide id="slideIn" duration="600" direction="up"/>
+    <mx:SeriesSlide id="slideOut" duration="10" direction="down"/>
+
+	<mx:SeriesInterpolate id="interpolateIn" duration="600"/>
+    <mx:SeriesInterpolate id="interpolateWedge" elementOffset="10"/>
+    <mx:Panel headerHeight="0" id="allPanel" layout="vertical" height="100%" width="100%" borderThicknessBottom="1" borderThicknessLeft="1" borderThicknessRight="1" borderThicknessTop="1">
+		<mx:Panel headerHeight="0" height="240" width="100%" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+			<mx:HBox direction="horizontal" width="100%" height="100%" paddingTop="4" paddingLeft="6" paddingRight="6">
+				<mx:Panel  title="{httpSvc.lastResult.apdashboard.apCpuPencent}" id="cpuMemUsagePanel" width="33%" headerHeight="25" height="100%" borderThicknessTop="0">
+	    	    <mx:LineChart id="cpuMemUsed" width="100%" height="100%"
+	        	    paddingRight="5" paddingLeft="5" 
+	            	showDataTips="true" dataTipFunction="myDataTipFunction">
+			        <mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+			         <mx:horizontalAxis>
+			         	<mx:LinearAxis id="a1"/>
+			         </mx:horizontalAxis>
+	            	<mx:verticalAxis>
+	                	<mx:LinearAxis baseAtZero="true" interval="1" maximum="100"/>
+		            </mx:verticalAxis>
+		            
+			        <mx:horizontalAxisRenderers>
+			            <mx:AxisRenderer  axis="{a1}" showLabels="false"/>
+			        </mx:horizontalAxisRenderers>
+	
+	    	        <mx:series>
+	    	        	<mx:LineSeries yField="count" id="cpuSeries" dataProvider="{httpSvc.lastResult.apdashboard.cpuUsage.item}"
+								displayName="CPU Usage" showDataEffect="{interpolateIn}">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+						<mx:LineSeries yField="count" id="memorySeries" dataProvider="{httpSvc.lastResult.apdashboard.memoryUsage.item}"
+								displayName="Memory Usage"
+								showDataEffect="{interpolateIn}">
+			            <mx:lineStroke>
+			                <mx:Stroke color="0xFF0000"/>
+			            </mx:lineStroke>   
+			            </mx:LineSeries>
+	            	</mx:series>
+		        </mx:LineChart> 
+		       	<mx:Legend width="100%" direction="vertical" height="55" fontSize="9" 
+		       			dataProvider="{cpuMemUsed}" labelPlacement="right" markerHeight="2" markerWidth="40"/>
+				</mx:Panel>
+				<mx:Panel title="Clients Count (last 8 hours)" height="100%" width="34%" headerHeight="25" borderThicknessTop="0">
+		    	    <mx:LineChart id="clientsCountData" height="100%" width="100%"
+		        	    paddingRight="5" paddingLeft="5" 
+		            	showDataTips="true">
+		            	<mx:seriesFilters>
+				           <mx:Array/>
+				        </mx:seriesFilters>
+			            <mx:horizontalAxis>
+		    	            <mx:DateTimeAxis
+				            	dataUnits="hours"
+				            	parseFunction="dateParseFunction"/>
+		        	    </mx:horizontalAxis>
+		
+		            	<mx:verticalAxis>
+		                	<mx:LinearAxis baseAtZero="true" interval="1"/>
+			            </mx:verticalAxis>
+		
+		    	        <mx:series>
+		        	        <mx:LineSeries yField="count" xField="date" id="clientCountSeries" dataProvider="{httpSvc.lastResult.apdashboard.users.item}"
+									displayName="Clients"
+									showDataEffect="{interpolateIn}" >
+					            <mx:lineStroke>
+					                <mx:Stroke color="0x00FF00"/>
+					            </mx:lineStroke>   
+							</mx:LineSeries>
+		            	</mx:series>
+			        </mx:LineChart> 
+		        </mx:Panel>
+		        <mx:Panel title="Top 15 Client Vendor Information" width="33%" headerHeight="25" height="100%" borderThicknessTop="0">
+					<mx:PieChart height="100%" width="100%" 
+			            paddingRight="5" paddingLeft="5"
+			            dataTipFunction="formatClientVendorTip"
+			            showDataTips="true" dataProvider="{httpSvc.lastResult.apdashboard.userVendor.item}" > 
+			            <mx:series>
+			                <mx:PieSeries labelPosition="callout" field="count"
+								labelFunction="displayClientOui" id="clientOuiSeries"
+									showDataEffect="{zoomIn}" 
+									hideDataEffect="{zoomOut}">
+		                    	<mx:calloutStroke>
+		                        	<mx:Stroke weight="0" color="0x888888" alpha="1.0"/>
+		                    	</mx:calloutStroke>
+		                    	<mx:radialStroke>
+		                        	<mx:Stroke weight="0" color="#FFFFFF" alpha="0.20"/>
+		                    	</mx:radialStroke>
+		                    	<mx:stroke>
+		                        	<mx:Stroke color="0" alpha="0.20" weight="2"/>
+		                    	</mx:stroke>
+							</mx:PieSeries>
+		            	</mx:series>
+		        	</mx:PieChart>
+	        	</mx:Panel>
+			</mx:HBox>
+		</mx:Panel>
+		
+		<mx:Panel id="panel4Br" headerHeight="0" height="0" width="100%" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+			<mx:HBox direction="horizontal" width="100%" height="245" paddingTop="4" paddingLeft="6" paddingRight="6">
+				<mx:Panel title="{httpSvc.lastResult.apdashboard.chartTitles.vpnAvailability}" height="100%" width="33%" headerHeight="25" borderThicknessTop="0">
+		        	<mx:ColumnChart id="vpnAvailabilityData" height="100%" width="100%"
+		        		paddingRight="5" paddingLeft="5" 
+		        		showDataTips="true" dataTipFunction="myVpnAvailabilityTipFunction">
+		        			<mx:seriesFilters>
+					           <mx:Array/>
+					        </mx:seriesFilters>
+		        			<mx:horizontalAxis>
+		        				<mx:DateTimeAxis
+					            	dataUnits="minutes"
+					                labelUnits="minutes"
+					                interval="10"
+					            	parseFunction="dateParseFunction"/>
+			            	</mx:horizontalAxis>
+			            	<mx:verticalAxis>
+			                    <mx:LinearAxis baseAtZero="true" interval="1"/>
+			            	</mx:verticalAxis>
+			            	<mx:series>
+			            		<mx:ColumnSeries
+									dataProvider="{httpSvc.lastResult.apdashboard.vpnAvailabilityData.availabilityData.item}"
+									xField="date"
+									yField="count"
+									displayName="Available">
+									<mx:stroke>
+										<mx:Stroke color="0x00FF00" weight="2"/>
+									</mx:stroke>
+									<mx:fill>
+										<mx:SolidColor color="0x00FF00" alpha="1.0"/>
+									</mx:fill>
+						         </mx:ColumnSeries>
+	                            <mx:LineSeries
+									dataProvider="{httpSvc.lastResult.apdashboard.vpnAvailabilityData.upTime.item}"
+									xField="date"
+									yField="count"
+									displayName="Uptime" >
+									<mx:lineStroke>
+					                	<mx:Stroke color="0x0000FF"/>
+					            	</mx:lineStroke> 
+								</mx:LineSeries>
+			            	</mx:series>
+		        	</mx:ColumnChart>
+		        </mx:Panel>
+		        <mx:Panel title="{httpSvc.lastResult.apdashboard.chartTitles.vpnThroughPut}" height="100%" width="34%" headerHeight="25" borderThicknessTop="0">
+		        	<mx:LineChart id="vpnThroughPutData" height="100%" width="100%"
+		        	    paddingRight="5" paddingLeft="5" 
+		            	showDataTips="true" dataTipFunction="myVpnThroughPutTipFunction">
+		            	<mx:seriesFilters>
+				           <mx:Array/>
+				        </mx:seriesFilters>
+	        			<mx:horizontalAxis>
+	        				<mx:DateTimeAxis
+				            	dataUnits="minutes"
+				                labelUnits="minutes"
+				                interval="10"
+				            	parseFunction="dateParseFunction"/>
+		            	</mx:horizontalAxis>
+		            	<mx:verticalAxis>
+		                    <mx:LinearAxis baseAtZero="true"/>
+		            	</mx:verticalAxis>
+		            	<mx:series>
+		            		<mx:LineSeries
+								dataProvider="{httpSvc.lastResult.apdashboard.vpnThroughPutData.tunnel1Data.dataIn.item}"
+								xField="date"
+								yField="count"
+								displayName="{httpSvc.lastResult.apdashboard.vpnThroughPutData.tunnelName.tunnel1} Data In" >
+								<mx:lineStroke>
+				                	<mx:Stroke color="0xFF3333"/>
+				            	</mx:lineStroke> 
+							</mx:LineSeries>
+							<mx:LineSeries
+								dataProvider="{httpSvc.lastResult.apdashboard.vpnThroughPutData.tunnel1Data.dataOut.item}"
+								xField="date"
+								yField="count"
+								displayName="{httpSvc.lastResult.apdashboard.vpnThroughPutData.tunnelName.tunnel1} Data Out" >
+								<mx:lineStroke>
+				                	<mx:Stroke color="0xFF99FF"/>
+				            	</mx:lineStroke> 
+							</mx:LineSeries>
+							<mx:LineSeries
+								dataProvider="{httpSvc.lastResult.apdashboard.vpnThroughPutData.tunnel2Data.dataIn.item}"
+								xField="date"
+								yField="count"
+								displayName="{httpSvc.lastResult.apdashboard.vpnThroughPutData.tunnelName.tunnel2} Data In" >
+								<mx:lineStroke>
+				                	<mx:Stroke color="0x00FF00"/>
+				            	</mx:lineStroke> 
+							</mx:LineSeries>
+							<mx:LineSeries
+								dataProvider="{httpSvc.lastResult.apdashboard.vpnThroughPutData.tunnel2Data.dataOut.item}"
+								xField="date"
+								yField="count"
+								displayName="{httpSvc.lastResult.apdashboard.vpnThroughPutData.tunnelName.tunnel2} Data Out" >
+								<mx:lineStroke>
+				                	<mx:Stroke color="0x66CC66"/>
+				            	</mx:lineStroke> 
+							</mx:LineSeries>
+		            	</mx:series>
+		            </mx:LineChart>
+		        </mx:Panel>
+		        <mx:Panel title="{httpSvc.lastResult.apdashboard.chartTitles.vpnLatency}" height="100%" width="34%" headerHeight="25" borderThicknessTop="0">
+		        	<mx:LineChart id="vpnLatencyData" height="100%" width="100%"
+		        	    paddingRight="5" paddingLeft="5" 
+		            	showDataTips="true" dataTipFunction="myVpnLatencyTipFunction">
+		            	<mx:seriesFilters>
+				           <mx:Array/>
+				        </mx:seriesFilters>
+	        			<mx:horizontalAxis>
+	        				<mx:DateTimeAxis
+				            	dataUnits="minutes"
+				                labelUnits="minutes"
+				                interval="10"
+				            	parseFunction="dateParseFunction"/>
+		            	</mx:horizontalAxis>
+		            	<mx:verticalAxis>
+		                    <mx:LinearAxis baseAtZero="true" interval="1"/>
+		            	</mx:verticalAxis>
+		            	<mx:series>
+		            		<mx:LineSeries
+								dataProvider="{httpSvc.lastResult.apdashboard.vpnLatencyData.tunnel1Data.item}"
+								xField="date"
+								yField="count"
+								displayName="{httpSvc.lastResult.apdashboard.vpnLatencyData.tunnelName.tunnel1} Round Trip Time" >
+								<mx:lineStroke>
+				                	<mx:Stroke color="0xFF0000"/>
+				            	</mx:lineStroke> 
+							</mx:LineSeries>
+							<mx:LineSeries
+								dataProvider="{httpSvc.lastResult.apdashboard.vpnLatencyData.tunnel2Data.item}"
+								xField="date"
+								yField="count"
+								displayName="{httpSvc.lastResult.apdashboard.vpnLatencyData.tunnelName.tunnel2} Round Trip Time" >
+								<mx:lineStroke>
+				                	<mx:Stroke color="0x00FF00"/>
+				            	</mx:lineStroke> 
+							</mx:LineSeries>
+		            	</mx:series>
+		            </mx:LineChart>
+		        </mx:Panel>
+			</mx:HBox>
+		</mx:Panel>
+	</mx:Panel>
+</mx:Application>

@@ -1,0 +1,58 @@
+PRE_LOGIN_TITLE:이동
+PRE_LOGIN_WAIT:잠시만 기다려 주세요...
+PRE_LOGIN_CONTENT:로그인 페이지가 보이지 않는 경우 브라우저를 종료한 후 다시 접속하여 주시기 바랍니다.
+FAIL_RADIUS_UNREACH:인증 서버가 등록 정보를 받지못해서 네트워크 접속을 할수가 없습니다. 잠시후 다시 시도해 주십시요. 문제가 지속되면 담당자에게 연락 부탁드립니다.
+FAIL_CREDENTIAL_ERR:해당 계정에 대한 로그인 정보가 인증서버의 정보와 일치하지 않거나, 해당 계정 정보가 존재하지 않습니다. 사용자명과 비밀번호를 확인하신 후, 다시 시도해주세요.  문제가 계속되는 경우 관리자에게 계정확인을 문의하시기 바랍니다.
+FAIL_MANDATED_MISSED:채워지지 않은 필수항목(*)이 있습니다. 모든 정보를 입력한 후 등록을 진행하여 주세요.
+FAIL_PPSK_INVALID_SSID:비밀번호를 할당 할 수 없습니다. 네트워크 관리자에게 캡티브 웹 포탈이 호스팅 하는 SSID가 PPSK인증을 사용하여 바인딩 할 수 없다고 문의하세요.
+FAIL_PPSK_STA_DENIED:클라이언트가 네트워크 접속을 거부당하였기 때문에 비밀번호를 할당 할 수 없습니다. 자세한 정보는 네트워크 관리자에게 문의하십시오.
+FAIL_PPSK_NO_MORE_PSK:이용 가능한 비밀번호가 없습니다. 네트워크 관리자에게 문의하세요.
+FAIL_UNKNOWN:알려지지 않은 에러입니다.
+FAIL_RETURN_TO_LOGIN:잠시 후자동으로 로그인 페이지로 넘어갑니다. 바로로그인페이지로 이동하시려면 다음 버튼을 클릭해주세요.
+FAIL_HERE:이곳
+FAIL_REDIR:이동됩니다
+FAIL_INTERNAL_ERR:웹서버 에러
+TIMER_TIME_LEFT_PART1:등록에 성공하여 지금부터 네트워크에 접속이 가능합니다. 남은 계정시간을 확인하기 위해 이 윈도우 창을 유지하시고, 종료시 로그아웃 해주세요. 현재 남은 시간은
+TIMER_TIME_LEFT_PART2:분 남았습니다.
+TIMER_LOG_OUT:로그아웃
+TIMER_SHOW_DETAIL:자세히 보기
+TIMER_BOOKMARK:이 페이지를 즐겨찾기에 등록하기
+TIMER_NOTE:알림
+TIMER_TITLE:네트워크 접속 시간
+TIMER_CUR_AP:현재 엑세스 포인트
+TIMER_PRE_AP:기존 엑세스 포인트
+TIMER_CUR_LAST_LOGOUT:마지막 로그아웃
+TIMER_HIDE_DETAIL:자세한 정보 숨기기
+TIMER_NOTE_PART1:무선랜에 접속 되었습니다. 접속 시간이 한정되었으니 미사용시 로그아웃 해주십시요.
+TIMER_NOTE_PART2:현재 창을 닫기전에 이 페이지를 즐겨찾기에 등록해 주십시요. "네트워크 엑세스 타이머" 항목 (
+TIMER_NOTE_PART3:)" 이 추가될 것입니다. 이 페이지를 열면 남은 시간을 확인 할 수 있습니다.
+TIMER_TIME_LEFT2_PART1:남은 시간은 1 분 미만 입니다.
+TIMER_NOTE_SESS_TIMEOUT:셰션이 종료 되었습니다.
+TIMER_LOG_OUT_CONFIRM:셰션을 종료 하시겠습니까?
+TIMER_LEAVE:남은 시간 확인을 위해 타이머 페이지를 열고 계십시요. 페이지를 닫기전에 즐겨 찾기에 추가하시기를 권장합니다.
+TIMER_DAY:일
+TIMER_DAYS:일
+TIMER_HOUR:시간
+TIMER_HOURS:시간
+TIMER_MINUTE:분
+TIMER_MINUTES:분
+TIMER_LEFT:남았습니다.
+TIMER_TO_BOOKMARK:즐겨찾기에 추가하기
+TIMER_TIME_OUT:타임 아웃
+TIMER_NO_LONGER_CONNECT:네트워크 연결이 종료 되었습니다. 디바이스 네트위크 세팅을 확인해 주십시요. 현재 페이지는 잠시후 종료 될 것입니다.
+TIMER_NO_LONGER_CONNECT2:분
+TIMER_NO_CONNECT:네트워크 연결이 안되었습니다.
+TIMER_NO_CONNECT_ALERT:네트워크 연결이 종료 되었습니다. 디바이스 네트위크 세팅을 확인후 다시 시도해 주십시요.
+LOGOUT_TITLE:로그아웃중입니다
+LOGOUT_LOGOUT_THK:로그아웃 되었습니다. 감사합니다
+LOGOUT_NOTE:현재 창을 닫을수 있습니다.
+LOGOUT_SUMMARY:세션 요약
+LOGOUT_LEFT_TIME:남은 시간
+LOGOUT_LEFT_MINUTES:분
+LOGOUT_IP:IP Address
+LOGOUT_AP:엑세스 포인트
+LOGOUT_LOGOUT_TIME:로그아웃 시간
+LOGOUT_SENT:보낸 바이트
+LOGOUT_RECV:받은 바이트
+LOGOUT_BYTES:바이트
+PPSK_LOGIN_PAGE:로그인 페이지

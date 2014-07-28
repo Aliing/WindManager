@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="userMgr" extends="hmLayout">
+		<put-attribute name="leftWidth" value="175" />
+		<put-attribute name="statusView" value="/tiles/blankStatusView.jsp" />
+	</definition>
+	
+	<definition name="temporaryAccounts" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userMgr/temporaryAccounts.jsp" />
+	</definition>
+	
+	<definition name="allocateAccount" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userMgr/allocateAccount.jsp" />
+	</definition>
+	
+	<definition name="printAccount" extends="layoutBlank">
+		<put-attribute name="body" value="/jsp/gml/userMgr/printAccount.jsp" />
+	</definition>
+	
+	<definition name="permanentAccounts" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userMgr/permanentAccounts.jsp" />
+	</definition>
+	
+	<definition name="permanentAccount" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userMgr/permanentAccount.jsp" />
+	</definition>
+	
+	<definition name="printTemplates" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userMgr/printTemplates.jsp" />
+	</definition>
+	
+	<definition name="printTemplate" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userMgr/printTemplate.jsp" />
+	</definition>
+	
+	<definition name="previewTemplate" extends="layoutBlank">
+		<put-attribute name="body" value="/jsp/gml/userMgr/previewTemplate.jsp" />
+	</definition>	
+	
+	<definition name="userReportList" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userReport/userReportList.jsp" />
+	</definition>
+	
+	<definition name="userReportDetail" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userReport/userReportDetail.jsp" />
+	</definition>
+	
+	<definition name="gmClientMonitor" extends="userMgr">
+		<put-attribute name="body" value="/jsp/gml/userReport/gmlClientMonitor.jsp" />
+	</definition>
+	
+</tiles-definitions>

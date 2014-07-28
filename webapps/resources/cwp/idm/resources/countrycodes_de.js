@@ -1,0 +1,20 @@
+var countrycodeData = [
+    {'sname':'US','name':'United States','value':'1'},
+    {'sname':'CA','name':'Canada','value':'1'},
+    {'sname':'NL','name':'Netherlands','value':'31'},
+    {'sname':'BE','name':'Belgium','value':'32'},
+    {'sname':'FR','name':'France','value':'33'},
+    {'sname':'ES','name':'Spain','value':'34'},
+    {'sname':'AT','name':'Austria','value':'43'},
+    {'sname':'GB','name':'United Kingdom','value':'44'},
+    {'sname':'DK','name':'Denmark','value':'45'},
+    {'sname':'SE','name':'Sweden','value':'46'},
+    {'sname':'DE','name':'Germany','value':'49'},
+    {'sname':'MX','name':'Mexico','value':'52'},
+    {'sname':'BR','name':'Brazil','value':'55'},
+    {'sname':'AU','name':'Australia','value':'61'},
+    {'sname':'NZ','name':'New Zealand','value':'64'},
+    {'sname':'KR','name':'Korea, Republic Of','value':'82'},
+    {'sname':'CN','name':'China','value':'86'},
+    {'name':'Others','value':'0'}//manual
+];

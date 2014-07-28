@@ -1,0 +1,632 @@
+.configguide div.aero-accordionview {
+	margin: 0 auto;
+	background-image: url(../images/hm_v2/HM-config-bkg.png);
+	background-repeat: repeat;
+	background-size: 100% auto;
+	
+	background-image: url(../images/hm_v2/ie/HM-config-bkg-ie8.png) \9;
+}
+.configguide .aero-accordion-drawer div.aero-accordion-drawer-title,.configguide .aero-accordion-drawer div.aero-accordion-content
+	{
+	padding: 0px 20px;
+}
+
+.configguide .aero-accordion-drawer div.aero-accordion-content {
+	background-image: url(../images/hm_v2/HM-config-bkg.png);
+	background-repeat: repeat;
+	background-size: 100% auto;
+	
+	background-image: url(../images/hm_v2/ie/HM-config-bkg-ie8.png) \9;
+}
+
+.configguide .aero-accordionview ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+}
+
+.configguide .aero-accordionview li {
+	text-decoration: none;
+	line-height: 30px;
+	background-image: url(../images/hm_v2/HM-config-drawer-inactive.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	background-image: url(../images/hm_v2/ie/HM-config-drawer-inactive-ie8.png) \9;
+}
+.configguide .aero-accordionview li.active {
+	text-decoration: none;
+	line-height: 30px;
+}
+.configguide .aero-accordionview li div.aero-accordion-drawer-title{
+    border-left: 5px solid #BEB9AA;
+}
+.configguide .aero-accordionview li.active div.aero-accordion-drawer-title{
+    background: #BEB9AA;
+    border-left: 5px solid #F5A433;
+}
+.configguide .aero-accordionview li.selectedNetworkPolicy{
+/* 	background-image: none;
+	background-color: #C64917; */
+}
+
+.configguide .aero-accordionview #sub_selectNetWorkPolicyContentId {
+	line-height: 15px;
+}
+
+.configguide .aero-accordionview #sub_NetworkPolicyContentId {
+	line-height: 15px;
+}
+
+.configguide .aero-accordionview #sub_cofigurePolicyContentId {
+	line-height: 15px;
+}
+
+.configguide .aero-accordionview #cofigurePolicyContentId {
+	line-height: 18px;
+}
+
+.configguide .aero-accordion-drawer-title h3 {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0px;
+	cursor: pointer;
+}
+.configguide .aero-accordion-drawer-title h3.active {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0px;
+	cursor: pointer;
+	color: #FFF;
+}
+.configguide .aero-accordion-drawer-title h3.selectedNetworkPolicy {
+	text-align: left;
+}
+
+.configguide .aero-accordion-drawer-title h4 {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.configguide .aero-accordion-drawer span.costumButton {
+	/*
+	display: block;
+	position: absolute;
+	right: 0.5em;
+	top: 25%;
+	*/
+	float: right;
+	height: 20px;
+}
+
+.configguide .aero-accordion-drawer .costumButton {
+	/*display: inline;*/
+	font-size: 75%;
+	margin-top: 3px;
+	padding: 0px 7px 6px 7px;
+	background: #777 url(../images/hm/button.png) repeat-x bottom;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-weight: bold;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-shadow: 1px 1px #666;
+}
+.configguide .aero-accordion-drawer .costumButton:hover {
+	background-position: 0 center;
+}
+.configguide .aero-accordion-drawer .costumButton:active {
+	background-position: 0 top;
+	position: relative;
+	top: 1px;
+	padding: 6px 10px 4px;
+}
+.aero-accordion-drawer .hidden {
+	display: none;
+}
+.aero-accordion-drawer .block {
+	display: block;
+}
+.aero-accordion-drawer .inline {
+	display: inline;
+}
+
+.hiddenOverFlow {
+    overflow-y: hidden;
+}
+
+/*fnr css begin*/
+.npcNoteTitle {
+	font-size: 11px;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #6F6F6F;
+	line-height: 15px;
+	padding: 20px 100px 4px 35px;
+}
+
+.npcHead1 {
+	font-size: 18px;
+	font-family: Century Gothic, Helvetica, Arial, sans-serif;
+	color: #C84B00;
+	font-weight: 300;
+}
+
+.npcHead2 {
+	font-size: 12px;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #6F6F6F;
+	font-weight: bold;
+}
+
+.lstHead2 {
+	font-size: 14px;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #6F6F6F;
+	background-color: #F3F3F0;
+	padding:4px,0;
+	font-weight: bold;
+}
+
+.smallTd {
+	font-size: 10px;
+	line-height: 12px;
+}
+.normalTd{
+    font-size: 13px;
+    line-height: 13px;
+}
+
+.normalSpan{
+    font-size: 13px;
+    color: #000;
+    line-height: 13px;
+    text-decoration: none;
+}
+
+.imageTd {
+	width: 26px;
+	vertical-align: top;
+}
+
+.schedulerTd {
+	position: relative;
+	top: 6px;
+	left: 8px;
+}
+
+.npcLinkA, .npcLinkA:link {
+	font-size: 13px;
+	text-decoration: underline;
+	line-height: 13px;
+	color: #0093D1;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.npcLinkAEmpty, .npcLinkAEmpty:link{
+	font-size: 13px;
+	line-height: 13px;
+	text-decoration: underline;
+	color: #C84B00;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.npcList {
+	background-color: #f3f3f0;
+	line-height: 15px;
+}
+
+.npcListBlock, .npcListBlockSub {
+	padding: 2px 0 2px 0;
+	line-height: 65%;
+	background-color: #f9f9f9;
+}
+
+.npcButton span {
+	background: url(../images/hm_v2/hm-button-bkg.png) no-repeat center left;
+	cursor: pointer;
+	font-weight: bold;
+	cursor: pointer;
+	color: #fff;
+	padding: 3px 8px 5px 18px;
+	margin: 0 10px 0 -10px;
+	float: left;
+	position: relative; /*To fix IE6 problem (not displaying)*/
+}
+
+.npcButton span.minWidth {
+	text-align: center;
+	width: 39px;
+}
+
+.npcButtonTitle span.buttonLink {
+	background: url(../images/hm_v2/hm-button-bkg.png) no-repeat center left;
+	cursor: pointer;
+	font-weight: bold;
+	cursor: pointer;
+	color: #fff;
+	padding: 3px 8px 5px 18px;
+	margin: 0 10px 0 -10px;
+	float: left;
+	position: relative; /*To fix IE6 problem (not displaying)*/
+}
+
+.npcButtonTitle span.subdrawer_title {
+	font-size: 15px;
+	font-weight: bolder;
+	color: #181818;
+	margin: 0px;
+	padding: 0 0 0 80px;
+	position: relative;
+}
+
+.npcButton a.btCurrent, .npcButtonTitle a.btCurrent{
+    background: url(../images/hm_v2/hm-button-bkg.png) no-repeat center right;
+    text-decoration:none;
+    float: left;
+    cursor: pointer;
+    position: relative;
+}
+
+.noteError {
+	font-weight: bold;
+	color: #FF0000;
+}
+.noteInfo {
+	font-weight: normal;
+	color: #003366;
+}
+
+.noteErrorForNetworkPolicy {
+	line-height: 15px;
+	padding-left: 35px;
+	padding-top: 4px;
+}
+
+.selectListTD {
+	font-size: 17px;
+	font-weight: normal;
+	padding-left: 10px;
+	border: 3px solid white;
+	line-height: 18px;
+}
+
+.dialogPanelTitle {
+	padding: 8px 0px 5px 10px;
+	vertical-align: middle;
+	font-size: 18px;
+	font-weight: 300;
+	font-family: century gothic, helvetica light, anal, Arial, sans-serif;
+	color: #C84B00;
+}
+
+body {
+	background-color: transparent;
+}
+/*fnr css end*/
+
+div.topFixedTitle {
+	position:fixed;
+	z-index:99999;
+	top:0;
+	height:50px;
+	display:inline;
+	width:100%;
+	padding-left:-10px;
+	margin-left:-5px;
+	padding-right:25px;
+	background-color: #f9f9f7;
+}
+table.topFixedTitle {
+	padding-top: 50px;
+	padding-top: 0px \9;
+	margin-top: 50px \9;
+}
+td.paddingLeft {
+	padding-left: 5px;
+}
+
+/*---------- VPN Network ---------------*/
+#dhcp-slider, #guest-dhcp-slider {
+	background: none;
+	background-color: #ffc721;
+}
+#dhcp-slider .ui-widget-header, #guest-dhcp-slider .ui-widget-header{
+	border: 1px solid #dddddd;
+	background: #eeeeee
+		url(/hm/images/jquery/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50%
+		top repeat-x;
+	color: #333333;
+}
+input[type="radio"] {
+	vertical-align:middle; 
+	margin-top:-2px;
+	margin-bottom:1px;
+}
+#webSecurityFailNoteRowId td, #webSecurityNoteId {
+	font-size: 11px;
+}
+/*---------- LANs ---------------*/
+span.indicator {
+	width: 5px;
+	height: 5px;
+	display: -moz-inline-box;
+	display: inline-block;
+}
+span.activePort {
+	background: none repeat scroll 0 0 #0092d6;
+}
+span.inactivePort {
+	background: none repeat scroll 0 0 #737173;
+}
+/*---------- LANs: Network Dialog ---------------*/
+span.activeTab {
+	color:#000;
+	padding-left: 5px;
+	cursor: pointer;
+	line-height: 22px;
+	font-family: century gothic, helvetica light, helvetica, arial, sans serif;
+	font-size: 13px;
+}
+
+span.inactiveTab {
+	color:#C84B00;
+	padding-left: 8px;
+	cursor: pointer;
+	font-family: century gothic, helvetica light, helvetica, arial, sans serif;
+	font-size: 13px;
+}
+
+div.tabSection {
+	width: 250px;
+	position: absolute;
+	top: 145px;
+	left: 165px;
+	border:2px solid #cccccc;
+	background-color: white;
+}
+
+div.plainTab {
+ 	background-color: #FFFFFF;
+    color: #CCCCCC;
+    margin-left: 0px;
+    top: 190px;
+    position: absolute;
+    width: 125px;
+    z-index: 4;
+}
+div.activeTab {
+    border-bottom: 2px solid darkgray;
+    border-left: 2px solid darkgray;
+    border-top: 2px solid darkgray;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: 1px;
+}
+div.tabSection  div.dialogListMenu {
+    right: -20px;
+}
+/*--------- Loading Icon ---------------*/
+.loadingIcon {
+	background: url(../images/hm/express/ajax-loader-on-white.gif) no-repeat scroll 0 0 transparent;
+	width: 32px;
+	height: 32px;
+}
+
+/*--this css is for list edit -*/
+span.editText {
+	float: right;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-right: 10px;
+	cursor: pointer;
+	margin-top: 2px;
+	width: 20px;
+	height: 20px;
+	color: #FFC20E;
+	background: url(../images/hm_v2/settings-icon-20x20.png) no-repeat scroll 0 0 ;
+}
+
+span.checkedIcon {
+	float: left;
+	width: 20px;
+	height: 20px;
+	color: #FFC20E;
+	background: url(../images/check.png) no-repeat scroll 0 0 ;
+	margin-left:-8px;
+	margin-right:2px;
+	_margin-left:-8px;
+	_margin-right:2px;
+}
+
+span.cloneText {
+	float: right;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-right: 10px;
+	cursor: pointer;
+	margin-top: 2px;
+	color: #FFC20E;
+	width: 16px;
+	background: url(../images/monitoring.png) no-repeat scroll 0 0 ;
+}
+/*--this css is for list dialog menu -*/
+div.dialogListMenu {
+	position: absolute;
+	background-color: #ccc;
+	width: 45px;
+	right: 20px;
+}
+.dialogListMenu ul {
+    padding: 1px 0;
+    margin: 0px;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px 0 0;
+    /*avoid override*/
+    float: none;
+}
+.dialogListMenu li {
+	list-style-type: none;
+    text-decoration: none;
+    text-align: left;
+    line-height: 18px;
+    cursor: pointer;
+    padding-left: 5px;
+    /*avoid override*/
+    display: block;
+    float: none;
+    margin: 0;
+}
+.dialogListMenu li.hover {
+	background-color: #ffc20e;
+}
+/*--------- CSS String Truncation with Ellipsis ------------*/
+.ellipsis {
+	cursor: pointer;
+	margin-top: 2px;
+	padding-right: 0;
+	display: inline-block;
+	width: 180px; /* please DON'T change this width, override it when necessarily*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis; /*For Opera*/
+	-ms-text-overflow: ellipsis; /*For IE8*/
+	-moz-binding: url(assets/xml/ellipsis.xml#ellipsis); /*For Firefox3.x*/
+}
+.word-wrap {
+	-moz-binding: url('./wordwrap.xml#wordwrap');
+	cursor: pointer;
+	margin-top: 2px;
+	padding-right: 0;
+	display: inline-block;
+	width: 180px; /* please DON'T change this width, override it when necessarily*/
+	overflow: hidden;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+.word-wrap1 {
+	-moz-binding: url('./wordwrap.xml#wordwrap');
+	/*cursor: pointer;*/
+	margin-top: 2px;
+	padding-right: 0;
+	display: inline-block;
+	width: 180px; /* please DON'T change this width, override it when necessarily*/
+	overflow: hidden;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+.word-wrap2 {
+	-moz-binding: url('./wordwrap.xml#wordwrap');
+	cursor: pointer;
+	margin-top: 2px;
+	padding-right: 0;
+	display: inline-block;
+	width: 180px; /* please DON'T change this width, override it when necessarily*/
+	overflow: hidden;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+.clear {
+	clear: both;
+}
+
+div.nptype {
+	background-color: #DEDCD5;
+	text-align: center;
+	width: 168px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+div.nptype_selected {
+	background-color: #DEDCD5;
+	text-align: center;
+	width: 168px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+div.nptype_desc {
+	background-color: #DEDCD5;
+}
+div.nptype div.nptype_check img {
+	background: url(../images/hm_v2/network_policy/AH-HM-checkmark-off.png) no-repeat top right;
+	width: 45px;
+	height: 45px;
+}
+div.nptype_selected div.nptype_check img {
+	background: url(../images/hm_v2/network_policy/AH-HM-checkmark-on.png) no-repeat top right;
+	width: 45px;
+	height: 45px;
+}
+div.nptype_head {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	color: #0093D1;
+}
+div.nptype_footer {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	text-align: left;
+	color: #666666;
+	padding-left: 2px;
+}
+div.nptype_content img.wireless {
+	background: url(../images/hm_v2/network_policy/AH-HM-Wireless-icon.png) no-repeat top right;
+	width: 140px;
+	height: 70px;
+}
+div.nptype_content img.switch {
+	background: url(../images/hm_v2/network_policy/AH-HM-Switching-icon.png) no-repeat top right;
+	width: 140px;
+	height: 70px;
+}
+div.nptype_content img.router {
+	background: url(../images/hm_v2/network_policy/AH-HM-BranchRouting-icon.png) no-repeat top right;
+	width: 140px;
+	height: 70px;
+}
+div.nptype_content img.bonjour {
+	background: url(../images/hm_v2/network_policy/AH-HM-BonjourGateway-icon.png) no-repeat top right;
+	width: 140px;
+	height: 70px;
+}
+div.nptype_selection_desc {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	text-align: center;
+	color: #4F4F4F;
+	font-weight: bold;
+	margin-top: 25px;
+}
+div.chooseNote {
+	background-color: #F7EFE7;
+    border: 5px #CEBAB5;
+    border-radius: 12px 12px 12px 12px;
+    color: #8B867D;
+    font-family: Century Gothic,helvetica,arial,sans serif;
+    font-size: 1.5em;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+/*------Specific----------*/
+#captivePortalWeb input#inputVlanValue {
+    padding-left: 4px;
+    padding-right: 4px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+}

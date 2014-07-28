@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmlNavigationTree>	
+	<tree>
+		<node key="home" action="homeMenu" description="Home"
+			shortDescription="Home">
+			<!-- node key="summary" description="Dashboard" /> -->
+			<node key="startHereMgr" description="Device Management Settings" />
+			<node key="userPasswordModify"
+				description="Account Settings" />
+			<node key="administration" description="Administration"
+				summary="true">
+				<!--node key="systemOverview" description="System Overview"
+					homeOnly="true" /-->
+				<node key="vhmManagement" description="VHM Management"
+					homeOnly="true" />
+				<node key="hiveManagerOperations"
+					description="HiveManager Operations">
+					<node key="restartSoftware"
+						description="Restart HM Processes" homeOnly="true" />
+					<node key="rebootApp"
+						description="Reboot Appliance" />
+					<node key="shutDownApp"
+						description="Shut down Appliance" homeOnly="true" />
+					<node key="backupDB" description="Back Up Database" />
+					<node key="restoreDB" description="Restore Database" />
+					<node key="updateSoftware" description="Update Software" />
+					<node key="clearDB" description="Erase Database" />
+					<node key="supportBundle"
+						description="Tech Support Data" homeOnly="true" />					
+				</node>
+				<node key="adminMgr" description="Administrators">
+					<node key="adminGroups" description="Admin Groups" />
+					<node key="administrators"
+						description="Administrators" />
+				</node>
+				<node key="logMgr" description="Logs">
+					<node key="systemLog" description="System Log"
+						homeOnly="true" />
+					<node key="auditLog" description="Audit Log" />
+					<node key="upgradeLog" description="Upgrade Log" />
+					<node key="kddrLog" description="KDDR Log" />
+				</node>
+				<node key="hmSettings"
+					description="HiveManager Settings" />
+				<node key="hmServices"
+					description="HiveManager Services" />
+				<node key="haMonitor" description="HA Monitoring" homeOnly="true" />
+				<node key="portalSettings" description="Portal Settings" homeOnly="true" />
+				<node key="oemSettings" description="Customization Framework Settings" homeOnly="true"/>
+				<node key="mailList"
+						description="HM Notification Mail List" homeOnly="true" />
+				<node key="auxiFileMgmt" description="Auxiliary Files">
+					<node key="cidClients"
+						description="CID Clients" />
+					<node key="macouiDictionary"
+						description="MAC OUI Dictionary" />
+					<node key="mibFiles" description="MIB Files"/>
+					<node key="radiusDicts"
+						description="RADIUS Dictionary" />
+				</node>
+				<node key="licenseMgr" description="License Management" />
+			</node>
+		</node>
+		<node key="dash" action="dashMenu" description="Dashboard" shortDescription="Dashboard">
+			<node key="dashboard" description="Dashboard" />
+		
+		</node>
+		<node key="monitor" action="monitorMenu" description="Monitor"
+			shortDescription="Monitor">
+			<node key="devices" description="Devices">
+				<node key="managedHiveAps" description="All Devices"/>
+				<node key="accessPoints" description="Access Points">
+					<node key="deviceHiveAps" description="Aerohive APs" />
+					<node key="friendlyAps" description="Friendly APs" />
+					<node key="rogueAps" description="Rogue APs" />
+				</node>
+				<node key="branchRouters" description="Routers" fullModeOnly="true"/>
+				<node key="switches" description="Switches" fullModeOnly="true"/>
+				<node key="vpnGateways" description="VPN Gateways" fullModeOnly="true"/>
+				<!-- node key="deviceInventoryMonitor" description="Device Inventory" /-->
+				<!--  <node key="hiveApUpdateRts" description="Device Update Results" />-->
+			</node>
+			<node key="hiveClients" description="Clients"
+				shortDescription="Clients">
+				<node key="clientMonitor" description="Active Clients" />
+				<node key="wirelessClient" description="Wireless Clients" />
+				<node key="wiredClient" description="Wired Clients" />
+				<node key="rogueClient" description="Rogue Clients" />
+				<node key="enrolledClients" description="Managed Clients"/>
+				<node key="clientModifications"
+					description="Client Properties" />
+				<node key="watchList"
+					description="Location Watch List" fullModeOnly="true" />
+				<node key="clientSurvey" description="Site Survey" fullModeOnly="true" />
+			</node>
+			<node key="bonjourGatewayMonitoring" description="Bonjour Gateway" fullModeOnly="true" />
+			<node key="oneTimePassword" description="Device Registration Code" fullModeOnly="true" />
+			<node key="subnetworkAllocations" description="Subnetwork Allocation" fullModeOnly="true" />
+			<!-- <node key="l3firewallLog" description="L3 Firewall Log" fullModeOnly="true" /> -->
+			<node key="events" description="Events" />
+			<node key="alarms" description="Alarms" />
+		</node>
+		<node key="hiveReports" action="rpMenu"
+			description="Reports" shortDescription="Reports">
+			<!--  node key="networkUsage" description="Network Summary" />-->
+			<node key="recurReport" description="Network Summary" />
+			<node key="retailAnalytics" description="Presence Analytics" />
+			<node key="reportSetting" description="Report Settings" />
+			<node key="legacyReport" description="Additional Reports" summary="true">	
+			<node key="radioReports" description="Wi-Fi Devices" />
+			<node key="wiredReports" description="WAN Interfaces" fullModeOnly="true">
+				<node key="wiredBrReports" description="Routers" fullModeOnly="true"/>
+				<node key="wiredCvgReports" description="VPN Gateways" fullModeOnly="true"/>
+			</node>
+			<node key="vpnReports" description="VPN Tunnels" fullModeOnly="true">
+				<node key="vpnBrReports" description="VPN Clients" fullModeOnly="true"/>
+				<node key="vpnCvgReports" description="VPN Gateways" fullModeOnly="true"/>
+			</node>
+			<node key="ssidReports" description="SSIDs" />
+			<node key="clientReports" description="Clients" />
+			<node key="securityReports" description="Security">
+				<node key="securityRogueAPs"
+					description="Rogue APs" />
+				<node key="securityRogueClients"
+					description="Rogue Clients" />
+				<node key="compliance" description="Security Compliance" />
+				<node key="pciCompliance" description="PCI Compliance" fullModeOnly="true"/>
+			</node>
+			<node key="slaCompliance" description="SLA">
+				<node key="hiveApNonCompliance" description="Noncompliant Devices"/>
+				<node key="clientNonCompliance" description="Noncompliant Clients"/>
+			</node>
+			<node key="maxClient" description="Max Concurrent Clients"/>
+			<node key="hiveApConnection" description="Device Connection Status"/>
+			<node key="meshNeighbors" description="Mesh Neighbors" />
+			<node key="inventory" description="Inventory" />
+			<node key="customReport" description="Customized Reports"/>
+			<node key="summaryUserUsage" description="Summary Account Usage" homeOnly="true"/>
+			<node key="detailUserUsage" description="Detailed Account Usage" homeOnly="true"/>
+
+			<!--node key="mostClientsAPs"
+				description="APs with Most Clients" />
+			<node key="clientCount" description="Client Radio Mode" />
+			<node key="clientAuth"
+				description="Client Authentication" />
+			<node key="clientVendor" description="Client Vendors" /-->
+			<!--	<node key="ssidAirTime" description="Airtime Usage" />
+				<node key="ssidTrafficMetrics" description="Traffic Metrics" />
+				<node key="ssidTroubleShooting" description="Troubleshooting" /-->
+			<!--node key="clientSession" description="Client Sessions"/-->
+			<!--node key="clientAirTime" description="Airtime Usage" /-->
+			<!--node key="uniqueClientCount" description="Unique Client Count"/-->
+
+			<!--node key="hiveApSla" description="Device SLA Compliance"/-->
+			<!--node key="clientSla" description="Client SLA Compliance"/-->
+				
+			</node>
+		</node>
+		<node key="topology" action="maps" description="Topology"
+			shortDescription="Maps">
+			<node key="mapView" description="Maps" />
+		</node>
+		<node key="configuration" action="configurationMenu"
+			description="Configuration" shortDescription="Configuration">
+			<node key="configGuide" description="Guided Configuration" shortDescription="Guided Configuration" />
+			<node key="devices" description="Devices">
+				<node key="configHiveAps" description="All Devices"/>
+				<node key="configDeviceHiveAps" description="Aerohive APs" />
+				<node key="configBranchRouters" description="Routers" fullModeOnly="true"/>
+				<node key="configSwitches" description="Switches" fullModeOnly="true"/>
+				<node key="configVpnGateways" description="VPN Gateways" fullModeOnly="true"/>
+				<!-- node key="deviceInventory" description="Device Inventory" /-->
+				<node key="hiveApUpdateRts" description="Device Update Results" />
+			</node>
+			<node key="hiveProfiles" description="Hives"
+				fullModeOnly="true" />
+			<node key="configTemplate" shortDescription="Network Policies" description="Network Policies" fullModeOnly="true" />
+			<node key="ssidProfiles" shortDescription="SSIDs" description="SSIDs" />
+			<node key="ssidProfilesFull" shortDescription="SSIDs" description="SSIDs" fullModeOnly="true"/>
+			<!-- <node key="lanProfiles" shortDescription="LANs" description="LANs" fullModeOnly="true"/> -->
+			<node key="portAccess" shortDescription="Port Types" description="Port Types" fullModeOnly="true"/>
+			<node key="userProfiles" shortDescription="User Profiles" description="User Profiles"  fullModeOnly="true" />
+			<node key="vpnNetworks" description="Networks" fullModeOnly="true"/>
+			<node key="vpnServices" description="VPN Services" />
+			<!--  <node key="addHiveAP" description="Device Configuration" />-->
+			<!--  node key="updateConfig" description="Update Device Configuration" /> -->
+			<node key="autoProvisioning" description="Auto Provisioning" />
+			<node key="radioProfiles" description="Radio Profiles" />
+
+			<node key="advancedConfig"
+				description="Advanced Configuration" summary="true">
+				<node key="networkObjects"
+					description="Common Objects">
+					<node key="accessConsole"
+						description="Access Consoles" fullModeOnly="true" />
+					<node key="algConfiguration"
+						description="ALG Services" fullModeOnly="true" />
+					<!--<node key="appProfile"
+						description="Application Profiles" fullModeOnly="true" />-->	
+					<node key="appService"
+						description="Application Services" />	
+					<node key="bonjourGatewaySettings" description="Bonjour Gateway Settings"
+						fullModeOnly="true" />
+					<node key="cliBlob" description="CLI Supplement"
+						fullModeOnly="true" />
+					<node key="domainObject"
+						description="Device Domain Objects" fullModeOnly="true" />
+					<node key="vlanDhcpServer"
+						description="DHCP Server and Relay" />
+					<node key="dnsService"
+						description="DNS Service" fullModeOnly="true" />
+					<node key="ipAddress"
+						description="IP Objects/Host Names" fullModeOnly="true" />
+					<node key="lldpcdpProfiles"
+						description="LLDP/CDP Profiles" fullModeOnly="true" />
+					<node key="macAddress"
+						description="MAC Objects" fullModeOnly="true" />
+					<node key="mstpRegion" description="MSTP Region" fullModeOnly="true" />
+					<node key="networkService"
+						description="Network Services" />
+					<node key="osObject"
+						description="OS Objects" fullModeOnly="true" />
+					<node key="pppoe" description="PPPoE"
+						fullModeOnly="true" />
+					<node key="pseProfile" description="PSE Profiles"
+						fullModeOnly="true" />
+					<node key="radiusAttrs" description="RADIUS Operator-Name Attribute"
+						fullModeOnly="true" />
+					<node key="routingProfilePolicy" description="Routing Policies" 
+					    fullModeOnly="true" />
+					<node key="scheduler" description="Schedules" />
+					<node key="identityBasedTunnels"
+						description="Tunnel Policies" fullModeOnly="true" />
+					<!-- <node key="usbModem" description="USB Modems" fullModeOnly="true" /> -->
+					<node key="vlan" description="VLANs"
+						fullModeOnly="true" />
+					<node key="vlanGroup" description="VLAN Group"
+						fullModeOnly="true" />
+					<node key="wifiClinetPerferredSsid" description="Wi-Fi Client Preferred SSIDs"
+                        fullModeOnly="true" />
+				</node>
+				<node key="security" description="Security Policies">
+				    <node key="mdmProfiles"
+							description="Client Profiles" />
+					<node key="compliancePolicy"
+						description="Security Compliance Policy" />
+					<node key="ipDos" description="IP DoS" />
+					<node key="ipPolicies"
+							description="IP Firewall Policies" fullModeOnly="true" />
+					<node key="macDos" description="MAC DoS" />
+					<node key="macFilters"
+							description="MAC Filters" />
+					<node key="macPolicies"
+							description="MAC Firewall Policies" fullModeOnly="true" />
+					<node key="configmdm"
+							description="MDM Configuration" />						
+					<node key="ipFilters"
+							description="Mgt IP Filters" fullModeOnly="true" />
+					<node key="l3FirewallPolicies"
+							description="Network Firewall Policies" fullModeOnly="true" />
+					<node key="managementFilters"
+							description="Traffic Filters" fullModeOnly="true" />
+					<node key="idsPolicies"
+							description="WIPS Policies" />	
+				</node>
+<!-- 				<node key="routingPP" description="Routing Policy" > -->
+<!-- 						<node key="routingProfilePolicy" description="Routing ProfilePolicy"  /> -->
+<!-- 				</node> -->
+				<node key="qos" description="QoS Policies">
+					<!-- node key="qosClassfierAndMarker"
+						description="Classifiers &amp; Markers" / -->
+					<node key="qosClassification"
+						description="Classifier Maps" />
+					<node key="qosMarking" description="Marker Maps" />
+					<node key="qosRateControl"
+						description="Rate Control &amp; Queuing" />
+				</node>
+				<node key="mgmtService"
+					description="Management Services" fullModeOnly="true">
+					<node key="onBoardUISetting"
+							description="Client Management Portal" fullModeOnly="true" />
+					<node key="mgmtServiceDns"
+						description="DNS Assignments" fullModeOnly="true" />
+					<node key="mgmtIpTrack" description="IP Tracking"
+						fullModeOnly="true" />
+					<node key="locationServer"
+						description="Location Servers" fullModeOnly="true" />
+					<node key="mgmtServiceOption"
+						description="Management Options" fullModeOnly="true" />
+					<node key="mgmtServiceTime"
+						description="NTP Assignments" fullModeOnly="true" />
+					<node key="mgmtServiceSnmp"
+						description="SNMP Assignments" fullModeOnly="true" />
+					<node key="mgmtServiceSyslog"
+						description="Syslog Assignments" fullModeOnly="true" />
+				</node>
+				
+				<node key="usersAndAccess"
+					description="Authentication">
+					<node key="radiusServerAssignments"
+						description="AAA Client Settings" fullModeOnly="true" />
+					<node key="activeDirectoryOrLdap"
+						description="AAA User Directory Settings" fullModeOnly="true" />
+					<node key="radiusServiceOnHiveAps"
+						description="Aerohive AAA Server Settings" fullModeOnly="true" />
+					<node key="captivePortalWeb"
+						description="Captive Web Portals" />
+					<node key="librarySip"
+						description="Library SIP Access Policies" fullModeOnly="true" />
+					<node key="localUserGroups"
+						description="Local User Groups" fullModeOnly="true" />
+					<node key="localUsers" description="Local Users" />
+					<node key="radiusProxy"
+						description="RADIUS Proxy" fullModeOnly="true" />
+					<node key="userAttributeGroups"
+						description="User Attribute Groups" fullModeOnly="true" />
+				</node>
+				<node key="certificateMgr"
+					description="Keys and Certificates">
+					<node key="certificates"
+						description="Certificate Management" fullModeOnly="true" />
+					<node key="cwpCertMgmt"
+						description="CWP Certificate Management" />
+					<node key="clientCA"
+						description="Client Management CA" />
+					<node key="hiveManagerCA"
+						description="HiveManager CA" fullModeOnly="true" />
+					<node key="serverCSR" description="Server CSR"
+						fullModeOnly="true" />
+				</node>
+			</node>
+		</node>
+		<node key="tools" action="toolsMenu" description="Tools"
+			shortDescription="Tools">
+			<node key="planTool" description="Planning Tool" />
+			<node key="clientConnectMonitor"
+				description="Client Monitor" />
+			<node key="vlanProbe" description="VLAN Probe"></node>
+			<!--
+			remove this feature since from Cairo (4.0Beta2)
+			<node key="packetCapture" description="Packet Capture" />
+			 -->
+			<node key="apSimulator"
+				description="Device and Client Simulator" />
+			<!--node key="spectralAnalysis"
+				description="Spectrum Analyzer"/-->
+			<node key="accessTest" description="Server Access Tests">
+				<node key="adLdapTest" description="AD and LDAP Test" fullModeOnly="true" /> 
+			    <node key="clientMgmtTest" description="Client Management Test" fullModeOnly="true" />
+				<node key="idmTest" description="ID Manager Test" />
+				<node key="librarySipTest" description="Library SIP Test" fullModeOnly="true"/>
+				<node key="radiusTest" description="RADIUS Test" />
+			</node>
+		</node>
+		<node key="userMgr" action="umMenu" description="User Manager"
+			shortDescription="User Manager">
+			<node key="tempAccount" description="Temporary Accounts">
+				<node key="createAccount" description="Create Accounts" />
+				<node key="revokeAccount" description="Revoke Accounts" />
+			</node>
+			<node key="permAccount" description="Permanent Accounts" />
+			<node key="printTemplate" description="Account Templates" />
+		</node>
+		<node key="userReport" action="upMenu"
+			description="Reports" shortDescription="Reports">
+			<node key="gmClientMonitor" description="Active Clients" />
+			<node key="usersPerDay" description="Number of Users per Day" />
+			<node key="sessPerDay" description="Number of Sessions per Day" />
+			<node key="avgStPerDay" description="Average Session Length per Day" />
+			<node key="sessPerNas" description="Number of Sessions per Device" />
+		</node>
+		<node key="tv" action="tvMenu"
+			description="TeacherView" shortDescription="TeacherView">
+			<node key="tvGuide" collapsible="false"
+				description="Guided TeacherView">
+				<node key="tvClass" description="Classes" fullModeOnly="true" />
+				<node key="tvComputerCart" description="Computer Cart" fullModeOnly="true" />
+				<node key="tvStudentRoster" description="Student Roster" fullModeOnly="true"/>
+				<node key="tvResourceMap" description="Resource Map" fullModeOnly="true"/>
+				<!--node key="tvScheduleMap" description="Schedule Map" fullModeOnly="true"/-->
+			</node>
+		</node>
+	</tree>
+</xmlNavigationTree>

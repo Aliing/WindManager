@@ -1,0 +1,1257 @@
+1	12306CN	12306.cn	12306.cn is the only China Railway customer service center	Web Services	sites
+2	126COM	126.com	126.com is a free webmail service of Netease	Mail	sites
+3	2345COM	2345.com	General browsing of navigation portal 2345.com	Web Services	sites
+4	39NET	39.net	39.net is China's leading health web portal	Web Services	sites
+5	3COMTSMX	3COM-TSMUX	3COM-TSMUX Queuing Protocol	Networking	portmap
+6	4399COM	4399.com	General browsing and game play on Chinese casual gaming website 4399.com	Games	sites
+7	4SHARED	4Shared	A file sharing service that provides search functions, allows users to upload and download files to their accounts and share links with other people.	File Transfer	sites
+8	914CG	914CG	Texas Instruments 914C/G Terminal	Networking	portmap
+9	ABOUT	about.com	English source for original information and advice	Web Services	sites
+10	ACAS	ACA Services	DEC's Application Control Architecture Services	Networking	portmap
+11	ACI	ACI	Application Communication Interface	Networking	portmap
+12	ACRNEMA	ACR-NEMA	A standard for handling, storing, printing, and transmitting information in medical imaging.	File Transfer	portmap
+13	ACROBAT	Acrobat.com	General browsing, file transfer, and PDF conversion services from Adobe website Acrobat.com	Web Services	sites
+14	ACTIVDIR	Active Directory	Microsoft Active Directory	Networking	ad
+15	ACTVSYNC	ActiveSync	ActiveSync Notifications, IANA port 1034/tcp and 1034/udp	Networking	portmap
+16	AD_BKUP	AD Backup	Microsoft Active Directory Backup Service.	Networking	ad
+17	AD_DRS	AD DRS	Microsoft Active Directory Replication Services.	Networking	ad
+18	AD_DSAOP	AD DSAOP	Active Directory DSAOP services	Networking	ad
+19	AD_DSROL	AD DSROL	Microsoft Active Directory Domain Services helps administrators securely manage users, computers, and other devices on the network and facilitates resource sharing and collaboration between users.	Networking	ad
+20	AD_FRS	AD File Replication Service	Microsoft Active Directory File Replication Services used to replicate files and changes between domain controllers	Networking	ad
+21	AD_NSP	AD NSP	Microsoft Active Directory Name Service Provider	Networking	ad
+22	AD_RSTOR	AD Restore	Microsoft Active Directory Restore Service.	Networking	ad
+23	AD_XDS	AD XDS	Microsoft Active Directory Extended Directory Service allows AD to be extended to store custom data that is of interest for the enterprise.	Networking	ad
+24	ADFLY	Adf.ly	General site browsing and usage of URL shortening service from Adf.ly	Web Services	sites
+25	ADMIN5	Admin5	General browsing of Chinese webmaster information site Admin5.	Web Services	sites
+26	ADOBE	Adobe	Adobe and Adobe Updates	Web Services	sites
+27	ADRIVE	Adrive.com	An online cloud storage service	Web Services	sites
+28	AED512	AED512	AED 512 Emulation Service	Networking	portmap
+29	AFP	AFP	A network protocol that offers file services for Mac OS X and original Mac OS. In Mac OS X, AFP is one of several file services supported including Server Message Block (SMB), Network File System (NFS), File Transfer Protocol (FTP), and WebDAV. AFP currently supports Unicode file names, POSIX and access control list permissions, resource forks, named extended attributes, and advanced file locking	File Transfer	portmap
+30	AH	AH	AH (Authentication Header) is a member of the IPsec protocol suite, guaranteeing connectionless integrity and data origin authentication of IP packets.	VPN & Tunneling	ip
+31	AIZHAN	Aizhan.com	Aizhan.com is a Chinese website that assists webmasters	Web Services	sites
+32	ALIAS	Alias	Port 1187/tcp and 1187/udp	Networking	portmap
+33	AMAZON	Amazon	Amazon online retail service	Web Services	sites
+34	ANET	ANET	ATEXSSTR	Networking	portmap
+35	ANSANTFY	ANSA Notify	ANSA REX Notify	Networking	portmap
+36	ANSATRDR	ANSA REX Trader	ANSA REX Trader	Networking	portmap
+37	ANSWERS	Answers.com	Internet-based knowledge exchange	Web Services	sites
+38	AOL_IM	AIM	AIM is an instant messaging and presence application that enables users to conduct person-to-person instant messaging, chatroom messaging, peer-to-peer file sharing and facebook support, among other features.	Messaging	aim
+39	APNS	APNS	A service that Apple uses to open a constantly open IP connection to forward notifications from its servers to Apple devices	Messaging	apple
+40	APPLARP	Apple ARP	Apple's system to allow AppleTalk protocol to work over networks other than LocalTalk, such as Ethernet or Token Ring.	Networking	nonip
+41	APPLE	Apple	Apple website and host/network services traffic	Networking	apple
+42	APPLEUPD	Apple Update	A software tool by Apple Computer that installs the latest version of Apple software.	File Transfer	apple
+43	APPLGUI	AppleJuice GUI	Represents the traffic between a host running an AppleJuice GUI and a host running the AppleJuice Core	File Transfer	applejuice
+44	APPLJUCE	AppleJuice	AppleJuice is a semi-centralized peer-to-peer file sharing network similar to the original eDonkey network	File Transfer	applejuice
+45	APPLSHAR	AppleShare	AppleShare IP WebAdmin	Networking	portmap
+46	APPLTALK	AppleTalk	A proprietary suite of protocols developed by Apple Inc. for networking computers.	Networking	portmap, nonip
+47	ARCISDMS	ARCISDMS	Protocol for service type Arcisdms registered with IANA on Port 262 tcp/udp	Networking	portmap
+48	ARIEL	Ariel	Ariel for Windows from Infotrieve. With commercially available hardware and Ariel software, you can scan articles, photos, and other documents directly; transmit the electronic images to other Ariel workstations anywhere in the world, using either FTP or e-mail; and convert them to PDF for easy patron delivery.	Networking	portmap
+49	ARNS	ARNS	Port 384/tcp and 384/udp	Networking	portmap
+50	ARP	ARP	A computer networking protocol for determining a network host's Link Layer or hardware address when only its Internet Layer (IP) or Network Layer address is known.	Networking	nonip
+51	ASA	ASA	Port 386/tcp and 386/udp	Networking	portmap
+52	ASTRAWEB	Astraweb	A Usenet/newsgroup service provider.	File Transfer	nntp
+53	ATMFATE	ATM FATE	 Frame-based ATM Transport over Ethernet	Networking	nonip
+54	ATMMPOA	ATM MPOA	Multi-protocol over ATM	Networking	nonip
+55	ATOM	Atom	Atom is a web content syndication system similar to RSS.	Web Services	feeds
+56	AUDIO	Http Audio	Audio files/streams delivered over HTTP that were not detected as being part of a more specific application.	Web Services	http
+57	AUDIT	AUDIT	Unisys Audit SITP	Networking	portmap
+58	AUDITD	auditd	Linux audit logging	File Transfer	portmap
+59	AURORA	Aurora	A link layer communications protocol for use on point-to-point serial links. Developed by Xilinx, it is intended for use in high-speed (tens of gigabits/second or more) connections internally in a computer.	Networking	portmap
+60	AVCTPRXY	Avocent	Avocent Proxy Protocol	Proxy	portmap
+61	AVG	AVG	AVG Antivirus/Security software download and updates.	File Transfer	avsecurity
+62	AVIRA	Avira	 Avira Antivirus/Security software download and updates.	File Transfer	avsecurity
+63	BACKBLZE	BackBlaze	An online backup tool that allows Windows and Mac OS X users to back up their data to an offsite data center.	File Transfer	sites
+64	BARNSNBL	Barnes&Noble	Barnes & Noble offers books, ebooks, DVDs, music, toys, and games	Web Services	sites
+65	BATTLNET	Battle.net	A premium gaming service provided by Blizzard Entertainment.	Games	portmap
+66	BDEFNDER	BitDefender	BitDefender Antivirus/Security software download and updates.	File Transfer	avsecurity
+67	BEBO	Bebo	A social networking website where users can post blogs, photographs, music, videos and questionnaires to which other users may answer.	Social Networking	sites
+68	BEETPH	BEETPH	BEETPH (Bound End-to-End Tunnel) is a new mode for IPsec ESP. The new mode augments the existing ESP tunnel and transport modes. For end-to-end tunnels, the new mode provides limited tunnel mode semantics without the regular tunnel mode overhead. The mode is intended to support new uses of ESP, including mobility and multi-address multi-homing.	VPN & Tunneling	ip
+69	BET365	Bet365	Online gambling website	Games	sites
+70	BFTP	BFTP	BFTP (Background File Transfer Program)	File Transfer	portmap
+71	BGMP	BGMP	Border Gateway Multicast Protocol	Networking	portmap
+72	BGP	BGP	BGP (Border Gateway Protocol) is the protocol backing the core routing decisions on the Internet.	Networking	portmap
+73	BH611	BH611	Protocol for service type bh611 registered with IANA on Port 354 tcp/udp	Networking	portmap
+74	BHEVENT	BHEVENT	Protocol for service type bhevent registered with IANA on Port 357 tcp/udp	Networking	portmap
+75	BHFHS	BHFHS	Protocol for service type bhfhs registered with IANA on Port 248 tcp/udp	Networking	portmap
+76	BHMDS	BHMDS	Protocol for service type bhmds registered with IANA on Port 310 tcp/udp	Networking	portmap
+77	BIGUPLOD	BigUpload	Secure uploading, transferring, and file sharing service provider.	File Transfer	sites
+78	BILDDE	Bild.de	General browsing on German tabloid website Bild.de	Web Services	sites
+79	BING	Bing	Bing is Microsoft's Internet search engine.	Web Services	sites
+80	BINGBOT	Bingbot	Microsoft web-crawler for the Bing search engine	Web Services	sites
+81	BITTORRE	Bittorrent	A peer-to-peer file sharing protocol used for transferring large amounts of data.	File Transfer	bittorrent
+82	BLAZEFS	BlazeFS	Blaze File Server is a remote file sharing system designed specifically for Macs. Once it's running, Blaze is transparent to the user and to the client application: It appears as if users are accessing files on a local hard drive.	File Transfer	portmap
+83	BLCKJACK	Blackjack	Port 1025/tcp and 1025/udp	Networking	portmap
+84	BLIDM	BLIDM	Britton-Lee IDM (Integrated Database Manager)	Database	portmap
+85	BLOGGER	Blogger	A blog publishing service owned by Google, formerly known as BlogSpot.	Web Services	sites
+86	BLOOMBRG	Bloomberg	General browsing of business news and financial information site Bloomberg	Web Services	sites
+87	BNET	Bnet	Port 415/tcp and 415/udp	Networking	portmap
+88	BOXNET	Box.net	General browsing and file transfers on file storage site Box.net	File Transfer	sites
+89	BRGHTTLK	Brighttalk	Online webinar and video provider	Web Services	sites
+90	BROSOFT	Brothersoft.com	Brothersoft.com is a free software download website.	File Transfer	sites
+91	C2DM	C2DM	Android Cloud to Device Messaging (C2DM) is a service that helps developers send data from servers to their applications on Android devices. The service provides a simple, lightweight mechanism that servers can use to tell mobile applications to contact the server directly, to fetch updated application or user data. The C2DM service handles all aspects of queueing of messages and delivery to the target application running on the target device.	Messaging	google
+92	CAILIC	CAIlic	 Computer Associates Int'l License Server	Networking	portmap
+93	CAP	CAP	Port 1026/tcp and 1026/udp	Networking	portmap
+94	CBLPRTAX	Cableport AX	Protocol for service type Cable Port A/X registered with IANA on Port 282 tcp/udp	Networking	portmap
+95	CBS	cbs.com	General browsing, interaction, and streaming media from the American television broadcasting website cbs.com	Web Services	sites
+96	CBSINTER	cbsinteractive.com	General browsing of the information and entertainment website cbsinteractive.com	Web Services	sites
+97	CDC	CDC	Certificate Distribution Center	Networking	portmap
+98	CFDPTKT	CFDPTKT	Coherent File Distribution Protocol	File Transfer	portmap
+99	CHARGEN	Chargen	A device or software that produces static or animated text (such as crawls and rolls) for keying into a video stream. Modern character generators are computer-based, and can generate graphics as well as text.	Network Monitoring	portmap
+100	CIFS	CIFS	CIFS (Common Internet File System) is used to provide shared access to directories, files, printers, serial ports, and miscellaneous communications between nodes on a network.	File Transfer	cifs, portmap
+101	CISCOFNA	Cisco FNATIVE	Used for Cisco Proprietary Protocols on Cisco Catalyst Network Analysis Modules.	Networking	portmap
+102	CISCOSYS	Cisco SYSMAINT	Cisco SYSMAINT	Networking	portmap
+103	CISCOTNA	Cisco TNATIVE	Cisco TNATIVE	Networking	portmap
+104	CL1	CL1	Network Innovations CL/1	Networking	portmap
+105	CLASSMTE	Classmates	Web-based social network based on high school yearbooks	Social Networking	sites
+106	CLOANTO	CLOANTO	The cloanto.net infrastructure provides redundant hosting, email and telecommunications services.	Networking	portmap
+107	CLRCASE	Clearcase	A software tool for revision control (e.g. configuration management, SCM) of source code and other software development assets. It is developed by the Rational Software division of IBM. ClearCase forms the base of revision control for many large and medium sized businesses and can handle projects with hundreds or thousands of developers.	Networking	portmap
+108	CMIP	CMIP	Common Management Information Protocol	Network Monitoring	portmap
+109	CMPRSNET	CompressNET	CompressNET is a commercial WAN compression protocol.	Networking	portmap
+110	CNET	CNET	Online forum for technology news, reviews, teaching videos, product pricing, free downloads, and newsletters	Web Services	sites
+111	CNETDWLD	CNET Download	Internet download directory websites launched in 1996 as a part of CNET.	Web Services	sites
+112	CNN	CNN	General browsing and streaming media from US Cable news channel CNN web and mobile sites	Web Services	sites
+113	CODAAUTH	Coda Auth	Coda Authentication Service, part of Coda filesystem services, developed by Carnegie Mellon University.  Protocol for service type codaauth2 registered with IANA on Port 370 tcp/udp	Networking	portmap
+114	COMSCM	COMSCM	SCM Microsystems is a leading provider of solutions for secure access, secure identity and secure exchange.	Networking	portmap
+115	COMVAULT	Commvault	 Enterprise data backup and storage management software.	File Transfer	portmap
+116	CORBA	CORBA	Common Object Request Broker Architecture (CORBA) is a standard defined by the Object Management Group (OMG) that enables software components written in multiple computer languages and running on multiple computers to work together (i.e., it supports multiple platforms).  Domino Internet Inter-ORB Protocol (DIIOP) is CORBA over IIOP for Lotus Domino. DIIOP allows external programs to attach to, and manipulate Domino databases. DIIOP is frequently used to allow Java-based and other non CORBA programs to connect to Lotus Domino.	Networking	portmap
+117	CORERJD	corerjd	Protocol for service type corerjd registered with IANA on Port 284 tcp/udp	Networking	portmap
+118	COVIA	Covia CI	Covia Communications Integrator	Networking	portmap
+119	CRAIGSLI	Craigslist	Popular online classifieds	Web Services	craigslist
+120	CRS	MS CRS	Port 507/tcp and 507/udp	Networking	portmap
+121	CSCODRP	Cisco DRP	(DRP) Director Response Protocol enables Cisco's DistributedDirector product to query routers (DRP Server Agents) in the field for Border Gateway Protocol (BGP) and Interior Gateway Protocol (IGP) routing table metrics between distributed servers and clients.	Networking	portmap
+122	CSCOGDP	Cisco GDP	The Gateway Discovery Protocol (GDP) allows hosts to dynamically detect the arrival of new routers as well as determine when a router goes down.	Networking	portmap
+123	CSCOSLA	Cisco SLA	Allows for delivery of time based network and services performance data used in monitoring Service Level Agreements (SLAs).	Network Monitoring	portmap
+124	CSISGWP	CSISGWP	Port 348/tcp and 348/udp	Networking	portmap
+125	CSNETNS	CSNET-NS	CSNET Mailbox Nameserver	Networking	portmap
+126	CTF	CTF	DECnet-Plus Common Trace Facility is used to collect and display information about specific protocol exchanges between systems.	Network Monitoring	portmap
+127	CTRXCGP	Citrix CGP	Citrix Common Gateway Protocol.	Remote Access	citrix
+128	CTRXICA	Citrix ICA	ICA (Independent Computing Architecture) is a proprietary protocol for an application server system, designed by Citrix Systems.	Remote Access	citrix, portmap
+129	CTRXIMA	Citrix IMA	The Citrix IMA (Independent Management Architecture) protocol is used for server-to-server communication in performing functions such as licensing and server load updates, all of which occur behind the scenes.	Remote Access	citrix, portmap
+130	CTRXJEDI	Citrix Jedi	Citrix Online streaming connection protocol for streaming real-time data.	Collaboration	citrixonline
+131	CTRXLIC	Citrix Licensing	Citrix Licensing traffic	Remote Access	portmap
+132	CTRXONLN	Citrix Online	Citrix Online services, including GoToMyPC, GoToMeeting, GoToWebinar, and GoToTraining.	Collaboration	citrixonline
+133	CTRXRTMP	Citrix RTMP	Citrix streaming	Remote Access	portmap
+134	CTRXSLGW	Citrix SLG	Citrix SLG (Storage Link Gateway) enables automated discovery and one-click access to native storage services using any of the leading storage architectures and protocols, including DAS, NAS, SAN, iSCSI, and Fibre Channel.	Remote Access	portmap
+135	CVCHOSTD	CVCHOSTD	Port 442/tcp and 442/udp	Networking	portmap
+136	DALYMOTN	Dailymotion	A video sharing service website.	Streaming Media	sites
+137	DASP	DASP	This protocol is designed to provide an unordered, reliable, secure session for full-duplex datagram exchange that can be implemented for low power wireless networks and low cost devices.	Networking	portmap
+138	DATEITO	Datei.to	General browsing and file transfers from file hosting service Datei.to	File Transfer	sites
+139	DATEXASN	DATEX-ASN	An application profile specification and uses protocols to address the Application Layer (Layer 7 of the OSI Reference Model), the Presentation Layer (Layer 6 of the OSI Reference Model) and defines the Session Layer (Layer 5 of the OSI Reference Model) as null.	Networking	portmap
+140	DAYTIME	Daytime	A service in the Internet Protocol Suite, defined in 1983 in RFC 867. It is intended for testing and measurement purposes in computer networks.	Network Monitoring	portmap
+141	DBASE	dBase	dBase was the first widely used database management system (DBMS) for microcomputers. A major upgrade was released as dBASE III, and ported to a wider variety of platforms, adding UNIX, and VMS.	Database	portmap
+142	DCAP	DCAP	An application layer protocol used between workstations and routers to transport SNA/NetBIOS traffic over TCP sessions.	Networking	portmap
+143	DCCP	DCCP	DCCP (Datagram Congestion Control Protocol) is a transport protocol used for congestion control.  Applications include Internet telephony and video/audio streaming.	Networking	ip
+144	DCERPC	DCE/RPC	Distributed Computing Environment / Remote Procedure Calls, is the remote procedure call system developed for the Distributed Computing Environment (DCE).	Networking	epmap
+145	DCP	DCP	An application level protocol optimized for the integration, monitoring and control of devices on a network.	Network Monitoring	portmap
+146	DECAUTH	DEC Auth	DEC Auth	Networking	portmap
+147	DECDEBUG	DEC Debug	Decladebug is a source code debugger targeted at debugging software on the local machine or a remote Digital Unix box.	Networking	portmap
+148	DECVMS	DECVMS	Port 441/tcp and 441/udp	Networking	portmap
+149	DELL	Dell	Dell official site	Web Services	sites
+150	DEOS	DEOS	Port 76/tcp and 76/udp	Database	portmap
+151	DEPOFILE	Deposit Files	Online file storage service	File Transfer	sites
+152	DHCP	DHCP	DHCP (Dynamic Host Configuration Protocol) is an auto configuration protocol used for assigning IP addresses.	Networking	dhcp, portmap
+153	DHCPV6	DHCPv6	DHCP (Dynamic Host Configuration Protocol) for IPv6	Networking	portmap
+154	DIRECT	Direct	Direct	Networking	portmap
+155	DISCARD	Discard	A service in the Internet Protocol Suite defined in RFC 863. It is intended for testing, debugging, and measurement purposes.	Network Monitoring	portmap
+156	DIVSHARE	divShare	General browsing and file transfers from media sharing website divShare	File Transfer	sites
+157	DIXIE	DIXIE	A lightweight Directory Assistance Protocol	Networking	portmap
+158	DLS	DLS	DLS (Directory Location Service) provides information on the location(addresses) and protocols needed to access white pages name servers.	Networking	portmap
+159	DNACML	DNA-CML	Port 436/tcp and 436/udp	Networking	portmap
+160	DNS	DNS	DNS (Domain Name System) provides hostname resolution for finding hosts on a network.	Networking	dns, portmap
+161	DNSIX	DNSIX	Department of Defense Intelligence Information System Network Security for Information Exchange (DNSIX) is a collection of security requirements for networking defined by the U.S. Defense Intelligence Agency.	Networking	portmap
+162	DOCSTOC	Docstoc	Electronic business document repository and online store	File Transfer	sites
+163	DOMNTOOL	domaintools.com	Internet domain name intelligence service	Web Services	sites
+164	DPSI	DPSI	Desktop Paging Software, Inc.	Networking	portmap
+165	DRCTCONN	DirectConnect	File sharing through p2p via internet hubs	File Transfer	directconnect
+166	DROPBOX	Dropbox	An online file hosting/sharing service.	File Transfer	dropbox
+167	DSFGW	DSFGW	Port 438/tcp and 438/udp	Networking	portmap
+168	DSP	DSP	Display Support Protocol	Networking	portmap
+169	DSP3270	DSP3270	Display Systems Protocol	Networking	portmap
+170	DSSETUP	DSSETUP	Microsoft Active Directory's Directory Services Setup.	Networking	ad
+171	DTAG	DTAG	Deutsche Telekom AG (abbreviated DTAG) is a telecommunications company headquartered in Bonn, Germany. It is the largest telecommunications company in Europe.	Networking	portmap
+172	DTK	DTK	Deception Toolkit, A toolkit designed to make it appear to attackers as if the system running DTK has a large number of widely known vulnerabilities	Networking	portmap
+173	DYNGATE	DynGate	A firewall router that allows TeamViewer to route a TCP/IP connection over an http tunnel	VPN & Tunneling	dyngate
+174	EBAY	eBay	An online auction and shopping website.	Web Services	sites
+175	ECHO	Echo	A service in the Internet Protocol Suite defined in RFC 862. It was originally proposed for testing and measurement of round-trip times in IP networks.	Network Monitoring	portmap
+176	EDONKEY	eDonkey	eDonkey/eMule peer-to-peer file sharing.	File Transfer	edonkey
+177	EGP	EGP	EGP (Exterior Gateway Protocol) is an obsolete routing protocol for the Internet.	Networking	ip
+178	EMBLNDT	EMBLNDT	Port 394/tcp and 394/udp	Networking	portmap
+179	EMFIS	EMFIS	EMFIS Service	Networking	portmap
+180	ENETCN	enet.com.cn	A web portal for IT people in China	Web Services	sites
+181	ENVATO	Envato	Envato is an Australian based, privately held company that provides tutorial sites that teach people skill sin a variety of creative areas as well as providing a means to sell their digital goods via a family of online marketplaces.	Web Services	sites
+182	EPMAP	Epmap	Microsoft EPMAP (End Point Mapper), also known as DCE/RPC Locator service, is used to remotely manage services.	Networking	epmap, portmap
+183	ERPC	ERPC	Encore Expedited Remote Procedure Call	Remote Access	portmap
+184	ESET	Eset	 Eset Antivirus/Security software download and updates.	File Transfer	avsecurity
+185	ESP	ESP	ESP (Encapsulating Security Payload) is a member of the Ipsec protocol suite, providing origin authenticity, integrity, and confidentiality protection of packets.	VPN & Tunneling	ip
+186	ESRO	ESRO	The Efficient Short Remote Operations service is a Remote Procedure Call service.	Networking	portmap
+187	ETH	ETH	Framing protocol that carries data to and from LANs (Local Area Networks)	Networking	eth, ssh
+188	ETOS	ETOS	Port 377/378/tcp and 377/378/udp	Networking	portmap
+189	EXCHANGE	Exchange	Microsoft Exchange services.	Mail	exchange
+190	EXTRTORR	Extratorrent.com	The World's Largest BitTorrent System	File Transfer	sites
+191	FACEBOOK	Facebook	Facebook is a social networking service.	Social Networking	facebook, zynga
+192	FACETIME	FaceTime	Video conferencing between supported Apple mobile devices and Macintosh computers	Streaming Media	apple
+193	FARMVILE	Farmville	A real-time farm simulation game developed by Zynga, available as an application on the social-networking website Facebook and as an App on the Apple iPhone.	Games	zynga
+194	FASP	FASP	FASP (Fast and Secure Protocol) is a high speed secure file transfer protocol	File Transfer	fasp
+195	FATMEN	Fatmen	Port 347/tcp and 347/udp	Networking	portmap
+196	FB_EVENT	Facebook Event	Creating/editing Facebook events	Social Networking	facebook
+197	FB_MSGS	Facebook Messages	Facebook E-mail and Instant Messaging	Social Networking	facebook
+198	FB_POST	Facebook Post	Interactions with Facebook walls	Social Networking	facebook
+199	FB_SRCH	Facebook Search	Searching within Facebook's website	Social Networking	facebook
+200	FB_VDCHT	Facebook Video Chat	Facebook Video Chat	Social Networking	facebook
+201	FB_VIDEO	Facebook Video	Facebook streaming video and video upload	Social Networking	facebook
+202	FBOOKAPP	Facebook Apps	Add ons developed for Facebook, generally games, puzzles, gifts, classifieds etc.	Social Networking	facebook
+203	FILEMAKR	FileMaker	A computer software company formed in 1998 from the vestiges of Claris as a wholly owned subsidiary of Apple Inc.  FileMaker develops, supports and markets two relational database programs; FileMaker and Bento. Filemaker is available for both Mac OS X and Microsoft Windows operating systems and is aimed towards business use, or home users with high-end needs. Bento, aimed at the home user or basic small business user, is a Mac OS X application with additional versions available for the iPhone and iPad.	Networking	portmap
+204	FILERCX	Filer.cx	A file hosting service that provides free web space for documents, pictures, music and movies.	File Transfer	sites
+205	FILESERV	FileServe	General browsing and file transfers from file hosting services FileServe.com	File Transfer	sites
+206	FILESONC	Filesonic	General browsing and file transfers from data storage website Filesonic	File Transfer	sites
+207	FILESTBE	FilesTube	A file search engine that searches various file sharing and uploading sites like rapidshare, megaupload, mediafire, hotfile, netload, filesonic, 4shared.	File Transfer	sites
+208	FINGER	Finger	A simple network protocol for the exchange of human-oriented status and user information.	Network Monitoring	portmap
+209	FLICKR	Flickr	An image hosting and video hosting website, web services suite, and online community.	Web Services	sites
+210	FLIXSTER	Flixster	A social movie site allowing users to share movie ratings, discover new movies and meet others with similar movie taste.  The site has expanded to include a Facebook app, a MySpace app, and an app for Bebo and Orkut	Social Networking	flixster
+211	FOGBUGZ	Fogbugz	FogCreek Software's online project management tool.	Web Services	sites
+212	FORBES	Forbes	General browsing of business magazine website Forbes.com	Web Services	sites
+213	FPROT	F-Prot	F-Prot Antivirus/Security software download and updates.	File Transfer	avsecurity
+214	FREEETV	freeetv	General browsing and streaming media from TV website freeetv.com	Social Networking	sites
+215	FRNDFEED	FriendFeed	FriendFeed is a real-time feed aggregator from social media sites.	Social Networking	sites
+216	FRNDSTER	Friendster	Friendster is a social networking service.	Social Networking	socialnet
+217	FTP	FTP	FTP (File Transfer Protocol) is used to transfer files from a file server to a local machine.	File Transfer	ftp, portmap
+218	FTPCTRL	FTP Control	FTP (File Transfer Protocol) Control is used to manage FTP Data transfers from a file server to a local machine.	File Transfer	ftp
+219	FTPDATA	FTP Data	File Transfer Protocol data flow	File Transfer	ftp
+220	FTPS	FTPS	FTP control over TLS/SSL.	File Transfer	portmap
+221	FTPSDATA	FTPSDATA	FTP data over TLS/SSL	File Transfer	portmap
+222	FXP	FXP	File eXchange Protocol provides a method of data transfer which uses the FTP protocol to transfer data from one remote server to another (inter-server) without routing this data through the client's connection.	File Transfer	portmap
+223	GACP	GACP	Gateway Access Control Protocol	Networking	portmap
+224	GENIE	Genie	An old network management/diagnostic protocol,	Networking	portmap
+225	GENRAD	GENRAD	Protocol for service type GENRAD-MUX registered with IANA on Port 176 tcp/udp	Networking	portmap
+226	GIGANEWS	Giganews	A popular Usenet/newsgroup service provider.	File Transfer	nntp
+227	GIST	GIST	General Internet Signalling Transport	Networking	portmap
+228	GLYPEPRX	GlypeProxy	Glype Proxy is a free web-based proxy script written in PHP.	Proxy	sites
+229	GMAIL	gmail	Google online mail	Mail	google
+230	GNUTELLA	Gnutella	A large peer-to-peer file-sharing network.	File Transfer	gnutella, portmap
+231	GOOGANAL	Google Analytics	Google service that tracks and generates details web statistics.	Web Services	google
+232	GOOGAPIS	Google APIs	Google Application Programming Interfaces that support the development of web applications that leverage Google services.	Web Services	google
+233	GOOGAPP	Google App Engine	Google App Engine lets you run your web applications using Google's infrastructure.	Web Services	google
+234	GOOGCNDR	Google Calendar	A free time-management web application offered by Google.	Web Services	google
+235	GOOGDESK	Google Desktop	Google's Desktop search and desktop gadget software.	Web Services	google
+236	GOOGDOCS	Google Docs	A free, Web-based word processor, spreadsheet, presentation, form, and data storage service offered by Google.	Web Services	google
+237	GOOGERTH	Google Earth	Google's virtual globe, map and geographical information program.	Web Services	google
+238	GOOGLBT	Googlebot	Googlebot Web Crawler	Web Services	sites
+239	GOOGLE	Google	Traffic generated by the Google search engine or one of the other many Internet services provided by Google Inc.	Web Services	google
+240	GOOGMAPS	Google Maps	Google Maps (formerly Google Local) is a web mapping services application and technology provided by Google.	Web Services	google
+241	GOOGPLUS	Google +	A social networking service provided by Google Inc. that incorporates existing and new Google services	Social Networking	google
+242	GOOGSAFE	Google Safe Browsing	Google service that protects users from known phishing and malware sites	Web Services	google
+243	GOOGTRAN	Google Translate	Google translation service.	Web Services	google
+244	GOOGVIDO	Google Video	A free video sharing website and also a video search engine from Google Inc.	Streaming Media	google
+245	GOONEJP	goo.ne.jp	goo.ne.jp is a Japanese web portal	Web Services	sites
+246	GOPHER	Gopher	A TCP/IP Application layer protocol designed for distributing, searching, and retrieving documents over the Internet.	Web Services	portmap
+247	CTRXGOTO	GoToMeeting	A remote meeting and desktop sharing software that enables the user to meet with other computer users, customers, clients or colleagues via the Internet in real-time.	Collaboration	gotomeeting
+248	GPFS	GPFS	IBM General Parallel File System is a high-performance shared-disk clustered file system.	File Transfer	portmap
+249	GPITNP	Genesis PPP	 Genesis Point-to-Point Trans Net	Networking	portmap
+250	GRE	GRE	GRE (Generic Route Encapsulation Protocol) is a tunneling protocol developed by Cisco Systems that can encapsulate a wide variety of network layer protocol packet types inside IP tunnels, creating a virtual point-to-point link to various brands of routers at remote points over an Internet Protocol (IP) internetwork.	VPN & Tunneling	ip
+251	GRPWISE	Groupwise	A messaging and collaborative software platform from Novell that supports email, calendaring, personal information management, instant messaging, and document management.	Collaboration	portmap
+252	GRVSHRK	Grooveshark	Online music search engine and streaming service	Streaming Media	sites
+253	GSIFTP	GSIFTP	FTP enhanced to use GSI security.	File Transfer	portmap
+254	GSSLIC	Gss License	Gss X License Verification	Networking	portmap
+255	GTALK	Google Talk	Google Inc.'s VoIP application.	Messaging	google
+256	GTALKGAD	Google Talk Gadget	Flash based Google Talk IM client.	Messaging	google
+257	H225	H.225	In the family of H.323 VoIP protocols	Streaming Media	h323
+258	H245	H.245	H.245 is a control channel protocol used with[in] e.g. H.323 and H.324 communication sessions.	Streaming Media	h323
+259	H248	H.248	Megaco (officially H.248) is an implementation of the Media Gateway Control Protocol architecture for controlling VoIP gateways.	Streaming Media	portmap
+260	H323	H.323	H.323 VoIP call signalling and control	Streaming Media	h323, portmap
+261	HAMACHI	Hamachi	A hosted VPN service that lets you securely extend LAN-like networks to distributed teams.	VPN & Tunneling	hamachi
+262	HASSLE	Hassle	HASSLE is a networking application that allows to execute remote jobs that have a transfer component built in. HASSLE is flexible as it only transfers the data and the parameters. The execution at the remote site is automatically accomplished via a code generator.	Networking	portmap
+263	HDAP	HDAP	Microsoft HDA Protocol	Networking	portmap
+264	HEMS	HEMS	HEMS protocol	Networking	portmap
+265	HI5	hi5	General browsing and interaction with social gaming website hi5.com	Social Networking	sites
+266	HIVESTOR	HiveStor	HiveStor Distributed File System	File Transfer	portmap
+267	HL7	HL7	Health Level 7 Medical information exchange is a standard for exchanging information between medical applications.	Collaboration	portmap
+268	HOPSTER	Hopster	An application that tunnels other applications in order to bypass firewalls.	Proxy	hopster, sites
+269	HOSTNAME	Hostname	NIC Host Name Server	Networking	portmap
+270	HOTFILE	Hotfile	Online file hosting/sharing.	File Transfer	sites
+271	HOTMAIL	Hotmail	Windows Live Hotmail, formerly known as MSN Hotmail and commonly referred to simply as Hotmail, is a free web-based email service operated by Microsoft as part of its Windows Live group.	Mail	sites
+272	HP	HP Website	HP.com offers company news and information on Hewlett-Packard	Web Services	sites
+273	HPPERF	HP Perf	The Performance Data Collector for HP OpenVMS (TDC) gathers performance data for OpenVMS systems. By default, TDC periodically collects and stores data in a file. Subsequently, user applications can retrieve and analyze data from the file.	Networking	portmap
+274	HPVMM	HP VMM	HP Virtual Machine Manager (VMM)	Remote Access	portmap
+275	HTTP	Http	HTTP (HyperText Transfer Protocol) the principal transport protocol for the World Wide Web.	Web Services	http, shoutcast, portmap
+276	HTTPMGT	HTTPMGT	Protocol for service type http-mgmt registered with IANA on Port 280 tcp/udp	Networking	portmap
+277	HULU	Hulu	Hulu online video streaming.	Streaming Media	hulu
+278	HYPERG	Hyper-G	A publishing system with hypertext features more advanced than those available with the Hypertext Transfer Protocol and today's Web browser .	Networking	portmap
+279	IASD	IASD	Port 432/tcp and 432/udp	Networking	portmap
+280	IBM	IBM	Website for International Business Machines corporation	Web Services	sites
+281	IBMAPP	IBM APP	Protocol for service type IBM Application registered with IANA on Port 385 tcp/udp	Networking	portmap
+282	IBMOPC	IBM OPC	OPC automatically plans, controls, and monitors your production workload to maximize and optimize throughput, but lets you intervene manually when required.	Networking	portmap
+283	ICAD	ICAD	This was a Knowledge-Based Engineering (KBE) system that was based upon the Lisp programming language. ICAD had an open architecture that can utilize all the power and flexibility of the underlying language.	Networking	portmap
+284	ICLOUD	iCloud	Apple's cloud data storage and computing service	File Transfer	apple
+285	ICMP	ICMP	ICMP (Internet Control Message Protocol) One of the core protocols of the Internet Protocol Suite. It is chiefly used by the operating systems of networked computers to send error messages indicating, for instance, that a requested service is not available or that a host or router could not be reached. ICMP can also be used to relay query messages.	Network Monitoring	ip
+286	ICMPV6	ICMPv6	The implementation of the Internet Control Message Protocol (ICMP) for Internet Protocol version 6 (IPv6).	Network Monitoring	ip, ipv6, nonip
+287	ICP	ICP	Intelligent Communication Protocol,  IANA port 1112/tcp and 1112/udp	Networking	portmap
+288	ICQ	ICQ	ICQ is an instant messaging computer program.	Messaging	icq
+289	IDENT	Ident	Ident is a protocol that helps identify the user of a particular TCP connection.	Networking	portmap
+290	IDP	IDP	IDP (Internet Datagram Protocol) is a close descendant of PUP's internetwork protocol, and roughly corresponds to the Internet Protocol (IP) layer in TCP/IP.	Networking	ip
+291	IFILE	ifile.it	General browsing and file transfers from online backup service ifile.it	File Transfer	sites
+292	IGMP	IGMP	IGMP (Internet Group Management Protocol) is a communications protocol used by hosts and adjacent routers on IP networks to establish multicast group memberships.	Networking	ip
+293	IKEA	IKEA	General browsing and merchandise purchasing from online store Ikea.com	Web Services	sites
+294	IMAP	IMAP	IMAP (Internet Message Access Protocol) is an Internet standard protocol for accessing email on a remote server.	Mail	imap, portmap
+295	IMESH	iMesh	A media and file sharing client with online social network features.	File Transfer	imesh
+296	IMGAMES	IMGames	Protocol for service type IMGames registered with IANA on Port 1077 tcp/udp	Games	portmap
+297	IMGSHACK	ImageShack	General browsing and file transfers from image hosting website ImageShack	File Transfer	sites
+298	IMGUR	Imgur	Photo sharing web site	Web Services	sites
+299	IMGVENUE	Image Venue	Free Image Hosting for bloggers, message board users, and eBay sellers.	Web Services	sites
+300	IMO	imo.im	Text and voice IM through instant messenger service imo.im	Messaging	sites
+301	IMSP	IMSP	Port 406/tcp and 406/udp	Networking	portmap
+302	INBSNESS	InBusiness	TCP Port 244 was used to connect to the administrative functions on the Dayna Communications InBusiness line of small office network equipment.	Networking	portmap
+303	INFOSEEK	InfoSeek	This was a very popular search engine originally operated by the Infoseek Corporation.  Infoseek was bought by The Walt Disney Company in 1998, and the technology was merged with that of the Disney-acquired Starwave to form the Go.com network. Since then it has been replaced with Yahoo! search and is no longer in use.	Web Services	portmap
+304	INFOSTOR	Infostore	Microsoft Exchange Information Store	Mail	exchange
+305	INGRSNET	INGRES-NET	IngresNET service	Database	portmap
+306	IP	IP	IP (Internet Protocol) is the principal communications protocol used for relaying datagrams (packets) across an internetwork using the Internet Protocol Suite.	Networking	ip, ssh
+307	IPCOMP	IPComp	IPComp (IP Payload Compression Protocol) is a low level compression protocol for IP datagrams defined in RFC 3173.	VPN & Tunneling	ip
+308	IPIP	IPIP	An IP tunneling protocol that encapsulates one IP packet in another IP packet.	VPN & Tunneling	ip
+309	IPSEC	IPsec	IPsec (Internet Protocol Security) is an end-to-end security scheme commonly used for VPNs.	VPN & Tunneling	portmap
+310	IPV6	IPv6	Internet Protocol (IP) Version 6	Networking	ipv6, nonip
+311	IPX	IPX	 The IPX/SPX protocol stack is supported by Novell's NetWare network operating system.	Networking	portmap, nonip
+312	IRC	IRC	IRC (Internet Relay Chat) is a popular form of real-time Internet text messaging.	Messaging	irc, portmap
+313	IS99	IS-99	Port 379/380/tcp and 379/380/udp	Networking	portmap
+314	ISAKMP	ISAKMP	A protocol defined by RFC 2408 for establishing Security Associations (SA) and cryptographic keys in an Internet environment. ISAKMP only provides a framework for authentication and key exchange and is designed to be key exchange independent	Networking	portmap
+315	ISCHAT	ISCHAT	(Now known as ATG Live Help) ATG Live Help is an integrated set of live voice, chat, and email response services that enable online businesses to deliver just-in-time, personalized, interactive assistance to each visitor.	Messaging	portmap
+316	ISIGL	ISI Graphics	ISI Graphics Language	Networking	portmap
+317	ISOHUNT	isohunt	A BitTorrent index with over 1.7 million torrents in its database and 20 million peers from indexed torrents	File Transfer	sites
+318	ISOIP	ISOIP	ISO Internetworking Protocol	Networking	portmap
+319	ISOTSAP	ISO-TSAP	ISO-TSAP	Networking	portmap
+320	ITUNES	iTunes	Apple's media player and online store.	Streaming Media	apple
+321	IVPIP	mck-ivpip	 MCK, now Citel's VoIP  extender ipvip protocol.	Streaming Media	portmap
+322	JARGON	JARGON	Jargon protocol	Networking	portmap
+323	JAVARMI	Java RMI	A Java application programming interface that performs the object-oriented equivalent of remote procedure calls (RPC).	Networking	portmap
+324	KASPRSKY	Kaspersky	Kaspersky Antivirus/Security software download and updates.	File Transfer	avsecurity
+325	KATORRNT	KAT	A torrent download site	File Transfer	sites
+326	KAZAA	Kazaa	Started as a peer-to-peer file sharing application using the FastTrack protocol, now running as a music subscription service.	File Transfer	portmap
+327	KBLOCK	Kblock	K-Block protects unattended logged-in terminals from unauthorized access in OpenVMS environments.	Networking	portmap
+328	KERBEROS	Kerberos	Kerberos is a network authentication protocol designed to provide strong authentication for client/server applications by using secret-key cryptography.	Networking	kerberos, portmap
+329	KFTP	KFTP	File Transfer Protocol with Kerberos authentication and encryption.	File Transfer	portmap
+330	KFTPDATA	KFTPDATA	File Transfer Protocol with Kerberos authentication and encryption.	File Transfer	portmap
+331	KIS	KIS	Protocol for service type KIS Protocol registered with IANA on Port 186 tcp/udp	Networking	portmap
+332	KNETCMP	KNETCMP	KNET/VM Command/Message Protocol	Networking	portmap
+333	KRYPTLAN	Kryptolan	Port 398/tcp and 398/udp	Networking	portmap
+334	KTELNET	Ktelnet	Telnet with Kerberos authentication and encryption.	Remote Access	portmap
+335	KVM	KVM	KVM (Keyboard/Video/Mouse) over IP Management Service	Remote Access	portmap
+336	KWDB	KWDB	Remote Kernel debugger communication	Remote Access	portmap
+337	L2TP	L2TP	A tunneling protocol used to support virtual private networks (VPNs). It does not provide any encryption or confidentiality by itself; it relies on an encryption protocol that it passes within the tunnel to provide privacy.	VPN & Tunneling	portmap
+338	LAMAINT	LA-Maint	IMP Logical Address maintenance	Networking	portmap
+339	LASTFM	Last.fm	A social networking music streaming site.	Streaming Media	sites
+340	LDAP	LDAP	LDAP (Lightweight Directory Access Protocol) is a protocol for reading and editing directories over an IP network.	Database	portmap, ldap
+341	LEBNCOIN	Leboncoin	leboncoin.fr created by Spir Communication is a variation of the site Swedish Blocket.  This is a site of online sales, allowing the publication of advertisements for sale of any items, they are accessible by everyone.	Web Services	sites
+342	LEGENT	Legent	Protocols for service type legent-1 (Legent Corporation) registered on IANA on Port 373 tcp/udp and service type legent-2 (Legent Corporation) registered on IANA Port 374 tcp/udp	Networking	portmap
+343	LINE2	Line2	A mobile VOIP application that allows the user to add a second line to their iPhone or Android device, or give a phone number to an iPad.  Data is transferred over wifi, cellular data, or cellular voice connections.  Text messaging is supported on US-based customers only.	Messaging	line2
+344	LINK	LINK	Protocol for service type LINK registered with IANA on Port 245 tcp/udp	Networking	portmap
+345	LINKEDIN	LinkedIn	LinkedIn is a business-oriented social networking site.	Social Networking	socialnet
+346	LIVE365	Live365	General browsing and streaming media from internet radio network Live365.com	Streaming Media	sites
+347	LIVEJRNL	LiveJournal	A virtual community where Internet users can keep a blog, journal or diary.	Web Services	sites
+348	LIVEMEET	Livemeeting	Microsoft's commercial web-conferencing service.	Collaboration	sites
+349	LLMNR	LLMNR	LLMNR (Link-local Multicast Name Resolution) is used by Windows for local name resolution.	Networking	portmap
+350	LOCUSCON	Locus Conn	Protocol for service type Locus PC-Interface Conn Server registered with IANA on Port 127 tcp/udp	Networking	portmap
+351	LOCUSMAP	Locus Map	Protocol for service type Locus PC-Interface Net Map Service registered with IANA on Port 125 tcp/udp	Networking	portmap
+352	LOGMEIN	LogMein	Remote access and PC desktop control.	Remote Access	logmein
+353	LSARPC	LSARPC	Microsoft Active Directory Local Security Authority Subsystem Service.	Networking	ad
+354	MAFIAWAR	Mafiawars	A multiplayer browser game created by Zynga.  It is on several social networking sites and on the iPhone.	Games	zynga
+355	MAGICJAK	MagicJack	Magic Jack is a USB device that allows any phone to make free calls within the US and Canada.	Streaming Media	sip
+356	MAILQ	MAILQ	Protocol for service type MAILQ registered with IANA on Port 174 tcp/udp	Mail	portmap
+357	MANET	MANET	Mobile Ad-hoc Networks Protocol.	Networking	portmap
+358	MANOLITO	Manolito	Manolito P2P (MP2P) is a free peer-to-peer file sharing network. Users can download music, create playlists, and use instant messaging to chat with friends.	File Transfer	manolito
+359	MAPI	MAPI	The protocol that Microsoft Outlook uses to communicate with Microsoft Exchange.	Mail	exchange
+360	MASQDIAL	Masqdialer	The masqdialer system allows authorized LAN users to manipulate the network interface, usually a modem, that gives Internet access on a Linux box without having to use Telnet.	Networking	portmap
+361	MATIP	MATIP	MATIP support allows the z/TPF system to receive and transmit airline reservation, ticketing, and messaging traffic over a Transmission Control Protocol/Internet Protocol (TCP/IP) network.	Networking	portmap
+362	MCAFEE	McAfee	McAfee Antivirus/Security software download and updates.	File Transfer	avsecurity
+363	MCFTP	MC-FTP	Multicast FTP (File Transfer Protocol)	File Transfer	portmap
+364	MCIDAS	McIDAS	McIDAS (Man computer Interactive Data Access System) Data Transmission Protocol.	File Transfer	portmap
+365	MDNS	MDNS	MDNS (Multicast DNS)	Networking	mdns
+366	MEDIAFRE	MediaFire	Online File and Media hosting.	File Transfer	sites
+367	MEEBO	Meebo	Meebo is an instant messaging (IM) web platform that can connect with numerous IM networks.	Messaging	meebo
+368	MEETMAKR	Meeting Maker	A cross-platform personal calendar and group scheduling software application from PeopleCube.	Collaboration	portmap
+369	MEGASHRS	Megashares	File sharing/storage site	File Transfer	sites
+370	MEGAUPLD	MegaUpload	Online storage service	File Transfer	sites
+371	META5	Meta5	A business intelligence tool that allows users to visually create reports that can access multiple corporate data source.  Registered with IANA on Port 393 tpc/udp	Networking	portmap
+372	METACAFE	Metacafe	A community based video sharing web site, that specializes in short-form original entertainment, where users upload, view and share video clips.	Streaming Media	metacafe
+373	METAGRAM	Metagram	Protocol  for service type Metagram Relay registered with IANA on Port 99 tcp/udp	Networking	portmap
+374	MFCOBOL	MF Cobol	Micro Focus Cobol Directory Service	Networking	portmap
+375	MFTP	MFTP	Designed for the purpose of file sharing. It is still under development, and therefore may acquire more features or other improvements in addition to those discussed in this article. This is the communication protocol used by such clients as eMule and eDonkey and, in its extended implementation, by the Overnet network.	Networking	portmap
+376	MGNTALOG	Magenta Logic	Protocol for service type Magenta Logic registered with IANA on Port 313 tcp/udp	Networking	portmap
+377	MINISQL	Mini SQL	A lightweight database management system.	Database	portmap
+378	MITSPL	MIT Spooler	Protocol for service type MIT Dover Spooler registered with IANA on Port 91 tcp/udp	Networking	portmap
+379	MLDEV	mit-ml-dev	MIT ML Device, port 83/tcp and 83/udp	Networking	portmap
+380	MOBILIP	MobileIP	An Internet Engineering Task Force (IETF) standard communications protocol that is designed to allow mobile device users to move from one network to another while maintaining a permanent IP address.	Networking	portmap
+381	MOVIE2K	movie2k	A websites that allows visitors to stream films without requiring registration.  Intended primarily for German and English speaking visitors.	Streaming Media	sites
+382	MOZILLA	Mozilla	General browsing of internet-related application development group Mozilla Corporation website.  Includes downloads/updates to Mozilla Firefox.	Web Services	sites
+383	MPLSMC	MPLS Multicast	MPLS (Multiprotocol Label Switching) multicast traffic	Networking	nonip
+384	MPLSUC	MPLS Unicast	MPLS (Multiprotocol Label Switching) unicast traffic	Networking	nonip
+385	MPM	MPM	Internet Message Protocol - RFC 753	Messaging	portmap
+386	MPP	MPP	Netix Message Posting Protocol is a network protocol that is used for posting messages from a computer to a mail service host.	Networking	portmap
+387	MPTN	MPTN	Port 397/tcp and 397/udp	Networking	portmap
+388	MRTGWARE	MortgageWare	A product developed by Interlinq Software Corp that automates all components of the loan originating process.	Networking	portmap
+389	MSBITS	BITS	BITS (Microsoft Background Intelligent Transfer Service) is a file transfer protocol used primarily for Microsoft Updates.	File Transfer	bits
+390	MSDN	MSDN	MSDN (Microsoft Developer Network)	File Transfer	sites
+391	MSG	MSG	Port 29/tcp and 29/udp; Port 31/tcp and 31/udp	Networking	portmap
+392	MSMQ	MSMQ	MSMQ is essentially a messaging protocol that allows applications running on separate servers/processes to communicate in a failsafe manner.	Messaging	portmap
+393	MSN	MSN	www.msn.com and related sites.	Web Services	sites
+394	MSN2GO	MSN2Go	A third party service for Windows Live Messenger	Messaging	sites
+395	MSNP	MSNP	An instant messaging protocol developed by Microsoft for use by the .NET Messenger Service and the instant messaging clients that connect to it, such as Windows Live Messenger.	Messaging	msmessenger
+396	MSOLAP	MS OLAP	An online analytical processing capability that is a component of Microsoft SQL Server.	Database	portmap
+397	MSONLINE	MS Online	Microsoft's hosted software suite that includes Exchange Online, SharePoint Online, Office Communications Online, Microsoft Forefront, and Microsoft Office Live Meeting.	Web Services	sites
+398	MSP	MSP	An application layer protocol used to send a short message between nodes on a network.	Messaging	portmap
+399	MSSQL	MS SQL	A relational database server produced by Microsoft.	Database	portmap
+400	MTA	MTA	Microsoft Exchange Mail Transfer Agent	Mail	exchange
+401	MULTIPLY	multiply.com	A social shopping site that connects merchants with shoppers, offering both products and services.  It provides social media tools that allow shops to spread the word through their network and help shoppers share their opinions and experiences with each other.	Social Networking	sites
+402	MULTPLEX	Multiplex	Network Innovations Multiplex	Networking	portmap
+403	MULTUPLD	Multiupload	A forwarding site for major upload sites such as, Megaupload, UploadKing, depoistfiles, hotfile, Uploadhere, Zshare, Filesonic, Fileserve, Wupload.	File Transfer	sites
+404	MUMPS	MUMPS	Plus Five's MUMPS	Networking	portmap
+405	MUTENET	MUTE-net	A peer-to-peer file sharing network that uses a routing algorithm inspired by ant colonies.  MUTE-net has been unmaintained since April 2007, although software compatible with the MUTE network has been updated since then.	File Transfer	mutenet
+406	MYSPACE	MySpace	MySpace is a social networking service.	Social Networking	socialnet
+407	MYSQL	MySQL	A relational database management system (RDBMS) that runs as a server providing multi-user access to a number of databases.	Database	portmap
+408	NAMP	NAMP	Neighbor Aware Multicast Routing Protocol	Networking	portmap
+409	NCED	NCED	Port 404/tcp and 404/udp	Networking	portmap
+410	NCLD	NCLD	Port 405/tcp and 405/udp	Networking	portmap
+411	NDSAUTH	NDS Auth	A software module from Symantec Corporation	Networking	portmap
+412	NETBIOS	NetBIOS	NetBIOS (Network Basic Input/Output System).	Networking	portmap
+413	NETEASE	Netease	Netease is a popular Chinese web portal	Web Services	sites
+414	NETFLX	Netflix site	Subscription based video streaming service	Streaming Media	netflix
+415	NETFLXVD	Netflix video stream	Video streams from Netflix service	Streaming Media	netflix
+416	NETINFO	Netinfo	Port 1033/tcp and 1033/udp	Networking	portmap
+417	NETLOGON	Netlogon	The Microsoft Net Logon service verifies logon requests, and it registers, authenticates, and locates domain controllers.	Networking	ad
+418	NETMEETG	NetMeeting	A VoIP and multi-point videoconferencing client included in many versions of Microsoft Windows	Collaboration	h323
+419	NETSC	NETSC	Protocols for service type netsc-prod registered with IANA on Port 154 tcp/udp and service type netsc-dev registered with IANA on Port 155 tcp/udp	Networking	portmap
+420	NETSCOUT	NetScout	Port 395/tcp and 395/udp	Networking	portmap
+421	NETWARE	Netware	A network operating system developed by Novell, Inc. It initially used cooperative multitasking to run various services on a personal computer, with network protocols based on the archetypal Xerox Network Systems stack.	Networking	portmap
+422	NEWEGG	newegg.com	General browsing, searching, and shopping on retailer web and mobile site newegg.com	Web Services	sites
+423	NFA	NFA	A network file system is a file system that acts as a client for a remote file access protocol, providing access to files on a server.	File Transfer	portmap
+424	NFS	NFS	Allows a user on a client computer to access files over a network in a manner similar to how local storage is accessed.	File Transfer	nfs, portmap
+425	NIFTP	NI FTP	Network Independent File Transfer Program	File Transfer	portmap
+426	NIMAIL	NI Mail	NI Mail	Mail	portmap
+427	NIP	NIP	Port 376/tcp and 376/udp	Networking	portmap
+428	NNSP	NNSP	An Internet application protocol used for transporting Usenet news articles (netnews) between news servers and for reading and posting articles by end user client applications.	Networking	portmap
+429	NNTP	NNTP	An Internet application protocol used for transporting Usenet news articles (netnews) between news servers and for reading and posting articles by end user client applications.	File Transfer	nntp, portmap
+430	NOTES	Lotus Notes	IBM's enterprise collaboration suite.	Collaboration	notes
+431	NOVABKUP	NovaBACKUP	NovaStor develops and markets data protection and availability software. NovaBACKUP offers support for multi-OS environments and is capable of handling thousands of servers and petabytes of information.	File Transfer	portmap
+432	NPP	NPP	Network Printing enables users in locations geographically separate from each other and from their print devices to produce documents for themselves and others.	Networking	portmap
+433	NSIIOPS	NSIIOPS	IIOP Name Service	Networking	portmap
+434	NSRMP	NSRMP	Port 359/tcp and 359/udp	Networking	portmap
+435	NSS	NSS	NSS Routing	Networking	portmap
+436	NSSTP	NSSTP	Nebula Secure Segment Transfer Protocol, IANA port 1036/tcp and 1036/udp	Networking	portmap
+437	NTP	NTP	NTP (Network Time Protocol) is used for synchronizing the clocks of computer systems over a network.	Networking	portmap
+438	NTRSTIME	EntrustTime	EntrustTime protocol	Networking	portmap
+439	NXEDIT	NXEdit	Protocol for service type NXEdit registered with IANA on Port 126 tcp/udp	Networking	portmap
+440	NXTSTEP	NXTSTEP	NextStep Window Server	Networking	portmap
+441	OCBINDER	OCBinder	OCBinder	Networking	portmap
+442	OCS	OCS	Microsoft Office Communications Server 2007 R2 helps you deliver streamlined communications to your users, so everyone in your organization can communicate with the right person, right now, from the applications they use most.	Networking	portmap
+443	OCSERVER	OCServer	OCServer	Networking	portmap
+444	ODMR	ODMR	An SMTP extension standardized in RFC 2645 that allows e-mail to be relayed after the sender has been authenticated. It uses the extended SMTP command ATRN It is similar to the ETRN command but works with dynamically assigned IP addresses.	Networking	portmap
+445	OFTP	OFTP	OFTP (Odette File Transfer Protocol) is used for EDI (Electronic Data Interchange) between two communications business partners.	File Transfer	portmap
+446	OFTPS	OFTPS	Odette FTP over SSL/TLS is used primarily for Electronic Data Interchange between two communications business partners.	File Transfer	portmap
+447	ONLINEFF	Online File Folder	A storage service provided by godaddy.com	File Transfer	sites
+448	ONMUX	Onmux	Protocol for service type Onmux registered with IANA on Port 417 tcp/udp	Networking	portmap
+449	OPALIS	Opalis Robot	A 'three-in-one' comprehensive system management and automation solution. It provides you with real-time monitoring, notification, corrective action and event driven job scheduling so you can proactively manage your Windows NT/W2K environment.	Network Monitoring	portmap
+450	OPENPORT	Openport	Protocol for service type Openport registered with IANA on Port 260 tcp/udp	Networking	portmap
+451	OPENVPN	OpenVPN	A free and open source software application that implements virtual private network (VPN) techniques for creating secure point-to-point or site-to-site connections.	VPN & Tunneling	portmap, openvpn
+452	OPENWEBM	Open Webmail	Simple webmail service	Mail	sites
+453	ORACLE	Oracle	An object-relational database management system (ORDBMS) produced and marketed by Oracle Corporation.	Database	portmap
+454	ORKUT	Orkut	Google social networking application	Social Networking	socialnet
+455	OSCAR	OSCAR	Open System for Communication in Realtime is AOL's flagship instant messaging and presence information protocol. Currently, OSCAR is in use for AOL's two main instant messaging systems: ICQ and AIM.	Messaging	aim
+456	OSUNMS	OSUNMS	OSU Network Monitoring System	Networking	portmap
+457	PANDA	Panda	Panda Security Antivirus/Security software download and updates.	File Transfer	avsecurity
+458	PANDO	Pando	Pando is free file sharing application that uses both peer-to-peer and client-server architectures.  Users are able to send files that may be too large to send via email.	File Transfer	pando
+459	PANDORA	Pandora	General Pandora traffic	Streaming Media	pandora
+460	PANDRATV	Pandora.tv	General browsing, file transfer, and streaming media on video sharing website Pandora.tv	Streaming Media	sites
+461	PAWSERV	PAWSERV	Allows you to analyze transaction performance and behavioral problems by providing a platform for investigating logs and other historical data	Networking	portmap
+462	PCHOME	pchome.net	General browsing on Chinese IT information website pchome.net	Web Services	sites
+463	PCMAIL	PCMAIL	PCMail Server	Mail	portmap
+464	PCOIP	PCoIP	A remote access protocol that compresses, encrypts, and encodes a computing experiences at a data center and transmits it across any standard IP network.	Remote Access	portmap, pcoip
+465	PDAP	PDAP	Port 344/tcp and 344/udp	Networking	portmap
+466	PFTP	PFTP	Port-FTP transfers files, directories and data to other hosts running pftp.	File Transfer	portmap
+467	PHOTOBKT	Photobucket	An image hosting, video hosting, slideshow creation and photo sharing website.	Web Services	sites
+468	PICASA	Picasa	Google picasa is an image organizer and image viewer for organizing and editing digital photos, plus an integrated photo-sharing website.	Web Services	google
+469	PIM	PIM	PIM (Protocol Independent Multicast) is a family of multicast routing protocols for Internet Protocol (IP) networks that provide one-to-many and many-to-many distribution of data over a LAN, WAN or the Internet.	Networking	ip
+470	PINGER	Pinger	Pinger Textfree enables you to send and receive free texts (real SMS) with your very own free texting number. You can send free texts to your friends who don¡¯t need to be using this free app to receive them. In addition, send free texts from anywhere in the world as long as you have a data connection.	Messaging	pinger
+471	PINTERST	Pinterest	Web traffic encrypted and tunneled through Suresome web proxy	Social Networking	sites
+472	PIP	PIP	PIP	Networking	portmap
+473	PKIXTS	PKIX Timestamp	The PKIX TS specifies the format of packets, along with some possible transport protocols and some verifications to be done by the server and the client.	Networking	portmap
+474	PLAXO	Plaxo	An online address book and social networking service that provides automatic updating of contact information.	Social Networking	sites
+475	PNDRAUDI	Pandora Audio	Pandora internet radio audio streams	Streaming Media	pandora
+476	POP2	POP2	POP (Post Office Protocol) is a protocol used by local e-mail clients to retrieve e-mail from a remote server.	Mail	portmap
+477	POP3	POP3	POP (Post Office Protocol) is a protocol used by local e-mail clients to retrieve e-mail from a remote server.	Mail	pop3, portmap
+478	POSTGRES	PostgreSQL	An open source object-relational database system.	Database	portmap
+479	PPPDISC	PPP Discovery	PPPoE (Point-to-point Protocol over Ethernet) discovery messages	Networking	nonip
+480	PPPSESS	PPP Session	PPPoE (Point-to-point Protocol over Ethernet) session messages	Networking	nonip
+481	PPTP	PPTP	A method for implementing virtual private networks. PPTP uses a control channel over TCP and a GRE tunnel operating to encapsulate PPP packets.	VPN & Tunneling	portmap
+482	PPTV	PPTV	PPTV is a popular Chinese online streaming video player that allows users access to TV stations and programs	Streaming Media	pptv
+483	PPTV_P2P	PPTV P2P	PPTV Peer to Peer traffic	Streaming Media	pptv
+484	PRINTER	Printer	A standard network protocol for remote printing as well as for managing print jobs, media size, resolution, and so forth.  Like all IP-based protocols, IPP can run locally or over the Internet to printers hundreds or thousands of miles away. Unlike other printing protocols, IPP also supports access control, authentication, and encryption, making it a much more capable and secure printing solution than older ones.	Networking	portmap
+485	PRINTSRV	PRINTSRV	Network PostScript	Networking	portmap
+486	PRIVAX	Privax	Privax is a web anonymity network, aimed at providing people the freedom to surf anonymously online. Privax offers free web proxy services (The Privax Network), which allow anyone in the world to surf anonymously and surf under our IP address	Proxy	proxy
+487	PROFILE	PROFILE	PROFILE Naming System	Networking	portmap
+488	PROSPERO	PROSPERO	Prospero Directory Service is a name server based on the virtual system model.	Networking	portmap
+489	PRSNLINK	PersonalLink	Personal Link	Networking	portmap
+490	PT	Paltalk Messenger	An internet and downloadable chat service that allows users to communicate via instant messaging, voice, and video chat	Messaging	paltalk
+491	PT_CHAT	Paltalk Chat	Paltalk instant messaging text messaging traffic	Messaging	paltalk
+492	PT_FILE	Paltalk File Transfer	File transfer via Paltalk instant messaging	File Transfer	paltalk
+493	PT_VIDEO	Paltalk Video	Paltalk instant messaging video chat traffic	Streaming Media	paltalk
+494	PT_VOICE	Paltalk Voice	Paltalk instant messaging audio chat traffic	Streaming Media	paltalk
+495	PTP	PTP	A high-precision time protocol for synchronization used in measurement and control systems residing on a local area network. Accuracy in the sub-microsecond range may be achieved with low-cost implementations.	Networking	portmap
+496	PUP	PUP	One of the two earliest internetwork protocol suites. The entire suite provided routing and packet delivery, as well as higher level functions such as a reliable byte stream, along with numerous applications.	Networking	ip
+497	PUTLOCKR	PutLocker	PutLocker is an online file hosting site	File Transfer	sites
+498	PWDGEN	PWDGEN	Password Generator Protocol, rfc 972.	Networking	portmap
+499	QBIK	Qbik	Qbik has developed sophisticated & user friendly software specialising in Internet connectivity and security. Our products allow users to manage their Internet connections (WinGate), connect remote offices together (WinGate VPN), and combat network security issues (NetPatrol).	Networking	portmap
+500	QFT	QFT	Queued File Transport	File Transfer	portmap
+501	QMTP	QMTP	Quick Mail Transfer Protocol is an e-mail transmission protocol that is designed to have better performance than Simple Mail Transfer Protocol (SMTP), the de facto standard.	Mail	portmap
+502	QOTD	QOTD	An Internet protocol defined in RFC 865. It is intended for testing and measurement purposes.	Messaging	portmap
+503	QQ	QQ	The most popular free instant messaging computer program in Mainland China.	Messaging	qq
+504	QUICKTIM	Quicktime	An extensible proprietary multimedia framework developed by Apple Inc., capable of handling various formats of digital video, picture, sound, panoramic images, and interactivity. It is available for Mac OS classic (System 7 onwards), Mac OS X and Microsoft Windows operating systems.	Streaming Media	portmap
+505	QUOTE	Quote.com	General browsing on financial information and trading web site Quote.com	Web Services	sites
+506	RADIUS	Radius	Provides centralized Authentication, Authorization, and Accounting (AAA) management for computers to connect and use a network service.	Networking	radius, portmap
+507	RAP	RAP	RAP (Route Access Protocol) is a general protocol for distributing routing information at all levels of the Internet.	Networking	portmap
+508	RAPSHARE	RapidShare	Online file hosting and sharing.	File Transfer	sites
+509	RARP	RARP	An obsolete computer networking protocol used by a host computer to request its Internet Protocol (IPv4) address from an administrative host, when it has available its Link Layer or hardware address, such as a MAC address.	Networking	nonip
+510	RDP	RDP	RDP (Remote Desktop Protocol) provides users with a graphical interface to another computer.	Remote Access	rdp, portmap
+511	REDDIT	Reddit	Social news website - Popular user-generated news service	Social Networking	sites
+512	REMAIL	REMAIL	Remote Mail Checking Protocol	Mail	portmap
+513	RESCAP	ResCap	ResCap Resolution Protocol	Networking	portmap
+514	RFR	RFR	Microsoft Exchange Referral Interface	Mail	exchange
+515	RGINBULL	Raging Bull	Raging Bull is a financial message board hosted by Quote.com	Web Services	sites
+516	RIP	RIP	RIP (Routing Information Protocol) is a dynamic routing protocol.	Networking	portmap
+517	RIS	RIS	Relational Interface System (RIS) is Intergraph Corporation's middleware for connecting client software and DBMS.	Database	portmap
+518	RJE	RJE	The process of sending jobs to Mainframe computers from remote workstations, and by extension the process of receiving output from mainframe jobs at a remote workstation.	Remote Access	portmap
+519	RJS	Remote Job Service	Port 71-74/tcp and 71-74/udp	Remote Access	portmap
+520	RLOGIN	rlogin	Remote login is a software utility for Unix-like computer operating systems that allows users to log in on another host via a network.	Remote Access	portmap
+521	RLP	RLP	RLP (Resource Location Protocol) is used to help find network services.	Networking	portmap
+522	RMT	RMT	Port 411/tcp and 411/udp	Networking	portmap
+523	RPC2PMAP	RPC2PMAP	An ONC RPC service that runs on network nodes that provide other ONC RPC services.	Networking	portmap
+524	RRP	RRP	Port 648/tcp and 648/udp	Networking	portmap
+525	RSH	RSH	Berkeley Remote Shell Service allows a user to access a remote host and execute a single command upon it without requiring the login and logout steps.	Remote Access	portmap
+526	RSS	RSS	RSS (Really Simple Syndication) web feeds.	Web Services	feeds
+527	RSVD	RSVD	RSVD	Networking	portmap
+528	RSVP	RSVP	RSVP (Resource Reservation Protocol) is a control protocol designed to reserve resources across a network.	Networking	ip
+529	RSVPTUNN	RSVP Tunnel	A new RSVP-based tunnel protocol establishes packet tunnels between a tunnel source point (TSP) and a tunnel destination point (TDP) such that guaranteed services to aggregated packet flows is provided.	VPN & Tunneling	portmap
+530	RSYNC	Rsync	A software application for Unix systems which synchronizes files and directories from one location to another while minimizing data transfer using delta encoding when appropriate. An important feature of rsync not found in most similar programs/protocols is that the mirroring takes place with only one transmission in each direction. rsync can copy or display directory contents and copy files, optionally using compression and recursion.	Networking	portmap
+531	RTCP	RTCP	RTCP (Real-Time Transport Control Protocol) is a sister protocol of the Real-time Transport Protocol (RTP). RTCP provides out-of-band control information for an RTP flow.	Streaming Media	h323, rtcp, rtp, sip
+532	RTELNET	Remote Telnet	Remote Telnet	Remote Access	portmap
+533	RTMP	RTMP	RTMP (Real Time Messaging Protocol) is commonly used for streaming Flash Video.	Streaming Media	rtmp, portmap
+534	RTP	RTP	RTP (Real-Time Transport Protocol) is primarily used to deliver real-time audio and video.	Streaming Media	h323, rtp, rtsp, sip
+535	RTSP	RTSP	RTSP (Real Time Streaming Protocol) is used for establishing and controlling media sessions between end points.	Streaming Media	rtsp, portmap
+536	RTSPS	RTSPS	A secure network control protocol designed for use in entertainment and communications systems to control streaming media servers. The protocol is used for establishing and controlling media sessions between end points.	Streaming Media	portmap
+537	SALSFRCE	Salesforce	Salesforce is an online CRM & cloud computing service.	Web Services	salesforce
+538	SAMR	SAMR	Microsoft Active Directory Security Account Manager	Networking	ad
+539	SAP	SAP HostControl	SAP Host Control Agent protocol used for viewing logs and traces of a remote host.	Network Monitoring	portmap
+540	SBNTBCST	SBNTBCST	SUBNTBCST Trivial File Transfer Protocol	File Transfer	portmap
+541	SCCM	SCCM	System Center Configuration Manager (CM07 or SCCM or ConfigMgr or Configuration Manager), formerly Systems Management Server (SMS), is a systems management software product by Microsoft for managing large groups of Windows-based computer systems. Configuration Manager provides remote control, patch management, software distribution, operating system deployment, network access protection, and hardware and software inventory.	Networking	sccm
+542	SCCMCTRL	SCCM Remote Control	Feature of SCCM to control a client remotely	Remote Access	sccm
+543	SCHMEDLY	Schmedley	General browsing and widget interactions from online start page Schmedley.com	Web Services	sites
+544	SCOI2DLG	SCOI2DLG	Port 360/tcp and 360/udp	Networking	portmap
+545	SCSIST	SCSI-ST	SCSI on ST is  set of standards for physically connecting and transferring data between computers and peripheral devices.	Networking	portmap
+546	SCTP	SCTP	SCTP (Stream Control Transmission Protocol) is a Transport Layer protocol, serving in a similar role to the popular protocols TCP and UDP. It provides some of the same service features of both: it is message-oriented like UDP and ensures reliable, in-sequence transport of messages with congestion control like TCP.	Networking	ip
+547	SCURSGHT	SecurSight	An architecture that combines authentication, authorization, and secure communications. The primary goal of this architecture is to secure access to network resources, while providing a smooth migration path from legacy authentication and authorization methods to a public-key infrastructure.	Networking	portmap
+548	SEMANTIX	Semantix	Port 361/tcp and 361/udp	Networking	portmap
+549	SEND	SEND	Secure Neighbor Discovery Protocol	Networking	portmap
+550	SET	SET	SET (Secure Electronic Transaction) was a standard protocol for securing credit card transactions over insecure networks.	Networking	portmap
+551	SFTP	SFTP	SFTP (Secure File Transfer Protocol) is a secure file transfer protocol typically used with the SSH protocol.	File Transfer	ssh, portmap
+552	SGCP	SGCP	A communications protocol used within a Voice over Internet Protocol (VoIP) system. It has been superseded by MGCP, an implementation of the Media Gateway Control Protocol architecture.	Networking	portmap
+553	SGMP	SGMP	SGMP (Simple Gateway Monitoring Protocol) is a protocol that preceded SNMP.	Network Monitoring	portmap
+554	SHAREP2P	Share P2P	Closed-source p2p application developed in Japan.	File Transfer	share
+555	SHOCKWAV	Shockwave	A multimedia platform used to add animation and interactivity to web pages.	Streaming Media	portmap
+556	SHOUTCAS	SHOUTcast	SHOUTcast is a cross-platform proprietary protocol for streaming media over the Internet.	Streaming Media	shoutcast, portmap
+557	SHRNKRAP	Shrinkwrap	Port 358/tcp and 358/udp	Networking	portmap
+558	SHRPOINT	Sharepoint	Microsoft collaboration, file sharing and web publishing system.	Collaboration	sharepoint
+559	SIP	SIP	SIP (Session Initiation Protocol) is a common control protocol for setting up and controlling voice and video calls.	Streaming Media	sip, portmap
+560	SKYDRIVE	SkyDrive	SkyDrive is Microsoft's online storage service that is part of Windows Live.	File Transfer	sites
+561	SKYPAUTH	Skype Auth	Skype Authentication	Messaging	skype
+562	SKYPE	Skype	A software application that allows users to chat, make voice/video calls, and transfer files over the Internet.	Messaging	skype
+563	SKYPEOUT	Skype Out	Skype Out phone calls	Messaging	skype
+564	SKYPEP2P	Skype p2p	Skype Peer-to-Peer traffic, chat, file-transfer, voice, and video.	Messaging	skype
+565	SKYPROBE	Skype Probe	Skype Discovery Probes	Messaging	skype
+566	SLIDESHR	SlideShare	A Web 2.0 based slide hosting service.  Users can upload files privately or publicly in multiple formats.  Slide decks can be viewed on the sites itself, on hand held devices, or embedded on other sites	Web Services	sites
+567	SLOW	SLOW	Slow Protocols dissector which implements support of LACP (Link Aggregation Control Protocol) and OAM	Networking	nonip
+568	SLVRPLTR	Silverplatter	SilverPlatter Information, Inc. was one of the first companies to produce commercial reference databases on CD-ROMs.	Networking	portmap
+569	SMAKYNET	SMAKYNET	SMAKYNET Protocol	Networking	portmap
+570	SMARTSDP	Smart SDP	Port 426/tcp and 426/udp	Networking	portmap
+571	SMPTE	SMPTE	Port 420/tcp and 420/udp	Networking	portmap
+572	SMSP	SMSP	Port 413/tcp and 413/udp	Networking	portmap
+573	SMTP	SMTP	SMTP (Simple Mail Transfer Protocol) An Internet standard for electronic mail (e-mail) transmission across Internet Protocol (IP) networks.	Mail	smtp, portmap
+574	SMUX	SMUX	SNMP multiplexing is a computer networking protocol used in implementing the Simple Network Management Protocol. It defines communications between the SNMP Agent and other processes.	Network Monitoring	portmap
+575	SNAGAS	SNA Gateway	SNA Gateway Access Server enables users to exchange information and share resources between configured OpenVMS systems in DECnet and/or TCP/IP environments in a bidirectional manner.	Remote Access	portmap
+576	SNET	SNET	Sirius Systems	Networking	portmap
+577	SNMP	SNMP	SNMP (Simple Network Management Protocol) is an Internet-standard protocol for managing devices on IP networks.	Network Monitoring	snmp, portmap
+578	SNPP	SNPP	A protocol that defines a method by which a pager can receive a message over the Internet. It is supported by most major paging providers, and serves as an alternative to the paging modems used by many telecommunications services.	Networking	portmap
+579	SOCKS	SOCKS	An Internet protocol that facilitates the routing of network packets between client-server applications via a proxy server.	Proxy	portmap
+580	SOFTPC	SoftPC	Insignia Solutions	Networking	portmap
+581	SOKU	Soku.com	Chinese search engine from Youku	Web Services	sites
+582	SQLNET	Oracle SQLNET	Networking software that allows remote data-access between programs and the Oracle Database, or among multiple Oracle Databases.	Database	portmap
+583	SQLSERV	SQL Services	SQL Services	Database	portmap
+584	SRC	SRC	IBM System Resource Controller facilitates the management and control of complex subsystems.  The SRC is a subsystem controller.	Networking	portmap
+585	SRCFORGE	Sourceforge	A web-based source code repository.  A centralized location for software developers to control and manage open source software development.	Social Networking	sites
+586	SRMP	SRMP	Spider Remote Monitoring Protocol	Networking	portmap
+587	SRSSEND	SRS Send	Port 362/tcp and 362/udp	Networking	portmap
+588	SSDP	SSDP	SSDP (Simple Service Discovery Protocol) is used for discovery of Universal Plug and Play services.	Networking	portmap, ssdp
+589	SSH	SSH	SSH (Secure Shell) is a network protocol that allows data to be exchanged using a secure channel between two networked devices.	Remote Access	ssh, portmap
+590	SSL	SSL	SSL (Secure Sockets Layer) is a cryptographic protocol that provides security over the Internet.	Web Services	tls, xmpp, portmap
+591	STATSRV	STATSRV	Statistics Service for collecting STAT data from hosts	Network Monitoring	portmap
+592	STEAM	Steam	Steam is an online gaming social networking website.  Users can purchase, download and play games, as they connect with friends and groups with similar interests.	Games	steam
+593	STEAMCLI	Steam Client	Steam client-based http traffic (store browsing, news updates)	Games	steam
+594	STEAMDLC	Steam DLC	Downloadable content from Steam (games, updates, etc)	Games	steam
+595	STEAMGME	Steam Game	Steam online gaming traffic	Games	steam
+596	STEAMSOC	Steam Social	Steam social traffic (Friends network, peer to peer voice chat)	Games	steam
+597	STMBLUPN	StumbleUpon	A web browser plugin that allows users to discover and rate webpages, photos, videos and news articles	Web Services	sites
+598	STORADMN	Store Admin	Exchange Store Admin	Mail	exchange
+599	STUN	STUN	STUN (Session Traversal Utilities for NAT) is used in NAT traversal for applications with real-time voice, video, messaging, and other interactive communications.	Networking	stun, portmap
+600	SUNRPC	Sun RPC	Sun RPC is a widely deployed remote procedure call system.	Networking	portmap
+601	SUPDUP	SUPDUP	The SUPDUP protocol provides for login to a remote system over a network with terminal-independent output.	Remote Access	portmap
+602	SUPRNEWS	SuperNews	A Usenet/newsgroup service provider.	File Transfer	nntp
+603	SURESOME	SureSome	Web traffic encrypted and tunneled through Suresome web proxy	Proxy	sites
+604	SURMEAS	SURMEAS	Survey Measurement	Networking	portmap
+605	SUROGAFR	Surrogafier	Web traffic tunneled through Surrogafier web proxy.	Proxy	sites
+606	SURVMONK	SurveyMonkey	A private American company that enables users to create their own web survey, using free and enhanced paid products and services	Web Services	sites
+607	SUTLNT	Su-Mit Telnet	Su-Mit Telnet Gateway	Remote Access	portmap
+608	SVRLOC	SVRLOC	A service discovery protocol that allows computers and other devices to find services in a local area network without prior configuration. SLP has been designed to scale from small, unmanaged networks to large enterprise networks. It has been defined in RFC 2608 and RFC 3224 as Standards Track document.	Networking	portmap
+609	SWIFTRVF	Swift RVFP	Swift Remote Virtual File Protocol	File Transfer	portmap
+610	SYBASE	Sybase SQL	A comprehensive suite of solutions that provides data management, synchronization and data exchange technologies that enable the rapid development and deployment of database-powered applications in remote and mobile environments.	Networking	portmap
+611	SYNOTICS	SynOptics	SynOptics Communications is credited with having invented the concept of the modular Ethernet hub and high-speed Ethernet networking over copper twisted-pair and fiber optic cables.	Networking	portmap
+612	SYSATT	Sysatt	 Microsoft Exchange System Attendant service	Mail	exchange
+613	SYSLOG	Syslog	A standard for logging program messages.	Network Monitoring	syslog, portmap
+614	SYSTAT	Systat	System diagnostics information	Network Monitoring	portmap
+615	TACACS	TACACS	A remote authentication protocol that is used to communicate with an authentication server commonly used in UNIX networks. TACACS allows a remote access server to communicate with an authentication server in order to determine if the user has access to the network.	Networking	portmap
+616	TACNEWS	TAC News	Protocol for service type TAC News registered with IANA on Port 98 tcp/udp	Networking	portmap
+617	TAGGED	Tagged	General browsing, game play, interactions, and file transfers on social networking site tagged.com	Social Networking	sites
+618	TCP	TCP	TCP (Transmission Control Protocol) is a core protocol of the Internet Protocol Suite that allows for reliable communication between hosts.	Networking	ip, ipv6, tcp
+619	TCPMUX	TCPMUX	TCP Port Service Multiplexer is a multiplexing service that may be accessed with a network protocol to contact any one of a number of available TCP services of a host on a single, well-known port number.	Networking	portmap
+620	TCXFLASH	TCX Flash	Wyse TCX flash redirect traffic	Networking	tcx
+621	TCXMEDIA	TCX Multimedia	Wyse TCX multimedia traffic	Networking	tcx
+622	TCXSOUND	TCX Sound	Wyse TCX sound traffic	Networking	tcx
+623	TCXUSB	TCX USB	Wyse TCX USB virtualizer traffic	Networking	tcx
+624	TEAMVIEW	TeamViewer	TeamViewer is used to remotely control any computer on the Internet. TeamViewer needs to be running on both machines in order to connect. While the main focus is remote control, desktop sharing, file transfer and presentation features are also included.	Remote Access	teamviewer
+625	TECHINLN	TechInline	General browsing, remote control, desktop sharing, and file transfers on remote support site Techinline.com	Web Services	sites
+626	TELNET	Telnet	A network protocol used on the Internet or local area networks to provide a bidirectional interactive text-oriented communications facility using a virtual terminal connection.	Remote Access	telnet, portmap
+627	TEXAR	Texar	Texar Corporation, recently acquired by Avalon Works Corp., is a security infrastructure software company that offers policy-based authorization solutions to securely control what people can do with highly valuable or critical data across the extended enterprise. 	Networking	portmap
+628	TFTP	TFTP	TFTP (Trivial File Transfer Protocol) is a lightweight file transfer protocol.	File Transfer	portmap
+629	TFTPS	TFTPS	TFTPS (Trivial File Transfer Protocol over SSL/TLS) is a lightweight file transfer protocol.	File Transfer	portmap
+630	THEMFRST	Theme Forest	ThemeForest is an Envato Marketplace.  At ThemeForest you can buy and sell site templates and themes to skin popular CMS products like WordPress, Drupal and Joomla	Web Services	sites
+631	TIMBUKTU	Timbuktu	A remote control software product developed by Motorola. Remote control software allows a user to control another computer across the local network or the Internet, viewing its screen and using its keyboard and mouse as if he or she were sitting in front of it. Timbuktu is compatible with computers running both Mac OS X and Windows.	Networking	portmap
+632	TIME	Time	A network protocol in the Internet Protocol Suite defined in 1983 in RFC 868. Its purpose is to provide a site-independent, machine readable date and time.	Networking	portmap
+633	TIVOLI	Tivoli	IBM Tivoli Object Request Broker (ORB)	Network Monitoring	portmap
+634	TMOBILE	Tmobile	Tmobile VoIP services.	Streaming Media	sip
+635	TOBITDAV	Tobit	Tobit David Service Layer is a client/server software solution for NetWare or Windows NT Server that allows users on a LAN to send and receive faxes directly from their network-connected PC.	Networking	portmap
+636	TOR	Tor	Tor (The Onion Router) is a free software implementation of second-generation onion routing, a system which claims to enable its users to communicate more anonymously on the Internet.	Proxy	anon
+637	TORRENTZ	torrentz.eu	A Finland-based meta-search engine for BitTorrent.  It indexes torrents from various major torrent sites and offers compilations of various trackers per torrent so other trackers are available when one goes down	File Transfer	sites
+638	TRIPWIRE	Tripwire	A free software security and data integrity tool useful for monitoring and alerting on specific file change(s) on a range of systems.	Network Monitoring	portmap
+639	TUMBLR	Tumblr	A microblogging platform that allows users to post text, images, videos, links, quotes and audio to their tumblelog, a short-form blog.	Web Services	sites
+640	TWITPIC	TwitPic	Twitter picture posting and delivery service	Social Networking	twitpic
+641	TWITTER	Twitter	Twitter is a social networking and microblogging service.	Social Networking	socialnet
+642	UAAC	UAAC	UAAC Protocol	Networking	portmap
+643	UARPS	UARPS	Unisys ARPs	Networking	portmap
+644	UDLDM	Unidata LDM	A collection of cooperating programs that select, capture, manage, and distribute arbitrary data products. The system is designed for event-driven data distribution, and is currently used in the Unidata Internet Data Distribution (IDD) project. The LDM system includes network client and server programs and their shared protocols.	Networking	portmap
+645	UDP	UDP	UDP (User Datagram Protocol) is a core protocol of the Internet Protocol Suite that allows for low overhead, un-reliable communication between hosts, often for real-time data transfer.	Networking	ip, ipv6, udp
+646	UIS	UIS	Port 390/tcp and 390/udp	Networking	portmap
+647	ULSTPROC	ULSTPROC	ListProcessor, ListProc for short, is a powerful mailing list agent that keeps track of thousands of people subscribed to any number of mailing lists.	Networking	portmap
+648	UMA	UMA	Universal Management Architecture	Network Monitoring	portmap
+649	UNIFY	UNIFY	Protocol for service type Unify registered with IANA on Port 181 tcp/udp	Networking	portmap
+650	UPS	UPS	An electrical apparatus that provides emergency power to a load when the input power source, typically the utility mains, fails. A UPS differs from an auxiliary or emergency power system or standby generator in that it will provide instantaneous or near-instantaneous protection from input power interruptions by means of one or more attached batteries and associated electronic circuitry for low power users, and or by means of diesel generators and flywheels for high power users.	Networking	portmap
+651	USATODAY	USA Today	General browsing and streaming media from online newspaper site usatoday.com	Web Services	sites
+652	USENET	Usenet	A worldwide distributed Internet discussion system. Users read and post messages (called articles or posts, and collectively termed news) to one or more categories, known as newsgroups.	File Transfer	nntp
+653	USTREAM	UStream	A live interactive broadcast platform that enables anyone with an Internet connection and a camera to create webcasts.	Streaming Media	sites
+654	UTMP	UTMP	A file on Unix-like systems that keeps track of all logins and logouts to the system. It was never a part of any official Unix standard, such as Single UNIX Specification, and was obsoleted with introduction of utmpx and corresponding APIs	Networking	portmap
+655	UUCP	UUCP	Unix-to-Unix Copy	File Transfer	portmap
+656	VCHAT	Vchat	An Internet conferencing protocol	Messaging	portmap
+657	VETTCP	vettcp	Protocol for service type vettcp registered with IANA on Port 78 tcp/udp	Networking	portmap
+658	VIDEO	Http Video	Video files/streams delivered over HTTP that were not detected as being part of a more specific application.	Web Services	http
+659	VIDEOBB	videobb	A video sharing web sites	Streaming Media	sites
+660	VMNET	VMNET	Protocol for service type VMNET registered with IANA on Port 175 tcp/udp	Networking	portmap
+661	VMPWSCS	VMPWSCS	Protocol for service type VM PWSCS registered with IANA on Port 214 tcp/udp	Networking	portmap
+662	VONAGE	Vonage	Vonage is a VoIP company that provides telephone service via a broadband connection.	Streaming Media	sip
+663	VSLMP	VSLMP	Protocol for service type vslmp registered with IANA on Port 312 tcp/udp	Networking	portmap
+664	W3SCHOOL	W3Schools	A website developer's portal, with tutorials and references relating to web development subjects	Web Services	sites
+665	WANSCALR	Citrix WANScaler	Citrix WAN optimization traffic.	Remote Access	portmap
+666	WCCP	WCCP	A Cisco-developed content-routing protocol that provides a mechanism to redirect traffic flows in real-time to web-caches.	Networking	nonip
+667	WEBDAV	WebDAV	Web-based Distributed Authoring and Versioning allows users to collaboratively edit and manage files on a remote web server.	File Transfer	webdav
+668	WEBEX	WebEx	Cisco's online meeting and web conferencing application.	Collaboration	webex
+669	WEBFLTR	WebFilter	WebFilter Remote Monitor, IANA port 1046/tcp and 1046/udp	Networking	portmap
+670	WEBSCOM	Webs.com	Space for individuals, groups, or small businesses to share photos and videos, open a store, and build a member community	Web Services	sites
+671	WEEBLY	Weebly	Online, free, website creator that uses widget-style format, allowing users to create pages with on a few clicks by dragging and dropping different page elements onto a page and filling in the content.	Web Services	sites
+672	WHATSAPP	Whatsapp	WhatsApp Messenger is a cross-platform mobile messaging app which allows you to exchange messages without having to pay for SMS	Messaging	whatsapp
+673	WHOIS	Whois	A query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block, or an autonomous system, but is also used for a wider range of other information.	Networking	portmap
+674	WIKIDOT	wikidot	General browsing, posting, updates, page creation, and file transfers on wiki hosting site wikidot.com	Web Services	sites
+675	WIKIPEDI	Wikipedia	Wikipedia is an online editable encyclopedia.	Web Services	sites
+676	WINLIVE	Windows Live	A collection of Microsoft's online services.	Messaging	sites
+677	WINMEDIA	Windows Media	Windows multimedia traffic	Streaming Media	winmedia
+678	WINMX	WinMX	WinMX is a free peer-to-peer file sharing program.  It runs on the Windows operating system, however the official WinMX website and WinMX servers have been offline since 2005 as a result of an increased presence of dummy files on the site, which led to a lawsuit.   The application now operates through third-party modifications.	File Transfer	winmx
+679	WINNY	Winny	A Japanese peer-to-peer (P2P) file-sharing program.	File Transfer	winny
+680	WINS	WINS	Microsoft's implementation of NetBIOS Name Service (NBNS), a name server and service for NetBIOS computer names.	Networking	portmap
+681	WINUPDAT	Windows Update	A service provided by Microsoft that allows users to get software patches and updates for MS Windows and other programs, including Internet Explorer, over the internet	File Transfer	winupdate
+682	WRDPRESS	Wordpress	An online blogging community.	Web Services	sites
+683	WRETCH	Wretch	General browsing and streaming media from Taiwanese community website	Web Services	sites
+684	WYSE_TCX	Wyse TCX	Wyse TCX Solutions feature a Collaborative Processing Architecture (CPA) which divides the workload between the server and the client to reduce the need for large servers.	Networking	tcx
+685	X.25	X.25	An ITU-T standard protocol suite for packet switched wide area network (WAN) communication.	Networking	nonip
+686	XANGA	Xanga	A website that hosts weblogs, photoblogs, and social networking profiles.	Web Services	sites
+687	XBONE	Xbone	X-Bone Control is a system for the automated deployment, management, coordination, and monitoring of IP overlay networks.	Networking	portmap
+688	XBOX	Xbox LIVE	An online multiplayer gaming and digital media delivery service created and operated by Microsoft Corporation.	Games	portmap
+689	XDMCP	XDMCP	X Display Manager Control Protocol	Networking	portmap
+690	XFER	Xfer	The Xfer Utility is used for DNS zone transfers.	Networking	portmap
+691	XMPP	XMPP	XMPP (Extensible Messaging and Presence Protocol) is an open technology for real-time communication.	Messaging	xmpp, portmap
+692	XNS	XNS	Xerox Network Services (XNS)	Networking	portmap
+693	XNSAUTH	XNS Authentication	XNS (Xerox Networking Services) Authentication	Networking	portmap
+694	XNSCH	XNS Clearinghouse	XNS (Xerox Networking Services) Clearinghouse Protocol	Networking	portmap
+695	XNSMAIL	XNS Mail	XNS (Xerox Networking Services) Mail	Mail	portmap
+696	XNSTIME	XNS Time	XNS Time Protocol	Networking	portmap
+697	XUNLEI	Xunlei	A download manager that supports file transfers using HTTP, FTP, eDonkey, and BitTorrent protocols	File Transfer	xunlei
+698	XYPLEX	Xyplex	Xyplex	Networking	portmap
+699	Y8	Y8.com	General browsing, game play, and streaming media from gaming website Y8.com	Games	sites
+700	YAHOO	Yahoo	Yahoo and it's online services.	Web Services	sites
+701	YELP	Yelp	Social networking, user review, and local search service	Social Networking	sites
+702	YHOOSLRP	Yahoo Slurp	Yahoo web-crawler that obtains content for Yahoo Search engine	Web Services	sites
+703	YMSG	Yahoo Messenger	Yahoo's Instant Messaging client.	Messaging	yahoo
+704	YMSGFILE	Yahoo Msg File Transfer	File transfer traffic within the Yahoo Messenger application	File Transfer	yahoo
+705	YOUSNDIT	YouSendIt	A Web-based secure digital file delivery company, which lets users securely send, receive and track files on demand.	File Transfer	sites
+706	YOUTUBE	YouTube	A video-sharing website on which users can upload, share, and view videos.	Streaming Media	youtube
+707	Z3950	Z3950	ANSI Z39.50 is a client-server protocol for searching and retrieving information from remote computer databases.	Networking	portmap
+708	ZANNET	ZanNet	A combination Windows 95 network client and Unix server that providing Windows 95 network drive access to your server files. Intended to replace both File Transfer Protocol (FTP) and Telnet programs, ZanNet accesses web pages and remote files over your current Internet connection.	File Transfer	portmap
+709	ZEBRA	Zebra	A high-performance, general-purpose structured text indexing and retrieval engine. It reads structured records in a variety of input formats (e.g.. email, XML, MARC) and allows access to them through exact boolean search expressions and relevance-ranked free-text queries.	Networking	portmap
+710	ZOHO	Zoho	A Web- based online office suite containing word processing, spreadsheets, presentations, databases, note-taking, wikis, CRM, project management, invoicing and other applications developed by ZOHO Corporation.	Web Services	sites
+711	ZYNGAGAM	Zynga	A social network game developer of browser-based games that work both stand-alone and as application widgets on social networking websites such as Facebook and MySpace.	Games	zynga
+712	LYNC	Lync	Microsoft Lync voice, video, file transfer, and desktop sharing.	Collaboration	lync
+713	050PLUS	050Plus	Logging in or making calls with the 050Plus application.	Messaging	050plus
+714	17173	17173.com	General browsing interaction and game play on the social gaming network 17173.com	Social Networking	sites
+715	247INC	[24]7 Inc	Data and advertisements hosted by [24]7 Inc.	Web Services	sites
+716	247MEDIA	24/7 Media	Ads hosted by 24/7 Media technology and the Real Media group.	Web Services	sites
+717	33ACROSS	33Across	Traffic generated by 33Across to collect anonymous information about users visiting specific websites.	Web Services	sites
+718	51COM	51.com	General browsing	 game play	Web Services
+719	56COM	56.com	General browsing and streaming media from Chinese video sharing website 56.com	Web Services	sites
+720	58COM	58.com.cn	Classified ad and media traffic generated by browsing 58.com.cn.	Web Services	sites
+721	ACCWEATH	accuweather.com	Website that provides weather forecasting services worldwide.	Web Services	sites
+722	ACHETEZ	achetezfacile.com	Browsing searching and purchasing items from French online shopping site achetezfacile.com	Web Services	sites
+723	AD4MAT	Ad4mat	Visiting websites that use Ad4mat to generate ad traffic.	Web Services	sites
+724	ADCASH	Adcash.com	The traffic from browsing website containing advertisements from Adcash and browsing the adcash.com website	Web Services	sites
+725	ADCONION	Adconion	User online behaviour data gathered by Adconion Media Group digital distribution platform operators.	Web Services	sites
+726	ADDTHIS	AddThis	User analytics and content sharing through addthis.com	Web Services	sites
+727	ADFONIC	adfonic	Mobile web and app inventory from advertising buying platform adfonic.	Web Services	sites
+728	ADGEAR	adgear	Visiting websites that host their ads using adgear	Web Services	sites
+729	ADIFYCOP	Adify	Visiting websites that use Adify to generate ad traffic.	Web Services	sites
+730	ADJUGLER	AdJuggler	Visiting websites that use AdJuggler to generate ads.	Web Services	sites
+731	ADMARVEL	AdMarvel	Visiting websites that use AdMarvel to generate ads.	Web Services	sites
+732	ADMASTER	AdMaster	Visiting web pages that use Admaster to generate ads.	Web Services	sites
+733	ADMELD	Admeld	Accessing web pages that use the Admeld service to generate ads	Web Services	sites
+734	ADMETA	Admeta	Traffic generated by web pages using Admeta to generate ads.	Web Services	sites
+735	ADMOB	AdMob	Traffic generated by web pages using AdMob to generate ads.	Web Services	sites
+736	ADNSTRM	adnStream	General site browsing and streaming media from Spanish video streaming site adnStream	Streaming Media	sites
+737	ADOBANAL	Adobe Analytics	Traffic going to Adobe Analytics websites such as scene7.com	 demdex.net	Web Services
+738	ADOMETRY	Adometry	traffic generated by web sites using Adometry to generate ads.	Web Services	sites
+739	ADOTUBE	Ado Tube	In-stream video traffic from advertising company Ado tube	Web Services	sites
+740	ADREADY	Adready	Traffic generated by  web sites using Adready to generate ads.	Web Services	sites
+741	ADROLL	AdRoll	Embedded ad traffic from advertisement retargeting company Adroll	Web Services	sites
+742	ADSAGE	Adsage	Traffic generated by web sites using Adsage to generate ads.	Web Services	sites
+743	ADSAME	AdSame	Internet advertising content through  Chinese digital marketing company AdSame	Web Services	sites
+744	ADTECH	ADTECH	Traffic generated from web sites using  ADTECH to generate ads	Web Services	sites
+745	ADTEGRTY	Adtegrity	Traffic generated by web sites using Adtegrity to generate ads	Web Services	sites
+746	ADVERTIS	Advertising	Visiting websites that host their ads using advertise.com	Web Services	sites
+747	ADXPOSE	AdXpose	Traffic generated by web sites using AdXpose to generate ads	Web Services	sites
+748	ADXTRACK	AD-X Tracking	Application tracking and attributes data from analytics provider AD-X Tracking	Web Services	sites
+749	AFREECA	afreecaTV	General browsing and streaming media from the television streaming service afreecaTV	Streaming Media	sites
+750	AGGRKNOW	Aggregate Knowledge	Traffic generated by web sites using Aggregate Knowledge to generate ads	Web Services	sites
+751	AKAMAI	Akamai	Generated by accessing web pages that host their media with Akamai.	Web Services	akamai
+752	AKAMAINS	Akamai NetSession	Traffic generated by Akamai NetSession interaface app that handles downloads of files from services that use it.	File Transfer	akamai
+753	ALIBABA	Alibaba	Browsing using the search options and viewing prices on the website Alibaba.com	Web Services	sites
+754	ALIPAY	Alipay.com	Trafic comes from browsing the alipay website and from online payments using Alipay.	Web Services	sites
+755	ALIWW	Aliwangwang	Traffic generated from the Aliwangwang instant messaging application.	Messaging	aliwangwang
+756	ALIYUN	Aliyun.com	General browsing and interaction on the Chinese site aliyun.com	Web Services	sites
+757	ALLEGRO	Allegro.pl	Traffic generated by browsing and shopping on allegro.pl.	Web Services	sites
+758	AMAZONWS	Amazon Web Services	Accessing media that is hosted in the Amazon Cloud	Web Services	sites
+759	AMEBA	ameba	General browsing and game play on ameba sites.	Web Services	sites
+760	AMOBEE	Amobee	Advertisement traffic to and from amobee.com	Web Services	sites
+761	ANDROID	Android	Visiting and browsing the Android website.	Web Services	google
+762	AOLADS	AOL Ads	Advertising traffic to and from advertising.aol.com	Web Services	sites
+763	APPLEMAP	Apple Maps	Browsing and searching locations and getting directions on Apple's online mapping service Apple Maps	Web Services	apple
+764	APPNETA	Appneta	Using Appneta devices on the network.	Network Monitoring	appneta
+765	APPNEXUS	AppNexus	Visiting websites that host advertisements using AppNexus.	Web Services	sites
+766	APTEAN	Aptean	Traffic related to Aptean suite of enterprise software	Web Services	sites
+767	ARCHIVE	The Internet Archive	General browsing	 audio and video streaming	Web Services
+768	ARES	Ares	General browsing interactions and file transfers on the open source peer-to-peer file sharing application Ares Galaxy.	File Transfer	ares
+769	ASK	Ask.com	General browsing and interaction on question answering search engine Ask.com	Web Services	sites
+770	ATLASSOL	Atlas Solutions	Accessing web content that uses Atlas Solutions for hosting ads and other media.	Web Services	sites
+771	AUDSCIEN	AudienceScience	Visiting websites that use AudienceScience to host advertisements.	Web Services	sites
+772	AUTOHOME	Autohome.com.cn	Traffic generated by reading articles on autohome.com.cn	Web Services	sites
+773	AVAST	Avast.com	The traffic comes from browsing of Avast.com official website of Avast! antivirus downloads.	Web Services	sites
+774	AVOIDR	Avoidr	Use of foursquare location-based technology with mobile app Avoidr to locate and avoid people	Web Services	sites
+775	BABYLON	Babylon	General browsing and interaction with the online translation website Babylon.com	Web Services	sites
+776	BADOO	badoo	General browsing interaction messaging and posting on social networking site badoo.com	Social Networking	sites
+777	BAIDU	Baidu	Using Baidu's search tools viewing videos viewing news and using the maps tool.	Web Services	baidu
+778	BAIDUHI	BaiduHi	Traffic generated by instant messaging with other users on BaiduHi.	Messaging	baidu
+779	BAZAARVC	Bazaar Voice	Using online services which use Bazaar Voice to collect user data.	Web Services	sites
+780	BBC	bbc.co.uk	The traffic is generated from browsing the website	 news	Web Services
+781	BETCLICK	Betclic	Placing bets on online sports gambling website Betclic	Web Services	sites
+782	BEWEB	Beweb	Visiting websites that use Beweb to generate ad traffic and gather analytics	Web Services	sites
+783	BIZO	bizo.com	Advertising traffic to and from bizo.com	Web Services	sites
+784	BJNP	BJNP	Canon printers use this  specific ""BJNP"" protocol for document printing and network communication.	Networking	bjnp
+785	BJNPDISC	BJNP Discovery	Discovering network devices with the BJNP protocol.	Networking	bjnp
+786	BLIZCLNT	Blizzard client	Traffic generated when Blizzard game client is being updated.	Games	blizzard
+787	BLIZDWNL	Blizzard downloader	The Blizzard Downloader is a tool used to download Blizzard game clients.	Games	blizzard
+788	BLIZSITE	Blizzard.com website	General blizzard.com website traffic	Games	blizzard
+789	BLIZZARD	Blizzard Game Data Files	Traffic generated when downloading game data files from blizzard servers during installation/update of a game.	Games	blizzard
+790	BLOKUS	Blokus	General browsing and game play of online board strategy game Blokus	Games	sites
+791	BLUEKAI	Bluekai	Visiting a website that hosts ads using Bluekai.	Web Services	sites
+792	BLUELITH	BlueLithium	Online advertising traffic from Bluelithium	Web Services	sites
+793	BNETAPP	Battle.net desktop app	Traffic generated by battle.net desktop app.	Games	blizzard
+794	BNETGAME	Battle.net game protocol	A premium gaming service provided by Blizzard Entertainment.	Games	blizzard
+795	BNETSITE	Battle.net website	General battle.net website traffic.	Games	blizzard
+796	BOBIEDGE	Business Objects BI Edge	Connecting to a BusinessObjects or a Crystal Enterprise server with a client such as a web browser.	Collaboration	sap
+797	BOOKING	Booking.com	General browsing and interaction on online accommodation reservation site Booking.com	Web Services	sites
+798	BOXCARIO	Boxcar.io	General web traffic for the boxcar.io website.	Social Networking	sites
+799	BRCDN	BRCDN	Visiting websites that use BRCDN to host media or ads.	Web Services	sites
+800	BRIGHTRL	Bright Roll	General brightroll.com advertisement and web traffic.	Web Services	sites
+801	BRILIG	brilig	General advertisement traffic from brilig.com	Web Services	sites
+802	BRSRVR	BRSRVR	Visiting websites that use BRSRVR to host ads and other media content.	Web Services	sites
+803	BSKYB	Sky Go	Traffic generated by streaming media using SkyGO account from pc	Streaming Media	sites
+804	BVMEDIA	BV! Media	General BV! Media advertisement traffic	Web Services	sites
+805	CA_CERT	CA Certificate	Certification authority (CA) issues digital certificates which certifies the ownership of a public key for message encryption	Networking	sites
+806	CARAYTEC	caraytech	General advertisement and web traffic from caraytech	Web Services	sites
+807	CASALE	Casale	Advertising traffic to and from Casale Media.	Web Services	sites
+808	CEDEXIS	Cedexis	Visiting websites that use Cedexis to generate ad traffic and gather analytics	Web Services	sites
+809	CHANGO	Chango	General advertisement and web traffic from chango.com	Web Services	sites
+810	CHINACOM	china.com	General browsing loading images and stories on the Chinese social media site china.com	Web Services	sites
+811	CHINAREN	Chinaren.com	General browsing and interaction on the Chinese alumni social networking site Chinaren.com	Social Networking	sites
+812	CHINAUMA	chinauma	General chinauma.com advertisement and web traffic.	Web Services	sites
+813	CHNANEWS	China News	Visiting China News and streaming videos from the website.	Web Services	sites
+814	CHRTBEAT	Chart Beat	General chartbeat.com advertisement and web traffic.	Web Services	sites
+815	CISCOUC	CISCOUC	A software application that allows users to chat make voice/video calls and share screens over the internet.	Messaging	ciscouc
+816	CISUCAUD	CISUCAUD	Cisco Jabber audio conferencing traffic.	Messaging	ciscouc
+817	CISUCVID	CISUCVID	Cisco Jabber video conferencing traffic.	Messaging	ciscouc
+818	CLARIZEN	Clarizen	General browsing interaction and file posting on project management site clarizen.com.	Collaboration	sites
+819	CLDAP	CLDAP	The Connectionless Lightweight Directory Access Protocol (CLDAP) is an application protocol for accessing and maintaining distributed directory information services over an Internet Protocol (IP) network using UDP.	Database	ldap
+820	CLIKBOTH	Clickbooth	General clickbooth.com advertisement and web traffic.	Web Services	sites
+821	CLIKTALE	ClickTale	Browsing clicktale.com and associated domains.	Web Services	sites
+822	CLOUDFLR	CloudFlare	Visiting websites that use CloudFlare to generate ads	Web Services	sites
+823	CLUBBOX	Clubbox	Browsing and streaming media on Korean movie and television site http://www.clubbox.co.kr/	File Transfer	pdbox
+824	CNZZ	CNZZ	Visiting websites that use CNZZ to generate ads	Web Services	sites
+825	COGNITIV	Cognitive Match	Visiting websites that use Cognitive Match to generate ads	Web Services	sites
+826	COMM	DeNA Comm	DeNA Comm voice calls and text chats.	Messaging	dena
+827	COMMJUNC	Commission Junction	Visiting websites that use Commission Junction to generate ads.	Web Services	sites
+828	COMPETE	Compete	Visiting websites that use Compete to gather information about users search and site behavior.	Web Services	sites
+829	COMPUWAR	Compuware	Visiting websites that use Compuware to generate ads	Web Services	sites
+830	COMSCORE	comScore	Visising a web site which uses comScore to collect data about users browsing the page.	Web Services	sites
+831	CONCUR	Concur	General browsing and interaction with travel and business management site concur.com	Web Services	sites
+832	CONDUIT	Conduit	Browsing the Conduit websites (Wibiya Mobile Conduit) and using their features.	Web Services	sites
+833	CONEXTRA	Connextra	Visiting websites that use Connextra to generate ads	Web Services	sites
+834	CONNXITY	Connexity	Visiting websites that use Connexity to generate ads	Web Services	sites
+835	CONSTANT	Constant Contact	General browsing and interaction on email marketing site constantcontact.com .	Web Services	sites
+836	CONTNET	Contnet	Visiting websites that use Contnet to generate ads	Web Services	sites
+837	CONTXWEB	Contextweb	Visiting websites that use Contextweb to generate ads.	Web Services	sites
+838	CORALCDN	Coral CDN	Peer to peer content distribution traffic from the Coral Content Distribution Network website	Web Services	sites
+839	CORAUDIN	Core Audience	Visiting websites that use Core Audience to generate ads	Web Services	sites
+840	CPXINTAC	CPX Interactive	Visiting websites that use CPX Interactive to generate ads	Web Services	sites
+841	CRITEO	Criteo	Visiting websites that use Criteo to generate ads	Web Services	sites
+842	CRITTER	Crittercism	Using Crittercism to monitor mobile applications.	Network Monitoring	sites
+843	CR_LIST	CR List	Certificate Revocation List is a list of certificates that have been revoked	Networking	sites
+844	CROWDSCI	Crowd Science	Visiting websites that use Crowd Science to generate ads	Web Services	sites
+845	CSDN	Csdn.net	Traffic generated by browsing news articles on Chinese technology new site csdn.net	Web Services	sites
+846	CXENSE	cXense	Visiting websites that use cXense to generate ads	Web Services	sites
+847	CYBGHOST	CyberGhost	Browsing the internet while being connected via CyberGhost VPN servers and also traffic generated while browsing the CyberGhost homepage.	VPN and Tunneling	cyberghost
+848	CYWORLD	Cyworld	General web traffic for cyworld.com.	Social Networking	nateon
+849	DAILYM	Daily Mail	Traffic generated by browsing the articles and viewing media on British newspaper site dailymail.co.uk.	Web Services	sites
+850	DATALOGX	Datalogix	Visiting websites that use Datalogix to generate ads	Web Services	sites
+851	DAUM	Daum.net	Browsing searching and streaming media on Korean website daum.net	Web Services	sites
+852	DBLCLICK	Doubleclick	Visiting web pages that use Doubleclick to generate ads.	Web Services	sites
+853	DCINSIDE	dcinside.com	General browsing and interaction with Korean photography focused website dcinside.com	Web Services	sites
+854	DCSTORM	DC Storm	Visiting websites that use DC Storm to generate ads	Web Services	sites
+855	DELICIUS	Delicious	General browsing and interaction with the social bookmarking website Delicious	Web Services	sites
+856	DELTAS	Delta Search	Using the Delta Search engine or toolbar.	Web Services	sites
+857	DENA	DeNA websites	Traffic generated by browsing DeNA Comm website and some other sites that belong to DeNA	Messaging	dena
+858	DEVNTART	DeviantART	General browsing interaction and shopping on online artwork community site deviantART	Web Services	sites
+859	DIAMETER	Diameter	An authentication authorization and accounting protocol for computer networks.	Networking	diameter
+860	DICTION	Dictionary.com	Traffic generated by browsing articles and looking up definitions of words on dictionary.com.	Web Services	sites
+861	DIGG	Digg	General browsing and interaction on social news website digg	Web Services	sites
+862	DISNEY	Disney	Web traffic associated with globalregsession.go.com a Disney Enterprises website.	Web Services	sites
+863	DOOF	doof	General browsing and streaming games from online gaming site doof.	Games	sites
+864	DOTOMI	Dotomi	Visiting websites that use Dotomi to generate ads	Web Services	sites
+865	DRAWBRDG	Drawbridge	Visiting websites that use Drawbridge to generate ads	Web Services	sites
+866	DYNAINTR	Dynamic Intranet	General browsing and interaction on intranet site Dynamic Intranet	Web Services	sites
+867	DYNMILOG	Dynamic Logic	Visiting websites that use Dynamic Logic to generate ads	Web Services	sites
+868	EARTHCAM	EarthCam	General browsing and interaction on earthcam.com	Web Services	sites
+869	EASTMONY	Eastmoney	General browsing and interaction on Chinese financial portal eastmoney.com	Web Services	sites
+870	EBUDDY	eBuddy	Browsing the eBuddy website sending messages using voice and video chat.	Messaging	ebuddy
+871	EBUDYXMS	eBuddy XMS	Sending messages using the eBuddy XMS application	Messaging	ebuddy
+872	EDGECAST	EdgeCast Networks	Traffic generated by accessing ad website edgecastcdn.net	Web Services	sites
+873	EDITGRID	Editgrid	General browsing and interaction with online spreadsheet site editgrid	Web Services	sites
+874	EFFECTMS	Effective Measure	Visiting web pages that use Effective Measure to generate ads.	Web Services	sites
+875	EHOW	eHow	General browsing interaction and watching videos on how-to instruction site eHow	Web Services	sites
+876	EIGRP	EIGRP	Enhanced Interior Gateway Routing Protocol (EIGRP) is an advanced distance vector routing protocol based on the principles of the Interior Gateway Routing Protocol (IGRP).	Networking	routing
+877	ENGAGBDR	Engage BDR	Visiting web pages that use Engage BDR to generate ads	Web Services	sites
+878	ENOVANCE	eNovance	Visiting web pages that use eNovance to generate ads	Web Services	sites
+879	EQADS	EQ Ads	Visiting webpages that use EQ Ads to generate ads	Web Services	sites
+880	ESPN	ESPN	Browsing sports news articles watching highlight videos and sports fantasy league participation on the American sports site ESPN.com and affiliated websites.	Web Services	sites
+881	ETAO	etao.com	Browsing links and searching with the site eato.com.	Web Services	sites
+882	ETSY	Etsy	General browsing interaction and shopping on e-commerce website Etsy	Web Services	sites
+883	EVERNOTE	Evernote	Traffic generated via visiting the evernote website or syncing information from the applications to and from their cloud.	Web Services	evernote
+884	EVIDON	Evidon	Visiting a website that uses Evidon to collect user analytics.	Web Services	sites
+885	EVONY	Evony	General browsing forum interaction and game play of flash-based online gaming site Evony	Games	sites
+886	EXCHAGOL	Exchange Online	Traffic associated with Exchange Online such as visiting outlook.com.	Mail	exchange
+887	EXELATE	eXelate Media	Visiting websites that use eXelate Media to generate ads.	Web Services	sites
+888	EXPONINT	Exponential Interactive	Visiting websites that use Exponential Interactive to generate ads.	Web Services	sites
+889	EYERETRN	eyeReturn	Visiting websites that use eyeReturn to collect user analytics.	Web Services	sites
+890	FC2	FC2.com	Traffic generated by browsing or using the services on fc2.com	Web Services	sites
+891	FEDERATD	Federated Media	Visiting websites that use Federated Media to generate ad traffic.	Web Services	sites
+892	FIX	FIX	Communication between network devices using the FIX protocol.	Networking	fix
+893	FLASH	Adobe Flash	Streaming videos site and application interaction using browser plugin Adobe Flash	Streaming Media	flash
+894	FLUENT	Fluent	Web traffic associated with fluent mobile's web address of fluentmobile.com.	Web Services	sites
+895	FLURRY	Flurry	Data collection traffic of different mobile applications from the company Flurry Inc.	Web Services	sites
+896	FOURSQR	foursquare	Check-ins browsing and searching on the mobile application or website foursquare.	Social Networking	sites
+897	FOXNEWS	Fox News	Visiting the Fox News website and streaming videos.	Web Services	sites
+898	FOXSPORT	FOX Sports	General browsing and streaming videos from sports news site foxsports.com and affiliated sites.	Web Services	sites
+899	FREEDIC	The Free Dictionary	Traffic generated by looking for word definitions viewing articles or playing games on thefreedictionary.com.	Web Services	sites
+900	FREEFR	Free	General browsing on French Internet Service Provider website Free.fr	Web Services	sites
+901	FREEGATE	Freegate	Browsing the internet via the Freegate proxy application.	Proxy	freegate
+902	FREENET	Freenet	Traffic generated by the freenet browsing application.	File Transfer	freenet
+903	FREWHEEL	Freewheel Media	Visiting websites that use Freewheel Media to generate ads.	Web Services	sites
+904	FRING	Fring	Control and messaging flow traffic for mobile messaging application Fring	Messaging	fring
+905	FRINGAV	Fring A/V	Audio and video flow traffic for mobile messaging application Fring	Streaming Media	fring
+906	FRLANCER	Freelancer	Browsing and posting on the Freelancer website.	Web Services	sites
+907	FUNSHION	Funshion	Browsing Funshion videos shopping and online games.	Web Services	funshion
+908	FUNSHVID	Funshion Video	Streaming movies TV and live video streams from Funshion website.	Streaming Media	funshion
+909	GADUGADU	GG	Gadu-Gadu traffic that consists of instant text messaging and browsing product website	Messaging	gadugadu
+910	GADUMDIA	GG Media	Voice and video traffic from instant messaging client Gadu-Gadu	Streaming Media	gadugadu
+911	GANJI	Ganji	Classified ad and media traffic generated by browsing ganji.com.	Web Services	sites
+912	GCM	Google Cloud Messaging	An Android client application retrieving messages sent to it by its server through the Google Cloud Messaging service.	Web Services	google
+913	GOAL	goal.com	General browsing interaction and streaming videos from international soccer news website goal.com.	Web Services	sites
+914	GOGOBOX	GoGoBox	Browsing using the online store and playing online games on the website gogobox.com	Web Services	sites
+915	GOMREMOT	GOM Remote	Using mobile application to remotely control PC applications GOM Audio and GOM Media Player	Remote Access	gomtv
+916	GOMTVCOM	GOMTV.com	General browsing interaction and streaming media on Korean streaming media site GOMTV.com	Streaming Media	gomtv
+917	GOMTVNET	GOMTV.net	General browsing watching videos and league and player stat tracking on Korean e-sports site GOMTV.net	Streaming Media	gomtv
+918	GOOGADS	Google Ads	Visiting websites that use Google Ads to generate user specific advertisements.	Web Services	google
+919	GOOGHANG	Google Hangouts	Traffic generated by voice and video streams from Google Hangouts text chats photo sharing and some parts of product webpage or from Google Helpouts voice and video streams.	Messaging	google
+920	GOOGHELP	Google Helpouts	Traffic generated by voice and video streams from Google Helpouts text chats and some parts of product webpage.	Messaging	google
+921	GOOGPLAY	Google Play	Downloading apps music movies TV shows books on Android phone application store Google Play	Web Services	google
+922	GOTOMEET	GoToMeeting	Using features of the GoToMeeting platform specific to GoToMeeting alone. Scheduling meetings account management and starting the GoToMeeting-specific client through the web.	Collaboration	citrixonline
+923	GOTOMYPC	Citrix GoToMyPC	Using GoToMyPC to remotely control a PC that has the hosting software installed.	Collaboration	citrixonline
+924	GOTOTRNG	Citrix GoToTraining	Using GoToTraining-specific features of the GoToMeeting platform within a GoToTraining session including participant testing and course-material sharing.	Collaboration	citrixonline
+925	GOTOWBNR	Citrix GoToWebinar	Using GoToWebinar-specific features of the GoToMeeting platform within a GoToWebinar session	 including Q&A	Collaboration
+926	GROUPON	Groupon	General browsing and use of the features of the coupon deal website Groupon	Web Services	sites
+927	GTALKAUD	Google Talk Audio	Making an audio call or message using Google's messaging service Google Talk.	Streaming Media	google
+928	GTALKFIL	Google Talk File Transfer	Sending a file over Google's messaging service Google Talk.	File Transfer	google
+929	GTALKVID	Google Talk Video	Making a video call using Google Talk or Google Talk mobile.	Streaming Media	google
+930	GTP_C	GPRS Tunneling Protocol Control	Protocol used within the GPRS core network for signaling between gateway and serving GPRS support nodes.  It allows session activation deactivation adjustment of quality of service parameters and session updates to check for new subscribers.	Networking	gtp
+931	GTP_P	GPRS Tunneling Protocol Prime	GTP protocol used for carrying charging data from the charging data function to the charging gateway function. Generally from many individual network elements to a centralized computer that delivers the charging data to the network operator's billing centre.	Networking	gtp
+932	GTP_U	GPRS Tunneling Protocol User	Protocol used for carrying user data with the GPRS core network and between the radio access network and the core network.	Networking	gtp
+933	GUARDIAN	the guardian	General browsing and streaming audio and video from British new website the guardian	Web Services	sites
+934	HAO123	Hao123.com	Traffic generated by performing web searches on hao123.com.	Web Services	sites
+935	HBCI	FinTS	A bank-independent protocol developed for online banking in the European market used by German banks. Formerly HBCI (Home Banking Computer Interface)	Networking	portmap
+936	HOOTSUIT	HootSuite	General browsing and interaction on the social media management website HootSuite	Web Services	sites
+937	HOTSPTSH	Hotspot Shield	The setup and running of a vpn tunnel using Hotspot Shield's application on PC Android or iPhone.	VPN and Tunneling	hotspotshield
+938	HOWARDFM	HowardForums	Visiting and browsing the Howard Forums website.	Web Services	sites
+939	HTFACILE	HTFacile	Visiting websites that use HTFacile to generate ad traffic and gather analytics	Web Services	sites
+940	HTTP2	HTTP 2.0	Browsing websites that support the HTTP 2.0 protocol.	Web Services	tls
+941	HTTPTNNL	HTTP Tunnel	HTTP traffic which has been tunnelled using the CONNECT method.	Web Services	http
+942	HUBPAGES	HubPages	Visiting and browsing the HubPages website.	Web Services	sites
+943	HUFFPOST	Huffington Post	Traffic generated from browsing the huffingtonpost website and reading the articles.	Web Services	sites
+944	HUPU	hupu.com	General browsing and streaming media from the sports news website Hupu.com	Web Services	sites
+945	HUSHMAIL	Hushmail.com	Browsing logon and emailing on webmail site Hushmail.com	Mail	sites
+946	HWCDN	HWCDN	Visiting websites that use HWCDN to host media or ads.	Web Services	sites
+947	HYVES	Hyves	General browsing and interaction on the Dutch social media website Hyves.	Social Networking	sites
+948	ICALL	iCall	Sending messages voice or video chat and mobile to landline phone calls with messaging application iCall.	Messaging	icall
+949	IFENG	Ifeng.com	Traffic generated from reading articles and viewing media on ifeng.com.	Web Services	sites
+950	IGN	IGN	Browsing and watching videos on the IGN website.	Web Services	sites
+951	IMDB	IMDb	General browsing and interaction on the IMDb website.	Web Services	sites
+952	IMPRVDIG	Improve Digital	Visiting a website that uses Improve Digital to display ads.	Web Services	sites
+953	INCOM	In.com	General browsing and interaction on Indian web portal In.com	Web Services	sites
+954	INFONLNE	Infonline	Visiting websites that use IVWbox to generate ads and collect information about users visiting that website.	Web Services	sites
+955	INNOVATI	Innovation Interactive	Visiting websites that use Innovation Interactive to generate ads or collect information about users.	Web Services	sites
+956	INSKIN	Inskin Media	Visiting websites that use Inskin Media to generate ad traffic and gather user metrics.	Web Services	sites
+957	INSTAGRM	Instagram	Using Instagram to view and share pictures and videos on social media platforms.	Social Networking	instagram
+958	INSTAIMG	Instagram Images	Viewing images with the Instagram application.	Web Services	instagram
+959	INSTAVID	Instagram Video	Streaming videos with the Instagram application.	Streaming Media	instagram
+960	INTEGLAD	Integral Ad Science	Browsing a website that uses Integral Ad Science to generate ad traffic and gather user metrics.	Web Services	sites
+961	INTERCLK	InterClick	Visiting websites that use InterClick to generate ad traffic.	Web Services	sites
+962	IPERCEPT	IPerceptions	Visiting a website which uses IPerceptions to collect user information.	Web Services	sites
+963	IPLAYER	BBC iPlayer	In-stream video and audio traffic from a television application developed by BBC	Streaming Media	sites
+964	ISTOCKPT	iStockPhoto	Traffic generated by browsing or purchasing images on istockphoto.com.	Web Services	sites
+965	IT168	IT168.com	General browsing of the Chinese social media site IT168.com	Web Services	sites
+966	ITSFOGO	Itsfogo	Visiting websites that use Itsfogo to generate ad traffic and gather analytics	Web Services	sites
+967	JANGO	Jango	Browsing and streaming music from the Jango website.	Streaming Media	sites
+968	JAVAUPDT	Java Update	Updating the Java Runtime Environment	Web Services	sites
+969	JONDO	Jondo	Browsing the JonDo website and browsing the internet while being connected via JonDo proxy servers.	Proxy	jondo
+970	KAIXIN	Kaixin	Browsing the Kaixin social media website.	Social Networking	sites
+971	KAKAO	Kakao	The Kakao Talk application being used to participate in chat	 add friends	Messaging
+972	KAKAOAUD	Kakao Audio	The Kakao Talk application being used to make calls.	Messaging	kakao
+973	KOMLI	Komli	Visiting a website that uses Komli to generate ads.	Web Services	sites
+974	KOOLIM	Kool IM	General browsing interaction and chatting on the web messaging site Kool IM.	Messaging	sites
+975	KOOORA	Kooora.com	Traffic generated by reading articles and viewing media on kooora.com	Web Services	sites
+976	KRUX	Krux	Visiting a website that uses Krux to create user specific ads.	Web Services	sites
+977	KUGOU	Kugou	Traffic originating from the Kugou applications for iPhone	 Android and PC	 and Browsing.
+978	LATIMES	LA Times	Browsing and watching videos on the LA Times website.	Web Services	sites
+979	LEADBOLT	LeadBolt	Visiting websites that use LeadBolt to generate ad traffic	Web Services	sites
+980	LEQUIPE	L'equipe.fr	Traffic comes from browsing the news and articles on sports from L'equipe.sites.	Web Services	sites
+981	LETITBIT	Letitbit	General browsing and file transfers on the file hosting site letitbit.net	File Transfer	sites
+982	LIGATUS	Ligatus	Visiting websites that use Ligatus to generate ad traffic and gather analytics	Web Services	sites
+983	LIMELGHT	Limelight	Using an online service which utilizes Limelight as a Content Delivery Network.	Web Services	sites
+984	LINE	LINE	General usage and IM on Japanese mobile messaging application LINE.	Messaging	line
+985	LINEGAME	LINE Games	Playing LINE games downloading additional game data.	Games	line
+986	LINEMDIA	LINE Media	Voice and video calls between LINE users	Messaging	line
+987	LIVERAIL	LiveRail	Visiting a website that uses LiveRail to generate ad traffic.	Web Services	sites
+988	LIVPRSON	LivePerson	Visiting website that use LivePerson to generate ad traffic and user analytics.	Web Services	sites
+989	LOKA	Lokalisten	General browsing and interaction on the German social networking site Lokalisten.	Web Services	sites
+990	LOTAME	Lotame	Visiting a website that uses Lotame to collect user data to customize and generate ads.	Web Services	sites
+991	LUCID	Lucid Media	Visiting websites that use Lucid Media to generate ads.	Web Services	sites
+992	LUMINATE	Luminate	Visiting a website that uses Luminate for interactive images.	Web Services	sites
+993	LYNCAUDO	Lync Audio	Voice calls between Lync clients if the control channel is not encrypted.	Streaming Media	lync
+994	LYNCCTRL	Lync Control	Lync login presence and messaging instant messaging.	Networking	lync
+995	LYNCMDIA	Lync Media	Voice and Video calls between Lync clients.	Streaming Media	lync
+996	LYNCSHRE	Lync Share	File desktop and application sharing between Lync clients.	Networking	lync
+997	LYNCVIDO	Lync Video	Video calls between Lync clients if the control channel is not encrypted.	Streaming Media	lync
+998	MARCA	Marca	Browsing and watching videos on the Marca website.	Web Services	sites
+999	MASHABLE	Mashable	Traffic generated from reading articles on mashable.com.	Web Services	sites
+1000	MATCH	match.com	General browsing searching and messaging on online dating site match.com	Social Networking	sites
+1001	MAXDB	MaxDB	SQL connections and queries made to a MaxDB SQL server.	Database	sap
+1002	MAXPOINT	MaxPoint Interactive	Visiting websites that use MaxPoint Interactive to generate digital ads.	Web Services	sites
+1003	MDOTM	MdotM	Visiting websites that use  MdotM to generate ad traffic.	Web Services	sites
+1004	MEDIA6DG	Media6Degrees	Visiting websites that use Media6Degrees to generate ad traffic.	Web Services	sites
+1005	MEDIAINV	Media Innovation Group	Visiting websites that use Media Innovation Group to generate ad traffic.	Web Services	sites
+1006	MEDIAMND	Mediamind	Visiting a website that users Mediamind to create customized ads for individual users.	Web Services	sites
+1007	MEDIAMTH	Media Math	Browsing a website that uses Media Math to generate ad traffic.	Web Services	sites
+1008	MEDIAPLX	Mediaplex	Visiting a website that uses Mediaplex to gather user information.	Web Services	sites
+1009	MEDIAV	MediaV	Browsing websites that use MediaV to generate ad traffic.	Web Services	sites
+1010	MEETUP	Meetup	General browsing	 searching	Social Networking
+1011	MELON	Melon.com	The traffic comes from browsing the MelOn website and listening to music that can be found there.	Web Services	sites
+1012	MERCADOL	Mercado Livre	Traffic generated by browsing and shopping on mercadolivre.com.br.	Web Services	sites
+1013	MERCIS	Mercis	Visiting websites that use 1000 Mercis to generate ad traffic and gather analytics	Web Services	sites
+1014	MICRSOFT	Microsoft	Traffic going to and from Microsoft's primary websites microsoft.com and windows.com.	Web Services	sites
+1015	MICSTORE	Microsoft Store	Traffic generated by browsing microsoftstore.com	Web Services	sites
+1016	MILENIAL	Millennial Media	Visiting a website that uses Millennial Media to generate ads.	Web Services	sites
+1017	MIXPANEL	Mixpanel	Visiting websites that use Mixpanel for user analytics.	Web Services	sites
+1018	MLNADS	MLN Advertising	Online customers tracking and advertising traffic content from an advertising company MLN Advertising Inc.	Web Services	sites
+1019	MMS	MMS	A standard way to send messages that include multimedia content to and from mobile phones.	Messaging	mms
+1020	MOBITHRY	mobile theory	Visiting websites that use mobile theory to generate ad traffic.	Web Services	sites
+1021	MOJIVA	Mojiva	Visiting a website that uses Mojiva to generate ads.	Web Services	sites
+1022	MONETATE	Monetate	Visiting websites that use Monetate to generate ads.	Web Services	sites
+1023	MOPCOM	Mop.com	Traffic generated by browsing articles and media on mop.com.	Web Services	sites
+1024	MOTLYFOO	Motley Fool	Traffic generated by browsing articles media and discussions on fool.com.	Web Services	sites
+1025	MOTRIXI	Motrixi	Visiting websites that use Motrixi to generate ads.	Web Services	sites
+1026	MSCDN	MS CDN	Traffic relating to Microsoft Azure's Content Delivery Network. Traffic going to and from msecnd.net.	Web Services	sites
+1027	MUZU	MUZU.TV	General browsing feature interaction streaming media from music video site MUZU.TV	Streaming Media	sites
+1028	MYBUYS	MyBuys	Visiting a website that uses MyBuys to generate ad traffic.	Web Services	sites
+1029	MYWEBSRH	mywebsearch	General browsing and searching with internet search website mywebsearch	Web Services	sites
+1030	NATE	Nate.com	General nate.com web traffic.	Web Services	nateon
+1031	NATEFILE	NateOn File	File transfer traffic generated by the NateOn application.	File Transfer	nateon
+1032	NATEON	NateOn	Traffic generated from the NateOn instant messaging application.	Messaging	nateon
+1033	NATEPHN	NateOn Phone	Voice traffic generated by the NateOn instant messaging application.	Messaging	nateon
+1034	NATERMT	NateOn Remote	Remote control traffic generated by the NateOn instant messaging application that allows the user to control another user's computer.	Remote Access	nateon
+1035	NATEVID	Nate Video	Video traffic streamed from nate.com.	Streaming Media	nateon
+1036	NAVER	Naver	Browsing searching and streaming media from Korean website Naver	Web Services	sites
+1037	NAVERISK	Naverisk	Traffic to and from Naverisk clients. Traffic is forwarded to a Naverisk Site Controller hosted on a cloud on the Internet.	Network Monitoring	naverisk
+1038	NBA	NBA	General browsing interaction and streaming media from the NBA website	Web Services	sites
+1039	NBUZZ	Nimbuzz	Traffic generated by the Nimbuzz messaging application.	Messaging	nimbuzz
+1040	NBUZZMMS	Nimbuzz MMS	Traffic generated by the Nimbuzz messaging application to transfer files and provide multimedia services.	Web Services	nimbuzz
+1041	NBUZZWLD	Nimbuzz World	Traffic generated by the N-World feature of Nimbuzz which allows users to purchase bots games and gifts.	Web Services	nimbuzz
+1042	NETSEER	NetSeer	Visiting websites that use NetSeer to generate ads.	Web Services	sites
+1043	NETWEAVR	Netweaver	Connecting to a Netweaver server with a client such as a web browser.	Collaboration	sap
+1044	NEWSAU	news.com.au	The traffic comes from reading the news browsing the news.com.au website and watching videos.	Web Services	sites
+1045	NEXAGE	Nexage	Visiting websites that use Nexage to generate ads.	Web Services	sites
+1046	NFL	NFL.com	General browsing and streaming videos from the site NFL.com.	Web Services	sites
+1047	NICOLIVE	niconico Live	Streaming live video from the Japanese streaming media site niconico	Streaming Media	niconico
+1048	NICONICO	niconico	General browsing and interaction on the Japanese streaming media site niconico	Streaming Media	niconico
+1049	NIELSEN	Nielsen	Visiting websites that use Nielsen to track users online browsing patterns.	Web Services	sites
+1050	NOKIA	Nokia	Visiting the Nokia website	Web Services	nokia
+1051	NOKMAPS	Nokia Maps	Nokia Maps is a web mapping platform.	Web Services	nokia
+1052	NOKMSG	Nokia Message	Sending messages on a Nokia device.	Messaging	nokia
+1053	NOKMUSIC	Nokia Music	A platform for downloading music to your PC or mobile device.	Streaming Media	nokia
+1054	NOKSTORE	Nokia Store	Browsing and downloading apps on the Nokia Store	Web Services	nokia
+1055	NOKSYNC	Nokia Sync	Syncing a Nokia device.	Web Services	nokia
+1056	NPARIO	nPario	Visiting websites that use nPario to generate ad traffic.	Web Services	sites
+1057	NTBIOSDG	NetBIOS Datagram Distribution Service	Datagram mode is connectionless; the application is responsible for error detection and recovery.	Networking	cifs
+1058	NTBIOSNS	NetBIOS Name Service	In order to start sessions or distribute datagrams an application must register its NetBIOS name using the name service.	Networking	cifs
+1059	NTBIOSSS	NetBIOS Session service	Session mode lets two computers establish a connection allows messages to span multiple packets and provides error detection and recovery.	Networking	cifs
+1060	NUGG	Nugg	Visiting websites that use Nugg to generate ads.	Web Services	sites
+1061	NYTIMES	Nytimes.com	Browsing reading the articles and watching videos on the New York Times website.	Web Services	sites
+1062	OCSP	OCSP	An OCSP Responder verifying that a users private key has not been compromised or revoked.	Networking	ocsp
+1063	ODNOKLAS	Odnoklassniki.ru	Traffic comes from all the social activities messaging browsing other peoples profiles pictures and such.	Social Networking	odnoklassniki
+1064	OFFICE	MS Office 365	Traffic generated by office 365 applications and web services.	Web Services	sites
+1065	OHANA	Ohana	Visiting websites that use Ohana to generate ads.	Web Services	sites
+1066	OLIVMEDA	Olive Media	Visiting websites that use Olive Media to generate ads.	Web Services	sites
+1067	OPENCNDY	OpenCandy	Traffic generated through browsing opencandy.com and advertisements generated by its software module	Web Services	sites
+1068	OPENX	OpenX	Visiting a website that uses OpenX to generate ads.	Web Services	sites
+1069	OPTIMAX	Optimax	Visiting website that use Optimax to generate ads.	Web Services	sites
+1070	OPTIMZLY	Optimizely	Visiting websites that use Optimizely to generate ad traffic.	Web Services	sites
+1071	ORACLTNS	Oracle TNS	Protocol that provides generic network connectivity with and between Oracle databases.	Database	oracle
+1072	OSPF	OSPF	Short for Open Shortest Path First an interior gateway routing protocol developed for IP networks based on the shortest path first or link-state algorithm.	Networking	routing
+1073	OUTBRAIN	Outbrain	Visiting websites that use Outbrain to generate ad traffic and gather analytics	Web Services	sites
+1074	OUTLOOK	MS Outlook	Traffic generated from Microsoft Outlook's online e-mailing solution.	Mail	sites
+1075	OWNERIQ	OwnerIQ	Visiting websites that use OwnerIQ to generate ads.	Web Services	sites
+1076	PATHTEST	Appneta Pathtest	Using Pathtest to analyze network performance.	Network Monitoring	portmap
+1077	PATHVIEW	Appneta Pathview	Using Pathview to monitor network performance.	Network Monitoring	appneta
+1078	PAYPAL	PayPal.com	The traffic comes from browsing the paypal website and making the money transactions using paypal	Web Services	sites
+1079	PCANYWHR	pcAnywhere	The traffic consists of the data of from pcAnywhere remote sessions.  File transfers are also possible.	Remote Access	pcanywhere
+1080	PDBOX	PDbox	Browsing file transfers and forum posts on Korean P2P file sharing website http://www.pdbox.co.kr.	File Transfer	pdbox
+1081	PDBOXP2P	PDbox P2P	Peer to peer traffic using the PDbox files sharing application.	File Transfer	pdbox
+1082	PIKSEL	Piksel	Visiting websites that use the Piksel platform to generate video content	Web Services	sites
+1083	POGO	Pogo.com	Traffic generated by browsing and playing games on pogo.com.	Games	sites
+1084	POLLDADY	Polldaddy	Visiting websites that use Polldaddy for embedded surveys.	Web Services	sites
+1085	PPS	PPStream	General browsing and streaming media from the Chinese peer-to-peer streaming video network PPS.tv.	Streaming Media	pps
+1086	PROCLVTY	Proclivity	Visiting websites that use Proclivity to generate ads.	Web Services	sites
+1087	PROXISTO	Proxistore	Visiting websites that use Proxistore to generate ad traffic and gather analytics	Web Services	sites
+1088	PUBMATIC	PubMatic	Visiting websites that use PubMatic to generate ads.	Web Services	sites
+1089	QIK	Qik	Video capture	 upload	Streaming Media
+1090	QIKCHAT	Qik Chat	Video chat between two Qik clients	Streaming Media	qik
+1091	QIKPOST	Qik Post	Posting a link to your Qik video on Facebook or Twitter	Web Services	qik
+1092	QIKSHARE	Qik Share	Sharing a Qik video via email on an Android phone.	Web Services	qik
+1093	QIKUPLOD	Qik Upload	Uploading a Qik video to the cloud.	File Transfer	qik
+1094	QIKVIEW	Qik View	Streaming a Qik video that has been posted to the cloud and is not stored locally on your mobile device.	Streaming Media	qik
+1095	QUAKELIV	Quake Live	Quake Live plugin and game data download. UDP traffic during online matches	Games	quake
+1096	QUANTCST	Quantcast	Visiting a website that uses Quantcast to gather user metrics and generate ads.	Web Services	sites
+1097	RADIMONE	RadiumOne	Visiting websites that use RadiumOne to generate ads.	Web Services	sites
+1098	RADIUSAC	RADIUS-ACCT	Provides centralized Accounting management for computers to connect and use a network service	Networking	portmap
+1099	RAMBLER	Rambler.ru	Using the Rambler search engine and web portal.	Web Services	sites
+1100	RAPLEAF	Rapleaf	Using websites that use Rapleaf to collect user data and generate ads.	Web Services	sites
+1101	REDIFF	rediff	General browsing interaction and shopping on the Indian web portal rediff	Web Services	sites
+1102	REDUX	redux media	Visiting websites that use redux media to generate ads.	Web Services	sites
+1103	RENREN	Renren	Social networking service traffic from the Chinese social network Renren.	Social Networking	sites
+1104	RESONATE	Resonate Networks	Visiting websites that use Resonate Networks to generate ads.	Web Services	sites
+1105	RICHRELV	Rich Relevance	Visiting a website that uses Rich Relevance to generate customized ads.	Web Services	sites
+1106	ROKETFUL	Rocket Fuel	Visiting websites that use Rocket Fuel to generate ads.	Web Services	sites
+1107	RTPAUDIO	RTP Audio	Real-Time audio conferencing and communication using the RTP protocol.	Streaming Media	rtp
+1108	RTPVIDEO	RTP Video	Real-Time video conferencing and communication using the RTP protocol.	Streaming Media	sip
+1109	RUBICON	Rubicon Project	Visiting a website that uses The Rubicon Project to generate ads.	Web Services	sites
+1110	SAMSUNG	Samsung	General browsing and interaction with Samsung web sites	Web Services	sites
+1111	SASCDN	SASCDN	Visiting websites that use SASCDN to host media or ads.	Web Services	sites
+1112	SCCP	SCCP	SCCP (Skinny Call Control Protocol) traffic is generated by setting up and controlling voice over IP calls.	Networking	sccp
+1113	SCORECRD	Scorecard Research	Visiting a website that uses Scorecard Research to collect user data.	Web Services	sites
+1114	SEARS	Sears	Browsing and shopping on the Sears website and it's associated domains.	Web Services	sites
+1115	SECKISS	SecurityKISS	Browsing the internet while being connected via SecurityKISS VPN servers also traffic generated while browsing the securityKISS homepage	VPN and Tunneling	securitykiss
+1116	SENDSPAC	Sendspace	An online file sharing and hosting service.	Web Services	sites
+1117	SHAREMAN	Shareman	Traffic is generated from the chat feature or file transfer (movies	 games	File Transfer
+1118	SHARETHS	Share This	Visiting a website that uses Share This to collect user data and display ads.	Web Services	sites
+1119	SHOWMYPC	ShowMyPC	Connecting controlling viewing file transfer and chatting remote devices from the remote access application ShowMyPC client and browsing the website	Remote Access	showmypc
+1120	SHRPNTOL	Sharepoint Online	Traffic generated by accessing Sharepoint Online in a web browser.	Collaboration	sites
+1121	SHUTRFLY	Shutterfly	Browsing uploading and viewing pictures on online photo storage site Shutterfly	Web Services	sites
+1122	SILVERLT	Silverlight	Streaming of Silverlight video and  audio data.	Streaming Media	winmedia
+1123	SILVRPOP	Silverpop	Using an application that uses Silverpop to gather user information.	Web Services	sites
+1124	SINA	Sina	General browsing and streaming media from the Chinese infotainment website sina.com as well as chatting on the instant messaging web service Sina WebUC	Web Services	sina
+1125	SINAVID	Sina Video	Video streaming from Chinese news/social website Sina	Streaming Media	sina
+1126	SITESCOT	SiteScout	Advertising content traffic from an self-serve advertising company Sitescout	Web Services	sites
+1127	SIXAPART	six apart	Visiting the six apart website or other websites that use six apart to generate ad traffic.	Web Services	sites
+1128	SKIMLINK	Skimlinks	Visiting websites that use Skinlinks to generate ads.	Web Services	sites
+1129	SKYPEFT	Skype File Transfer	Using Skype to transfer files.	File Transfer	skype
+1130	SKYVIDEO	Skype Video	Video or screen sharing sessions between Skype contacts.	Messaging	skype
+1131	SKYVOICE	Skype Voice	Voice sessions between Skype contacts.	Messaging	skype
+1132	SLBOXMED	Slingmedia	Traffic generated by connecting to Slingbox device using mobile app and PC and streaming video	Streaming Media	slingbox
+1133	SLINGBOX	Slingbox	Traffic generated by browsing Slingbox website	Web Services	slingbox
+1134	SLISYSTM	SLI Systems	Visiting websites that use SLI Systems to generate ads.	Web Services	sites
+1135	SMARTADS	Smart AdServer	Visiting a website that uses Smart AdServer to generate ads.	Web Services	sites
+1136	SMARTFOX	Smartfox	Traffic from online games using Smartfox flash-based MMO middleware.	Web Services	smartfox
+1137	SNAPCHAT	Snapchat	Snapchat's photo and video sharing traffic.	Messaging	snapchat
+1138	SOAP	SOAP	Protocol specification to exchange structured information in the implementation of web services on computer networks	Web Services	wsd
+1139	SOFTONIC	Softonic	Browsing softonic.com and associated domains.	Web Services	sites
+1140	SOFTPDIA	Softpedia	General browsing interaction and software download from software encyclopedia site softpedia.com	Web Services	sites
+1141	SOGOU	Sogou	Internet searching using Sogou's search engine.	Web Services	sites
+1142	SOHU	Sohu	General browsing searching and gaming on Chinese web portal Sohu.com and its associated websites	Web Services	sites
+1143	SOPCAST	Sopcast	Streaming or broadcasting audio or video data through with Sopcast peer-to-peer technology	Streaming Media	sopcast
+1144	SOPHRED	Sophos RED	Communication between a Sophos RED device and UTM firewall.	Remote Access	red
+1145	SOSO	Soso.com	The traffic comes from searching and browsing websites news images videos etc. using soso.com	Web Services	sites
+1146	SOUNDCLD	SoundCloud	General browsing and streaming media on the sound sharing site SoundCloud	Streaming Media	sites
+1147	SPCMEDIA	SPC Media	Visiting websites that use SPC Media to generate ads.	Web Services	sites
+1148	SPDY	Speedy	Visiting websites that support the SPDY protocol.	Web Services	spdy
+1149	SPEEDTST	speedtest.net	Traffic generated by the speedtest.net to measure maximum upload and download speed.	Web Services	speedtest
+1150	SPOOLSS	Microsoft Spooler Subsystem	Spooler network communication between printers and workstations.	Networking	cifs
+1151	SPOTFLUX	Spotflux	Traffic generated by using Spotflux VPN application on a mobile device or PC	VPN and Tunneling	spotflux
+1152	SPOTIFY	Spotify	Spotify web and audio traffic.	Streaming Media	spotify
+1153	SPOTXCHG	SpotXchange	Visiting websites that use SpotXchange to provide online content or ads.	Web Services	sites
+1154	SQUIDOO	Squidoo	General browsing and posting on social networking interest organization website Squidoo	Web Services	sites
+1155	SRTCP	Secure RTCP	RTCP (Real-Time Transport Control Protocol) is a sister protocol of the Real-time Transport Protocol (RTP). SRTCP provides out-of-band control information for an SRTP flow.	Streaming Media	sip
+1156	SRTP	SRTP	SRTP (Secure Real-Time Transport Protocol) is primarily used to deliver secure real-time audio and video.	Streaming Media	rtp
+1157	SRTPAUD	SRTP Audio	Secure Real-Time audio conferencing and communication using the SRTP protocol.	Streaming Media	rtp
+1158	SRTPVID	SRTP Video	Secure Real-Time video conferencing and communication using the SRTP protocol.	Streaming Media	sip
+1159	STACEXCH	Stackoverflow.com	The traffic comes from browsing the website and it's forum.	Web Services	sites
+1160	STATCNT	Statcounter	Visiting websites that use Statcounter to track user data.	Web Services	sites
+1161	SURIKATE	surikate	Visiting mobile sites that use surikate to generate ad traffic and gather analytics	Web Services	sites
+1162	SVN	SVN	Managing content on a Subversion server.	Database	svn
+1163	SWAGBUCK	Swagbucks	Traffic generated from shopping	 searching	 doing surveys
+1164	SYMANTEC	Symantec	General Symantec and Norton website traffic.	File Transfer	sites
+1165	SYMUPDAT	Symantec LiveUpdate	Symantec LiveUpdate traffic this includes spyware definitions firewall rules antivirus signature files and software updates.	File Transfer	sites
+1166	TANGO	Tango	Video or voice calling sending photes or text and game play on the mobile video communications social platform Tango	Messaging	tango
+1167	TAOBAO	Taobao	Browsing bidding and shopping on the online marketplace taobao.com	Web Services	aliwangwang
+1168	TARGET	Target	General browsing and merchandise purchasing from online store Target	Web Services	sites
+1169	TARGINFO	TARGUSinfo	Visiting websites that use Neustar Information Services (formerly TARGUSinfo) or it's associated domains to generate ads.	Web Services	sites
+1170	TDS	TDS	Tabular Data Stream (TDS) is an application layer protocol used to transfer data between a database server and a client. It was initially designed and developed by Sybase Inc. for their Sybase SQL Server relational database engine in 1984 and later by Microsoft in Microsoft SQL Server.	Database	tds
+1171	TEACHTUB	TeacherTube	Visiting the TeacherTube website and streaming video.	Web Services	sites
+1172	TECHCRCH	TechCrunch	General browsing and interaction on web publication site TechCrunch	Web Services	sites
+1173	TELCOMEX	Telecom Express	Visiting websites that use spoke (formerly Telecom Express) to generate ads.	Web Services	sites
+1174	TELEGRPH	Telegraph	General browsing and interaction on online newspaper site the Telegraph	Web Services	sites
+1175	TELEMTRY	Telemetry	Using websites that use Telemetry Verification to collect data for advertising and publishing companies	Web Services	sites
+1176	TELLY	Telly	General browsing interaction and sharing and streaming videos from the video sharing site Telly.	Streaming Media	sites
+1177	TERACENT	Teracent	Visiting websites that use Teracent to generate ad traffic.	Web Services	sites
+1178	TEREDO	Teredo	A transitional technology that gives full IPv6 connectivity for IPv6-capable hosts which are on the IPv4 internet but which have no direct native connection to an IPv6 network.	Networking	xbox
+1179	TLVMEDIA	TLV Media	Visiting websites that use TLV Media to generate digital displays.	Web Services	sites
+1180	TMALL	Tmall.com	Browsing and shopping on the consumer website Tmall.com	Web Services	sites
+1181	TN3270	TN3270	Sending and receiving data to and from IBM 3270 mainframe terminals using telnet protocol.	Remote Access	telnet
+1182	TOKBOX	Tokbox	eBuddy video and voice messaging over RTMP through tokbox servers	Web Services	tokbox
+1183	TORDIR	Tor Directory Services	TOR Directory Services is a method of communication and routing used between nodes.	Proxy	anon
+1184	TRADDESK	The Trade Desk	Visiting websites that use The Trade Desk to generate ads.	Web Services	sites
+1185	TRIBALFS	Tribal Fusion	Visiting websites that use Tribal Fusion to generate ads.	Web Services	sites
+1186	TRIGGIT	Triggit	Browsing Facebook and other websites that use Triggit to generate ads.	Web Services	sites
+1187	TRITONE	Tritone Hosting	Visiting websites that use Tritone Hosting to collect web traffic.	Web Services	sites
+1188	TUBMOGUL	TubeMogul	Visiting websites that use TubeMogul to generate ads or collect user analytics.	Web Services	sites
+1189	TUDOU	Tudou	Uploading	 sharing	Streaming Media
+1190	TURNANAL	Turn	Visiting websites that use Turn to gather user data or generate ads.	Web Services	sites
+1191	TWEETDEC	TweetDeck	Using TweetDeck to communicate with Twitter API	Social Networking	socialnet
+1192	ULOADING	Uploading.com	General browsing and file transfer to file storage service uploading.com	File Transfer	sites
+1193	ULTRASRF	Ultrasurf	Traffic generated from the ultrasurf application.	Proxy	ultrasurf
+1194	UNDERTON	Undertone	Visiting websites that use Undertone to generate ad traffic.	Web Services	sites
+1195	UPFRONT	Upfront	Digital media advertising traffic from Upfront Digital Media company	Web Services	sites
+1196	USAIP	USAIP	Traffic generated by connecting to usaip vpn autoconnect app on pc and phone and browsing websites	VPN and Tunneling	usaip
+1197	UVVU	UltraViolet	Logging into and viewing an UltraViolet movie collection and being forwarded to retailer's sites when picking a movie from your collection.	Streaming Media	ultraviolet
+1198	VAGAA	Vagaa	Vagaa software download and p2p traffic.	File Transfer	vagaa
+1199	VALUECLK	ValueClick Media	Visiting a website that uses ValueClick Media to generate ads.	Web Services	sites
+1200	VIBER	Viber	Viber is a mobile application for iPhone and Android that enables users to make free phone calls and send text messages to anyone else also using the installed application.	Messaging	viber
+1201	VIBRANT	Vibrant	Visiting websites that use Vibrant to generate multimedia ads.	Web Services	sites
+1202	VIDPLAZA	videoplaza	Visiting websites that use videoplaza for video advertisements	Web Services	sites
+1203	VIEWONTV	VIEWON	Visiting websites that use VIEWON for video advertisements	Web Services	sites
+1204	VIEWSURF	Viewsurf	Streaming webcam videos from french site Viewsurf	Web Services	sites
+1205	VIMEO	Vimeo	Streaming from and uploading to Vimeo website	Streaming Media	sites
+1206	VKONTAKT	VKontakte	VKontakte is a social networking service.	Social Networking	sites
+1207	VNC	VNC	Traffic for Virtual Network Computing.	Remote Access	portmap
+1208	VOICFIVE	Voice Five	Visiting websites that use Voice Five to collect user data and trends.	Web Services	sites
+1209	VPNRECTR	VPNReactor	Browsing the internet while being connected via VPNReactor VPN servers and also traffic generated while browsing the VPNReactor homepage.	VPN and Tunneling	vpnreactor
+1210	WARIRFOM	Warrior Forum	Traffic generated by browsing the forum at warriorforum.com.	Web Services	sites
+1211	WC_HRTBT	WeChat Heart Beat	WeChat Heart Beat traffic	Messaging	wechat
+1212	WC_LOGIN	WeChat Login	WeChat login traffic	Messaging	wechat
+1213	WC_MEDIA	WeChat Media	WeChat media traffic	Messaging	wechat
+1214	WC_MESG	WeChat Message	WeChat messaging traffic	Messaging	wechat
+1215	WC_UPDAT	WeChat Update	WeChat update traffic.	Messaging	wechat
+1216	WEATHER	Weather Channel	General browsing interaction and watching videos on the Weather Channel website.	Web Services	sites
+1217	WEBEXMED	Webex Media	WebEx Meetings Audio and Video conferencing traffic.	Collaboration	webex
+1218	WEBEXSHR	Webex Sharing	WebEx Meetings traffic generated by desktop sharing text chat file sharing and whiteboard.	Collaboration	webex
+1219	WEBORAMA	Weborama	Visiting websites that use Weborama to generate ad traffic and gather analytics	Web Services	sites
+1220	WEBSOCK	WebSocket	The WebSocket protocol is independent TCP based protocol which can be used by any client or server application.	Networking	websocket
+1221	WEBTREND	Webtrends	Visiting websites that use Webtrends to generate ads and collect user analytics.	Web Services	sites
+1222	WECHAT	WeChat	Instant messaging traffic generated by WeChat mobile applications and web portal.	Messaging	wechat
+1223	WEIBO	Weibo.com	The traffic generated from microblogging chatting sharing media and such using the microblogging site weibo.com	Web Services	sites
+1224	WETPAINT	wetpaint	General browsing loading images and viewing articles on the TV entertainment site wetpaint	Web Services	sites
+1225	WIKIA	Wikia	General browsing interaction and watching videos on wikis hosted on Wikia.	Web Services	sites
+1226	WIKISPAC	Wikispaces	General browsing and interaction on wikis hosted by Wikispaces.	Web Services	sites
+1227	WINPHONE	Windows Phone	Browsing the Windows Phone web page.	Web Services	sites
+1228	WOOLIK	Woolik	Traffic generated from wooklik.com and search engine enhancements generated by the Woolik product	Web Services	sites
+1229	WORDREF	Word Reference	Traffic generated from looking up words and translations or participating in the games and forums on wordreference.com.	Web Services	sites
+1230	WOWGAME	World Of Warcraft game	Traffic generated by World of Warcraft game it handles interactions between players and online world.	Games	portmap
+1231	WSDAPI	Web Services for Devices	WSD is a Microsoft API to simplify programming connections to web service enabled devices. WSDAPI uses WS-Discovery for device discovery.	Web Services	wsd
+1232	WSDAPIS	Web Services for Devices Secured	Secured channel for WSDAPI a Microsoft API to simplify programming connections to web service enabled devices.	Web Services	portmap
+1233	WSDLEVNT	WSDL Event Receiver	A part of Web Services Description Language which receives the events.	Web Services	portmap
+1234	WSDSCVRY	Web Services Discovery	Web Services Discovery provides an access to software systems over the Internet using standard protocols.	Web Services	wsd
+1235	WSP	WSP	An open standard for maintaining a high level session based on HTTP 1.1 with a few enhancements for performance over a wireless environment.  It provides the upper-level application layer of WAP with a consistent interface for connection-oriented and connectionless services.	Networking	wsp
+1236	WSTNPOST	Washington Post	Traffic generated by browsing reading articles and viewing media on washingtonpost.com.	Web Services	sites
+1237	XAXIS	Xaxis	Visiting websites that use Xaxis to collect user analytics.	Web Services	sites
+1238	XBOXLIVE	Xbox Live	Browsing Xbox and Xbox Live web pages.	Games	xbox
+1239	XING	XING	General browsing interaction and communication on professional network site XING.	Social Networking	sites
+1240	XINHUANT	Xinhua	Traffic generated from reading articles and viewing media on xinhuanet.com.	Web Services	sites
+1241	XITI	XiTi	Visiting websites that use XiTi to generate ad traffic and gather analytics	Web Services	sites
+1242	XPLUSONE	X Plus One	Visiting websites that use X Plus One for ad generation.	Web Services	sites
+1243	YABUKA	Yabuka	Visiting websites that use Yabuka to generate ads.	Web Services	sites
+1244	YANDEX	Yandex	The traffic can come from various components of Yandex - Internet search	 mail	 music
+1245	YBRANTDG	Ybrant Digital	Visiting websites that use Ybrant to generate ads.	Web Services	sites
+1246	YIELDMGR	YieldManager	Ad/tag/cookie traffic generated by the AD/CDN service YieldManager	Web Services	sites
+1247	YIXIN	YiXin	Chatting sending files browsing other people's and companies profiles and information with instant messaging application YiXin	Messaging	yixin
+1248	YMSGAUD	Yahoo Messenger Audio	Voice calls using the Yahoo Messenger application.	Streaming Media	yahoo
+1249	YMSGCHAT	Yahoo Messenger Chat	Chat messages with the Yahoo Messenger Client and Web Messenger.	Messaging	yahoo
+1250	YMSGSMS	Yahoo Messenger SMS	SMS messages with the Yahoo Messenger Client and Web Messenger.	Messaging	yahoo
+1251	YMSGVID	Yahoo Messenger Video	Video calls using the Yahoo Messenger application	Streaming Media	yahoo
+1252	YOUKU	Youku	Browsing and streaming video from the Android iPhone and Windows applications as well as the web site.	Web Services	youku
+1253	ZABBIX	Zabbix	Network status information communicated between Zabbix servers and agents (clients)	Network Monitoring	zabbix
+1254	ZANOX	Zanox	Visiting websites that use Zanox to generate ad traffic and gather analytics	Web Services	sites
+1255	ZEDO	Zedo	Online Advertising content from an advertising company Zedo Inc.	Web Services	sites
+1256	ZOL	Zol.com.cn	Traffic generated by browsing news and articles on zol.com.cn.	Web Services	sites
+1257	ZYNGAPOK	Zynga Poker	Traffic generated from the online game of poker.	Games	zynga

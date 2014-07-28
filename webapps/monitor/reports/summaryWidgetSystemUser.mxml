@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="0" paddingTop="0" paddingRight="0" paddingBottom="0">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import flash.net.navigateToURL;
+			import mx.charts.HitData;
+			import mx.charts.events.ChartItemEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			private var initURL: String; 
+			private var timeFinishedFlg: Boolean=true;
+
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url = initURL+"reports.action?operation=summaryWidgetSystemUserData&key=" + new Date().time;
+				httpSvc.send();				
+				refreshTimer();
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 15 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(10000, 90);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				if (timeFinishedFlg){
+					httpSvc.url = initURL+"reports.action?operation=summaryWidgetSystemUserData&key=" + new Date().time;
+					httpSvc.addEventListener("result", httpResult);
+					timeFinishedFlg=false;
+					httpSvc.send();
+				}
+        	}
+        	
+        	public function httpResult(event:ResultEvent):void {
+        		timeFinishedFlg=true;
+        	}
+        	
+        	public function killSession(value:String):void {
+        		httpSvc.url = initURL+"reports.action?operation=removeSession&removeSessionId="+ value + "&key=" + new Date().time;
+				httpSvc.send();
+        	}
+	        
+        ]]>
+    </mx:Script>
+
+    <mx:Panel height="100%" width="100%" verticalGap="0" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0" borderStyle="none">
+	    <mx:Grid verticalGap="0" paddingTop="5" height="25" width="100%">	
+	    	<mx:GridRow height="20" width="100%">
+		    	<mx:GridItem>
+	    			<mx:Label text="  Admins logged in currently:"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numberOfLogin}"/>
+				</mx:GridItem>
+				<mx:GridItem horizontalAlign="right" width="100%">
+		    			<mx:LinkButton label="Terminate All"
+		    				paddingLeft="0"
+							textAlign="left"
+						    fontWeight="bold" 
+							textDecoration="underline"
+							color="#003366"
+						    textRollOverColor="#003366"
+						    rollOverColor="#FFFFFF"
+						    selectionColor="#FFFFFF"
+						    click="killSession('AllClient')"/>
+					</mx:GridItem>		
+	    	</mx:GridRow>
+	    </mx:Grid>
+		<mx:Grid verticalGap="0" paddingTop="1" height="100%" paddingLeft="1" width="100%" borderColor="#B6B9CC" borderStyle="solid">
+			<mx:GridRow height="20" backgroundColor="#FFFFFF" width="100%" fontWeight="bold">
+				<mx:GridItem>
+	    			<mx:Label text=""/>
+				</mx:GridItem>
+				<mx:GridItem>
+	    			<mx:Label text="Admin Name"/>
+				</mx:GridItem>
+				<mx:GridItem>
+	    			<mx:Label text="Admin IP"/>
+				</mx:GridItem>
+				<mx:GridItem>
+	    			<mx:Label text="Session Time"/>
+				</mx:GridItem>
+			</mx:GridRow>
+		   <mx:Repeater id="rp" dataProvider="{httpSvc.lastResult.summary.loginUsers.item}">
+    			<mx:GridRow height="20">
+    				<mx:GridItem>
+		    			<mx:Label text="{rp.currentItem.count}"/>
+					</mx:GridItem>
+    				<mx:GridItem>
+		    			<mx:Label text="{rp.currentItem.userName}"/>
+					</mx:GridItem>
+					<mx:GridItem>
+		    			<mx:Label text="{rp.currentItem.userIpAddress}"/>
+					</mx:GridItem>
+					<mx:GridItem>
+		    			<mx:Label text="{rp.currentItem.sessionTotalTime}"/>
+					</mx:GridItem>
+					<mx:GridItem>
+		    			<mx:LinkButton label="Terminate"
+		    				paddingLeft="0"
+							textAlign="left"
+						    fontWeight="bold" 
+							textDecoration="underline"
+							color="#003366"
+						    textRollOverColor="#003366"
+						    rollOverColor="#FFFFFF"
+						    selectionColor="#FFFFFF"
+						    click="killSession(String(event.currentTarget.getRepeaterItem().removeSessionId))"/>
+					</mx:GridItem>						
+    			</mx:GridRow> 
+            </mx:Repeater>    
+		</mx:Grid>
+	</mx:Panel>
+</mx:Application>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ip-policy <string> [ id <number> ] [ {before|after} id <number> ] [ from <ip_addr|string_64> [ <mask> ] ] [ to <ip_addr|string_64> [ <mask> ] ] [ service <string> ] [ action {permit|deny|nat|inter-station-traffic-drop} ]
+			]]>
+		</cmd>
+		<!-- "ip-policy policy_name  id 100 before id 200 from 1.1.1.1 255.255.255.0  to 2.2.2.2 255.255.0.0  service ser_name  action inter-station-traffic-drop" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ip-policy name="{1}">
+						<cr/>
+						<id name="{3}">
+							<from value="{8}{9}">
+								<to value="{12}{13}">
+									<service name="{16}">
+										<action exist="{17}">
+											<permit keyWord="{18}"/>
+											<deny keyWord="{18}"/>
+											<inter-station-traffic-drop keyWord="{18}"/>
+											<nat keyWord="{18}"/>
+										</action>
+									</service>
+								</to>
+							</from>
+							<before value="{6}" keyWord="{5}"/>
+						</id>
+					</ip-policy>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ip-policy <string> [ id <number> ] [ {before|after} id <number> ] [ from <ip_addr|string_64> [ <mask> ] ] to local-subnet [ service <string> ] [ action {permit|deny|nat|inter-station-traffic-drop} ]
+			]]>
+		</cmd>
+		<!-- "ip-policy policy_name  id 100 before id 200 from 1.1.1.1 255.255.255.0  to local-subnet  service ser_name  action inter-station-traffic-drop" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ip-policy name="{1}">
+						<cr/>
+						<id name="{3}">
+							<from value="{8}{9}">
+								<to value="local-subnet">
+									<service name="{12}">
+										<action exist="{13}">
+											<permit keyWord="{14}"/>
+											<deny keyWord="{14}"/>
+											<inter-station-traffic-drop keyWord="{14}"/>
+											<nat keyWord="{14}"/>
+										</action>
+									</service>
+								</to>
+							</from>
+							<before value="{6}" keyWord="{5}"/>
+						</id>
+					</ip-policy>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ip-policy <string> [ id <number> ] [ {before|after} id <number> ] [ from <ip_addr|string_64> [ <mask> ] ] [ to <ip_addr|string_64> [ <mask> ] ] [ service <string> ] action permit log [ {initiate-session|terminate-session} ]
+			]]>
+		</cmd>
+		<!-- "ip-policy policy_name  id 100 before id 200 from 1.1.1.1 255.255.255.0  to 2.2.2.2 255.255.255.0  service ser_name  action permit log initiate-session" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ip-policy name="{1}">
+						<cr/>
+						<id name="{3}">
+							<from value="{8}{9}">
+								<to value="{12}{13}">
+									<service name="{16}">
+										<action>
+											<permit>
+												<log>
+													<cr keyWord="{18}"/>
+													<initiate-session keyWord="{18}"/>
+													<terminate-session keyWord="{18}"/>
+												</log>
+											</permit>
+										</action>
+									</service>
+								</to>
+							</from>
+							<before value="{6}" keyWord="{5}"/>
+						</id>
+					</ip-policy>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ip-policy <string> [ id <number> ] [ {before|after} id <number> ] [ from <ip_addr|string_64> [ <mask> ] ] [ to <ip_addr|string_64> [ <mask> ] ] [ service <string> ] action deny log packet-drop
+			]]>
+		</cmd>
+		<!-- "ip-policy policy_name  id 100 before id 200 from 1.1.1.1 255.255.255.0  to 2.2.2.2 255.255.255.0  service ser_name  action permit log initiate-session" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ip-policy name="{1}">
+						<cr/>
+						<id name="{3}">
+							<from value="{8}{9}">
+								<to value="{12}{13}">
+									<service name="{16}">
+										<action>
+											<deny>
+												<log>
+													<packet-drop/>
+												</log>
+											</deny>
+										</action>
+									</service>
+								</to>
+							</from>
+							<before value="{6}" keyWord="{5}"/>
+						</id>
+					</ip-policy>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ip-policy <string> [ id <number> ] [ {before|after} id <number> ] [ from <ip_addr|string_64> [ <mask> ] ] [ to <ip_addr|string_64> [ <mask> ] ] [ service <string> ] action inter-station-traffic-drop log [ {initiate-session|terminate-session|packet-drop} ]
+			]]>
+		</cmd>
+		<!-- "ip-policy policy_name  id 100 before id 200 from 1.1.1.1 255.255.255.0  to 2.2.2.2 255.255.255.0  service ser_name  action inter-station-traffic-drop log initiate-session" -->
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ip-policy name="{1}">
+						<cr/>
+						<id name="{3}">
+							<from value="{8}{9}">
+								<to value="{12}{13}">
+									<service name="{16}">
+										<action>
+											<inter-station-traffic-drop>
+												<log>
+													<cr keyWord="{18}"/>
+													<initiate-session keyWord="{18}"/>
+													<terminate-session keyWord="{18}"/>
+													<packet-drop keyWord="{18}"/>
+												</log>
+											</inter-station-traffic-drop>
+										</action>
+									</service>
+								</to>
+							</from>
+							<before value="{6}" keyWord="{5}"/>
+						</id>
+					</ip-policy>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+</clis>

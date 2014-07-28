@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+
+	<cli-parse>
+		<cmd><![CDATA[
+			qos classifier-map service <string> [ qos <number> ] [ action {permit|deny|log} ]
+		]]></cmd>
+		<xml><![CDATA[
+			<configuration>
+				<qos>
+					<classifier-map>
+						<service name="{1}">
+							<qos value="{3}"/>
+							<action>
+								<permit keyWord="{5}"/>
+								<deny keyWord="{5}"/>
+								<log keyWord="{5}"/>
+							</action>
+						</service>
+					</classifier-map>
+				</qos>
+			</configuration>
+	   ]]></xml>
+	</cli-parse>
+
+</clis>

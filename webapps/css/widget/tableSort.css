@@ -1,0 +1,18 @@
+.Desc
+{
+    background-image: url(../../images/sorting/arrow_down.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.Asc
+{
+    background-image: url(../../images/sorting/arrow_up.png);
+    background-repeat: no-repeat;
+    background-position:  right;
+}
+.SortNone
+{
+    background-image: url(../../images/sorting/arrow_off.png);
+    background-repeat: no-repeat;
+    background-position:  right;
+}

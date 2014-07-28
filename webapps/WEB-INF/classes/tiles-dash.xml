@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!-- Tables Layout -->
+	<definition name="hmLayoutDash" template="/tiles/layoutDash.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="leftWidth" value="160" />
+		<put-attribute name="body" value="/tiles/blankBody.jsp" />
+		<put-attribute name="helpKey" value="hkRoot" />
+	</definition>
+
+	<definition name="reportMonitorView" template="/monitor/dashboard/leftPaneMonitorView.jsp"/>
+
+	<definition name="reportConfigView" template="/monitor/dashboard/leftPaneConfigView.jsp"/>
+
+	<definition name="reportSettingView" template="/monitor/dashboard/reportSettingPane.jsp"/>
+
+	<definition name="reportBasicView" template="/monitor/dashboard/newReportBasic.jsp"/>
+
+	<definition name="reportScheduleView" template="/monitor/dashboard/newReportSchedule.jsp"/>
+
+	<definition name="dashboard" extends="hmLayoutDash">
+		<put-attribute name="body" value="/monitor/dashboard/dashboard.jsp" />
+	</definition>
+
+	<definition name="recurReportList" extends="monitorLayout">
+		<put-attribute name="body" value="/monitor/dashboard/reportList.jsp" />
+	</definition>
+
+	<definition name="recurReportCreate" extends="monitorLayout">
+		<put-attribute name="body" value="/monitor/dashboard/report.jsp" />
+	</definition>
+
+	<definition name="dashboardComponent" template="/monitor/dashboard/componentEdit.jsp" >
+	</definition>
+
+</tiles-definitions>

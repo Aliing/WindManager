@@ -1,0 +1,186 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ah.com/hm/ws/platform/service/HmService" xmlns:ns1="http://ah.com/hm/ws/platform/core" xmlns:ns2="http://ah.com/hm/ws/platform/bo/ap" elementFormDefault="qualified" targetNamespace="http://ah.com/hm/ws/platform/service/HmService">
+  <xs:import namespace="http://ah.com/hm/ws/platform/bo/ap" schemaLocation="ap.xsd"/>
+  <xs:import namespace="http://ah.com/hm/ws/platform/core" schemaLocation="core.xsd"/>
+  <xs:element name="soap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="value" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns1:passport" name="passport" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns1:session" name="session" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logout">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logoutResponse">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="keepSessionAlive">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="keepSessionAliveResponse">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchAllHiveAps">
+    <xs:complexType>
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchAllHiveApsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns2:hiveAp" name="hiveAp" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApsByNodeIds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="nodeIds" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApsByNodeIdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns2:hiveAp" name="hiveAp" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApByNodeId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="nodeId" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApByNodeIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns2:hiveAp" name="hiveAp" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApsByClientMacs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="clientMacs" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApsByClientMacsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns2:hiveAp" name="hiveAp" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApByClientMac">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="clientMac" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApByClientMacResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns2:hiveAp" name="hiveAp" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApsByClientNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="clientNames" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApsByClientNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns2:hiveAp" name="hiveAp" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApByClientName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="clientName" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApByClientNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns2:hiveAp" name="hiveAp" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorNamesByMacOuis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="macOuis" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorNamesByMacOuisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="string" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorNameByMacOui">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="macOui" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getVendorNameByMacOuiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Add from Geneva to resolve the name case sensitive problem -->
+  <xs:element name="fetchHiveApsByClientNamesWithCase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="clientNames" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element type="xs:boolean" name="caseSensitive" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fetchHiveApsByClientNamesWithCaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="ns2:hiveAp" name="hiveAp" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

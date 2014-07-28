@@ -1,0 +1,6 @@
+<binding xmlns:tns="http://ah.com/hm/ws/platform/service/HmService" force-classes="true" add-constructors="true">
+  <namespace uri="http://ah.com/hm/ws/platform/service/HmService" default="elements"/>
+  <mapping class="com.ah.hm.ws.platform.faults.types.FaultCodeType" name="soap">
+    <value style="element" name="value" field="value" usage="optional"/>
+  </mapping>
+</binding>

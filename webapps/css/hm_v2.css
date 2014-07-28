@@ -1,0 +1,79 @@
+.dialog_list {
+	width: 240px;
+	height: 160px;	
+	border: 0px;
+	font-size: 20;	
+}
+
+ul {
+    padding: 5px;
+    margin: 10px 0;
+    list-style-type: none;
+    float: left;
+    clear: left;
+}
+ 
+ul li {
+    float: left;
+    display: inline; /*For ignore double margin in IE6*/
+    margin: 10px 10px;
+}
+ 
+ul li a {
+    text-decoration: none;
+    float:left;
+    color: #ddd;
+    cursor: pointer;
+    font: 900 14px/22px "Arial", Helvetica, sans-serif;
+}
+ 
+ul li a span {
+    margin: 0 10px 0 -10px;
+    padding: 1px 8px 5px 18px;
+    position: relative; /*To fix IE6 problem (not displaying)*/
+    float:left;
+}
+
+ul.dark li a.current, ul.dark li a:hover {
+    background: url(../images/hm_v2/hm-button-bkg.png) no-repeat top right;
+    color: #fff;
+}
+ 
+ul.dark li a.current span, ul.dark li a:hover span {
+    background: url(../images/hm_v2/hm-button-bkg.png) no-repeat top left;
+}
+
+span.panelListTitle {  
+	vertical-align: middle;   
+    font-size: 19px;   
+    font-weight: bold;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #FFCC00;
+    line-height: 24px;
+}
+
+td.dialogTitle {
+	padding: 8px 0px 5px 10px;
+	vertical-align: middle;   
+    font-size: 15px;   
+    font-weight: bold;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #FF6600;
+}
+
+span.editText {
+	float: right;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-right: 10px;
+	cursor: pointer;
+	width: 16px;
+}
+span.cloneText {
+	float: right;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-right: 10px;
+	cursor: pointer;
+	width: 16px;
+}

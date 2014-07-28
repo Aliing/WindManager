@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="constraint-type">
+		<xsd:sequence>
+			<xsd:element name="platform" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="version" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="expression" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="name-ref" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="default-value-type">
+		<xsd:sequence>
+			<xsd:element name="constraints" type="constraint-type" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="dependence" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="group-post-process-type">
+		<xsd:attribute name="class"/>
+		<xsd:attribute name="method"/>
+	</xsd:complexType>
+	<xsd:complexType name="cli-gen-type">
+		<xsd:sequence>
+			<xsd:element name="constraints" type="constraint-type" minOccurs="0"/>
+			<xsd:element name="cmd" type="xsd:string"/>
+			<xsd:element name="cli-default" type="default-value-type" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="key" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="cli-parse-type">
+		<xsd:sequence>
+			<xsd:element name="constraints" type="constraint-type" minOccurs="0"/>
+			<xsd:element name="cmd" type="xsd:string"/>
+			<xsd:element name="xml" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="group-post-process" type="group-post-process-type" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="param-type" mixed="true">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="device_property" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="params-type">
+		<xsd:sequence>
+			<xsd:element name="param" type="param-type" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="constraints" type="constraint-type" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="clis">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="params" type="params-type" minOccurs="0"/>
+				<xsd:element name="cli-gen" type="cli-gen-type" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="cli-parse" type="cli-parse-type" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

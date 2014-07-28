@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:radio="http://www.aerohive.com/configuration/radio" targetNamespace="http://www.aerohive.com/configuration/radio">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:simpleType name="phymode-type">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="11a"/>
+			<xsd:enumeration value="11b/g"/>
+			<xsd:enumeration value="11na"/>
+			<xsd:enumeration value="11ng"/>
+			<xsd:enumeration value="11ac"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="tx-rate-type">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="auto"/>
+			<xsd:enumeration value="1Mbps"/>
+			<xsd:enumeration value="2Mbps"/>
+			<xsd:enumeration value="5.5Mbps"/>
+			<xsd:enumeration value="6Mbps"/>
+			<xsd:enumeration value="9Mbps"/>
+			<xsd:enumeration value="11Mbps"/>
+			<xsd:enumeration value="12Mbps"/>
+			<xsd:enumeration value="18Mbps"/>
+			<xsd:enumeration value="24Mbps"/>
+			<xsd:enumeration value="36Mbps"/>
+			<xsd:enumeration value="48Mbps"/>
+			<xsd:enumeration value="54Mbps"/>
+			<xsd:enumeration value="MCS0"/>
+			<xsd:enumeration value="MCS1"/>
+			<xsd:enumeration value="MCS2"/>
+			<xsd:enumeration value="MCS3"/>
+			<xsd:enumeration value="MCS4"/>
+			<xsd:enumeration value="MCS5"/>
+			<xsd:enumeration value="MCS6"/>
+			<xsd:enumeration value="MCS7"/>
+			<xsd:enumeration value="MCS8"/>
+			<xsd:enumeration value="MCS9"/>
+			<xsd:enumeration value="MCS10"/>
+			<xsd:enumeration value="MCS11"/>
+			<xsd:enumeration value="MCS12"/>
+			<xsd:enumeration value="MCS13"/>
+			<xsd:enumeration value="MCS14"/>
+			<xsd:enumeration value="MCS15"/>
+			<xsd:enumeration value="MCS16"/>
+			<xsd:enumeration value="MCS17"/>
+			<xsd:enumeration value="MCS18"/>
+			<xsd:enumeration value="MCS19"/>
+			<xsd:enumeration value="MCS20"/>
+			<xsd:enumeration value="MCS21"/>
+			<xsd:enumeration value="MCS22"/>
+			<xsd:enumeration value="MCS23"/>
+			<xsd:enumeration value="MCS0/1"/>
+			<xsd:enumeration value="MCS1/1"/>
+			<xsd:enumeration value="MCS2/1"/>
+			<xsd:enumeration value="MCS3/1"/>
+			<xsd:enumeration value="MCS4/1"/>
+			<xsd:enumeration value="MCS5/1"/>
+			<xsd:enumeration value="MCS6/1"/>
+			<xsd:enumeration value="MCS7/1"/>
+			<xsd:enumeration value="MCS8/1"/>
+			<xsd:enumeration value="MCS9/1"/>
+			<xsd:enumeration value="MCS0/2"/>
+			<xsd:enumeration value="MCS1/2"/>
+			<xsd:enumeration value="MCS2/2"/>
+			<xsd:enumeration value="MCS3/2"/>
+			<xsd:enumeration value="MCS4/2"/>
+			<xsd:enumeration value="MCS5/2"/>
+			<xsd:enumeration value="MCS6/2"/>
+			<xsd:enumeration value="MCS7/2"/>
+			<xsd:enumeration value="MCS8/2"/>
+			<xsd:enumeration value="MCS9/2"/>
+			<xsd:enumeration value="MCS0/3"/>
+			<xsd:enumeration value="MCS1/3"/>
+			<xsd:enumeration value="MCS2/3"/>
+			<xsd:enumeration value="MCS3/3"/>
+			<xsd:enumeration value="MCS4/3"/>
+			<xsd:enumeration value="MCS5/3"/>
+			<xsd:enumeration value="MCS6/3"/>
+			<xsd:enumeration value="MCS7/3"/>
+			<xsd:enumeration value="MCS8/3"/>
+			<xsd:enumeration value="MCS9/3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="channel-width-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="20"/>
+			<xsd:enumeration value="40-above"/>
+			<xsd:enumeration value="40-below"/>
+			<xsd:enumeration value="40"/>
+			<xsd:enumeration value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="chains-num-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="deny-client-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="11abg"/>
+			<xsd:enumeration value="11b"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="interference-switch-iu-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="10"/>
+			<xsd:maxInclusive value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="interference-switch-iu-threshold">
+		<xsd:attribute name="value" type="radio:interference-switch-iu-threshold-value" default="25"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="interference-switch-crc-err-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="10"/>
+			<xsd:maxInclusive value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="interference-switch-crc-err-threshold">
+		<xsd:attribute name="value" type="radio:interference-switch-crc-err-threshold-value" default="25"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="acsp-interference-switch">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="iu-threshold" type="radio:interference-switch-iu-threshold" minOccurs="0"/>
+			<xsd:element name="crc-err-threshold" type="radio:interference-switch-crc-err-threshold" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="enable" type="general:ah-act-show" minOccurs="0"/>
+				<xsd:element name="disable" type="general:ah-act-show" minOccurs="0"/>
+				<xsd:element name="no-station-enable" type="general:ah-act-show" minOccurs="0"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="acsp-access">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="channel-auto-select" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="time-range" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="station" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="0">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="0"/>
+														<xsd:maxInclusive value="100"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+								<xsd:attribute name="value" type="xsd:string" use="required"/>
+								<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="dfs" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="interference-switch" type="radio:acsp-interference-switch" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="wmm-ac-type">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="aifs" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="required">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0"/>
+								<xsd:maxInclusive value="15"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="cwmax" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="required">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="15"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="cwmin" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="required">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="15"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="noack" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="txoplimit" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="required">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0"/>
+								<xsd:maxInclusive value="8192"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="channel-model-detail">
+		<xsd:sequence minOccurs="0">
+			<xsd:element name="cr" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="crc-err-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="15"/>
+			<xsd:maxInclusive value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="cu-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="15"/>
+			<xsd:maxInclusive value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="short-term-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="5"/>
+			<xsd:maxInclusive value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="rate-health-percent">
+		<xsd:sequence>
+			<xsd:element name="success" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="usage" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="general:ah-percent-value"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="value" type="general:ah-percent-value"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="phymode-rate">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="rate" type="radio:rate-health-percent" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="benchmark-phymode">
+		<xsd:sequence>
+			<xsd:element name="_11a" type="radio:phymode-rate" minOccurs="0"/>
+			<xsd:element name="_11b" type="radio:phymode-rate" minOccurs="0"/>
+			<xsd:element name="_11g" type="radio:phymode-rate" minOccurs="0"/>
+			<xsd:element name="_11n" type="radio:phymode-rate" minOccurs="0"/>
+			<xsd:element name="_11ac" type="radio:phymode-rate" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="scan-access-client">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="power-save" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="weak-snr-suppress-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="weak-snr-suppress-threshold">
+		<xsd:attribute name="value" type="radio:weak-snr-suppress-threshold-value" default="15"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="safety-net-timeout-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="5"/>
+			<xsd:maxInclusive value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="safety-net-timeout">
+		<xsd:attribute name="value" type="radio:safety-net-timeout-value" default="10"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="band-steering-mode-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="prefer-5g"/>
+			<xsd:enumeration value="force-5g"/>
+			<xsd:enumeration value="balance-band"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="band-steering-mode">
+		<xsd:attribute name="value" type="radio:band-steering-mode-value" default="prefer-5g"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="band-steering-suppression-limit-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="band-steering-suppression-limit">
+		<xsd:attribute name="value" type="radio:band-steering-suppression-limit-value" default="5"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="band-steering-mode-prefer-5g">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="suppression-limit" type="radio:band-steering-suppression-limit" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="band-steering-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="band-steering-threshold">
+		<xsd:attribute name="value" type="radio:band-steering-threshold-value" default="80"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="band-steering-mode-balance-band">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" type="radio:band-steering-threshold" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radio-band-steering">
+		<xsd:sequence>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="mode" type="radio:band-steering-mode" minOccurs="0"/>
+			<xsd:element name="prefer-5g" type="radio:band-steering-mode-prefer-5g" minOccurs="0"/>
+			<xsd:element name="balance-band" type="radio:band-steering-mode-balance-band" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="client-load-balance-mode-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="airtime"/>
+			<xsd:enumeration value="sta-num"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="client-load-balance-mode">
+		<xsd:attribute name="value" type="radio:client-load-balance-mode-value" default="airtime"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="client-load-balance-hold-time-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="10"/>
+			<xsd:maxInclusive value="600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="client-load-balance-hold-time">
+		<xsd:attribute name="value" type="radio:client-load-balance-hold-time-value" default="60"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="client-load-balance-sta-mini-airtime-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="client-load-balance-sta-mini-airtime">
+		<xsd:attribute name="value" type="radio:client-load-balance-sta-mini-airtime-value" default="4"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="client-load-balance-interference-limit-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="client-load-balance-interference-limit">
+		<xsd:attribute name="value" type="radio:client-load-balance-interference-limit-value" default="40"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="client-load-balance-crc-error-limit-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="client-load-balance-crc-error-limit">
+		<xsd:attribute name="value" type="radio:client-load-balance-crc-error-limit-value" default="30"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="client-load-balance-neighbor-load-query-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="client-load-balance-neighbor-load-query-interval">
+		<xsd:attribute name="value" type="radio:client-load-balance-neighbor-load-query-interval-value" default="60"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radio-client-load-balance">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="mode" type="radio:client-load-balance-mode" minOccurs="0"/>
+			<xsd:element name="hold-time" type="radio:client-load-balance-hold-time" minOccurs="0"/>
+			<xsd:element name="sta-mini-airtime" type="radio:client-load-balance-sta-mini-airtime" minOccurs="0"/>
+			<xsd:element name="interference-limit" type="radio:client-load-balance-interference-limit" minOccurs="0"/>
+			<xsd:element name="crc-error-limit" type="radio:client-load-balance-crc-error-limit" minOccurs="0"/>
+			<xsd:element name="neighbor-load-query-interval" type="radio:client-load-balance-neighbor-load-query-interval" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radio-weak-snr-suppress">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="threshold" type="radio:weak-snr-suppress-threshold" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radio-safety-net">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="timeout" type="radio:safety-net-timeout" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="high-density-mgmt-frame-tx-rate">
+		<xsd:choice>
+			<xsd:element name="high" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="low" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="high-density-bps">
+        <xsd:sequence>
+                 <xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+                 <xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+                 <xsd:element name="oui" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+	<xsd:complexType name="radio-high-density">
+		<xsd:sequence>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="mgmt-frame-tx-rate" type="radio:high-density-mgmt-frame-tx-rate" minOccurs="0"/>
+			<xsd:element name="continuous-probe-suppress" type="general:ah-enable" minOccurs="0"/>
+			<xsd:element name="broadcast-probe-suppress" type="radio:high-density-bps" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radio-profile-dfs">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="radar-detect-only" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--connection alarm definition start-->
+	<xsd:simpleType name="connection-alarming-channel_utilization-threshold-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minExclusive value="0"/>
+			<xsd:maxExclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="connection-alarming-channel_utilization-threshold">
+		<xsd:attribute name="value" type="radio:connection-alarming-channel_utilization-threshold-value" use="optional" default="70"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="connection-alarming-channel_utilization">
+		<xsd:sequence>
+			<xsd:element name="threshold" type="radio:connection-alarming-channel_utilization-threshold" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radio-connection-alarming">
+		<xsd:sequence>
+			<xsd:element name="channel_utilization" type="radio:connection-alarming-channel_utilization" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--connection alarm definition end-->
+	<xsd:simpleType name="presence-trap-interval-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="5"/>
+			<xsd:maxInclusive value="600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="presence-trap-interval">
+		<xsd:attribute name="value" type="radio:presence-trap-interval-value" use="optional" default="30"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="presence-aging-time-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minExclusive value="5"/>
+			<xsd:maxExclusive value="600"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="presence-aging-time">
+		<xsd:attribute name="value" type="radio:presence-aging-time-value" use="optional" default="30"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radio-presence">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="trap-interval" type="radio:presence-trap-interval" minOccurs="0"/>
+			<xsd:element name="aging-time" type="radio:presence-aging-time" minOccurs="0"/>
+			<xsd:element name="aggr-interval" type="radio:presence-aging-time" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="sensor-dwell-time-value">
+		<xsd:restriction base= "xsd:int">
+			<xsd:minExclusive value="10"/>
+			<xsd:maxExclusive value="30000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="sensor-dwell-time">
+			<xsd:attribute name="value" type="radio:sensor-dwell-time-value" use="optional" default="1200"/>
+			<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>		
+	</xsd:complexType>
+	<xsd:complexType name="radio-sensor">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="channel-list" type="general:ah-string-act" minOccurs="0"/>
+			<xsd:element name="dwell-time" type="radio:sensor-dwell-time" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="radio-tx-beamforming">
+		<xsd:choice>
+			<xsd:element name="explicit-only" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="auto" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="radio-obj">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="profile" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="phymode" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="radio:phymode-type" use="optional" default="11b/g"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="acsp" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="access" type="radio:acsp-access" minOccurs="0"/>
+									<xsd:element name="max-tx-power" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="10"/>
+														<xsd:maxInclusive value="20"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="channel-model" minOccurs="0">
+										<xsd:complexType>
+											<xsd:choice minOccurs="0">
+												<xsd:element name="_3-channels" type="radio:channel-model-detail"/>
+												<xsd:element name="_4-channels" type="radio:channel-model-detail"/>
+											</xsd:choice>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="all-channels-model" type="general:ah-enable" minOccurs="0"/>
+									<xsd:element name="interference-switch" type="radio:acsp-interference-switch" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="backhaul" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="failover" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="trigger-time" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="2">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="5"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="hold-time" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="30">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="300"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="beacon-period" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="100">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="40"/>
+											<xsd:maxInclusive value="3500"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="load-balance" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="overload" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="70">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="30"/>
+														<xsd:maxInclusive value="100"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="station-count" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="10">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="1"/>
+														<xsd:maxInclusive value="100"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="roaming-threshold" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" type="xsd:string" use="optional" default="-95"/>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="max-client" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="100">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="1"/>
+											<xsd:maxInclusive value="100"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="scan" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="access" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="cr" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="interval" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="10">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="1440"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+												<xsd:element name="voice" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="client" type="radio:scan-access-client" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="short-preamble" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="turbo" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="tx-rate" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="radio:tx-rate-type" use="optional" default="auto"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="channel-width" minOccurs="0">
+                                <xsd:complexType>
+                                          <xsd:attribute name="value" type="radio:channel-width-value" use="optional" default="20"/>
+                                          <xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+                                </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="primary-channel-offset" type="general:ah-name-act" minOccurs="0"/>
+						<xsd:element name="wmm" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ac" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="background" type="radio:wmm-ac-type" minOccurs="0"/>
+												<xsd:element name="best-effort" type="radio:wmm-ac-type" minOccurs="0"/>
+												<xsd:element name="video" type="radio:wmm-ac-type" minOccurs="0"/>
+												<xsd:element name="voice" type="radio:wmm-ac-type" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="_11n-clients-only" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="allow-11b-clients" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="ampdu" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="short-guard-interval" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="transmit-chain" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="radio:chains-num-value" use="optional" default="3"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="receive-chain" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="radio:chains-num-value" use="optional" default="3"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="deny-client" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="radio:deny-client-value" use="optional"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="dfs" type="radio:radio-profile-dfs" minOccurs="0"/>
+						<xsd:element name="interference-map" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="crc-err-threshold" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" type="radio:crc-err-threshold-value" default="20"/>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="cu-threshold" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" type="radio:cu-threshold-value" default="20"/>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="short-term-interval" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" type="radio:short-term-interval-value" default="5"/>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="benchmark" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="phymode" type="radio:benchmark-phymode" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="old-high-density" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="band-steering" type="general:ah-enable" minOccurs="0"/>
+									<xsd:element name="continuous-probe-suppress" type="general:ah-enable" minOccurs="0"/>
+									<xsd:element name="broadcast-probe-suppress" type="general:ah-enable" minOccurs="0"/>
+									<xsd:element name="mgmt-frame-tx-rate" minOccurs="0">
+										<xsd:complexType>
+											<xsd:choice>
+												<xsd:element name="high" type="xsd:string" fixed="" minOccurs="0"/>
+												<xsd:element name="low" type="xsd:string" fixed="" minOccurs="0"/>
+											</xsd:choice>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="weak-snr-suppress" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="threshold" type="radio:weak-snr-suppress-threshold" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="client-load-balance" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="hold-time" type="radio:client-load-balance-hold-time" minOccurs="0"/>
+												<xsd:element name="sta-mini-airtime" type="radio:client-load-balance-sta-mini-airtime" minOccurs="0"/>
+												<xsd:element name="interference-limit" type="radio:client-load-balance-interference-limit" minOccurs="0"/>
+												<xsd:element name="crc-error-limit" type="radio:client-load-balance-crc-error-limit" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="safety-net" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="timeout" type="radio:safety-net-timeout" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="band-steering" type="radio:radio-band-steering" minOccurs="0"/>
+						<xsd:element name="client-load-balance" type="radio:radio-client-load-balance" minOccurs="0"/>
+						<xsd:element name="weak-snr-suppress" type="radio:radio-weak-snr-suppress" minOccurs="0"/>
+						<xsd:element name="safety-net" type="radio:radio-safety-net" minOccurs="0"/>
+						<xsd:element name="high-density" type="radio:radio-high-density" minOccurs="0"/>
+						<xsd:element name="detect-bssid-spoofing" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="connection-alarming" type="radio:radio-connection-alarming" minOccurs="0"/>
+						<xsd:element name="presence" type="radio:radio-presence" minOccurs="0"/>
+						<xsd:element name="sensor" type="radio:radio-sensor" minOccurs="0"/>
+						<xsd:element name="tx-beamforming" type="radio:radio-tx-beamforming" minOccurs="0"/>
+						<xsd:element name="vht-2g" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="frameburst" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="name" type="xsd:string" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+					<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

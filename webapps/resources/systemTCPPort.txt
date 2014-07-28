@@ -1,0 +1,6 @@
+ssh_tunnel=22
+telnet=23
+capwap_http_port=80
+https=443
+distributed_download=3007
+linux_ephemeral=32768-61000

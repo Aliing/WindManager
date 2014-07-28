@@ -1,0 +1,49 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ah.com/hm/ws/platform/bo/ap" elementFormDefault="qualified" targetNamespace="http://ah.com/hm/ws/platform/bo/ap">
+  <xs:complexType name="hiveAp">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nodeId" minOccurs="0"/>
+      <xs:element type="xs:string" name="serialNumber" minOccurs="0"/>
+      <xs:element type="xs:string" name="hostName" minOccurs="0"/>
+      <xs:element type="xs:string" name="ipAddress" minOccurs="0"/>
+      <xs:element type="xs:string" name="netmask" minOccurs="0"/>
+      <xs:element type="xs:string" name="gateway" minOccurs="0"/>
+      <xs:element type="xs:string" name="softwareVersion" minOccurs="0"/>
+      <xs:element name="deviceGroup" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="MANAGED"/>
+            <xs:enumeration value="NEW"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="model" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="AP_20"/>
+            <xs:enumeration value="AP_28"/>
+            <xs:enumeration value="AP_110"/>
+            <xs:enumeration value="AP_120"/>
+            <xs:enumeration value="AP_320"/>
+            <xs:enumeration value="AP_330"/>
+            <xs:enumeration value="AP_340"/>
+            <xs:enumeration value="AP_350"/>
+            <xs:enumeration value="AP_370"/>
+            <xs:enumeration value="AP_380"/>
+            <xs:enumeration value="AP_390"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="type" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="PORTAL"/>
+            <xs:enumeration value="MESH_POINT"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:int" use="required" name="nativeVlan"/>
+    <xs:attribute type="xs:int" use="required" name="mgtVlan"/>
+    <xs:attribute type="xs:boolean" use="required" name="active"/>
+  </xs:complexType>
+</xs:schema>

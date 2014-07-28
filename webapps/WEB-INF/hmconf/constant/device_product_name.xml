@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<device_product_name>
+	<hiveap20>
+        <product name="HiveAP020_ag" />
+		<product name="HiveAP20ag" />
+		<product name="HiveAP020ag" />
+	</hiveap20>
+	<hiveap28>
+		<product name="HiveAP028_ag" />
+	</hiveap28>
+	<hiveap110>
+        <product name="HiveAP110_n" />
+		<product name="HiveAP110" />
+	</hiveap110>
+	<hiveap120>
+        <product name="HiveAP120_n" />
+		<product name="HiveAP120" />
+	</hiveap120>
+	<hiveap170>
+        <product name="HiveAP170_n" />
+		<product name="HiveAP170" />
+	</hiveap170>
+	<hiveap320>
+        <product name="HiveAP320_n" />
+		<product name="HiveAP320" />
+	</hiveap320>
+	<hiveap330>
+        <product name="HiveAP330_n" />
+		<product name="HiveAP330" />
+	</hiveap330>
+	<hiveap340>
+        <product name="HiveAP340_n" />
+		<product name="HiveAP340" />
+	</hiveap340>
+	<hiveap350>
+        <product name="HiveAP350_n" />
+		<product name="HiveAP350" />
+	</hiveap350>
+	<hiveap370>
+		<product name="AP370" />
+        <product name="AP370_n" />
+		<product name="HiveAP370" />
+	</hiveap370>	
+	<hiveap390>
+		<product name="AP390" />
+        <product name="AP390_n" />
+		<product name="HiveAP390" />
+	</hiveap390>
+	<hiveap230>
+		<product name="AP230" />
+        <product name="AP230_n" />
+		<product name="HiveAP230" />
+	</hiveap230>			
+	<hiveap380>
+        <product name="HiveAP380_n" />
+		<product name="HiveAP380" />
+	</hiveap380>
+	<hiveap5020>
+		<product name="5020n" />
+		<product name="AP5020n" />
+		<product name="hiveap3" />
+		<product name="HiveAP5020n" />
+		<product name="HiveAP5020ng" />
+	</hiveap5020>
+	<cvg>
+		<product name="HiveAP-VI" />
+		<product name="HiveOS-VA" />
+		<product name="VG-VA" />
+	</cvg>
+	<cvgappliance>
+		<product name="HiveOS-AH-APPLIANCE-1" />
+		<product name="VG-1U" />
+	</cvgappliance>	
+	<br100>
+		<product name="BR100" />
+	</br100>
+	<br200>
+		<product name="BR200" />
+	</br200>
+	<br200_wp>
+		<product name="BR200-WP" />
+	</br200_wp>
+	<br200_lte_vz>
+		<product name="BR200-LTE-VZ" />
+	</br200_lte_vz>
+	<hiveap121>
+		<product name="HiveAP121" />
+	</hiveap121>
+	<hiveap141>
+		<product name="HiveAP141" />
+	</hiveap141>
+	<sr24>
+		<product name="SR2024" />
+		<product name="SR-2024" />
+	</sr24>
+	<sr2124p>
+		<product name="SR2124P" />
+		<product name="SR-2124P" />
+	</sr2124p>	
+	<sr2024p>
+		<product name="SR2024P" />
+		<product name="SR-2024P" />
+	</sr2024p>		
+	<sr2148p>
+		<product name="SR2148P" />
+		<product name="SR-2148P" />
+	</sr2148p>		
+	<sr48>
+		<product name="SR2048" />
+	</sr48>
+</device_product_name>

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="8" paddingTop="8" paddingRight="8" paddingBottom="8">
+
+	<mx:HTTPService id="httpSvc"/>
+
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import flash.net.navigateToURL;
+			import mx.charts.HitData;
+			import mx.charts.events.ChartItemEvent;
+			import flash.external.ExternalInterface;
+			var initURL: String; 
+			
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url = initURL + "hiveApMonitor.action?operation=getFlashData&key=" + new Date().time;
+				httpSvc.send();				
+				refreshTimer();
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 15 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(30000, 30);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				cpuSeries.setStyle("showDataEffect", "");
+				memorySeries.setStyle("showDataEffect", "");
+				httpSvc.url = initURL+ "hiveApMonitor.action?operation=getFlashData&key=" + new Date().time;
+				httpSvc.send();
+        	}        	
+			
+			public function myDataTipFunction(e:HitData):String {
+
+		        var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Value:</I>" + e.item.count + "%"+"\n";
+		
+		        return s
+		     }
+		     
+		    public function memoryDataTipFunction(e:HitData):String {
+		        var s:String;
+		        var totalCount:int = httpSvc.lastResult.apdashboard.totalMemo;
+		        var persentuse:int = e.item.count;
+		        var useMemo:int = totalCount * persentuse / 100;
+		        var freeMemory:int = (100 -persentuse)* totalCount /100;
+		        
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Value:</I>" + persentuse + "%"+"\n";
+		        s += "<I>Total Memory (KB):</I>" + totalCount +"\n";
+		        s += "<I>Used Memory (KB):</I>" + useMemo +"\n";
+				s += "<I>Free Memory (KB):</I>" + freeMemory +"\n";
+		        return s
+		     }
+        ]]>
+    </mx:Script>
+	
+	<mx:SeriesZoom id="zoomIn" duration="600"/>
+    <mx:SeriesZoom id="zoomOut" duration="10"/>
+    
+	<mx:SeriesSlide id="slideIn" duration="600" direction="up"/>
+    <mx:SeriesSlide id="slideOut" duration="10" direction="down"/>
+
+	<mx:SeriesInterpolate id="interpolateIn" duration="600"/>
+    <mx:SeriesInterpolate id="interpolateWedge" elementOffset="10"/>
+    <mx:Panel headerHeight="0" id="allPanel" layout="vertical" height="100%" width="100%" borderThicknessBottom="1" borderThicknessLeft="1" borderThicknessRight="1" borderThicknessTop="1">
+		<mx:Panel headerHeight="0" height="200" width="100%" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0">
+			<mx:HBox direction="horizontal" width="100%" height="100%" paddingTop="4" paddingLeft="6" paddingRight="6">
+				<mx:Panel  title="{httpSvc.lastResult.apdashboard.apCpuPencent}" id="cpuUsagePanel" width="50%" headerHeight="25" height="100%" borderThicknessTop="0">
+	    	    <mx:LineChart id="cpuused" width="100%" height="100%"
+	        	    paddingRight="5" paddingLeft="5" 
+	            	showDataTips="true" dataTipFunction="myDataTipFunction" 
+	            	dataProvider="{httpSvc.lastResult.apdashboard.cpuUsage.item}">
+			        <mx:seriesFilters>
+			           <mx:Array/>
+			        </mx:seriesFilters>
+			         <mx:horizontalAxis>
+			         	<mx:LinearAxis id="a1"/>
+			         </mx:horizontalAxis>
+	            	<mx:verticalAxis>
+	                	<mx:LinearAxis baseAtZero="true" interval="1" maximum="100"/>
+		            </mx:verticalAxis>
+		            
+			        <mx:horizontalAxisRenderers>
+			            <mx:AxisRenderer  axis="{a1}" showLabels="false"/>
+			        </mx:horizontalAxisRenderers>
+	
+	    	        <mx:series>
+	        	        <mx:LineSeries yField="count" id="cpuSeries" 
+								displayName="CPU Usage"
+								showDataEffect="{interpolateIn}">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+						</mx:LineSeries>
+	            	</mx:series>
+		        </mx:LineChart> 
+				</mx:Panel>
+				
+				<mx:Panel  title="System Memory Usage (%)" id="memoryUsagePanel" width="50%" headerHeight="25" height="100%" borderThicknessTop="0">
+		    	    <mx:LineChart id="memoryused" height="100%" width="100%"
+		        	    paddingRight="5" paddingLeft="5" 
+		            	showDataTips="true" dataTipFunction="memoryDataTipFunction" 
+		            	dataProvider="{httpSvc.lastResult.apdashboard.memoryUsage.item}">
+				        <mx:seriesFilters>
+				           <mx:Array/>
+				        </mx:seriesFilters>
+				         <mx:horizontalAxis>
+				         	<mx:LinearAxis id="a2"/>
+				         </mx:horizontalAxis>
+		            	<mx:verticalAxis>
+		                	<mx:LinearAxis baseAtZero="true" interval="1" maximum="100"/>
+			            </mx:verticalAxis>
+		
+				        <mx:horizontalAxisRenderers>
+				            <mx:AxisRenderer  axis="{a2}" showLabels="false"/>
+				        </mx:horizontalAxisRenderers>
+		
+		    	        <mx:series>
+		        	        <mx:LineSeries yField="count" id="memorySeries" 
+									displayName="Memory Usage"
+									showDataEffect="{interpolateIn}">
+				            <mx:lineStroke>
+				                <mx:Stroke color="0x00FF00"/>
+				            </mx:lineStroke>   
+				            </mx:LineSeries>
+		            	</mx:series>
+			        </mx:LineChart> 
+				</mx:Panel>
+			</mx:HBox>
+		</mx:Panel>
+	</mx:Panel>
+</mx:Application>

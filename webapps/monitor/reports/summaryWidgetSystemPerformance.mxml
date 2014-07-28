@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="0" paddingTop="0" paddingRight="0" paddingBottom="0">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import mx.rpc.events.ResultEvent;
+			
+			private var initURL: String; 
+			private var timeFinishedFlg: Boolean=true;
+		    
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url = initURL+"reports.action?operation=summaryWidgetSystemPerformanceData&key=" + new Date().time;
+				httpSvc.send();				
+				refreshTimer();
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 15 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(5000, 180);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				if (timeFinishedFlg){
+					httpSvc.url = initURL+"reports.action?operation=summaryWidgetSystemPerformanceData&key=" + new Date().time;
+					httpSvc.addEventListener("result", httpResult);
+					timeFinishedFlg=false;
+					httpSvc.send();
+				}
+        	}
+        	
+        	public function httpResult(event:ResultEvent):void {
+        		timeFinishedFlg=true;
+        	}
+
+        ]]>
+    </mx:Script>
+
+    <mx:Panel height="100%" width="100%" verticalGap="0" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0" borderStyle="none"> 
+	    <mx:Grid verticalGap="0" height="100%" paddingTop="5" paddingLeft="10" width="100%" borderStyle="solid">
+	    	<mx:GridRow />
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Number of capwap packages per second"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numPackage}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Number of events per second"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numEvent}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Number of alarms per second"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numAlarm}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Number of active clients"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numActiveClient}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Max number of concurrent delta configuration in last 5 minutes"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numDelat}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Max number of simultaneous configuration audit requests in last 5 minutes"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numAuditRequest}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Max number of simultaneous backup in last 5 minutes"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numBackup}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Max number of simultaneous restore in last 5 minutes"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numRestore}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    	<mx:GridRow height="25" >
+		    	<mx:GridItem>
+	    			<mx:Label text="Max number of simultaneous upgrade in last 5 minutes"/>
+				</mx:GridItem>
+	    		<mx:GridItem>
+					<mx:Label text="{httpSvc.lastResult.summary.numUpgrade}"/>
+				</mx:GridItem>
+	    	</mx:GridRow>
+	    </mx:Grid>
+	</mx:Panel>
+</mx:Application>

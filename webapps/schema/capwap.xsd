@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:capwap="http://www.aerohive.com/configuration/capwap" targetNamespace="http://www.aerohive.com/configuration/capwap">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="capwap-server-name">
+		<xsd:sequence>
+			<xsd:element name="no-disconnect" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="via-vpn-tunnel" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="capwap-server">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="name" type="capwap:capwap-server-name" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="capwap-transport">
+		<xsd:sequence>
+			<xsd:element name="http" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="capwap-discovery-method">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="broadcast" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="capwap-obj">
+		<xsd:sequence>
+			<xsd:element name="max-discoveries" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="counter" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="3">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="1"/>
+											<xsd:maxInclusive value="999"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="client" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="discovery" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="maximum" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="interval" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="10">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="2"/>
+																	<xsd:maxInclusive value="180"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="interval" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="5">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="1"/>
+														<xsd:maxInclusive value="999"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="method" type="capwap:capwap-discovery-method" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="event" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="join" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="timeout" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="60">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="30"/>
+														<xsd:maxInclusive value="999"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="neighbor" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="dead" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="interval" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="optional" default="105">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="60"/>
+																	<xsd:maxInclusive value="240"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="heartbeat" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+												<xsd:element name="interval" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="name" use="optional" default="30">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="30"/>
+																	<xsd:maxInclusive value="240"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+														<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="silent" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="interval" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="15">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="1"/>
+														<xsd:maxInclusive value="999"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="dtls" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="enable" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="no-disconnect" type="general:ah-only-act" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="accept-bootstrap-passphrase" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="bootstrap-passphrase" type="general:ah-encrypted-string-act" minOccurs="0"/>
+									<xsd:element name="hm-defined-passphrase" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="key-id" minOccurs="0">
+													<xsd:complexType>
+														<xsd:attribute name="value" use="required">
+															<xsd:simpleType>
+																<xsd:restriction base="xsd:int">
+																	<xsd:minInclusive value="1"/>
+																	<xsd:maxInclusive value="255"/>
+																</xsd:restriction>
+															</xsd:simpleType>
+														</xsd:attribute>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+											<xsd:attribute name="value" type="xsd:string" use="required"/>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+											<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="handshake-wait-time" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="60">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="30"/>
+														<xsd:maxInclusive value="120"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="max-retries" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="3">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="1"/>
+														<xsd:maxInclusive value="65535"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="psk" type="general:ah-encrypted-string-act" minOccurs="0"/>
+									<xsd:element name="session-delete-wait-time" minOccurs="0">
+										<xsd:complexType>
+											<xsd:attribute name="value" use="optional" default="5">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="1"/>
+														<xsd:maxInclusive value="65535"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="negotiation" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="server" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="port" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="no-disconnect" type="general:ah-only-act" minOccurs="0"/>
+											</xsd:sequence>
+											<xsd:attribute name="value" use="optional" default="12222">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:int">
+														<xsd:minInclusive value="1"/>
+														<xsd:maxInclusive value="65535"/>
+													</xsd:restriction>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="primary" type="capwap:capwap-server" minOccurs="0"/>
+									<xsd:element name="cr-primary" type="capwap:capwap-server" minOccurs="0"/>
+									<xsd:element name="backup" type="capwap:capwap-server" minOccurs="0"/>
+									<xsd:element name="cr-backup" type="capwap:capwap-server" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="vhm-name" type="general:ah-string-act" minOccurs="0"/>
+						<xsd:element name="transport" type="capwap:capwap-transport" minOccurs="0"/>
+						<xsd:element name="pci-alert" type="general:ah-enable" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,319 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="8" paddingTop="8" paddingRight="8" paddingBottom="8">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import flash.net.navigateToURL;
+			import mx.charts.HitData;
+			import mx.charts.events.ChartItemEvent;
+			import flash.external.ExternalInterface;
+			var initURL: String; 
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url =initURL+ "systemOverview.action?operation=systemOverviewData&key=" + new Date().time;
+				httpSvc.send();				
+				refreshTimer();
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 3 * 5 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(5000, 180);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				memorySeries.setStyle("showDataEffect", "");
+				cpuSeries.setStyle("showDataEffect", "");
+				httpSvc.url =initURL+ "systemOverview.action?operation=systemOverviewData&key=" + new Date().time;
+				httpSvc.send();
+        	}
+        	
+        	public function killSession(value:String):void {
+				var url:String = "systemOverview.action";
+				// Alert.show('request failed:' + value);
+				var variables:URLVariables = new URLVariables();
+				variables.operation = "removeSession";
+				variables.removeSessionId=value;
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+
+		     public function myDataTipFunction(e:HitData):String {
+
+		        var s:String;
+		        s = "<B>" + LineSeries(e.element).displayName + "</B>\n";
+		        s += "<I>Value:</I>" + e.item.count + "%"+"\n";
+		
+		        return s
+		     }	
+		     
+		     public function handleMouseMove(e:MouseEvent):void {
+		        // Use coordinates to get HitData object of 
+		        // current data point.
+		        var hda:Array = 
+		            memoryused.findDataPoints(e.currentTarget.mouseX, 
+		            e.currentTarget.mouseY);
+		        if (hda[0]) {
+		        	var totalCount:int = httpSvc.lastResult.systemOverview.totalMemo;
+		        	var persentuse:int = hda[0].item.count;
+		        	var useMemo:int = totalCount * persentuse / 100;
+		        	var freeMemory:int = (100 -persentuse)* totalCount /100;
+		           usageMemo.text = useMemo.toString();
+		           freeMemo.text = freeMemory.toString() ;
+		           totalMemo.text = httpSvc.lastResult.systemOverview.totalMemo;
+		        } else {
+		           usageMemo.text = httpSvc.lastResult.systemOverview.usageMemo;
+		           freeMemo.text = httpSvc.lastResult.systemOverview.freeMemo;
+		           totalMemo.text = httpSvc.lastResult.systemOverview.totalMemo;
+		        }
+		     }
+		     
+		     
+
+        ]]>
+    </mx:Script>
+	
+	<mx:SeriesZoom id="zoomIn" duration="600"/>
+    <mx:SeriesZoom id="zoomOut" duration="10"/>
+    
+	<mx:SeriesSlide id="slideIn" duration="600" direction="up"/>
+    <mx:SeriesSlide id="slideOut" duration="10" direction="down"/>
+
+	<mx:SeriesInterpolate id="interpolateIn" duration="600"/>
+    <mx:SeriesInterpolate id="interpolateWedge" elementOffset="10"/>
+
+    <mx:Panel headerHeight="8" layout="vertical" height="100%" width="100%">
+	    <mx:Box width="100%" paddingTop="4" paddingLeft="6" paddingRight="6">
+		    <mx:Panel title="HiveManager System Information" width="100%" headerHeight="10" borderThicknessTop="0" layout="horizontal" verticalGap="0" borderStyle="solid">
+				<mx:Panel width="45%" height="230" headerHeight="0" borderThicknessTop="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThickness="0" verticalGap="0" borderStyle="solid">
+				    <mx:Grid verticalGap="0" height="100%" paddingTop="5" paddingLeft="10" width="50%">
+				    	<mx:GridRow />
+				    	<mx:GridRow height="25">
+					    	<mx:GridItem>
+				    			<mx:Label text="Host Name:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.hmHostname}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    	<mx:GridRow height="25">
+					    	<mx:GridItem>
+				    			<mx:Label text="Software Version:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.hmVersion}"/>
+							</mx:GridItem>
+						</mx:GridRow>
+				    	<mx:GridRow height="25">
+							<mx:GridItem>
+				    			<mx:Label text="Build Time:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.buildTime}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    	<mx:GridRow height="25">
+					    	<mx:GridItem>
+				    			<mx:Label text="Model Number:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.hmModel}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    	<mx:GridRow height="25">
+					    	<mx:GridItem>
+				    			<mx:Label text="System Uptime:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.systemUpTime}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    	<mx:GridRow height="25">
+					    	<mx:GridItem>
+				    			<mx:Label text="HA Status:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.haStatus}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    	<mx:GridRow height="{httpSvc.lastResult.systemOverview.showReplicateStatus}">
+					    	<mx:GridItem>
+					    		<mx:Label text="Replication:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.replicateStatus}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    	<mx:GridRow height="25">
+					    	<mx:GridItem>
+				    			<mx:Label text="MGT Port:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.mgtState}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    	<mx:GridRow height="25" >
+					    	<mx:GridItem>
+				    			<mx:Label text="LAN Port:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.lanState}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    </mx:Grid>
+				</mx:Panel>
+				<mx:Panel width="55%" headerHeight="0" height="233" layout="vertical" borderThicknessTop="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThickness="0" verticalGap="0" horizontalGap="0" borderStyle="none">
+				    <mx:Grid verticalGap="0" paddingTop="5" height="100%" width="100%">	
+				    	<mx:GridRow height="20">
+					    	<mx:GridItem>
+				    			<mx:Label text="Admins logged in Currently:"/>
+							</mx:GridItem>
+				    		<mx:GridItem>
+								<mx:Label text="{httpSvc.lastResult.systemOverview.numberOfLogin}"/>
+							</mx:GridItem>
+				    	</mx:GridRow>
+				    </mx:Grid>
+		    		<mx:Grid verticalGap="0" paddingTop="1" height="205" paddingLeft="1" width="100%" borderColor="#B6B9CC" borderStyle="outset">
+		    			<mx:GridRow height="20" backgroundColor="#9AA6AC" width="100%">
+		    				<mx:GridItem>
+				    			<mx:Label text=""/>
+							</mx:GridItem>
+		    				<mx:GridItem>
+				    			<mx:Label text="Admin Name"/>
+							</mx:GridItem>
+							<mx:GridItem>
+				    			<mx:Label text="Connection From"/>
+							</mx:GridItem>
+							<mx:GridItem>
+				    			<mx:Label text="Session Time"/>
+							</mx:GridItem>
+		    			</mx:GridRow>
+		    		   <mx:Repeater id="rp" dataProvider="{httpSvc.lastResult.systemOverview.loginUsers.item}">
+			    			<mx:GridRow height="20">
+			    				<mx:GridItem>
+					    			<mx:Label text="{rp.currentItem.count}"/>
+								</mx:GridItem>
+			    				<mx:GridItem>
+					    			<mx:Label text="{rp.currentItem.userName}"/>
+								</mx:GridItem>
+								<mx:GridItem>
+					    			<mx:Label text="{rp.currentItem.userIpAddress}"/>
+								</mx:GridItem>
+								<mx:GridItem>
+					    			<mx:Label text="{rp.currentItem.sessionTotalTime}"/>
+								</mx:GridItem>
+								<mx:GridItem>
+					    			<mx:LinkButton label="Terminate"
+					    				paddingLeft="0"
+										textAlign="left"
+									    fontWeight="bold" 
+										textDecoration="underline"
+										color="#003366"
+									    textRollOverColor="#003366"
+									    rollOverColor="#FFFFFF"
+									    selectionColor="#FFFFFF"
+									    click="killSession(String(event.currentTarget.getRepeaterItem().removeSessionId))"/>
+								</mx:GridItem>						
+			    			</mx:GridRow> 
+			            </mx:Repeater>    
+		    		</mx:Grid>
+			   	</mx:Panel>
+			</mx:Panel>
+	    </mx:Box>
+	    <mx:Box direction="horizontal" height="100%" width="100%" paddingTop="5" paddingBottom="6" paddingLeft="6" paddingRight="6" borderStyle="none">
+			<mx:Panel title="System CPU Usage (%)" width="45%" headerHeight="25" borderThicknessTop="0" layout="vertical" verticalGap="0" borderStyle="solid">
+    	    <mx:LineChart id="cpuused" height="200" width="100%"
+        	    paddingRight="5" paddingLeft="5" 
+            	showDataTips="true" dataTipFunction="myDataTipFunction" 
+            	dataProvider="{httpSvc.lastResult.systemOverview.cpuUsage.item}">
+		        <mx:seriesFilters>
+		           <mx:Array/>
+		        </mx:seriesFilters>
+		        <mx:horizontalAxis>
+				     <mx:LinearAxis id="a1"/>
+				</mx:horizontalAxis>
+            	<mx:verticalAxis>
+                	<mx:LinearAxis baseAtZero="true" interval="1" maximum="100"/>
+	            </mx:verticalAxis>
+
+		        <mx:horizontalAxisRenderers>
+		           <mx:AxisRenderer  axis="{a1}" showLabels="false"/>
+		        </mx:horizontalAxisRenderers>
+
+    	        <mx:series>
+        	        <mx:LineSeries yField="count" id="cpuSeries" 
+							displayName="CPU Usage"
+							showDataEffect="{interpolateIn}" 
+							/>
+            	</mx:series>
+	        </mx:LineChart>      
+			</mx:Panel>
+			
+			<mx:Panel title="System Memory Usage (%)" width="55%" headerHeight="25" borderThicknessTop="0" layout="vertical" verticalGap="0" horizontalAlign="right" borderStyle="solid">
+		    <mx:Grid verticalGap="0" paddingTop="2" paddingLeft="5"  >
+		    	<mx:GridRow height="20" horizontalAlign="left">
+			    	<mx:GridItem horizontalAlign="right">
+		    			<mx:Label text="Total Memory (KB):"/>
+					</mx:GridItem>
+		    		<mx:GridItem horizontalAlign="left">
+						<mx:Label text="{httpSvc.lastResult.systemOverview.totalMemo}" id = "totalMemo"/>
+					</mx:GridItem>
+			    	<mx:GridItem horizontalAlign="right">
+		    			<mx:Label text="  Used Memory (KB):"/>
+					</mx:GridItem>
+		    		<mx:GridItem horizontalAlign="left">
+						<mx:Label text="{httpSvc.lastResult.systemOverview.usageMemo}" id = "usageMemo"/>
+					</mx:GridItem>
+			    	<mx:GridItem horizontalAlign="right">
+		    			<mx:Label text="  Free Memory (KB):"/>
+					</mx:GridItem>
+		    		<mx:GridItem horizontalAlign="left">
+						<mx:Label text="{httpSvc.lastResult.systemOverview.freeMemo}" id = "freeMemo"/>
+					</mx:GridItem>
+		    	</mx:GridRow>
+		    </mx:Grid>
+    	    
+    	    <mx:LineChart id="memoryused" height="180" width="100%"
+        	    paddingRight="5" paddingLeft="5" 
+            	showDataTips="true" dataTipFunction="myDataTipFunction" 
+            	mouseMove="handleMouseMove(event)"
+            	dataProvider="{httpSvc.lastResult.systemOverview.memoryUsage.item}">
+		        <mx:seriesFilters>
+		           <mx:Array/>
+		        </mx:seriesFilters>
+		        <mx:horizontalAxis>
+				     <mx:LinearAxis id="a2"/>
+				</mx:horizontalAxis>
+            	<mx:verticalAxis>
+                	<mx:LinearAxis baseAtZero="true" interval="1" maximum="100"/>
+	            </mx:verticalAxis>
+
+		        <mx:horizontalAxisRenderers>
+		        	<mx:AxisRenderer  axis="{a2}" showLabels="false"/>
+		        </mx:horizontalAxisRenderers>
+
+    	        <mx:series>
+        	        <mx:LineSeries yField="count" id="memorySeries" 
+							displayName="Memory Usage"
+							showDataEffect="{interpolateIn}" />
+            	</mx:series>
+	        </mx:LineChart>      
+			</mx:Panel>
+		</mx:Box>
+    </mx:Panel>
+</mx:Application>

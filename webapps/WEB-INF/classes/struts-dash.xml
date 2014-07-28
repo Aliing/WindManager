@@ -1,0 +1,74 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="dash" extends="ah-default" namespace="/">
+		<action name="dashboard"
+			class="com.ah.ui.actions.monitor.DashboardAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles">dashboard</result>
+			<result type="redirectAction" name="deviceList">
+				<param name="actionName">hiveAp</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="hmListType">managedHiveAps</param>
+                <param name="viewType">monitor</param>
+			</result>
+			<result type="redirectAction" name="clientList">
+				<param name="actionName">clientMonitor</param>
+			</result>
+			<result type="redirectAction" name="deviceDetail">
+				<param name="actionName">hiveApMonitor</param>
+				<param name="operation">hiveApDetails</param>
+				<param name="id">${monitorId}</param>
+			</result>
+			<result type="redirectAction" name="clientDetail">
+				<param name="actionName">clientMonitor</param>
+				<param name="operation">showDetail</param>
+				<param name="id">${monitorId}</param>
+			</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="recurReport"
+			class="com.ah.ui.actions.monitor.RecurReportAction">
+			<result type="tiles">recurReportList</result>
+			<result type="tiles" name="input">recurReportCreate</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result type="redirectAction" name="deviceList">
+				<param name="actionName">hiveAp</param>
+				<param name="operation">managedHiveAps</param>
+				<param name="hmListType">managedHiveAps</param>
+                <param name="viewType">monitor</param>
+			</result>
+			<result type="redirectAction" name="clientList">
+				<param name="actionName">clientMonitor</param>
+			</result>
+			<result type="redirectAction" name="deviceDetail">
+				<param name="actionName">hiveApMonitor</param>
+				<param name="operation">hiveApDetails</param>
+				<param name="id">${monitorId}</param>
+			</result>
+			<result type="redirectAction" name="clientDetail">
+				<param name="actionName">clientMonitor</param>
+				<param name="operation">showDetail</param>
+				<param name="id">${monitorId}</param>
+			</result>
+		</action>
+
+		<action name="dashboardComponent"
+			class="com.ah.ui.actions.monitor.DashboardComponentAction">
+			<result type="tiles">dashboard</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles" name="input">dashboardComponent</result>
+		</action>
+	</package>
+
+</struts>

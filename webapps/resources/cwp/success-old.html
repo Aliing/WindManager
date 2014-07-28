@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width"/>  
+	<title>Login Successful</title>
+	
+	<style type="text/css">
+	<!--
+	body{
+		background-color:#000000;
+		background-image: url(default_hive.png);
+		background-repeat: no-repeat;
+		background-attachment:fixed;
+		background-position: center;
+		font-family:Helvetica, Arial, sans-serif;
+		text-align:left;
+		width:400px;
+		margin:0 auto;
+		font-size:14px;
+		color:#ffffff ;
+		padding:0 20px;
+	}
+	
+	a{
+		color: #ffffff;
+	}
+	
+	a:hover{
+		color: #ffffff;
+	}
+	
+	p{
+		text-align:left;
+		font-size:14px;
+	}
+	
+	.note{
+		width:200px;
+		font-size:12px;
+		line-height:14px;
+		color:#ffffff ;
+	}
+	
+	h1{
+		font-family:Century Gothic, Helvetica, Arial, sans-serif;
+		font-size:30px;
+		font-weight:300;
+	}
+	
+	h2{
+		color: #ffffff;
+		line-height:14px;
+	}
+	
+	h3{
+		font-family:Century Gothic, Helvetica, Arial, sans-serif;
+		color: #ffffff;
+		text-align:center;
+		font-size:24px;
+		font-weight:300;
+		margin-bottom:40px;
+	}
+		
+	
+	.req:after{
+		color: #ffffff;
+		font-size:16px;
+		content:"*";
+	}
+	
+	.login{
+		width:380px;
+		text-align:center;
+		margin:0px auto 60px;
+	}
+	
+	.login input{
+		font-size:25px;
+		margin-bottom:10px;
+		width:300px;
+		color: gray;
+	}
+	
+	.login_button{
+		float:right;
+		background: url(login.png) no-repeat;
+	    width: 125px;
+		height: 40px;
+	    border: 0px;
+		margin-top:10px;
+		cursor:pointer;
+	
+	}
+	
+	.register{
+		width: 388px;
+		text-align:center;
+		margin-top:30px;
+		margin:0 auto;
+	}
+	
+	.register input{
+		font-size:20px;
+		margin-bottom:5px;
+		color: gray;
+		width:275px;
+	}
+	
+	.reg_button{
+		float:right;
+		background: url(register.png) no-repeat 0px 5px;
+		margin-top:5px;
+	    width: 125px;
+		height: 45px;
+	    border: 0px;
+		cursor:pointer;
+	}
+	
+	.error{
+		color: #ffffff;
+		text-shadow: 0 0 3px #000;
+		text-align:center;
+	}
+	-->
+	</style>
+</head>
+<body>
+<div style="height:600px;">
+	<h1 id="h1Title">Secure Internet Portal</h1>
+	<table>
+		<tr>
+			<td height="500px">
+	<div id="regularTitle">
+	    <img src="success.png" style="float:left;"/>
+	    <h2 style="margin-top:100px;">Login Successful</h2>
+	    <div class="style-message" id="notice">
+        </div>
+        <div class="style-message" id="ok">
+        </div>
+        <div class="style-message" style="display: none;" id="fines">
+        </div>
+        <div class="style-message" id="addi_msg">
+       	</div>
+	</div>
+	<div id="ppsk_reg" style="display: none">
+	    <p class="text-align:center"><strong>Thank you for registering.</strong></p>
+	    <p class="text-align:center"><strong>Please use the following Private Pre-Shared Key to access the secure SSID: <span id="ppsk_ssid"></span></strong></p>
+	    <h3><span id="ppsk_pwd"></span></h3>
+	    <div id="login_url"></div>
+	</div>
+			</td>
+		</tr>
+	</table>
+	<p style="float:right;"><img id="footImage" src="company_logo.png" style="width: 235px; height: 69px;"/></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:schedule="http://www.aerohive.com/configuration/schedule" targetNamespace="http://www.aerohive.com/configuration/schedule">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="schedule-once-to">
+		<xsd:sequence>
+			<xsd:element name="comment" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-once">
+		<xsd:sequence>
+			<xsd:element name="to" type="schedule:schedule-once-to" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-ppsk-once">
+		<xsd:sequence>
+			<xsd:element name="to" type="schedule:schedule-once-to" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-time-range2-to">
+		<xsd:sequence>
+			<xsd:element name="comment" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-time-range2">
+		<xsd:sequence>
+			<xsd:element name="to" type="schedule:schedule-time-range2-to" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-time-range1-to">
+		<xsd:sequence>
+			<xsd:element name="time-range" type="schedule:schedule-time-range2" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-time-range1">
+		<xsd:sequence>
+			<xsd:element name="to" type="schedule:schedule-time-range1-to" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-weekday-range-to">
+		<xsd:sequence>
+			<xsd:element name="time-range" type="schedule:schedule-time-range1"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-weekday-range">
+		<xsd:sequence>
+			<xsd:element name="to" type="schedule:schedule-weekday-range-to"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-date-range-to">
+		<xsd:sequence>
+			<xsd:element name="weekday-range" type="schedule:schedule-weekday-range"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-date-range">
+		<xsd:sequence>
+			<xsd:element name="to" type="schedule:schedule-date-range-to"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-recurrent">
+		<xsd:sequence>
+			<xsd:element name="date-range" type="schedule:schedule-date-range" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-ppsk-weekday">
+		<xsd:sequence>
+			<xsd:element name="time-range" type="schedule:schedule-time-range1" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-ppsk-date-range-to">
+		<xsd:sequence>
+			<xsd:element name="weekday" type="schedule:schedule-ppsk-weekday" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-ppsk-date-range">
+		<xsd:sequence>
+			<xsd:element name="to" type="schedule:schedule-ppsk-date-range-to" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-ppsk-recurrent">
+		<xsd:sequence>
+			<xsd:element name="date-range" type="schedule:schedule-ppsk-date-range" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-ppsk">
+		<xsd:sequence>
+			<xsd:element name="once" type="schedule:schedule-ppsk-once" minOccurs="0"/>
+			<xsd:element name="recurrent" type="schedule:schedule-ppsk-recurrent" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-obj">
+		<xsd:sequence>
+			<xsd:element name="once" type="schedule:schedule-once" minOccurs="0"/>
+			<xsd:element name="recurrent" type="schedule:schedule-recurrent" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="schedule-ppsk-obj">
+		<xsd:sequence>
+			<xsd:element name="ppsk" type="schedule:schedule-ppsk" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<!--/objects-->
+</xsd:schema>

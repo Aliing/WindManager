@@ -1,0 +1,27 @@
+/* GLOBAL */
+html, body, pre, input, #shell-cursor, #content, #shellContent {
+	background-color: #000000;
+	color: #00CD00;
+}
+#topLogin_box{
+	background-color: #000000;
+}
+.activeInput{
+	color: #B48C00;
+}
+
+.inactiveInput, .inactiveLabel, .inactiveContent pre{
+	color: #BBBBBB;
+}
+
+.activeLabel{
+	color: #219860;
+}
+
+.activeContent pre{
+	color: #00CD00;
+}
+
+#input{
+	color: #B48C00;
+}

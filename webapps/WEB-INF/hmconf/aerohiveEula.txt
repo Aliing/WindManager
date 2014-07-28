@@ -1,0 +1,163 @@
+              AEROHIVE NETWORKS, INC. END USER LICENSE AGREEMENT
+              
+NOTICE TO END USER: THIS IS A LEGAL AGREEMENT BETWEEN AEROHIVE NETWORKS, INC.
+("AEROHIVE") AND YOU (ON BEHALF OF YOURSELF OR AS AN AUTHORIZED REPRESENTATIVE
+ON BEHALF OF AN ENTITY). BY OPENING THE PACKAGE, OPENING THE SOFTWARE MEDIA
+PACKAGE, INSTALLING THE SOFTWARE, AND/OR USING THE SOFTWARE AND/OR THE AEROHIVE
+PRODUCT WITH WHICH THE SOFTWARE WAS PROVIDED, YOU AGREE TO ALL THE TERMS OF THIS
+END USER LICENSE AGREEMENT (THE "AGREEMENT").  AS USED IN THIS AGREEMENT,
+"AEROHIVE PRODUCT" MEANS COLLECTIVELY THE SOFTWARE AND THE RELATED AEROHIVE
+HARDWARE. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS, PROMPTLY RETURN THE
+SOFTWARE AND RELATED HARDWARE PRODUCTS TO AEROHIVE (OR IF YOU PURCHASED SUCH
+PRODUCTS FROM A RESELLER, THE RESELLER FROM WHICH YOU PURCHASED THEM) AND ANY
+FEES YOU HAVE PAID FOR THE PRODUCTS WILL BE REFUNDED.
+
+1. 	LICENSE
+"Software" means all Aerohive and third party software programs (in object code
+form only) provided to you with the Aerohive Product, including any accompanying
+documentation and any updates to the Software that may be provided to you by
+Aerohive. Subject to your full compliance with all the terms and restrictions
+set forth in this Agreement, Aerohive grants you a personal, non-exclusive,
+non-transferable (except as expressly permitted below), non-sublicensable
+license to use the Software for your personal or internal business purposes
+only. You may only use the Software solely as embedded in, or for execution on,
+the Aerohive hardware products.
+
+2. 	RESTRICTIONS ON USE AND TRANSFER
+Except as otherwise expressly authorized herein, you agree that you shall not,
+directly or indirectly, (and shall not permit others to): (i) copy, reproduce,
+modify, or create derivative works of the Software in any manner without the
+prior written approval of Aerohive; (ii) copy the Software onto any public or
+distributed network; (iii) translate, decompile, disassemble, or reverse
+engineer the Software or any copy, in whole or in part, or otherwise attempt to
+discover the source code or underlying ideas or algorithms of the Software; (iv)
+rent, lease, distribute, or otherwise transfer rights to the Software; (v) use
+the Software to operate in or as a time-sharing, outsourcing, service bureau,
+application service provider or managed service provider environment; (vi) use
+the Software as a general SQL server; or (vii) remove any proprietary notices or
+labels on the Software. Notwithstanding the foregoing, you may make one (1) copy
+of the Software for back-up or archival purposes only, provided you include
+Aerohive's and its suppliers' copyright and other proprietary rights notices
+on such copy. You may physically transfer the Software and this Agreement to
+another party only if (a) all related hardware products are transferred along
+with the Software, (b) the other party accepts all of the terms and restrictions
+of this Agreement, (c) all copies of the Software and related documentation that
+are not transferred to the other party are destroyed or returned to Aerohive,
+and (d) you comply with all applicable laws including any import/export control
+regulations. Once transferred, the license granted to you in the Agreement shall
+immediately terminate.
+
+3. 	OWNERSHIP
+You acknowledge and agree that Aerohive and its suppliers own all right, title
+and interest, including, without limitation, all intellectual property rights,
+in and to the Software. You are not granted any rights in the Software other
+than the license rights expressly set forth above. The Software in source code
+form is and shall at all times remain a confidential trade secret of Aerohive
+and its suppliers. The Software is protected by the copyright and other
+intellectual property laws of the United States and international treaties. You
+acknowledge that, in the course of using the Software, you may obtain or learn
+information relating to the Software, which may include, without limitation,
+information relating to the performance, reliability or stability of the
+Software, operation of the Software, know-how, techniques, processes, ideas,
+algorithms, and software design and architecture ("Proprietary Information"). As
+between the parties, such Proprietary Information shall belong solely to
+Aerohive. During and after the term of this Agreement, you shall hold in
+confidence and protect, and shall not use (except as expressly authorized by
+this Agreement) or disclose, Proprietary Information to any third party.
+
+4. 	WARRANTY AND DISCLAIMER
+Aerohive warrants that the Software will perform in accordance with published
+documentation for a period of three (3) months from the earlier to occur of: (i)
+ninety (90) days after Aerohive ships the Aerohive Product, or (ii) the first
+date on which you submit a warranty support request to Aerohive technical
+support. Aerohive will have no obligation with respect to warranty issues caused
+by or resulting from any of the following:  (a) installation or use of
+non-Aerohive software on or in the Aerohive product; (b) modifications to the
+Aerohive product made by you or any third party without Aerohive's express
+written authorization; (c) damage or defects caused by accident, neglect,
+misuse, failure of electric power, adverse environmental conditions,
+catastrophe, or negligence; (d) your use of the Aerohive product other than as
+recommended by Aerohive and/or as provided in the product documentation; or (e)
+misconfiguration of the Aerohive product and/or the Software. THIS WARRANTY
+APPLIES ONLY TO THE ORIGINAL PURCHASER OF THIS PRODUCT. YOUR EXCLUSIVE REMEDY,
+AND AEROHIVE'S SOLE LIABILITY, FOR ANY BREACH OF THE FOREGOING WARRANTY IS TO
+REPLACE THE NON-CONFORMING SOFTWARE WITH A SOFTWARE UPDATE. EXCEPT FOR THE
+EXPRESS WARRANTY SET FORTH ABOVE, AEROHIVE AND ITS SUPPLIERS DO NOT WARRANT THAT
+THE FUNCTIONS CONTAINED IN THE SOFTWARE WILL MEET YOUR REQUIREMENTS OR THAT THE
+OPERATION OF THE SOFTWARE WILL BE UNINTERRUPTED OR ERROR-FREE. THE SOFTWARE IS
+PROVIDED TO YOU ON AN "AS-IS" AND "WHERE-AS" BASIS WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. THIS
+LIMITED WARRANTY GIVES YOU SPECIFIC LEGAL RIGHTS, AND YOU MAY ALSO HAVE OTHER
+RIGHTS WHICH VARY FROM JURISDICTION TO JURISDICTION.
+
+5.	SUPPORT AND MAINTENANCE
+You may purchase support and maintenance, including new releases, enhancements
+or updates of the Software, in accordance with Aerohive's then-current standard
+support and maintenance terms and conditions, as posted on Aerohive's website
+at www.aerohive.com/support. These terms and conditions may change from time to
+time and Aerohive will post any such changes on its website.
+
+6. 	LIMITATION OF LIABILITY
+A. IN NO EVENT WILL AEROHIVE, ITS SUPPLIERS, AGENTS OR REPRESENTATIVES BE LIABLE
+FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES, INCLUDING WITHOUT
+LIMITATION, LOST PROFITS OR LOST DATA, EVEN IF THEY HAVE BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES.
+B. IN NO EVENT WILL AEROHIVE'S TOTAL CUMULATIVE LIABILITY IN CONNECTION WITH
+THIS AGREEMENT, THE SOFTWARE, OR THE HARDWARE, FROM ALL CAUSES OF ACTION OF ANY
+KIND, INCLUDING BUT NOT LIMITED TO TORT, CONTRACT, NEGLIGENCE, STRICT LIABILITY
+AND BREACH OF WARRANTY, EXCEED THE TOTAL AMOUNT YOU PAID FOR THE AEROHIVE
+PRODUCT.
+C. The foregoing shall apply notwithstanding any failure or inability to provide
+the limited remedies set forth in this Agreement.  Some jurisdictions do not
+allow the exclusion or limitation of incidental or consequential damages, so the
+above limitation(s) or exclusion(s) may not apply to you.
+
+7. 	TERM
+This Agreement is effective until terminated. You may terminate this Agreement
+at any time by destroying all copies of the Software and related documentation.
+This Agreement will terminate automatically if you fail to comply with any term
+or condition of this Agreement, including any attempt to transfer a copy of the
+Software to another party except as provided in this Agreement. You agree that
+upon such termination, you will destroy all copies of the Software and related
+documentation.
+
+8.	U.S. GOVERNMENT RESTRICTED RIGHTS
+The Software licensed under this Agreement is commercial computer software as
+that term is described in 48 C.F.R. 252.227-7014(a)(1). If acquired by or on
+behalf of a civilian agency, the U.S. Government acquires this commercial
+computer software and/or commercial computer software documentation subject to
+the terms of this Agreement as specified in 48 C.F.R. 12.212 (Computer Software)
+and 12.211 (Technical Data) of the Federal Acquisition Regulations (FAR) and its
+successors. If acquired by or on behalf of any agency within the Department of
+Defense (DOD), the U.S. Government acquires this commercial computer software
+and/or commercial computer software documentation subject to the terms of this
+Agreement as specified in 48 C.F.R. 227.7202-3 of the DOD FAR Supplement (DFAR)
+and its successors.
+
+9.	GENERAL
+You may not assign this Agreement or any of your rights or duties, by operation
+of law or otherwise, without Aerohive's prior written consent. Any attempt to
+assign the Agreement without such consent will be void.  This Agreement will be
+governed by and construed under the laws of the State of California, excluding
+its conflicts of law principals.  Any action filed by either party arising or
+relating to this Agreement shall be brought in San Francisco, California, and
+you irrevocably consent to and waive any objection to jurisdiction and venue in
+the state and federal courts located in San Francisco, California.  The United
+Nations Convention on the International Sale of Goods shall not govern this
+Agreement.  If any provision of this Agreement is held by a court of competent
+jurisdiction to be invalid or unenforceable, such provision shall be changed and
+interpreted so as to best accomplish the objectives of the original provision to
+the fullest extent allowed by law and the remaining provisions of this Agreement
+shall remain in full force and effect.  No modification, amendment or waiver of
+any provision of this Agreement shall be effective unless in writing and signed
+by you and a duly authorized representative of Aerohive. No failure or delay by
+either party in exercising any right, power, or remedy under this Agreement,
+except as specifically provided herein, shall operate as a waiver of any such
+right, power or remedy.  You agree to comply fully with the U.S. export laws and
+to provide Aerohive with such documentation, assurances and access to records as
+may be required to obtain licenses under the U.S. export laws. You agree that
+you will not knowingly, without prior authorization if required, export or
+re-export the Software in any medium without the appropriate United States and
+foreign government licenses. If you have any questions about the terms of this
+Agreement, please contact Aerohive at support@aerohive.com.

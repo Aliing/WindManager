@@ -1,0 +1,66 @@
+tr.even{
+	background:#FFFFFF;
+}
+tr.odd{
+	background:#F5F5F5;
+}
+tr.selected{
+	background:#FFE43F;
+}
+.placeHolder tr {  
+    background-color:#FFC;
+    border:dashed 2px blue;
+}
+
+.ahDataTabelTh{
+	padding: 0px;
+	text-align:center;
+}
+
+.ahDataTabelTd{
+	padding: 0px;
+	text-align:center;
+	vertical-align:top
+}
+.selectText {
+	position:absolute;
+	width:175px;
+	height:16px;
+	height: 17px\0;
+	z-index:2;
+	left:0px;
+}
+.ahDataTableOption{
+	width:100px;
+	text-align:center;
+}
+
+.ahDataTableOptionTd{
+	vertical-align:top
+}
+
+.menuClass{
+	background-color: #FFFFFF;
+}
+
+.menuItemClass{
+	height: 17px;
+	background-color: #FFFFFF;
+}
+
+.ui-menu {
+    display: block;
+    list-style: none outside none;
+    margin: 0;
+    outline: medium none;
+    padding: 2px;
+}
+
+.ui-menu .ui-menu-item a {
+    display: block;
+    font-weight: normal;
+    line-height: 1.5;
+    padding: 2px 0.4em;
+    text-decoration: none;
+}
+

@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>ah</short-name>
+	<uri>/ah-tags</uri>
+	<display-name>"Aerohive Tags"</display-name>
+	<description>
+		<![CDATA["Aerohive Tags."]]>
+	</description>
+	<tag>
+		<name>sort</name>
+		<tag-class>com.ah.ui.tags.SortTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Execute an action from within a view(Column sorting tag).]]>
+		</description>
+		<attribute>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Label key in resource file.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Attribute name]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>orderByNumber</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Attribute name]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>params</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[The session key of the SortParams object]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>orderByIp</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Attribute name]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>sortJson</name>
+		<tag-class>com.ah.ui.tags.SortJsonTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Execute an action from within a view(Column sorting tag by json).]]>
+		</description>
+		<attribute>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Label key in resource file.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Attribute name]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>onclick</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Function name]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>params</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[The session key of the SortParams object]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>sortext</name>
+		<tag-class>com.ah.ui.tags.ExtSortTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Execute an action from within a view]]>
+		</description>
+		<attribute>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Label key in resource file.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Attribute name]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>params</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[The session key of the SortParams object]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>emptyList</name>
+		<tag-class>com.ah.ui.tags.EmptyListTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Insert message if list has no items.]]>
+		</description>
+		<attribute>
+			<name>key</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Label key in resource file.]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>checkItem</name>
+		<tag-class>com.ah.ui.tags.CheckItemTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Check box for items in a paged list.]]>
+		</description>
+		<attribute>
+			<name>checked</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Label key in resource file.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>tag</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Label key in resource file.]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>tree</name>
+		<tag-class>com.ah.ui.tags.TreeTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Create hierarchy of nodes.]]>
+		</description>
+		<attribute>
+			<name>root</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Name of root node attribute on value stack.]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>mapTree</name>
+		<tag-class>com.ah.ui.tags.MapTreeTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Create hierarchy of nodes.]]>
+		</description>
+		<attribute>
+			<name>root</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Name of root node attribute on value stack.]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>select</name>
+		<tag-class>com.ah.ui.tags.SelectTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Create select tag.]]>
+		</description>
+		<attribute>
+			<name>list</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Name of list attribute on value stack.]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>password</name>
+		<tag-class>com.ah.ui.tags.PasswordTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Create password tag.]]>
+		</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[Id of password field.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[Name of password field.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>maxlength</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[Max input text length.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>size</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[Size of password field.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>rangeName</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[Name of range text.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>onkeypress</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[Set the html onkeypress attribute on rendered html element.]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>createOrSelect</name>
+		<tag-class>com.ah.ui.tags.CreateOrSelectObjectTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[The tag can create direct or select object.]]>
+		</description>
+		<attribute>
+			<name>list</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Name of list value stack in select tag.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>typeString</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[Name of object type. The string must contain the chars 'ip' or 'mac' or 'vlan'. The new and edit operation is 'new'+this string and 'edit'+this string.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>selectIdName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Name of select tag.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>inputValueName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Name of text tag.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>divId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Id of div for error message.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>swidth</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[The width of select tag.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>stitle</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[The tooltip of select tag.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>tlength</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[The permited length of text field.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>hideButton</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[The flag of if hide the new and edit button in full mode. The default is false.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>callbackFn</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[The javascript function name which explain what to do after remove the select object in express mode.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>inputKeyPress</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[onkeypress="return hm.util.keyPressPermit(event,'xxxxx');" of input text, default is name without blank]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>newFn</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[The new anchor will render to href="javascript:newFn()". And it should use with the editFn attribute]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>editFn</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[The edit anchor will render to href="javascript:editFn()". And it should use with the newFn attribute]]>
+			</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>checkList</name>
+		<tag-class>com.ah.ui.tags.CheckListTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			<![CDATA[Create check list tag.]]>
+		</description>
+		<attribute>
+			<name>list</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[A data collection will be displayed in the list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Name of the list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>listKey</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Key of items in the list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>listValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Value of items in the list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[The selected items in the list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>width</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[The width of the list displayed in page.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>height</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[The height of the list displayed in page.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>multiple</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Indicate whether the list is allowed to multi-selected.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>containerId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Specific the id for the container, default is 'dataTable'.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>editEvent</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Edit event, use for enable to edit the item in list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>editMenuText</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Edit menu, descripte the operation, default as 'Edit'.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>cloneEvent</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Clone event, use for enable to clone the item in list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>removeEvent</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Remove event, use for enable to remove the item in list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>itemWidth</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[The width of the item displayed in list (For override width in the CSS class - 'ellipsis').]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>disableEllipsis</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Flag for disable ellipsis effect.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>specialValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Some special values can be set special selection method.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>specialMultiple</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[Selection method for special values.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>clickEvent</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[ Click event,use for click the item in list.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>autoSort</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[ Sort list by alphabetically.]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>menuContainerStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[ Sepecific the right-click menu container style. It may override the .dialogListMenu which defined in CSS. ]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>listKeyIsString</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[In default case, listKey type is long, but for some special case, listKye type is String. ]]>
+			</description>
+		</attribute>
+	    <attribute>
+			<name>grayOutSimilar</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[color grey to the same device modle and type item unselected,just for device template ]]>
+			</description>
+		</attribute>
+	</tag>
+</taglib>

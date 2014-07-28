@@ -1,0 +1,358 @@
+.ui-classifier .selectbutton {
+	font-size: 10px;
+	padding: 4px 30px 4px 10px;
+	background: #777;
+	border: none;
+	color: #fff;
+	cursor: pointer;	
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	text-shadow: 1px 1px #666;
+	position: relative;
+	display: block;
+	width: 70px;
+}
+
+#ap2ClassifierTagContainer td.listHead {
+    background-color: #FFFFFF;    
+}
+
+#ap2ClassifierTagContainer ul {    
+ padding-left: 100px;
+ width: auto !important;
+ }
+ 
+ #ap2ClassifierTagContainer td.defaultContainer input {    
+    width: 100px;
+}
+
+#ap2ClassifierTagContainer div {
+    float: left;
+    width: 33.3%;
+}
+
+ 
+#ap2ClassifierTagContainer td.listHead{
+border-bottom: 0 ;
+}
+
+#ap2ClassifierTagContainer li {    
+    text-decoration: none;
+	line-height: none;
+	background-image: none;	
+	line-height: 1.9em;
+ }
+ 
+#ap2ClassifierTagContainer li.tag-choice a.cancel-icon{
+	top: 2px;
+}
+
+.ui-classifier a {
+	text-decoration: none;
+}
+
+.ui-classifier 
+span.selectmenu a:LINK,span.selectmenu a:VISITED,span.selectmenu a:HOVER,span.selectmenu a:ACTIVE
+	{
+	color: #0093d1;
+}
+
+.ui-classifier span.selectmenu-status {
+	display: block;
+	width: 90px;
+}
+
+.ui-classifier span.selectmenu-icon {
+	margin-top: -8px;
+	position: absolute;
+	right: 6px;
+	top: 50%;
+	background-image: url(/hm/images/jquery/ui-icons_ffffff_256x240.png);
+}
+
+.ui-classifier span.selectmenu {
+	position: relative;
+}
+
+.ui-classifier ul.selectmenu-container {
+	display: none;
+	/*left: -105px;*/
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+	position: absolute;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.ui-classifier .selectmenu li {
+	list-style: none outside none;
+	width: 100px;
+	line-height: 24px;
+	padding-left: 10px;
+}
+
+.ui-classifier .selectmenu li.hover,
+.ui-classifier-items .optmenu li.hover {
+	background-color: #FFC20E;
+}
+
+.ui-classifier .selectmenu li:first-child {
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+}
+
+.ui-classifier .selectmenu li:last-child {
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+}
+
+.ui-classifier .selectmenu li span {
+	color: #0093d1;
+	display: block;
+	cursor: pointer;
+}
+
+.ui-classifier td.defaultContainer {
+	
+}
+
+.ui-classifier td.defaultContainer div {
+	line-height: 1.9em;
+	position: relative;
+}
+
+.ui-classifier td.defaultContainer ul {
+	margin: 0;
+	position: absolute;
+	top: 0;	
+}
+
+.ui-classifier td.defaultContainer li {
+	list-style: none outside none;
+	display: none;
+}
+
+.ui-classifier td.defaultContainer li:first-child {
+	display: inline;
+}
+
+.ui-classifier td.defaultContainer a.none {
+	background-color: #B5B6AD;
+	display: inline-block;
+	height: 1.3em;
+	margin-bottom: 0;
+	margin-left: 10px;
+	padding: 0 10px 6px 10px;
+	text-align: center;
+	top: 0;
+	width: 60px;
+}
+
+.ui-classifier td.defaultContainer span.none {
+	position: relative;
+	top: -2px;
+}
+
+.ui-classifier td.defaultContainer input {
+	width: 120px;
+}
+
+.ui-classifier td.defaultContainer li.tag-choice {
+	padding-left: 10px;
+	font-size: 10px;
+}
+
+.ui-classifier td.defaultContainer li.tag-choice a.tag-choice-text {
+	background-color: #FFC20E;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	color: #000;	
+	padding: 3px 20px 3px 10px;
+}
+
+.ui-classifier td.defaultContainer li.tag-choice a.tag-choice-text span
+	{
+	color: #000;
+	font-size: 10px;
+	cursor: pointer;	
+}
+
+.ui-classifier td.defaultContainer li.tag-choice a.cancel-icon {
+	position: absolute;
+	right: 3px;
+	top: 3px;
+}
+
+.ui-classifier td.defaultContainer li a.tag-combo-toggle {
+	/*background:
+		url(/hm/images/?new=f6f6f6&w=1&h=400&f=png&q=100&fltr[]=over|textures/02_glass.png|0|0|100)
+		repeat-x scroll 50% 50% #F6F6F6;*/
+	background-color: #F6F6F6;
+	border: 1px solid #CCCCCC;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-align: center;
+	width: 20px;
+}
+
+.ui-classifier td.defaultContainer li a.tag-combo-toggle span:first-child
+	{
+	background-image: url(/hm/images/jquery/ui-icons_222222_256x240.png);
+	background-position: -64px -16px;
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+	margin: 2px 0 2px 2px;
+	padding-left: 0;
+	right: 0;
+	display: block;
+}
+
+.ui-classifier td.deviceContainer ul, td.topoContainer ul {
+	padding: 0;
+}
+.ui-classifier td.deviceContainer input {
+    width: 170px;
+}
+.ui-classifier td.topoContainer input {
+    width: 170px;
+}
+
+.ui-classifier-items ul.itemContainer {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.ui-classifier-items ul.itemContainer li {
+	height: auto;
+	line-height: 110%;
+	padding: 5px 0;
+	border-bottom: 1px solid #ccc;	
+}
+.ui-classifier-items ul.itemContainer li.needAlertInRed {	
+	border:1px solid red;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	height: 2em;
+}
+.ui-classifier-items ul.itemContainer .item span.checkable{
+	padding-right: .67em;
+}
+.ui-classifier-items ul.itemContainer .item span.check-state-disable{
+	display: inline-block;
+	width: 1.7em;
+}
+.ui-classifier-items ul.itemContainer .item span.pointer{
+	cursor: pointer;
+	display: inline-block;
+	padding-left: 10px;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+
+/* Operation Icon Style */
+.ui-classifier-items span.optmenu {
+	cursor: pointer;
+	position: relative;
+	background: url(/hm/images/hm_v2/settings-icon-20x20.png) no-repeat scroll 0 0 ;
+	width: 20px;
+    height: 20px;
+    display: inline-block;
+    right: -3px;
+    top: 4px;
+}
+.ui-classifier-items ul.optmenu-container {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	display: none;
+	background-color: #ccc;
+	right: 12px;
+	top: 6px;
+	z-index: 2;
+}
+.ui-classifier-items ul.optmenu-container li {
+	line-height: .8em;
+	height: 1.5em;
+	width: 100px;
+	padding: 2px 2px 2px 5px;
+	border-bottom: 1px solid #fff;
+}
+.ui-classifier-items ul.optmenu-container li span{
+	position: relative;
+	top: 5px;
+}
+
+.ui-classifier-items div.itemsMask {
+	position: absolute;
+	z-index: 2;
+	background: url(/hm/images/hm/express/ajax-loader-on-white.gif) no-repeat scroll 50% 50% #fff;
+	display: none;
+	opacity: 1;
+}
+
+/* -- Block is from jQuery 1.8.21---*/
+.ui-menu {
+	list-style: none;
+	padding: 2px;
+	margin: 0;
+	display: block;
+	float: left;
+}
+
+.ui-menu .ui-menu {
+	margin-top: -3px;
+}
+
+.ui-menu .ui-menu-item {
+	margin: 0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+	display: block;
+	padding: .2em .4em;
+	line-height: 1.2;
+	zoom: 1;
+	width: 65px; 
+}
+
+.ui-menu .ui-menu-item a.ui-state-hover,.ui-menu .ui-menu-item a.ui-state-active
+	{
+	font-weight: normal;
+	margin: -1px;
+	/*
+    background-image: none;
+    background-color: #FFC20E;
+    */
+}
+
+.ui-autocomplete {
+	max-height: 8em;
+	overflow-x: hidden;
+	overflow-y: auto;
+}

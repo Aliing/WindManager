@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="0" paddingTop="0" paddingRight="0" paddingBottom="0">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import flash.net.navigateToURL;
+			import mx.charts.HitData;
+			import mx.charts.events.ChartItemEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			private var initURL: String; 
+			private var timeFinishedFlg: Boolean=true;
+			
+	        public function displaySeverity(data:Object, field:String, index:Number, percentValue:Number):String {
+    	        var temp:String= (" " + percentValue).substr(0,6);
+        	    return data.severity + ": " + data.count + '\n' + temp + "%";
+        	}
+		    
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url = initURL+ "reports.action?operation=summaryWidgetAlarmData&key=" + new Date().time;
+				httpSvc.send();				
+	            var explodeData:Array = [];
+	            explodeData[0] = 0.15;
+				alarmsSeries.perWedgeExplodeRadius = explodeData;
+				refreshTimer();
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 15 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(180000, 5);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				if (timeFinishedFlg){
+					httpSvc.url = initURL+"reports.action?operation=summaryWidgetAlarmData&key=" + new Date().time;
+					httpSvc.addEventListener("result", httpResult);
+					timeFinishedFlg=false;
+					httpSvc.send();
+				}
+        	}
+        	
+        	public function httpResult(event:ResultEvent):void {
+        		timeFinishedFlg=true;
+        	}
+        	
+        	public function alarmConditionAps():void {
+				var url:String = "hiveAp.action";
+				var variables:URLVariables = new URLVariables();
+				variables.hmListType = "managedHiveAps";
+				variables.operation = "view";
+				variables.dashCondition = "alarm";
+				variables.ignore= new Date().time;
+	            var request:URLRequest = new URLRequest(url);
+    	        request.data = variables;
+				try {
+					navigateToURL(request, "_self");
+    	        } catch (error:Error) {
+					Alert.show('request failed:' + error.message);
+				}
+        	}
+
+	        private function formatAlarmsTip(hitData:HitData):String {
+				var severity:String = hitData.item.severity;
+				var count:int = hitData.item.count;
+				return "<b>" + severity + ":  " + count + "</b>";
+			}
+
+			public function alarmsView(event:ChartItemEvent):void {
+				var severity:int;
+				switch(event.hitData.item.severity) {
+					case "Critical" :
+						severity = 5;
+						break;
+					case "Major" :
+						severity = 4;
+						break;
+					case "Minor" :
+						severity = 3;
+						break;
+//					case "Info" :
+//						severity = 2;
+//						break;
+					default :
+						severity = 1;
+						break;
+				}
+				var index:int = 5 - severity;
+				if (index ==4) {
+					index = 3
+				}
+	            var explodeData:Array = [];
+				if (alarmsSeries.perWedgeExplodeRadius.length == 0 ||
+				    alarmsSeries.perWedgeExplodeRadius[index] != 0.15) {
+		    	    explodeData[index] = 0.15;
+					alarmsSeries.perWedgeExplodeRadius = explodeData;
+				} else {
+					var url:String = "alarms.action";
+					var variables:URLVariables = new URLVariables();
+					variables.operation = "search";
+					variables.severity = severity;
+					variables.ignore= new Date().time;
+	            	var request:URLRequest = new URLRequest(url);
+	    	        request.data = variables;
+					try {
+	    	            navigateToURL(request, "_self");
+    	    	    } catch (error:Error) {
+						// Alert.show('request failed:' + url);
+					}
+				}
+			}
+        ]]>
+    </mx:Script>
+	<mx:Panel height="100%" width="100%" verticalGap="0" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0" borderStyle="none">
+		<mx:PieChart height="100%" width="100%" 
+        	paddingRight="5" paddingLeft="5" itemClick="alarmsView(event);"
+        	dataTipFunction="formatAlarmsTip"
+        	showDataTips="true" dataProvider="{httpSvc.lastResult.summary.alarms.item}" > 
+        	<mx:series>
+            	<mx:PieSeries labelPosition="callout" field="count"
+						labelFunction="displaySeverity" id="alarmsSeries">
+                	<mx:calloutStroke>
+                    	<mx:Stroke weight="0" color="0x888888" alpha="1.0"/>
+                	</mx:calloutStroke>
+                	<mx:radialStroke>
+                    	<mx:Stroke weight="0" color="#FFFFFF" alpha="0.20"/>
+                	</mx:radialStroke>
+                	<mx:stroke>
+                    	<mx:Stroke color="0" alpha="0.20" weight="2"/>
+                	</mx:stroke>
+					<mx:fills>
+						<mx:SolidColor color="red" alpha="1.0" />
+						<mx:SolidColor color="haloOrange" alpha="1.0" />
+						<mx:SolidColor color="yellow" alpha="1.0" />
+						<mx:SolidColor color="haloGreen" alpha="1.0" />
+						<mx:SolidColor color="0xFFFFFF" alpha="1.0" />
+						<mx:SolidColor color="haloBlue" alpha="1.0" />
+						<mx:SolidColor color="0xEE3424" alpha="1.0" />
+					</mx:fills>
+				</mx:PieSeries>
+        	</mx:series>
+        </mx:PieChart>
+	</mx:Panel>
+</mx:Application>

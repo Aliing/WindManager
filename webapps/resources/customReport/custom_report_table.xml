@@ -1,0 +1,1663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+	<row>
+		<field value="1101"/>
+		<field value="1"/>
+		<field value="1"/>
+		<field value="HIVE_AP"/>
+		<field value="hostName"/>
+		<field value="Device name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1102"/>
+		<field value="1"/>
+		<field value="1"/>
+		<field value="HIVE_AP"/>
+		<field value="macaddress"/>
+		<field value="Node ID"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1103"/>
+		<field value="1"/>
+		<field value="1"/>
+		<field value="HIVE_AP"/>
+		<field value="hiveApType"/>
+		<field value="AP type"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1104"/>
+		<field value="1"/>
+		<field value="1"/>
+		<field value="HIVE_AP"/>
+		<field value="upTime"/>
+		<field value="Uptime"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1105"/>
+		<field value="1"/>
+		<field value="1"/>
+		<field value="HIVE_AP"/>
+		<field value="productName"/>
+		<field value="HW model"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1106"/>
+		<field value="1"/>
+		<field value="1"/>
+		<field value="HIVE_AP"/>
+		<field value="displayVer"/>
+		<field value="HiveOS"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1201"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="apName"/>
+		<field value="Device name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1202"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="apMac"/>
+		<field value="Node ID"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1203"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxDataFrames"/>
+		<field value="Total transmitted data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1204"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxBeDataFrames"/>
+		<field value="Transmitted WMM Best Effort data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1205"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxBgDataFrames"/>
+		<field value="Transmitted WMM Background data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1206"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxViDataFrames"/>
+		<field value="Transmitted WMM Video data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1207"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxVoDataFrames"/>
+		<field value="Transmitted WMM Voice data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1208"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxUnicastDataFrames"/>
+		<field value="Transmitted unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1209"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxMulticastDataFrames"/>
+		<field value="Transmitted multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1210"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxBroadcastDataFrames"/>
+		<field value="Transmitted broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1211"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxBeaconFrames"/>
+		<field value="Transmitted mgt frames (not beacons)"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1212"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxNonBeaconMgtFrames"/>
+		<field value="Transmitted beacons frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1213"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxTotalRetries"/>
+		<field value="Total retransmitted frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1214"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxTotalFramesDropped"/>
+		<field value="Total transmitted frames dropped by SW"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1215"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxTotalFrameErrors"/>
+		<field value="Total transmitted frames dropped by radio"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1216"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxFEForExcessiveHWRetries"/>
+		<field value="Retry threshold-crossing events"/>
+		<field value="Events"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1217"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTXRTSFailures"/>
+		<field value="RTS failures"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1218"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxAirtime"/>
+		<field value="Airtime used for transmitting"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1219"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxTotalDataFrames"/>
+		<field value="Total received data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1220"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxUnicastDataFrames"/>
+		<field value="Received unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1221"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxMulticastDataFrames"/>
+		<field value="Received multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1222"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxBroadcastDataFrames"/>
+		<field value="Received broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1223"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxMgtFrames"/>
+		<field value="Received mgt frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1224"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxTotalFrameDropped"/>
+		<field value="Total received frames dropped by SW"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1225"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxAirtime"/>
+		<field value="Airtime used for receiving"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1226"/>
+		<field value="1"/>
+		<field value="2"/>
+		<field value="hm_bandwidthsentinel_history"/>
+		<field value="bandWidthSentinelStatus"/>
+		<field value="SLA violation events"/>
+		<field value="Events"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1301"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="apName"/>
+		<field value="Device name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1302"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="apMac"/>
+		<field value="Node ID"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1303"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="statTimeStamp"/>
+		<field value="Sampling report time"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1304"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxDataFrames"/>
+		<field value="Total transmitted data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1305"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxBeDataFrames"/>
+		<field value="Transmitted WMM Best Effort data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1306"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxBgDataFrames"/>
+		<field value="Transmitted WMM Background data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1307"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxViDataFrames"/>
+		<field value="Transmitted WMM Video data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1308"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxVoDataFrames"/>
+		<field value="Transmitted WMM Voice data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1309"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxUnicastDataFrames"/>
+		<field value="Transmitted unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1310"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxMulticastDataFrames"/>
+		<field value="Transmitted multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1311"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxBroadcastDataFrames"/>
+		<field value="Transmitted broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1312"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxBeaconFrames"/>
+		<field value="Transmitted mgt frames (not beacons)"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1313"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxNonBeaconMgtFrames"/>
+		<field value="Transmitted beacons frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1314"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxTotalRetries"/>
+		<field value="Total retransmitted frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1315"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxTotalFramesDropped"/>
+		<field value="Total transmitted frames dropped by SW"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1316"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxTotalFrameErrors"/>
+		<field value="Total transmitted frames dropped by radio"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1317"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxFEForExcessiveHWRetries"/>
+		<field value="Retry threshold-crossing events"/>
+		<field value="Events"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1318"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTXRTSFailures"/>
+		<field value="RTS failures"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1319"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioTxAirtime"/>
+		<field value="Airtime used for transmitting"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1320"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxTotalDataFrames"/>
+		<field value="Total received data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1321"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxUnicastDataFrames"/>
+		<field value="Received unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1322"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxMulticastDataFrames"/>
+		<field value="Received multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1323"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxBroadcastDataFrames"/>
+		<field value="Received broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1324"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxMgtFrames"/>
+		<field value="Received mgt frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1325"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxTotalFrameDropped"/>
+		<field value="Total received frames dropped by SW"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="1326"/>
+		<field value="1"/>
+		<field value="3"/>
+		<field value="HM_RADIOSTATS"/>
+		<field value="radioRxAirtime"/>
+		<field value="Airtime used for receiving"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2101"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientMac"/>
+		<field value="Client MAC address"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2102"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientHostname"/>
+		<field value="Client host name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2103"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientUsername"/>
+		<field value="Client user name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2104"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientMACProtocol"/>
+		<field value="Radio mode"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2105"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientAuthMethod"/>
+		<field value="Client auth method"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2106"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientEncryptionMethod"/>
+		<field value="Encryption method"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2107"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientCWPUsed"/>
+		<field value="CWP used"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2108"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientVLAN"/>
+		<field value="VLAN"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2109"/>
+		<field value="2"/>
+		<field value="1"/>
+		<field value="AH_CLIENTSESSION_HISTORY"/>
+		<field value="clientUserProfId"/>
+		<field value="User profile attribute"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2201"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientMac"/>
+		<field value="Client MAC address"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2202"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientHostname"/>
+		<field value="Client host name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2203"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientUsername"/>
+		<field value="Client user name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2204"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="AH_EVENT"/>
+		<field value="code"/>
+		<field value="Auth failures"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2205"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="hm_bandwidthsentinel_history"/>
+		<field value="bandWidthSentinelStatus"/>
+		<field value="Client SLA violations"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2206"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxDataFrames     "/>
+		<field value="Total transmitted data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2207"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxBeDataFrames  "/>
+		<field value="Transmitted WMM Best Effort data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2208"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxBgDataFrames  "/>
+		<field value="Transmitted WMM Background data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2209"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxViDataFrames  "/>
+		<field value="Transmitted WMM Video data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2210"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxVoDataFrames   "/>
+		<field value="Transmitted WMM Voice data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2211"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxMgtFrames    "/>
+		<field value="Transmitted mgt frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2212"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxUnicastFrames"/>
+		<field value="Transmitted unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2213"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxDataOctets"/>
+		<field value="Transmitted data octets frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2214"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxAirtime      "/>
+		<field value="Airtime used for transmitting"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2215"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxDataFrames   "/>
+		<field value="Total received data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2216"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxUnicastFrames"/>
+		<field value="Received unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2217"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxMulticastFrames"/>
+		<field value="Received multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2218"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxBroadcastFrames"/>
+		<field value="Received broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2219"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxMgtFrames"/>
+		<field value="Received mgt frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2220"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxMICFailures"/>
+		<field value="Received MIC failures"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2221"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxDataOctets  "/>
+		<field value="Received data octets"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2222"/>
+		<field value="2"/>
+		<field value="2"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxAirtime"/>
+		<field value="Airtime used for receiving"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2301"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientMac"/>
+		<field value="Client MAC address"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2302"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientHostname"/>
+		<field value="Client host name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2303"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientUsername"/>
+		<field value="Client user name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2304"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="time"/>
+		<field value="Sampling report time"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2305"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientIP"/>
+		<field value="Client IP address"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2306"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="apName"/>
+		<field value="Device name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2307"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientSSID"/>
+		<field value="SSID"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2308"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientAuthMethod"/>
+		<field value="Client auth method"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2309"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientEncryptionMethod"/>
+		<field value="Encryption method"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2310"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientUserProfId"/>
+		<field value="User profile attribute"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2311"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientMACProtocol"/>
+		<field value="Radio mode"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2312"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientCWPUsed"/>
+		<field value="CWP used"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2313"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientVLAN"/>
+		<field value="VLAN"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2314"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientChannel"/>
+		<field value="Channel"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2315"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientBSSID"/>
+		<field value="BSSID"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2316"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRSSI"/>
+		<field value="RSSI"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2317"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientLinkUptime"/>
+		<field value="Linkup time"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2318"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxDataFrames     "/>
+		<field value="Total transmitted data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2319"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxBeDataFrames  "/>
+		<field value="Transmitted WMM Best Effort data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2320"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxBgDataFrames  "/>
+		<field value="Transmitted WMM Background data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2321"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxViDataFrames  "/>
+		<field value="Transmitted WMM Video data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2322"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxVoDataFrames   "/>
+		<field value="Transmitted WMM Voice data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2323"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxMgtFrames    "/>
+		<field value="Transmitted mgt frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2324"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxUnicastFrames"/>
+		<field value="Transmitted unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2325"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxDataOctets"/>
+		<field value="Transmitted data octets frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2326"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientLastTxRate"/>
+		<field value="Transmitted last rate"/>
+		<field value="Kbps"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2327"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientTxAirtime      "/>
+		<field value="Airtime used for transmitting"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2328"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxDataFrames   "/>
+		<field value="Total received data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2329"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxUnicastFrames"/>
+		<field value="Received unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2330"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxMulticastFrames"/>
+		<field value="Received multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2331"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxBroadcastFrames"/>
+		<field value="Received broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2332"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxMgtFrames"/>
+		<field value="Received mgt frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2333"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxMICFailures"/>
+		<field value="Received MIC failures"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2334"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxDataOctets  "/>
+		<field value="Received data octets"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2335"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientLastRxRate"/>
+		<field value="Received last rate"/>
+		<field value="Kbps"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="2336"/>
+		<field value="2"/>
+		<field value="3"/>
+		<field value="HM_ASSOCIATION"/>
+		<field value="clientRxAirtime"/>
+		<field value="Airtime used for receiving"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3201"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="AhXIf"/>
+		<field value="ssidName"/>
+		<field value="SSID name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3202"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="apName"/>
+		<field value="Device name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3203"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfDataFrames"/>
+		<field value="Total transmitted data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3204"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfBeDataFrames"/>
+		<field value="Transmitted WMM Best Effort data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3205"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfBgDataFrames"/>
+		<field value="Transmitted WMM Background data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3206"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfViDataFrames"/>
+		<field value="Transmitted WMM Video data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3207"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfVoDataFrames"/>
+		<field value="Transmitted WMM Voice data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3208"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfUnicastDataFrames"/>
+		<field value="Transmitted unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3209"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfMulticastDataFrames"/>
+		<field value="Transmitted multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3210"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfBroadcastDataFrames"/>
+		<field value="Transmitted broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3211"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfErrorFrames"/>
+		<field value="Total transmitted frames dropped by radio"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3212"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfDroppedFrames"/>
+		<field value="Total transmitted frames dropped by SW"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3213"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVifAirtime"/>
+		<field value="Airtime used for transmitting"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3214"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfDataFrames"/>
+		<field value="Total received data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3215"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfUnicastDataFrames"/>
+		<field value="Received unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3216"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfMulticastDataFrames"/>
+		<field value="Received multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3217"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfBroadcastDataFrames"/>
+		<field value="Received broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3218"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfErrorFrames"/>
+		<field value="Total received frames dropped by radio"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3219"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfDroppedFrames"/>
+		<field value="Total received frames dropped by SW"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3220"/>
+		<field value="3"/>
+		<field value="2"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVifAirtime"/>
+		<field value="Airtime used for receiving"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3301"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="AhXIf"/>
+		<field value="ssidName"/>
+		<field value="SSID name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3302"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="apName"/>
+		<field value="Device name"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3303"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="statTimeStamp"/>
+		<field value="Sampling report time"/>
+		<field value="N/A"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3304"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfDataFrames"/>
+		<field value="Total transmitted data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3305"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfBeDataFrames"/>
+		<field value="Transmitted WMM Best Effort data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3306"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfBgDataFrames"/>
+		<field value="Transmitted WMM Background data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3307"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfViDataFrames"/>
+		<field value="Transmitted WMM Video data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3308"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfVoDataFrames"/>
+		<field value="Transmitted WMM Voice data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3309"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfUnicastDataFrames"/>
+		<field value="Transmitted unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3310"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfMulticastDataFrames"/>
+		<field value="Transmitted multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3311"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfBroadcastDataFrames"/>
+		<field value="Transmitted broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3312"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfErrorFrames"/>
+		<field value="Total transmitted frames dropped by radio"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3313"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVIfDroppedFrames"/>
+		<field value="Total transmitted frames dropped by SW"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3314"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="txVifAirtime"/>
+		<field value="Airtime used for transmitting"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3315"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfDataFrames"/>
+		<field value="Total received data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3316"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfUnicastDataFrames"/>
+		<field value="Received unicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3317"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfMulticastDataFrames"/>
+		<field value="Received multicast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3318"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfBroadcastDataFrames"/>
+		<field value="Received broadcast data frames"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3319"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfErrorFrames"/>
+		<field value="Total received frames dropped by radio"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3320"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVIfDroppedFrames"/>
+		<field value="Total received frames dropped by SW"/>
+		<field value="Frames"/>
+		<field value=""/>
+	</row>
+	<row>
+		<field value="3321"/>
+		<field value="3"/>
+		<field value="3"/>
+		<field value="HM_VIFSTATS"/>
+		<field value="rxVifAirtime"/>
+		<field value="Airtime used for receiving"/>
+		<field value="Milliseconds"/>
+		<field value=""/>
+	</row>
+</table>

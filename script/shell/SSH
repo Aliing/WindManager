@@ -1,0 +1,24 @@
+#!/usr/bin/expect -f
+#
+# Copyright (C) 2006-2012 Aerohive Networks
+#
+# yZhong@AeroHive.com
+#
+# general functions
+##
+
+eval spawn [lrange $argv 1 $argc]
+match_max 100000
+set timeout 2
+expect {
+  "*continue connecting*"
+  {
+    send -- "yes\r"
+  }
+}
+set timeout 60
+expect "*?assword:*"
+send -- "[lindex $argv 0]\r"
+send -- "\r"
+set timeout 3
+expect eof

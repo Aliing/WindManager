@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	
+	<cli-gen key="aaa.radius-server.name">
+		<constraints name-ref="radsec-support-start"/>
+		<cmd><![CDATA[ aaa radius-server name <string> server <string> shared-secret <string> ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="aaa.radius-server.name.tls">
+		<constraints name-ref="radsec-support-start"/>
+		<cmd><![CDATA[ aaa radius-server name <string> server <string> tls ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="aaa.radius-server.name.tls-port">
+		<constraints name-ref="radsec-support-start"/>
+		<cmd><![CDATA[ aaa radius-server name <string> tls-port <port> ]]></cmd>
+		<cli-default value="{*, 2083}"/>
+	</cli-gen>
+	
+	<cli-gen key="aaa.radius-server.proxy.radsec.enable">
+		<constraints name="radsec-support-start">
+			<version><![CDATA[ >=5.1.1.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ {false:no|true:} aaa radius-server proxy radsec enable ]]></cmd>
+		<cli-default value="{false}"/>
+	</cli-gen>
+	
+	<cli-gen key="aaa.radius-server.proxy.radsec.dynamic-auth-extension">
+		<constraints>
+			<version><![CDATA[ >=6.1.1.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ {false:no|true:} aaa radius-server proxy radsec dynamic-auth-extension ]]></cmd>
+		<cli-default value="{false}"/>
+	</cli-gen>
+	
+	<cli-gen key="aaa.radius-server.proxy.radsec.realm">
+		<constraints>
+			<version><![CDATA[ >=5.1.3.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ aaa radius-server proxy radsec realm <string> {primary|backup} <string> ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="aaa.radius-server.proxy.realm">
+		<constraints>
+			<version><![CDATA[ >=3.5.1.0 ]]></version>
+		</constraints>
+		<cmd><![CDATA[ aaa radius-server proxy realm <string> {primary|backup} <string> ]]></cmd>
+	</cli-gen>
+	
+	<cli-gen key="aaa.radius-server.local.nas.tls">
+		<constraints name-ref="radsec-support-start"/>
+		<cmd><![CDATA[ aaa radius-server local nas <string> tls ]]></cmd>
+	</cli-gen>
+</clis>

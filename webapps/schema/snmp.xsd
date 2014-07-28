@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:snmp="http://www.aerohive.com/configuration/snmp" targetNamespace="http://www.aerohive.com/configuration/snmp">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="snmp-reader-community">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="community" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="snmp-trap-version">
+		<xsd:sequence>
+			<xsd:element name="port" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="162">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="1"/>
+								<xsd:maxInclusive value="65535"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="community" type="general:ah-string" minOccurs="0"/>
+			<xsd:element name="via-vpn-tunnel" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="snmp-v3-encryption">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="snmp-v3-auth-password">
+		<xsd:sequence>
+			<xsd:element name="encryption" type="snmp:snmp-v3-encryption" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="encrypted" type="general:ah-encrypted-value" use="optional" default="1"/>
+	</xsd:complexType>
+	<xsd:complexType name="snmp-v3-auth">
+		<xsd:sequence>
+			<xsd:element name="password" type="snmp:snmp-v3-auth-password" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="snmp-v3-admin">
+		<xsd:sequence>
+			<xsd:element name="auth" type="snmp:snmp-v3-auth" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="snmp-reader-v3">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="admin" type="snmp:snmp-v3-admin" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="trap-host-v3-via-vpn-tunnel">
+		<xsd:sequence>
+			<xsd:element name="admin" type="general:ah-name" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="trap-host-v3-host">
+		<xsd:sequence>
+			<xsd:element name="via-vpn-tunnel" type="snmp:trap-host-v3-via-vpn-tunnel" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="snmp-trap-host-v3">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="admin" type="snmp:snmp-v3-admin" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="cr" type="snmp:trap-host-v3-host" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="snmp-obj">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="contact" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="xsd:string" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="location" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="xsd:string" use="optional" default="change-me"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="reader" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="version" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="v1" type="snmp:snmp-reader-community" minOccurs="0"/>
+									<xsd:element name="v2c" type="snmp:snmp-reader-community" minOccurs="0"/>
+									<xsd:element name="any" type="snmp:snmp-reader-community" minOccurs="0"/>
+									<xsd:element name="v3" type="snmp:snmp-reader-v3" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="trap-host" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="v1" type="snmp:snmp-trap-version" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="v2c" type="snmp:snmp-trap-version" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="v3" type="snmp:snmp-trap-host-v3" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="trap-info" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="over-capwap" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="over-snmp" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

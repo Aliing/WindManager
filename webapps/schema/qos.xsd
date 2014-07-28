@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:qos="http://www.aerohive.com/configuration/qos" targetNamespace="http://www.aerohive.com/configuration/qos">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="qos-map-oui">
+		<xsd:sequence>
+			<xsd:element name="qos" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="required">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0"/>
+								<xsd:maxInclusive value="7"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="action" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:choice minOccurs="0">
+							<xsd:element name="permit" type="general:ah-act-show"/>
+							<xsd:element name="deny" type="general:ah-act-show"/>
+						</xsd:choice>
+						<xsd:element name="log" type="xsd:string" fixed="" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="comment" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="qos-map-service">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="qos" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="required">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0"/>
+								<xsd:maxInclusive value="7"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="action" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:choice minOccurs="0">
+							<xsd:element name="permit" type="general:ah-act-show"/>
+							<xsd:element name="deny" type="general:ah-act-show"/>
+						</xsd:choice>
+						<xsd:element name="log" type="xsd:string" fixed="" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="qos-map-ssid">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="cr" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" use="optional" default="2">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0"/>
+								<xsd:maxInclusive value="7"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="qos-l3-police-max-bw">
+		<xsd:attribute name="value" type="xsd:int" use="optional" default="100"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="qos-l3-police-specific-interface">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="max-download-bw" type="qos:qos-l3-police-max-bw" minOccurs="0"/>
+			<xsd:element name="max-upload-bw" type="qos:qos-l3-police-max-bw" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="qos-l3-police-interface">
+		<xsd:sequence>
+			<xsd:element name="eth0" type="qos:qos-l3-police-specific-interface" minOccurs="0"/>
+			<xsd:element name="tunnel0" type="qos:qos-l3-police-specific-interface" minOccurs="0"/>
+			<xsd:element name="tunnel1" type="qos:qos-l3-police-specific-interface" minOccurs="0"/>
+			<xsd:element name="ppp0" type="qos:qos-l3-police-specific-interface" minOccurs="0"/>
+			<xsd:element name="ppp1" type="qos:qos-l3-police-specific-interface" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="qos-l3-police">
+		<xsd:sequence>
+			<xsd:element name="interface" type="qos:qos-l3-police-interface" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="qos-classification">
+		<xsd:sequence>
+			<xsd:element name="cr" type="general:ah-int" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:int" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="user-defined-marker-map">
+		<xsd:sequence>
+			<xsd:element name="cr" type="qos:qos-classification" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="qos-obj">
+		<xsd:sequence>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="classifier-profile" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="_8021p" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="_80211e" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="diffserv" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="MAC" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="interface-ssid" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="interface-ssid-only" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="service" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="name" type="xsd:string" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+					<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="classifier-map" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="_8021p" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="8"/>
+						<xsd:element name="_80211e" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="8"/>
+						<xsd:element name="diffserv" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="64"/>
+						<xsd:element name="interface" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="cr" type="general:ah-int" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:attribute name="name" type="xsd:string" use="required"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="oui" type="qos:qos-map-oui" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="ssid" type="qos:qos-map-ssid" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="service" type="qos:qos-map-service" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="marker-profile" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="_8021p" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="_80211e" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="diffserv" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="name" type="xsd:string" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+					<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="marker-map" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="_8021p" type="qos:qos-classification" minOccurs="0" maxOccurs="8"/>
+						<xsd:element name="_80211e" type="qos:qos-classification" minOccurs="0" maxOccurs="8"/>
+						<xsd:element name="diffserv" type="qos:qos-classification" minOccurs="0" maxOccurs="8"/>
+						<xsd:element name="_user-defined-8021p" type="qos:user-defined-marker-map" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element name="_user-defined-diffserv" type="qos:user-defined-marker-map" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="policy" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="user-profile" type="general:ah-string-quote-prohibited" minOccurs="0"/>
+						<xsd:element name="user" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" use="optional" default="100000">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="0"/>
+											<xsd:maxInclusive value="100000"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="qos" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="cr" type="general:ah-string-quote-prohibited"/>
+								</xsd:sequence>
+								<xsd:attribute name="name" use="required">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:int">
+											<xsd:minInclusive value="0"/>
+											<xsd:maxInclusive value="7"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="name" type="xsd:string" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act-value-show" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="airtime" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="l3-police" type="qos:qos-l3-police" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

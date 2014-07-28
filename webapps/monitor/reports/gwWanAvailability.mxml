@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="8" paddingTop="8" paddingRight="8" paddingBottom="8">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+        	import mx.charts.chartClasses.Series;
+			import mx.collections.ArrayCollection;
+			import mx.charts.HitData;
+			import mx.charts.series.LineSeries;
+			import mx.charts.series.items.LineSeriesItem;
+			import mx.controls.Alert;
+			var initURL: String; 
+			public function dateParseFunction(s:String):Date { 
+			    var temp:Array = s.split(" ");    
+			    var datepart:String = temp[0];    
+			    var datearray:Array = datepart.split("-"); 
+			    var timepart:String = temp[1];    
+			    var timearray:Array = timepart.split(":");   
+			    var intMon:int =datearray[1];
+			    var intDay:int =datearray[2];
+			    var intHour:int =timearray[0];
+			    var intMin:int =timearray[1]; 
+			 
+			    var testDate:Date = new Date();
+				var offhour:Number = testDate.getTimezoneOffset()/60 *-1;
+				var offmin:Number = testDate.getTimezoneOffset()%60 *-1
+			  	var newDate:Date = new Date(datearray[0],intMon-1,intDay,intHour+offhour,intMin+offmin);   
+			  	
+			  	return newDate;    
+			}
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url = initURL+ "vpnReportList.action?operation=getFlashData&key=" + new Date().time;
+				httpSvc.send();				
+			 }
+		    public function myDataTipFunction(e:HitData):String {
+		
+		       	var s:String;
+		       
+		        s = "<B>" + Series(e.element).displayName + "</B>\n";
+		        s += "<I>Date Time:</I>" + e.item.date + "\n";
+		        s += "<I>Value:</I>" + e.item.count + "%\n";
+		
+		        return s
+		    }	
+		   
+		  	public static var initCount: int=0; 
+		 	public function defineLabel(cat:Object, pcat:Object,ax:CategoryAxis,labelItem:Object):String {
+		      	if (initCount%3==0) {
+		      		initCount++;
+		      		return cat.toString().substr(11,5);
+		      	} else {
+		      		initCount++;
+		      		return "";
+	      		}
+		  	}
+			
+        ]]>
+    </mx:Script>
+
+	<mx:Panel height="500" width="100%" headerHeight="0"  borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0" borderStyle="none">
+		
+		<mx:Panel title="{httpSvc.lastResult.report.vpnAvailability.vTitle}" height="100%" width="100%" headerHeight="25" borderThicknessTop="0" >
+		    <mx:ColumnChart id="myChart" height="80%" width="100%"
+		        dataProvider="{httpSvc.lastResult.report.vpnAvailability.avaliable.item}"
+		      	dataTipFunction="myDataTipFunction"
+		        showDataTips="true">
+
+		        <mx:horizontalAxis>
+		           <mx:CategoryAxis categoryField="date" labelFunction="defineLabel"/>
+		        </mx:horizontalAxis>
+
+		        <mx:verticalAxis>
+		           <mx:LinearAxis minimum="0" maximum="100"  title="% Availablity"/>
+		        </mx:verticalAxis>
+		        <mx:series>
+		           <mx:LineSeries
+		                dataProvider="{httpSvc.lastResult.report.vpnAvailability.uptime.item}"
+		                xField="date"
+		                yField="count"
+		                displayName="Uptime" >
+		                <mx:lineStroke>
+		                	<mx:Stroke color="0x0000FF"/>
+		            	</mx:lineStroke> 
+		           </mx:LineSeries>
+		           <mx:ColumnSeries
+		                dataProvider="{httpSvc.lastResult.report.vpnAvailability.avaliable.item}"
+		                xField="date"
+		                yField="count"
+		                displayName="Avaliable" >
+		                 <mx:fill>
+                   	 		<mx:SolidColor color="0x98c766"/>
+               			</mx:fill>
+		                 <mx:stroke>
+		                 	<mx:Stroke color="0x98c766"/>
+		                 </mx:stroke>     	
+		           </mx:ColumnSeries>
+		        </mx:series>
+		     </mx:ColumnChart>
+		     <mx:Legend dataProvider="{myChart}" width="100%" height="5%" fontSize="9" markerHeight="10" markerWidth="8" paddingTop="0" paddingBottom="0"/>
+
+      		<mx:Grid height="15%" width="100%"  borderStyle="none" paddingLeft="20">
+      			<mx:GridRow width="100%">
+      				<mx:GridItem width="33%" fontWeight="bold" fontSize="11">
+		    			<mx:Label text="{httpSvc.lastResult.report.vpnAvailability.lbUptime}"/>
+					</mx:GridItem>
+					<mx:GridItem width="33%" fontWeight="bold" fontSize="11">
+		    			<mx:Label text="{httpSvc.lastResult.report.vpnAvailability.lbDowntime}"/>
+					</mx:GridItem>
+					<mx:GridItem width="33%" fontWeight="bold" fontSize="11">
+		    			<mx:Label text="{httpSvc.lastResult.report.vpnAvailability.lbDowntimeNumber}"/>
+					</mx:GridItem>
+      			</mx:GridRow>
+      			<mx:GridRow width="100%">
+      				<mx:GridItem width="33%" fontWeight="bold" fontSize="10">
+		    			<mx:Label text="{httpSvc.lastResult.report.vpnAvailability.vUptime} %"/>
+					</mx:GridItem>
+					<mx:GridItem width="33%" fontWeight="bold" fontSize="10">
+		    			<mx:Label text="{httpSvc.lastResult.report.vpnAvailability.vDowntime} Minutes"/>
+					</mx:GridItem>
+					<mx:GridItem width="33%" fontWeight="bold" fontSize="10">
+		    			<mx:Label text="{httpSvc.lastResult.report.vpnAvailability.vDowntimeNumber}"/>
+					</mx:GridItem>
+      			</mx:GridRow>
+      		</mx:Grid>
+      	</mx:Panel>
+
+    </mx:Panel>
+
+</mx:Application>

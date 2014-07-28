@@ -1,0 +1,467 @@
+@CHARSET "UTF-8";
+
+div.portContainer {
+    float: left;
+    margin: 0 12px;
+    /*border: 2px solid;*/
+}
+
+div.portContainer:first-child {
+	margin-left: 5px;
+}
+
+.inline {
+    display: inline-block;
+    #display: inline;
+    #zoom: 1;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+div.portContainer div.companyLogo {
+	background: url(../../images/company_logo_small.png) no-repeat scroll 0 0 transparent;
+    height: 22px;
+    padding-bottom: 14px;
+    padding-top: 0;
+    width: 50px;
+}
+
+div.portContainer ul.port-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 300px;
+    text-align: center;
+    /* handle the space */
+    letter-spacing: -.25em;
+}
+
+ul.port-list li.port {
+    height: 25px;
+    width: 25px;
+    padding: 0;
+    margin: 1px;
+    display: inline-block;
+    #display: inline;
+    #zoom: 1;
+    /* handle the space */
+    letter-spacing: normal;
+    vertical-align: middle;
+}
+ul.port-list li.basic-port {
+    background: url(../../images/ports/AH-switch-port-basic.png) 0 0 no-repeat;
+    margin-bottom: 12px;
+    background-size: cover;
+}
+ul.port-list li.sfp-port {
+    background: url(../../images/ports/AH-switch-port-sfp.png) 0 0 no-repeat;
+    margin-bottom: 12px;
+    background-size: cover;
+}
+ul.port-list li.usb-port {
+    background: url(../../images/ports/usb/AH-USB.png) 0 0 no-repeat;
+    background-size: cover;
+}
+ul.port-list li.lte-port {
+    background: url(../../images/ports/lte/AH-LTE.png) 0 0 no-repeat;
+    background-size: cover;
+}
+
+ul.port-list li.basic-port.access-port {
+    background-image: url(../../images/ports/AH-switch-port-access.png);
+}
+ul.port-list li.basic-port.ip-port {
+    background-image: url(../../images/ports/AH-switch-port-phone.png);
+}
+ul.port-list li.basic-port.ap-port {
+    background-image: url(../../images/ports/AH-switch-port-wifi.png);
+}
+ul.port-list li.basic-port.monitor-port {
+    background-image: url(../../images/ports/AH-switch-port-monitor.png);
+}
+ul.port-list li.basic-port.t8021q-port {
+    background-image: url(../../images/ports/AH-switch-port-trunk.png);
+}
+ul.port-list li.basic-port.wan-port {
+    background-image: url(../../images/ports/AH-switch-port-wan.png);
+}
+ul.port-list li.basic-port.wan-port-passive {
+    background-image: url(../../images/ports/AH-switch-port-wan-disable.png);
+}
+
+ul.port-list li.basic-port.access-port.poe {
+    background-image: url(../../images/ports/AH-switch-port-access-poe.png);
+}
+ul.port-list li.basic-port.ip-port.poe {
+    background-image: url(../../images/ports/AH-switch-port-phone-poe.png);
+}
+ul.port-list li.basic-port.ap-port.poe {
+    background-image: url(../../images/ports/AH-switch-port-wifi-poe.png);
+}
+ul.port-list li.basic-port.monitor-port.poe {
+    background-image: url(../../images/ports/AH-switch-port-monitor-poe.png);
+}
+ul.port-list li.basic-port.t8021q-port.poe {
+    background-image: url(../../images/ports/AH-switch-port-trunk-poe.png);
+}
+ul.port-list li.basic-port.wan-port.poe {
+    background-image: url(../../images/ports/AH-switch-port-wan-poe.png);
+}
+
+ul.port-list li.sfp-port.access-port {
+    background-image: url(../../images/ports/AH-switch-port-sfp-access.png);
+}
+ul.port-list li.sfp-port.ip-port {
+    background-image: url(../../images/ports/AH-switch-port-sfp-phone.png);
+}
+ul.port-list li.sfp-port.ap-port {
+    background-image: url(../../images/ports/AH-switch-port-sfp-wifi.png);
+}
+ul.port-list li.sfp-port.monitor-port {
+    background-image: url(../../images/ports/AH-switch-port-sfp-monitor.png);
+}
+ul.port-list li.sfp-port.t8021q-port {
+    background-image: url(../../images/ports/AH-switch-port-sfp-trunk.png);
+}
+ul.port-list li.sfp-port.wan-port {
+    background-image: url(../../images/ports/AH-switch-port-sfp-wan.png);
+}
+
+ul.port-list li.usb-port.disabled {
+    background: url(../../images/ports/usb/AH-USB-INACTIVE.png) 0 0 no-repeat;
+    background-size: cover;
+}
+ul.port-list li.usb-port.wan-port {
+    background: url(../../images/ports/usb/AH-USB-Cloud.png) 0 0 no-repeat;
+}
+ul.port-list li.usb-port.wan-port.disabled {
+    background: url(../../images/ports/usb/AH-USB-CLOUD-INACTIVE.png) 0 0 no-repeat;
+}
+
+/* Selected effect with jQuery UI*/
+ul.port-list li.unselected {
+    border: 2px solid transparent;
+}
+ul.port-list li.ui-selected {
+	/*background: url(../../images/ports/AH-switch-port-basic.png) 1px 1px no-repeat, url(../../images/hm/express/hm-checkmark.png) center center no-repeat;*/
+	border: 2px solid #0092D6;
+}
+ul.port-list li.ui-selecting {
+	border: 2px solid #99CCFF;
+}
+.ui-selectable-helper {
+    border: 1px dotted black;
+    position: absolute;
+    z-index: 100;
+}
+
+ul.port-list li.port span.labelUp {
+	position: relative;
+	top: -23px;
+}
+ul.port-list li.port span.labelDown {
+	position: relative;
+	bottom: -23px;
+}
+ul.port-list li.port span.portColor {
+	display: inline-block;
+	height: 5px;
+	position: relative;
+	width: 26px;
+    bottom: 17px;
+    left: 0;
+}
+div.portContainer[ref="2"] ul.port-list li.port span.portColor {
+    /*disable this after add a USB to AP
+	display: inline-block;
+	width: 32px;
+	height: 5px;
+	position: relative;
+	bottom: -19px;
+	left: -1px;
+	*/
+}
+ul.port-list li.port.usb-port span.portColor {
+}
+
+/*For the 24 and 48 ports switch*/
+div.portTemplate.sr48 {
+	padding: 0;
+}
+div.portTemplate.sr24 div:first-child,
+div.portTemplate.sr24 div.linkagg,
+div.portTemplate.sr24 div.linkagg+div,
+div.portTemplate.sr24 div.portDesc,
+div.portTemplate.sr48 div:first-child,
+div.portTemplate.sr48 div.linkagg,
+div.portTemplate.sr48 div.linkagg+div,
+div.portTemplate.sr48 div.portDesc {
+	padding-left: 10px;
+}
+div.portTemplate.sr24 div.portContainer[ref="1"],
+div.portTemplate.sr24 div.portContainer[ref="1"] div.companyLogo,
+div.portTemplate.sr48 div.portContainer[ref="1"],
+div.portTemplate.sr48 div.portContainer[ref="1"] div.companyLogo {
+	margin: 0;
+	padding-left: 0;
+}
+div.portTemplate.sr24 div.portContainer[ref="1"] div.companyLogo,
+div.portTemplate.sr48 div.portContainer[ref="1"] div.companyLogo {
+	margin-left: 5px;
+}
+div.portTemplate.sr24 div.portContainer[ref="12"],
+div.portTemplate.sr48 div.portContainer[ref="12"]
+{
+	margin: 0 1.5px;
+}
+div.portTemplate.sr24 div.portContainer[ref="4"] {
+	margin: 0 0 0 405px;
+}
+div.portTemplate.sr48 div.portContainer[ref="4"] {
+	margin: 0 0 0 10px;
+}
+div.portTemplate.sr48 ul.port-list li.port {
+	height: 25px;
+	width: 25px;
+	padding: 0;
+}
+div.portTemplate.sr48 ul.port-list li.basic-port {
+	background-size: cover;
+}
+div.portTemplate.sr48 ul.port-list li.sfp-port {
+	background-size: cover;
+}
+div.portTemplate.sr48 ul.port-list li.usb-port {
+	background-size: cover;
+}
+div.portTemplate.sr48 ul.port-list li.port span.labelDown{
+	bottom: -23px;
+}
+div.portTemplate.sr48 ul.port-list li.port span.portColor {
+    width: 26px;
+    bottom: 17px;
+    left: 0;
+}
+div.portTemplate.sr48 div.ui-tooltip-content {
+	padding: 0;
+}
+
+/*For Network Policy Drawer*/
+div.linkagg input[type="checkbox"] {
+	vertical-align: middle;
+}
+span.arrowRight {
+	cursor: pointer;
+	height: 14px;
+	background: url(../../images/expand_plus.gif) 1px 1px no-repeat;
+	display: inline-block;
+    #display: inline;
+    #zoom: 1;
+}
+span.arrowDown {
+	background: url(../../images/expand_minus.gif) 1px 1px no-repeat;
+}
+span.arrowRight label {
+	font-size: 13px;
+    text-decoration: none;
+    padding-left: 15px;
+}
+
+.portTemplate a.npcLinkA.clearSelection,
+.portTemplate label.clearSelection {
+	font-size: 0.9em;
+	position: absolute;
+	top: -25px;
+	right: 20px;
+}
+.portTemplate label.clearSelection {
+	top: -33px;
+}
+.portTemplate label.clearSelection,
+.portTemplate label.optional {
+	text-decoration: none;
+	font-family: Helvetica, Arial, sans-serif;
+	color: gray;
+}
+.portTemplate a.npcLinkA.clearSelection.gray,
+.portTemplate a.npcLinkA.optional.gray {
+	text-decoration: none;
+	color: gray;
+}
+.portTemplate a.npcLinkA.optional,
+.portTemplate label.optional {
+	font-size: 0.9em;
+	position: absolute;
+	top: 8px;
+	right: 20px;
+}
+.portTemplate label.optional {
+	top: 0;
+}
+.portTemplate div.portDesc p{
+	margin: 0;
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+.portTemplate div.portDesc p.portDesc{
+	padding-left: 18px;
+	background: url(../../images/expand_plus.gif) 1px 1px no-repeat;
+	cursor: pointer;
+}
+.portTemplate div.portDesc p.portDesc.expanded{
+	background: url(../../images/expand_minus.gif) 1px 1px no-repeat;
+}
+.portTemplate div.portDesc p a.npcLinkA{
+	font-size: 1em;
+}
+
+td#accessSection td.port-ui {
+	height: 32px;
+	width: 32px;
+}
+td#accessSection td.basic-port {
+	background: url(../../images/ports/AH-switch-port-basic.png) 0 0 no-repeat;
+}
+td#accessSection td.ip-port {
+	background: url(../../images/ports/AH-switch-port-phone.png) 0 0 no-repeat;
+}
+td#accessSection td.ap-port {
+	background: url(../../images/ports/AH-switch-port-wifi.png) 0 0 no-repeat;
+}
+td#accessSection td.monitor-port {
+	background: url(../../images/ports/AH-switch-port-monitor.png) 0 0 no-repeat;
+}
+td#accessSection td.access-port {
+	background: url(../../images/ports/AH-switch-port-access.png) 0 0 no-repeat;
+}
+td#accessSection td.t8021q-port {
+	background: url(../../images/ports/AH-switch-port-trunk.png) 0 0 no-repeat;
+}
+td#accessSection td.wan-port {
+	background: url(../../images/ports/AH-switch-port-wan.png) 0 0 no-repeat;
+}
+td#accessSection td.port-ui span.portColor {
+	position: relative;
+	display: inline-block;
+	height: 5px;
+	width: 32px;
+	bottom: -26px;
+}
+td.accessNativeVlan {
+	height: 30px;
+	width: 30px;
+	background: url(../../images/hm_v2/profile/HM-icon-VLAN-30x30.png) 0 0 no-repeat;
+}
+
+/*For UserProfile bind with Access*/
+div.tabs-vertical {
+	
+}
+div.tabs-vertical ul.tabs-nav {
+	padding: .2em .1em .2em .2em;
+	float: left;
+	width: 12em;
+}
+
+div.tabs-vertical ul.tabs-nav li {
+	clear: left;
+	width: 100%;
+	border-bottom-width: 1px !important;
+	border-right-width: 0 !important;
+	margin: 0 -1px .2em 0;
+	list-style: none;
+}
+
+div.tabs-vertical ul.tabs-nav li a {
+	display: block;
+}
+
+div.tabs-vertical ul.tabs-nav li.tabs-active {
+	padding-bottom: 0;
+	padding-right: .1em;
+	border-right-width: 1px;
+	border-right-width: 1px;
+}
+
+div.tabs-vertical div.tabs-panel {
+	padding: 1em;
+	float: right;
+	display: none;
+}
+div.tabs-vertical div.tabs-active-panel {
+	display: block;
+}
+/*For Tooltip Style*/
+.portTemplate .ui-tooltip {
+	padding: 5px;
+    position: absolute;
+    z-index: 9999;
+    max-width: 300px;
+    color: #0093d1;
+    font: bold 10px "Helvetica Neue", Sans-Serif;
+    /* text-transform: uppercase; */
+    -webkit-box-shadow: 0 0 7px black;
+    box-shadow: 0 0 7px black;
+    cursor: pointer;
+}
+.portTemplate .ui-tooltip, .portTemplate .arrow:after {
+    background: white;
+}
+.portTemplate .ui-tooltip-content {
+	padding: 0;
+}
+.portTemplate .arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -16px;
+}
+.portTemplate .arrow.top {
+    top: -16px;
+    bottom: auto;
+}
+.portTemplate .arrow.left {
+    left: 20%;
+}
+.portTemplate .arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: 6px 5px 9px -9px black;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    tranform: rotate(45deg);
+}
+.portTemplate .arrow.top:after {
+    bottom: -20px;
+    top: auto;
+}
+/*Buttons*/
+input[name="resetPorts"] {
+	margin-left: 20px;
+}
+.portTemplate input[disabled="disabled"] {
+	color: gray;
+}
+.tagButton{
+	font-size:11px;
+	background-color: #E0E0E0; 
+	border: 1px solid #d0d0d0;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding:2px 4px 2px 4px;
+}

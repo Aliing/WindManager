@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!-- Hive Config -->
+	<definition name="hiveConfig" extends="hmLayout">
+		<put-attribute name="leftWidth" value="175" />
+	<!-- No need for separate left menu
+		<put-attribute name="leftMenu" value="/tiles/leftMenuConfig.jsp" />
+	-->
+		<put-attribute name="helpKey" value="hkHiveConfig" />
+		<put-attribute name="leftFilter"
+			value="/config/hiveAps/seachconfig.jsp" />
+	</definition>
+
+	<definition name="configTemplateList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/hiveAps/configTemplateList.jsp" />
+	</definition>
+
+	<definition name="configTemplate" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/hiveAps/configTemplate.jsp" />
+	</definition>
+
+	<!-- Hive Profiles -->
+	<definition name="hiveProfilesList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netMobility/hiveList.jsp" />
+		<put-attribute name="helpKey" value="hkHiveProfiles" />
+	</definition>
+
+	<definition name="hiveProfileCreate" extends="hiveConfig">
+		<put-attribute name="body" value="/config/netMobility/hive.jsp" />
+	</definition>
+
+	<!-- L3 Roaming -->
+	<definition name="interRoamingList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netMobility/interRoamingList.jsp" />
+	</definition>
+
+	<definition name="interRoaming" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netMobility/interRoaming.jsp" />
+	</definition>
+
+	<!-- Tunnel Setting -->
+	<definition name="tunnelSettingList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netMobility/tunnelSettingList.jsp" />
+	</definition>
+
+	<definition name="tunnelSetting" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netMobility/tunnelSetting.jsp" />
+	</definition>
+
+	<!-- Mac DoS -->
+	<definition name="macDosList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/macDosList.jsp" />
+	</definition>
+
+	<definition name="macDos" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/macDos.jsp" />
+	</definition>
+
+	<!-- IP DoS -->
+	<definition name="ipDosList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/ipDosList.jsp" />
+	</definition>
+
+	<definition name="ipDos" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/ipDos.jsp" />
+	</definition>
+
+	<!-- MAC Filters -->
+	<definition name="macFilterList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/macFilterList.jsp" />
+	</definition>
+
+	<definition name="macFilter" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/macFilter.jsp" />
+	</definition>
+
+	<!-- IP Filters -->
+	<definition name="ipFilterList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/ipFilterList.jsp" />
+	</definition>
+
+	<definition name="ipFilter" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/ipFilter.jsp" />
+	</definition>
+
+	<!-- Service Filters -->
+	<definition name="serviceFilterList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/serviceFilterList.jsp" />
+	</definition>
+
+	<definition name="serviceFilter" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/serviceFilter.jsp" />
+	</definition>
+
+	<!-- mac or oui -->
+	<definition name="macAddressList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/macOrOuiList.jsp" />
+	</definition>
+
+	<definition name="macAddress" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/macOrOui.jsp" />
+	</definition>
+
+	<!-- IP Address -->
+	<definition name="ipAddressList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/ipAddressList.jsp" />
+	</definition>
+
+	<definition name="ipAddress" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/ipAddress.jsp" />
+	</definition>
+
+	<definition name="ipAddressNew" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/netObjects/ipAddress.jsp" />
+	</definition>
+
+	<!-- radius -->
+	<definition name="radiusAttrList" extends="hiveConfig">
+		<put-attribute name="body" value = "/config/netObjects/radiusAttrList.jsp"/>
+	</definition>
+
+	<definition name="radiusAttr" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/radiusAttr.jsp" />
+	</definition>
+
+	<!-- Vlan -->
+	<definition name="vlanList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/vlanList.jsp" />
+	</definition>
+
+	<definition name="vlan" extends="hiveConfig">
+		<put-attribute name="body" value="/config/netObjects/vlan.jsp" />
+	</definition>
+	
+	<!-- Vlan Group -->
+	<definition name="vlanGroupList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/vlanGroupList.jsp" />
+	</definition>
+
+	<definition name="vlanGroup" extends="hiveConfig">
+		<put-attribute name="body" value="/config/netObjects/vlanGroup.jsp" />
+	</definition>
+	
+    <!-- WIFI Client Mode Preferred SSID -->
+    <definition name="wpreferredSsidList" extends="hiveConfig">
+        <put-attribute name="body"
+            value="/config/netObjects/wpreferredSsidList.jsp" />
+    </definition>
+    
+    <definition name="wpreferredSsidDlg" extends="layoutBlank">
+        <put-attribute name="body" value="/config/netObjects/wpreferredSsid.jsp" />
+    </definition>	    
+
+    <definition name="wpreferredSsid" extends="hiveConfig">
+        <put-attribute name="body" value="/config/netObjects/wpreferredSsid.jsp" />
+    </definition>	
+	
+	<!-- IP Policy -->
+	<definition name="ipPolicyList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/ipPolicyList.jsp" />
+	</definition>
+
+	<definition name="ipPolicy" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/ipPolicy.jsp" />
+	</definition>
+
+	<!-- Firewall Policy -->
+	<definition name="fwPolicyList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/firewallPolicyList.jsp" />
+	</definition>
+
+	<definition name="fwPolicy" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/firewallPolicy.jsp" />
+	</definition>
+
+	<definition name="fwPolicyNew" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/security/firewallPolicy.jsp" />
+	</definition>
+
+	<!-- MAC Policy -->
+	<definition name="macPolicyList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/macPolicyList.jsp" />
+	</definition>
+
+	<definition name="macPolicy" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/macPolicy.jsp" />
+	</definition>
+
+	<!-- IDS Policy -->
+	<definition name="idsPolicyList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/idsPolicyList.jsp" />
+	</definition>
+	<definition name="idsPolicy" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/idsPolicy.jsp" />
+	</definition>
+
+	<!-- user profiles -->
+	<definition name="userProfilesList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/userProfileList.jsp" />
+	</definition>
+	<definition name="userProfiles" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/userProfile.jsp" />
+	</definition>
+
+	<definition name="userProfilesEx" extends="layoutBlank">
+		<put-attribute name="body" value="/config/useraccess/userProfile.jsp" />
+	</definition>
+
+	<!-- radius user profile rules
+	<definition name="radiusUserProfileRuleList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusUserProfileRuleList.jsp" />
+	</definition>
+	<definition name="radiusUserProfileRule" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusUserProfileRule.jsp" />
+	</definition> -->
+
+	<!-- Radius Server Assignment -->
+	<definition name="radiusAssignmentList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusAssignmentList.jsp" />
+	</definition>
+
+	<definition name="radiusAssignment" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusAssignment.jsp" />
+	</definition>
+
+	<!-- Radius Server On HiveAp -->
+	<definition name="radiusOnHiveapList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusOnHiveapList.jsp" />
+	</definition>
+
+	<definition name="radiusOnHiveap" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusOnHiveap.jsp" />
+	</definition>
+
+	<!-- Radius Library SIP -->
+	<definition name="librarySipList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusLibrarySipList.jsp" />
+	</definition>
+
+	<definition name="librarySip" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusLibrarySip.jsp" />
+	</definition>
+
+	<!-- Active Directory Or Ldap Server -->
+	<definition name="directoryOrLdapList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/directoryOrLdapList.jsp" />
+	</definition>
+
+	<definition name="activeDirectoryOrLdap" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/activeDirectoryOrLdap.jsp" />
+	</definition>
+
+	<!-- Local User Group -->
+	<definition name="localUserGroupList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/localUserGroupList.jsp" />
+	</definition>
+
+	<definition name="localUserGroup" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/localUserGroup.jsp" />
+	</definition>
+
+	<definition name="localUserGroupModify" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/localUserGroupModify.jsp" />
+	</definition>
+	
+	<definition name="importTextFile" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/importTextFile.jsp" />
+	</definition>
+	
+	<definition name="importTextFileEx" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/useraccess/importTextFile.jsp" />
+	</definition>
+
+	<definition name="importCsvFile" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/importCsvFile.jsp" />
+	</definition>
+
+	<definition name="importCsvFileEx" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/useraccess/importCsvFile.jsp" />
+	</definition>
+
+	<!-- Local User -->
+	<definition name="localUserList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/localUserList.jsp" />
+	</definition>
+
+	<definition name="localUser" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/localUser.jsp" />
+	</definition>
+
+    <definition name="macAuth" extends="hiveConfig">
+        <put-attribute name="body"
+            value="/config/useraccess/macAuth.jsp" />
+    </definition>	
+
+	<definition name="localUserListEx" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/useraccess/localUserList.jsp" />
+	</definition>
+
+	<definition name="localUserEx" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/useraccess/localUser.jsp" />
+	</definition>
+
+	<definition name="newCreateBulk" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/localUserBulk.jsp" />
+	</definition>
+
+	<!-- User Profile Attribute -->
+	<definition name="userAttributeList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/userAttributeList.jsp" />
+	</definition>
+
+	<definition name="userAttribute" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/userAttribute.jsp" />
+	</definition>
+
+	<!-- Network Service -->
+	<definition name="networkServiceList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/networkServiceList.jsp" />
+	</definition>
+	<definition name="networkService" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/networkService.jsp" />
+	</definition>
+
+	<!-- QoS Classification -->
+	<definition name="qosClassfierAndMarkerList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/qos/qosClassfierAndMarkerList.jsp" />
+	</definition>
+
+	<definition name="qosClassfierAndMarker" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/qos/qosClassfierAndMarker.jsp" />
+	</definition>
+
+	<definition name="qosClassificationList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/qos/classificationList.jsp" />
+	</definition>
+
+	<definition name="qosClassification" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/qos/classification.jsp" />
+	</definition>
+
+	<!-- QoS Marking -->
+	<definition name="qosMarkingList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/qos/qosMarkingList.jsp" />
+	</definition>
+
+	<definition name="qosMarking" extends="hiveConfig">
+		<put-attribute name="body" value="/config/qos/qosMarking.jsp" />
+	</definition>
+
+	<!-- QoS Rate Control -->
+	<definition name="qosRateControlList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/qos/qosRateControlList.jsp" />
+	</definition>
+
+	<definition name="qosRateControl" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/qos/qosRateControl.jsp" />
+	</definition>
+
+	<!-- Radio Profile -->
+	<definition name="radioProfileList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/radioProfileList.jsp" />
+	</definition>
+
+	<definition name="radioProfile" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/radioProfile.jsp" />
+	</definition>
+
+	<!-- ALG Configuration -->
+	<definition name="algConfigList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/algConfigList.jsp" />
+	</definition>
+
+	<definition name="algConfig" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/algConfiguration.jsp" />
+	</definition>
+
+	<!-- Ethernet Access -->
+	<definition name="ethernetList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/ethernetList.jsp" />
+	</definition>
+
+	<definition name="ethernetAccess" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/ethernetAccess.jsp" />
+	</definition>
+
+	<!-- Access Console -->
+	<definition name="accessConsoleList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/accessConsoleList.jsp" />
+	</definition>
+
+	<definition name="accessConsole" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/accessConsole.jsp" />
+	</definition>
+	
+	<!-- PPPoE -->
+	<definition name="pppoeList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/pppoeList.jsp" />
+	</definition>
+
+	<definition name="pppoe" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/pppoe.jsp" />
+	</definition>
+	
+	<!-- PSE Profile -->
+	<definition name="pseProfileList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/pseProfileList.jsp" />
+	</definition>
+
+	<definition name="pseProfile" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/pseProfile.jsp" />
+	</definition>
+	
+	<definition name="bonjourGatewaySettingList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/bonjourGatewaySettingList.jsp" />
+	</definition>
+
+	<definition name="bonjourGatewaySetting" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/bonjourGatewaySetting.jsp" />
+	</definition>
+	
+	
+
+	<!-- LLDP/CDP Profiles -->
+	<definition name="lldpcdpProfileList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/lldpcdpProfileList.jsp" />
+	</definition>
+
+	<definition name="lldpcdpProfile" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/lldpcdpProfile.jsp" />
+	</definition>
+
+	<!-- Location Server -->
+	<definition name="locationServerList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/locationServerList.jsp" />
+	</definition>
+
+	<definition name="locationServer" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/locationServer.jsp" />
+	</definition>
+
+	<!-- SSID Profile -->
+	<definition name="ssidList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/ssidList.jsp" />
+	</definition>
+
+	<definition name="ssid" extends="hiveConfig">
+		<put-attribute name="body" value="/config/wlanAccess/ssid.jsp" />
+	</definition>
+
+	<definition name="ssidEx" extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/ssid.jsp" />
+	</definition>
+
+	<!-- SSID Profile full mode-->
+	<definition name="ssidList2" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/ssidList2.jsp" />
+	</definition>
+
+	<definition name="ssid2" extends="hiveConfig">
+		<put-attribute name="body" value="/config/wlanAccess/ssid2.jsp" />
+	</definition>
+
+	<!-- Schedule Profile -->
+	<definition name="schedulerList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/schedulerList.jsp" />
+	</definition>
+
+	<definition name="scheduler" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/scheduler.jsp" />
+	</definition>
+
+	<!-- Mgmt Service DNS -->
+	<definition name="mgmtServiceDnsList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceDnsList.jsp" />
+	</definition>
+
+	<definition name="mgmtServiceDns" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceDns.jsp" />
+	</definition>
+
+	<definition name="onBoardUISetting" extends="hiveConfig">
+		<put-attribute name="body" value="/config/useraccess/onBoardUISetting.jsp" />
+	</definition>	
+	<!-- Mgmt Service SNMP -->
+	<definition name="mgmtServiceSnmpList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceSnmpList.jsp" />
+	</definition>
+
+	<definition name="mgmtServiceSnmp" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceSnmp.jsp" />
+	</definition>
+	
+	<!-- Mgmt Service Syslog -->
+	<definition name="mgmtServiceSyslogList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceSyslogList.jsp" />
+	</definition>
+
+	<definition name="mgmtServiceSyslog" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceSyslog.jsp" />
+	</definition>
+
+	<!-- Mgmt Service NTP -->
+	<definition name="mgmtServiceTimeList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceTimeList.jsp" />
+	</definition>
+
+	<definition name="mgmtServiceTime" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceTime.jsp" />
+	</definition>
+
+	<!-- Mgmt Service Option -->
+	<definition name="mgmtServiceOptionList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceOptionList.jsp" />
+	</definition>
+
+	<definition name="mgmtServiceOption" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtServiceOption.jsp" />
+	</definition>
+
+	<!-- Mgmt IP Tracking -->
+	<definition name="mgmtIpTrackList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtIpTrackList.jsp" />
+	</definition>
+
+	<definition name="mgmtIpTrack" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/mgmtIpTrack.jsp" />
+	</definition>
+
+	<!-- Vlan DHCP Server -->
+	<definition name="vlanDhcpServerList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/vlanDhcpServerList.jsp" />
+	</definition>
+
+	<definition name="vlanDhcpServer" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/vlanDhcpServer.jsp" />
+	</definition>
+
+	<definition name="cwpList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/cwpList.jsp" />
+	</definition>
+
+	<definition name="cwp" extends="hiveConfig">
+		<put-attribute name="body" value="/config/wlanAccess/cwp.jsp" />
+	</definition>
+
+	<definition name="cwpEx" extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/cwp.jsp" />
+	</definition>
+
+	<definition name="cwpPageCustomizationList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/wlanAccess/cwpPageCustomizationList.jsp" />
+	</definition>
+
+	<definition name="cwpPageCustomization" extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/cwpPageCustomizaton.jsp" />
+	</definition>
+
+	<definition name="previewIndexPage" extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/previewIndexPage.jsp" />
+	</definition>
+
+	<definition name="previewFailurePage" extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/previewFailurePage.jsp" />
+	</definition>
+
+	<definition name="previewSuccessPage" extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/previewSuccessPage.jsp" />
+	</definition>
+
+	<definition name="previewPpskPage" extends="layoutBlank">
+		<put-attribute name="body" value="/config/wlanAccess/previewPpskPage.jsp" />
+	</definition>
+
+	<!-- VPN Service -->
+	<definition name="vpnServiceList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/vpnServiceList.jsp" />
+	</definition>
+
+	<definition name="vpnService" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/vpnService.jsp" />
+	</definition>
+
+	<!-- VPN Network -->
+	<definition name="vpnNetworkList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/vpnNetworkList.jsp" />
+	</definition>
+
+	<definition name="vpnNetwork" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/vpnNetwork.jsp" />
+	</definition>
+	 <!-- all branchIPs list -->
+	<definition name="ipMappingIframe" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/ipMappingIframe.jsp" />
+	</definition>
+	<definition name="ipMappingResult" extends="layoutBlank">
+		<put-attribute name="body" value="/config/security/ipMappingResult.jsp" />
+	</definition>
+
+	<definition name="compliancePolicy" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/compliancePolicy.jsp" />
+	</definition>
+
+	<!-- Air Screen -->
+	<definition name="airScreenRuleList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/airScreenRuleList.jsp" />
+	</definition>
+
+	<definition name="airScreenSourceList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/airScreenSourceList.jsp" />
+	</definition>
+
+	<definition name="airScreenRule" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/airScreenRule.jsp" />
+	</definition>
+
+	<definition name="airScreenRuleGroupList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/airScreenRuleGroupList.jsp" />
+	</definition>
+
+	<definition name="airScreenRuleGroup" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/airScreenRuleGroup.jsp" />
+	</definition>
+
+	<definition name="hiveManagerCA" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/hiveManagerCA.jsp" />
+	</definition>
+
+	<definition name="serverCSR" extends="hiveConfig">
+		<put-attribute name="body" value="/jsp/config/serverCSR.jsp" />
+	</definition>
+
+	<definition name="serverCSRHandle" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/serverCSRHandle.jsp" />
+	</definition>
+
+	<definition name="certificates" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/certificates.jsp" />
+	</definition>
+	
+	<definition name="clientCa" extends="hiveConfig">
+	    <put-attribute name="body" value="/jsp/config/clientCa.jsp" />
+	</definition>
+	
+	<definition name="importClientCa" extends="hiveConfig">
+	    <put-attribute name="body" value="/jsp/config/importClientCa.jsp" />
+	</definition>
+
+	<definition name="importCertificate" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/importCertificate.jsp" />
+	</definition>
+
+	<definition name="exImportCertificate" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/jsp/config/importCertificate.jsp" />
+	</definition>
+
+	<definition name="cwpCertMgmt" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/cwpCertMgmt.jsp" />
+	</definition>
+
+	<definition name="createCwpCert" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/createCwpCert.jsp" />
+	</definition>
+
+	<definition name="exCreateCwpCert" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/jsp/config/createCwpCert.jsp" />
+	</definition>
+
+	<definition name="editCwpCert" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/editCwpCert.jsp" />
+	</definition>
+
+	<definition name="exEditCwpCert" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/jsp/config/editCwpCert.jsp" />
+	</definition>
+
+	<definition name="sshKeysGen" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/sshKeysGen.jsp" />
+	</definition>
+
+	<definition name="configGuide" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/configGuide.jsp" />
+	</definition>
+
+	<definition name="configGuideEx" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/jsp/config/configGuideEx.jsp" />
+	</definition>
+
+	<definition name="autoProvisioning" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApAutoProvision.jsp" />
+	</definition>
+
+	<definition name="autoProvisioningList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApAutoProvisionList.jsp" />
+	</definition>
+
+	<definition name="slaMappingCustomize" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/wlanAccess/slaMappingCustomize.jsp" />
+	</definition>
+
+	<!-- Radius Proxy -->
+	<definition name="radiusProxyList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusProxyList.jsp" />
+	</definition>
+
+	<definition name="radiusProxy" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/useraccess/radiusProxy.jsp" />
+	</definition>
+
+	<definition name="configUploadOptionEx" extends="layoutBlank">
+		<put-attribute name="body" value="/config/hiveAps/configUploadOptionEx.jsp" />
+	</definition>
+
+	<!-- Os object -->
+	<definition name="osObjectList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/osObjectList.jsp" />
+	</definition>
+
+	<definition name="osObject" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/osObject.jsp" />
+	</definition>
+	
+	<!-- MSTP Region -->
+	<definition name="mstpRegion" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/mstpRegion.jsp" />
+	</definition>
+	
+	<definition name="mstpRegionList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/mstpRegionList.jsp" />
+	</definition>
+
+	<!-- Domain object -->
+	<definition name="domainObjectList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/domainObjectList.jsp" />
+	</definition>
+
+	<definition name="domainObject" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/domainObject.jsp" />
+	</definition>
+
+	<!-- Device Policy -->
+	<definition name="devicePolicyList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/devicePolicyList.jsp" />
+	</definition>
+
+	<definition name="devicePolicy" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/security/devicePolicy.jsp" />
+	</definition>
+	<!-- DNS Service -->
+	<definition name="dnsProfileList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/dnsServiceList.jsp" />
+	</definition>
+	<definition name="dnsProfile" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/dnsService.jsp" />
+	</definition>
+	<!-- USB Modem -->
+	<definition name="usbModemList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/usbModemList.jsp" />
+	</definition>
+	<!-- Routing policy  -->
+	<definition name="routingPolicyList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/routingPolicyList.jsp" />
+	</definition>
+	<definition name="routingPolicy" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/routingPolicy.jsp" />
+	</definition>
+	<!-- Routing profile policy  -->
+	<definition name="routingProfilePolicyList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/routingProfilePolicyList.jsp" />
+	</definition>
+	<definition name="routingProfilePolicy" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/routingProfilePolicy.jsp" />
+	</definition>
+	<!-- configMDM -->
+	<definition name="configmdmList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/configmdmList.jsp" />
+	</definition>
+	<definition name="configmdm" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/configmdm.jsp" />
+	</definition>
+	<!-- MDM Profile -->
+	<definition name="mdmProfilesList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/mdmProfilesList.jsp" />
+	</definition>
+	<definition name="mdmProfiles" extends="hiveConfig">
+		<put-attribute name="body" value="/config/security/mdmProfiles.jsp" />
+	</definition>	
+	<!-- app profile -->
+	<definition name="appProfileList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/appProfileList.jsp" />
+	</definition>
+
+	<definition name="appProfile" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/appProfile.jsp" />
+	</definition>
+	
+	<definition name="appService" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/appService.jsp" />
+	</definition>
+	
+	<definition name="deviceInventoryList" extends="hiveConfig">
+		<put-attribute name="leftFilter"
+			value="/config/hiveAps/deviceInventoryFilter.jsp" />
+		<put-attribute name="body"
+			value="/config/hiveAps/deviceInventoryList.jsp" />
+	</definition>
+	<definition name="deviceInventoryListOnline" 
+		template="/config/hiveAps/deviceInventoryListOnline.jsp"></definition>
+	<definition name="deviceInventoryListOnPremise" 
+		template="/config/hiveAps/deviceInventoryListOnPremise.jsp"></definition>
+	
+	<definition name="customAppList" extends="hiveConfig">
+		<put-attribute name="body"
+			value="/config/netObjects/customApplicationList.jsp" />
+	</definition>
+	
+	<!-- CLI Blob -->
+	<definition name="cliBlobList" extends="hiveConfig">
+		<put-attribute name="body" value="/config/netObjects/cliBlobList.jsp" />
+	</definition>
+	<definition name="cliBlob" extends="hiveConfig">
+		<put-attribute name="body" value="/config/netObjects/cliBlob.jsp" />
+	</definition>
+	
+</tiles-definitions>

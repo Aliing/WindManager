@@ -1,0 +1,223 @@
+@CHARSET "UTF-8";
+
+#portInfoPanel .bd {
+	padding: 0;
+}
+
+#portInfoPanel .bd_top {
+	background-color: #eee;
+}
+
+#portInfoPanel .bd_content {
+	padding: 10px;
+	overflow: auto;
+	height: 25em;
+	font-family: sans-serif, Arial, Helvetica, Verdana;
+	background-color: #fff;
+}
+
+#portInfoPanel .ft {
+	height: 15px;
+	padding: 0;
+}
+
+td#swMonitor ul.port-list li.port span.labelUp {
+	position: relative;
+	top: -15px;
+}
+
+td#swMonitor ul.port-list li.port span.labelDown {
+	position: relative;
+	bottom: -32px;
+}
+
+/* 
+override port icon with monitor page's icon
+*/
+td#swMonitor ul.port-list li.basic-port {
+    background: url(../../images/ports/status/AH-switch-port-disconnected.png) 0 0 no-repeat;
+    margin-bottom: 12px;
+    background-size: cover;
+}
+td#swMonitor ul.port-list li.sfp-port {
+    background: url(../../images/ports/status/AH-switch-port-sfp-disconnected.png) 0 0 no-repeat;
+    margin-bottom: 12px;
+    background-size: cover;
+}
+td#swMonitor ul.port-list li.usb-port {
+    background: url(../../images/ports/status/AH_USB-disconnected.png) 0 0 no-repeat;
+    background-size: cover;
+}
+
+td#swMonitor ul.port-list li.basic-port.up-port-poe {
+    background: url(../../images/ports/status/AH-switch-port-PoE-connected.png) 0 0 no-repeat;
+    background-size: cover;
+}
+
+td#swMonitor ul.port-list li.basic-port.down-port-poe {
+    background: url(../../images/ports/status/AH-switch-port-PoE-failed.png) 0 0 no-repeat;
+    background-size: cover;
+}
+
+td#swMonitor ul.port-list li.basic-port.disabled-port {
+	background-image: url(../../images/ports/status/AH-switch-port-disconnected.png);
+}
+td#swMonitor ul.port-list li.sfp-port.disabled-port {
+	background-image: url(../../images/ports/status/AH-switch-port-sfp-disconnected.png);
+}
+td#swMonitor ul.port-list li.usb-port.disabled-port {
+	background-image: url(../../images/ports/status/AH_USB-disconnected.png);
+}
+
+td#swMonitor ul.port-list li.basic-port.up-port {
+	background-image: url(../../images/ports/status/AH-switch-port-connected.png);
+}
+td#swMonitor ul.port-list li.sfp-port.up-port {
+	background-image: url(../../images/ports/status/AH-switch-port-sfp-connected.png);
+}
+td#swMonitor ul.port-list li.usb-port.up-port {
+	background-image: url(../../images/ports/status/AH_USB-connected.png);
+}
+
+td#swMonitor ul.port-list li.basic-port.down-port {
+	background-image: url(../../images/ports/status/AH-switch-port-failed.png);
+}
+td#swMonitor ul.port-list li.sfp-port.down-port {
+	background-image: url(../../images/ports/status/AH-switch-port-sfp-failed.png);
+}
+td#swMonitor ul.port-list li.usb-port.down-port {
+	background-image: url(../../images/ports/status/AH_USB-failed.png);
+}
+
+/*
+For the 24/48 ports switch
+*/
+td#swMonitor.sr48 {
+    padding: 0;
+}
+td#swMonitor.sr24 div:first-child,
+td#swMonitor.sr24 div.linkagg,
+td#swMonitor.sr24 div.linkagg+div,
+td#swMonitor.sr24 div.portDesc,
+td#swMonitor.sr48 div:first-child,
+td#swMonitor.sr48 div.linkagg,
+td#swMonitor.sr48 div.linkagg+div,
+td#swMonitor.sr48 div.portDesc {
+    padding-left: 10px;
+}
+td#swMonitor.sr24 div.portContainer[ref="1"],
+td#swMonitor.sr24 div.portContainer[ref="1"] div.companyLogo,
+td#swMonitor.sr48 div.portContainer[ref="1"],
+td#swMonitor.sr48 div.portContainer[ref="1"] div.companyLogo {
+    margin: 0;
+    padding-left: 0;
+}
+td#swMonitor.sr24 div.portContainer[ref="1"] div.companyLogo,
+td#swMonitor.sr48 div.portContainer[ref="1"] div.companyLogo {
+    margin-left: 5px;
+}
+td#swMonitor.sr24 div.portContainer[ref="12"],
+td#swMonitor.sr48 div.portContainer[ref="12"]
+{
+    margin: 0 1.5px;
+}
+td#swMonitor.sr24 div.portContainer[ref="4"] {
+    margin: 0;
+    float: right;
+}
+td#swMonitor.sr48 div.portContainer[ref="4"] {
+    margin: 0 0 0 10px;
+}
+td#swMonitor.sr48 ul.port-list li.port {
+	height: 25px;
+	width: 25px;
+	padding: 0;
+}
+td#swMonitor.sr48 ul.port-list li.basic-port {
+	background-size: cover;
+}
+td#swMonitor.sr48 ul.port-list li.sfp-port {
+	background-size: cover;
+}
+td#swMonitor.sr48 ul.port-list li.usb-port {
+	background-size: cover;
+}
+td#swMonitor.sr48 ul.port-list li.basic-port.up-port-poe {
+	background-size: cover;
+}
+td#swMonitor.sr48 ul.port-list li.basic-port.down-port-poe {
+	background-size: cover;
+}
+td#swMonitor.sr48 ul.port-list li.port span.labelDown{
+	bottom: -25px;
+}
+td#swMonitor.sr48 ul.port-list li.port span.portColor {
+    width: 26px;
+    bottom: 17px;
+    left: 0;
+}
+td#swMonitor.sr48 div.ui-tooltip-content {
+	padding: 0;
+}
+
+.ie8 td#swMonitor.sr24 ul.port-list li.basic-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.basic-port {
+    background: url(../../images/ports/ie/status/AH-switch-port-disconnected.png) 0 0 no-repeat;
+    margin-bottom: 12px;
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.sfp-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.sfp-port {
+    background: url(../../images/ports/ie/status/AH-switch-port-sfp-disconnected.png) 0 0 no-repeat;
+    margin-bottom: 12px;
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.usb-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.usb-port {
+    background: url(../../images/ports/ie/status/AH_USB-disconnected.png) 0 0 no-repeat;
+}
+
+.ie8 td#swMonitor.sr24 ul.port-list li.basic-port.up-port-poe,
+.ie8 td#swMonitor.sr48 ul.port-list li.basic-port.up-port-poe {
+    background: url(../../images/ports/ie/status/AH-switch-port-PoE-connected.png) 0 0 no-repeat;
+}
+
+.ie8 td#swMonitor.sr24 ul.port-list li.basic-port.down-port-poe,
+.ie8 td#swMonitor.sr48 ul.port-list li.basic-port.down-port-poe {
+    background: url(../../images/ports/ie/status/AH-switch-port-PoE-failed.png) 0 0 no-repeat;
+}
+
+.ie8 td#swMonitor.sr24 ul.port-list li.basic-port.disabled-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.basic-port.disabled-port {
+	background-image: url(../../images/ports/ie/status/AH-switch-port-disconnected.png);
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.sfp-port.disabled-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.sfp-port.disabled-port {
+	background-image: url(../../images/ports/ie/status/AH-switch-port-sfp-disconnected.png);
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.usb-port.disabled-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.usb-port.disabled-port {
+	background-image: url(../../images/ports/ie/status/AH_USB-disconnected.png);
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.basic-port.up-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.basic-port.up-port {
+	background-image: url(../../images/ports/ie/status/AH-switch-port-connected.png);
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.sfp-port.up-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.sfp-port.up-port {
+	background-image: url(../../images/ports/ie/status/AH-switch-port-sfp-connected.png);
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.usb-port.up-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.usb-port.up-port {
+	background-image: url(../../images/ports/ie/status/AH_USB-connected.png);
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.basic-port.down-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.basic-port.down-port {
+	background-image: url(../../images/ports/ie/status/AH-switch-port-failed.png);
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.sfp-port.down-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.sfp-port.down-port {
+	background-image: url(../../images/ports/ie/status/AH-switch-port-sfp-failed.png);
+}
+.ie8 td#swMonitor.sr24 ul.port-list li.usb-port.down-port,
+.ie8 td#swMonitor.sr48 ul.port-list li.usb-port.down-port {
+	background-image: url(../../images/ports/ie/status/AH_USB-failed.png);
+}

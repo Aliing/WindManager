@@ -1,0 +1,90 @@
+#!/bin/bash
+#
+# Copyright (C) 2006-2012 Aerohive Networks
+#
+# yZhong@AeroHive.com
+#
+# general functions
+##
+
+. $(dirname "${ARGUMENT0:-$0}")/extension
+
+startLocalDB()
+{
+  chkconfig postgresql on
+  service postgresql start
+}
+
+stopLocalDB()
+{
+  stopLocal postgresql
+}
+
+stopDB()
+{
+  ssh $1 "chkconfig postgresql off && service postgresql stop"
+}
+
+stopHM()
+{
+  cd $CATALINA_HOME
+  $SHELL_SCRIPTs/stopHiveManage.sh
+}
+restartHM()
+{
+  stopHM
+  $SHELL_SCRIPTs/startHiveManage.sh
+}
+
+DB_CONFIG=/HiveManager/tomcat/webapps/hm/WEB-INF/classes/hibernate.cfg.xml
+# /usr/lib/ocf/resource.d/aerohive/... don't know $CATALINA_HOME from ~root/.bashrc
+
+configureDB()
+{
+  PORT="${1/*:/}"
+  if [ "$PORT" == "$1" ] ;then
+    PORT="5432"
+  fi
+  DB_HOST=${1/:*/}
+  CONFIGURE="s/jdbc:postgresql:\/\/[^/]\+/jdbc:postgresql:\/\/$DB_HOST:$PORT/"
+  sed -i $CONFIGURE $DB_CONFIG
+  sed -i $CONFIGURE $CATALINA_HOME/webapps/cas/WEB-INF/deployerConfigContext.xml
+  CAPWAP=/HiveManager/capwap/capwap.conf
+  CONFIGURE="s/DB_HOST=.\+/DB_HOST=$DB_HOST/"
+  sed -i $CONFIGURE $CAPWAP
+  CONFIGURE="s/DB_PORT=.\+/DB_PORT=$PORT/"
+  sed -i $CONFIGURE $CAPWAP
+  #TODO   explicitly, or JMX JNDI server which JMX workers each updates "/HiveManager/work/JNDI.HighAvailability/DataSource", update "/HiveManager/JNDI/server/default/deploy/NetworkManager-config.war/WEB-INF/web.xml"
+  #TODO   explicitly update "/HiveManager/work/JNDI.HighAvailability/DataSource" if not yet 
+}
+
+hostJDBC()
+{
+  URLTEMP=`grep jdbc:postgresql:\/\/ $DB_CONFIG`
+  URL=`echo $URLTEMP | sed 's/^[ \t]*//;s/[ \t]*$//'`
+  URL=${URL/jdbc:postgresql:\/\//}
+  DB_NAME=${URL/*\/}
+  URL=${URL/\/*/}
+  HOST=${URL/:*/}
+}
+
+pSQL()
+{
+  hostJDBC
+  if [ "$HOST" == "$URL" ] ;then
+    URL=5432
+  else
+    URL=${URL/$HOST:/}
+  fi
+  psql -h $HOST -p $URL -d $DB_NAME -U hivemanager -tA -c "$1"
+}
+
+copyDB()
+{
+  copyPostGreSQL $1 $2 hivemanager hm
+}
+copyRemoteDB()
+{
+  ssh $2 'cd /HiveManager/PGPool/script/master && ./addIPv4AuthUser.sh ${SSH_CLIENT/ *} && chkconfig postgresql on && service postgresql status || service postgresql start'
+  copyDB $1 $2
+}

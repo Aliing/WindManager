@@ -1,0 +1,58 @@
+PRE_LOGIN_TITLE:REDIR
+PRE_LOGIN_WAIT:Bitte warten ...
+PRE_LOGIN_CONTENT:Sollten Sie die Login Seite nicht sehen, starten Sie Ihren Browser neu und versuchen es dann noch einmal.
+FAIL_RADIUS_UNREACH:Der Netzzugang ist derzeit nicht verfügbar, da Ihre Registrierung vom Authentisierungs Server bisher noch nicht bestätigt wurde. Bitte versuchen Sie es später noch einmal. Kontaktieren Sie Ihren Netzwerkadminstrator falls das Problem weiterhin besteht.
+FAIL_CREDENTIAL_ERR:Der Authentisierungs-Server konnte Ihre Login Information keinem derzeit gültigen Account zuordnen. Bitte überprüfen Sie Ihre Eingaben und versuchen Sie es erneut. Sollte das Problem weiterhin bestehen, kontaktieren Sie Ihren Netzwerk Administrator.
+FAIL_MANDATED_MISSED:Alle markierten Felder müssen ausgefüllt werden. Bitte füllen Sie sie vollständig aus und schicken Ihre Registrierung noch einmal.
+FAIL_PPSK_INVALID_SSID:Ein Passwort kann nicht zugewiesen werden. Bitte kontaktieren Sie Ihren Netzwerk Administrator und teilen ihm mit, daß die angegebene SSID keine Private PSK Authentisierung unterstützt.
+FAIL_PPSK_STA_DENIED:Ein Passwort kann nicht zugewiesen werden, da Ihr WLan Client abgewiesen wurde. Für weitere Informationen kontaktieren Sie Ihren Netzwerk Administrator.
+FAIL_PPSK_NO_MORE_PSK:Es sind keine Passwörter mehr verfügbar. Bitte kontaktieren Sie Ihren Netzwerk Administrator
+FAIL_UNKNOWN:Unbekannter Fehler.
+FAIL_RETURN_TO_LOGIN:Sie werden automatisch an die Login Seite weitergeleitet, oder wenn Sie anklicken
+FAIL_HERE:Hier
+FAIL_REDIR:Sie werden weitergeleitet zu
+FAIL_INTERNAL_ERR:Web Server interner Fehler.
+TIMER_TIME_LEFT_PART1:Sie haben sich erfolgreich registriert und haben jetzt Zugriff auf das Netzwerk. Bitte lassen Sie dieses Fenster geöffnet um die verbleibende Sitzungszeit angezeigt zu bekommen und sich bei Bedarf auszuloggen. Ihre verbleibende Sitzungszeit beträgt noch
+TIMER_TIME_LEFT_PART2:Minuten.
+TIMER_LOG_OUT:Ausloggen
+TIMER_SHOW_DETAIL:Details Anzeigen
+TIMER_BOOKMARK:Diese Seite bookmarken
+TIMER_NOTE:Anmerkung
+TIMER_TITLE:Network Access Timer
+TIMER_CUR_AP:Aktueller Access Point:
+TIMER_PRE_AP:Vorherige Zugangspunkt:
+TIMER_CUR_LAST_LOGOUT:Letzter Logout:
+TIMER_HIDE_DETAIL:Details ausblenden
+TIMER_NOTE_PART1:Sie sind mit dem Netzwerk verbunden und können es für einen festgelegten Zeitraum benutzen. Loggen Sie sich aus wenn Sie das Netzwerk nicht benutzen um Zugriffszeit zu sparen.
+TIMER_NOTE_PART2:Wir empfehlen diese Seite zu bookmarken wenn Sie sie schließen wollen. Ein neuer Eintrag mit dem Titel "Network Access Timer (
+TIMER_NOTE_PART3:)" wird dann in Ihre Favoriten Liste eingetragen. Wenn Sie diesen Link öffnen wird die verbleibende Zeit Ihrer Session angezeigt.
+TIMER_TIME_LEFT2_PART1:Weniger als 1 Minute
+TIMER_NOTE_SESS_TIMEOUT:Ihre Sitzung ist abgelaufen.
+TIMER_LOG_OUT_CONFIRM:Sind Sie sicher, daß Sie sich ausloggen wollen?
+TIMER_LEAVE:Lassen Sie während Ihrer Session die Timer Seite offen um die verbleibende Zeit im Überblick zu behalten. Wenn Sie es schließen wollen, sollten Sie es zu Ihrer Favoritenliste hinzufügen um sich bei Bedarf die verbleibende Sitzungszeit anzeigen zu lassen.
+TIMER_DAY:Tag
+TIMER_DAYS:Tage
+TIMER_HOUR:Stunde
+TIMER_HOURS:Stunden
+TIMER_MINUTE:Minute
+TIMER_MINUTES:Minuten
+TIMER_LEFT:übrig
+TIMER_TO_BOOKMARK:Um diese Seite zu bookmarken, drücken Sie
+TIMER_TIME_OUT:Zeit aus
+TIMER_NO_LONGER_CONNECT:Ihr Gerät ist nicht mehr mit dem AP verbunden. Bitte überprüfen Sie Ihre Netzwerkeinstellungen. Diese Seite schließt in
+TIMER_NO_LONGER_CONNECT2:Minuten
+TIMER_NO_CONNECT:Ihr Gerät ist nicht mit dem Netzwerk verbunden.
+TIMER_NO_CONNECT_ALERT:Ihr Gerät ist nicht mehr mit dem Netzwerk verbunden. Bitte überprüfen Sie Ihre Netzwerkeinstellungen und versuchen Sie es noch einmal.
+LOGOUT_TITLE:Ausloggen
+LOGOUT_LOGOUT_THK:Ausgelogged. Danke
+LOGOUT_NOTE:Sie können diese Seite schließen.
+LOGOUT_SUMMARY:Zusammenfassung der Sitzung
+LOGOUT_LEFT_TIME:Verbleibende Sitzungszeit 
+LOGOUT_LEFT_MINUTES:Minuten
+LOGOUT_IP:IP Addresse
+LOGOUT_AP:Access Point
+LOGOUT_LOGOUT_TIME:Auslogzeit
+LOGOUT_SENT:Bytes Gesendet
+LOGOUT_RECV:Bytes Empfangen
+LOGOUT_BYTES:Bytes
+PPSK_LOGIN_PAGE:Login Seite

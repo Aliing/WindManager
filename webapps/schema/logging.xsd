@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:logging="http://www.aerohive.com/configuration/logging" targetNamespace="http://www.aerohive.com/configuration/logging">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:simpleType name="logging-level-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="alert"/>
+			<xsd:enumeration value="critical"/>
+			<xsd:enumeration value="debug"/>
+			<xsd:enumeration value="emergency"/>
+			<xsd:enumeration value="error"/>
+			<xsd:enumeration value="info"/>
+			<xsd:enumeration value="notification"/>
+			<xsd:enumeration value="warning"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="facility-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="auth"/>
+			<xsd:enumeration value="authpriv"/>
+			<xsd:enumeration value="local0"/>
+			<xsd:enumeration value="local1"/>
+			<xsd:enumeration value="local2"/>
+			<xsd:enumeration value="local3"/>
+			<xsd:enumeration value="local4"/>
+			<xsd:enumeration value="local5"/>
+			<xsd:enumeration value="local6"/>
+			<xsd:enumeration value="local7"/>
+			<xsd:enumeration value="security"/>
+			<xsd:enumeration value="user"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="trap-level-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="alert"/>
+			<xsd:enumeration value="crit"/>
+			<xsd:enumeration value="emerg"/>
+			<xsd:enumeration value="error"/>
+			<xsd:enumeration value="info"/>
+			<xsd:enumeration value="notice"/>
+			<xsd:enumeration value="warning"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="logging-level">
+		<xsd:attribute name="value" type="logging:logging-level-value" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="logging-obj">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="buffered" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="level" type="logging:logging-level" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="console" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="level" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="logging:logging-level-value" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="debug" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="facility" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="logging:facility-value" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="flash" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="level" type="logging:logging-level" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="server" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="level" type="logging:logging-level" minOccurs="0"/>
+						<xsd:element name="via-vpn-tunnel" type="general:ah-only-act" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="name" type="xsd:string" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="trap" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="level" minOccurs="0">
+							<xsd:complexType>
+								<xsd:attribute name="value" type="logging:trap-level-value" use="required"/>
+								<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

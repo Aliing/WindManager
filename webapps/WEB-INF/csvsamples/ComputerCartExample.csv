@@ -1,0 +1,5 @@
+#ComputerCartName,#Description,#MACAddress,#ComputerName
+//The follow line is test data, please delete it.
+test-cartname,test-description,0024D7DCE39C,test-computername
+//And the filed #MACAddress,#ComputerName can be loop, like the following:
+test-cartname,test-description,0024D7DCE39C,test-computername-1,0024D7DCE39D,test-computername-2

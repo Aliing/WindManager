@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				service <string> protocol {tcp|udp|svp} [ port <number> ] [ timeout <number> ]
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<service name="{1}">
+						<protocol value="{2}">
+							<port value="{4}"/>
+							<timeout value="{6}"/>
+						</protocol>
+					</service>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				service <string> protocol <number> [ port <number> ] [ timeout <number> ]
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<service name="{1}">
+						<protocol value="{2}">
+							<port value="{4}"/>
+							<timeout value="{6}"/>
+						</protocol>
+					</service>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				service <string> app-id <number> [ timeout <number> ]
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<service name="{1}">
+						<app-id value="{2}">
+							<timeout value="{4}"/>
+						</app-id>
+					</service>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				service <string> alg {ftp|tftp|sip|dns|http}
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<service name="{1}">
+						<alg value="{2}"/>
+					</service>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+</clis>

@@ -1,0 +1,20 @@
+.f32 .flag{display:inline-block;height:32px;width:32px;vertical-align:text-top;line-height:32px;background:url(custom-flags32.png) no-repeat;}
+
+.f32 .none { background-image: none; }    
+.f32 .at { background-position: 0 0; }
+.f32 .au { background-position: 0 -32px; }
+.f32 .be { background-position: 0 -64px; }
+.f32 .br { background-position: 0 -96px; }
+.f32 .ca { background-position: 0 -128px; }
+.f32 .cn { background-position: 0 -160px; }
+.f32 .de { background-position: 0 -192px; }
+.f32 .dk { background-position: 0 -224px; }
+.f32 .es { background-position: 0 -256px; }
+.f32 .fr { background-position: 0 -288px; }
+.f32 .gb { background-position: 0 -320px; }
+.f32 .kr { background-position: 0 -352px; }
+.f32 .mx { background-position: 0 -384px; }
+.f32 .nl { background-position: 0 -416px; }
+.f32 .nz { background-position: 0 -448px; }
+.f32 .se { background-position: 0 -480px; }
+.f32 .us { background-position: 0 -512px; }

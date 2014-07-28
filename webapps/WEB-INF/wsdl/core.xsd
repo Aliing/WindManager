@@ -1,0 +1,14 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ah.com/hm/ws/platform/core" elementFormDefault="qualified" targetNamespace="http://ah.com/hm/ws/platform/core">
+  <xs:complexType name="passport">
+    <xs:sequence>
+      <xs:element type="xs:string" name="userName" minOccurs="0"/>
+      <xs:element type="xs:string" name="password" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" use="required" name="sessionTimeout"/>
+  </xs:complexType>
+  <xs:complexType name="session">
+    <xs:sequence>
+      <xs:element type="xs:string" name="version" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

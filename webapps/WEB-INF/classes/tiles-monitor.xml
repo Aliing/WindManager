@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="monitorLayout" extends="hmLayout">
+		<put-attribute name="leftWidth" value="165" />
+	</definition>
+
+	<definition name="hiveAp" extends="monitorLayout">
+		<put-attribute name="body" value="/config/hiveAps/hiveAp.jsp" />
+	</definition>
+	
+	<definition name="portDetails" extends="layoutBlank">
+		<put-attribute name="body" value="/config/hiveAps/portDetails.jsp" />
+	</definition>
+	
+	<definition name="hiveAp2" extends="monitorLayout">
+		<put-attribute name="body" value="/config/hiveAps/hiveAp2.jsp" />
+	</definition>
+	
+	<definition name="devicePage" extends="monitorLayout">
+		<put-attribute name="body" value="/config/devices/ahDevicePage.jsp" />
+	</definition>
+
+	<definition name="hiveapEx" extends="layoutBlank">
+		<put-attribute name="body" value="/config/hiveAps/hiveAp2.jsp" />
+	</definition>
+	
+	<definition name="hiveapJsonOnly" template="/config/hiveAps/hiveAp2.jsp">
+	</definition>
+	
+	<definition name="devicePageJsonOnly" template="/config/devices/ahDevicePage.jsp"/>
+
+	<definition name="hiveApDetails" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApDetail.jsp" />
+	</definition>
+
+	<definition name="hiveApUpdates" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApUpdates.jsp" />
+	</definition>
+	
+	<definition name="signatureInput" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApUploadL7Signature.jsp" />
+	</definition>
+	
+	<definition name="hiveApConfigInput" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApUpdateWizard.jsp" />
+	</definition>
+
+	<definition name="hiveApCountryCodeInput" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApUpdateCountryCode.jsp" />
+	</definition>
+	
+	<definition name="hiveApOutdoorSettingsInput" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApUpdateOutdoorSettings.jsp" />
+	</definition>
+	
+	<definition name="hiveApUpdateBootstrapInput" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApupdateBootstrap.jsp" />
+	</definition>
+
+	<definition name="poeInput" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApUpdatePoe.jsp" />
+	</definition>
+	
+	<definition name="netdumpInput" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApUpdateNetdump.jsp" />
+	</definition>
+
+	<definition name="newHiveAps" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/newHiveApsList.jsp" />
+	</definition>
+
+	<definition name="manuallyProvisioned" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/manuallyProvisionedList.jsp" />
+	</definition>
+
+	<definition name="autoDiscovered" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/autoDiscoveredList.jsp" />
+	</definition>
+
+	<definition name="managedHiveAps" extends="monitorLayout">
+		<put-attribute name="leftFilter"
+			value="/config/hiveAps/hiveApFilter.jsp" />
+		<put-attribute name="body"
+			value="/config/hiveAps/managedHiveApsList.jsp" />
+	</definition>
+
+	<definition name="friendlyApList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/idpFriendlyApList.jsp" />
+	</definition>
+	
+	<definition name="mitigationManual" template="/config/hiveAps/manualMitigationAp.jsp"/>
+
+	<definition name="deviceMappingRedirector" template="/config/hiveAps/addNewDeviceForRedirector.jsp"/>
+
+	<definition name="rogueApList" extends="monitorLayout">
+		<put-attribute name="leftFilter"
+			value="/config/hiveAps/idpFilter.jsp" />
+		<put-attribute name="body"
+			value="/config/hiveAps/idpRogueApList.jsp" />
+	</definition>
+
+	<definition name="hiveApMultiEdit" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApMulti.jsp" />
+	</definition>
+
+	<definition name="hiveApUpdateResultsList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/config/hiveAps/hiveApUpdateResults.jsp" />
+	</definition>
+	
+	<definition name="summary" extends="monitorLayout">
+		<put-attribute name="body" value="/monitor/reports/summary.jsp" />
+	</definition>
+
+	<definition name="eventList" extends="monitorLayout">
+		<put-attribute name="leftFilter"
+			value="/monitor/traps/eventFilter.jsp" />
+		<put-attribute name="body" value="/monitor/traps/eventList.jsp" />
+	</definition>
+	
+	<definition name="bonjourGatewayMonitoring" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/jsp/monitor/bonjourGatewayMonitoring.jsp" />
+	</definition>
+	
+	<definition name="oneTimePasswordList" extends="monitorLayout">
+		<put-attribute name="body" value="/jsp/monitor/oneTimePasswordList.jsp" />
+	</definition>
+	
+	<definition name="oneTimePassword" extends="monitorLayout">
+		<put-attribute name="body" value="/jsp/monitor/oneTimePassword.jsp" />
+	</definition>
+	
+	<definition name="oneTimePasswordFilter" template="/jsp/monitor/oneTimePasswordFilter.jsp" >
+	</definition>
+	
+	<definition name="oneTimePasswordGenerate" template="/jsp/monitor/oneTimePasswordGenerate.jsp" >
+	</definition>
+	
+	<definition name="subnetworkAllocationList" extends="monitorLayout">
+		<put-attribute name="body" value="/jsp/monitor/subnetworkAllocationList.jsp" />
+	</definition>
+
+	<definition name="alarmList" extends="monitorLayout">
+		<put-attribute name="leftFilter"
+			value="/monitor/traps/alarmFilter.jsp" />
+		<put-attribute name="body" value="/monitor/traps/alarmList.jsp" />
+	</definition>
+	
+	<definition name="customReportList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/customReportList.jsp" />
+	</definition>
+
+	<definition name="customReport" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/customReportDetail.jsp" />
+	</definition>
+	
+	<definition name="reportLoginUserList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/reportLoginUserList.jsp" />
+	</definition>
+
+	<definition name="reportLoginUser" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/reportLoginUser.jsp" />
+	</definition>
+
+	<definition name="reportList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/reportList.jsp" />
+	</definition>
+
+	<definition name="reportDetailGraph" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/reportDetailGraph.jsp" />
+	</definition>
+	
+	<definition name="vpnReportList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/vpnReportList.jsp" />
+	</definition>
+
+	<definition name="vpnReportDetailGraph" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/vpnReportDetailGraph.jsp" />
+	</definition>
+	
+	<definition name="networkReportList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/networkReportList.jsp" />
+	</definition>
+
+	<definition name="networkReport" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/networkReport.jsp" />
+	</definition>
+	
+	<definition name="pciReportList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/pciReportList.jsp" />
+	</definition>
+	
+	<definition name="pciCompliance" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/reports/pciComplianceReport.jsp" />
+	</definition>
+
+	<definition name="clientMonitorList" extends="monitorLayout">
+		<put-attribute name="leftWidth" value="155" />
+		<put-attribute name="leftFilter"
+			value="/monitor/client/activeClientFilter.jsp" />
+		<put-attribute name="body"
+			value="/monitor/client/clientMonitorList.jsp" />
+	</definition>
+
+	<definition name="clientDetail" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/client/clientDetail.jsp" />
+	</definition>
+
+	<definition name="rogueClientList" extends="monitorLayout">
+		<put-attribute name="leftFilter"
+			value="/config/hiveAps/idpFilter.jsp" />
+		<put-attribute name="body"
+			value="/config/hiveAps/idpRogueClientList.jsp" />
+	</definition>
+	
+	<definition name="enrolledClients" extends="monitorLayout">
+		<put-attribute name="body" value="/monitor/client/enrolledclient/enrolledMdmClientList.jsp"/>
+	</definition>
+	
+	<definition name="detailsClient" extends="monitorLayout">
+		<put-attribute name="body" value="/monitor/client/enrolledclient/enrolledMdmDevice.jsp"/>
+	</definition>
+	
+	<definition name="clientModifications" extends="monitorLayout">
+		<put-attribute name="leftFilter"
+			value="/monitor/client/clientModifyFilter.jsp" />
+		<put-attribute name="body"
+			value="/monitor/client/clientModifyList.jsp" />
+	</definition>
+
+	<definition name="watchList" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/client/locationClientWatchList.jsp" />
+	</definition>
+	
+	<definition name="clientSurvey" extends="monitorLayout">
+		<put-attribute name="leftFilter"
+			value="/monitor/client/clientSurveyFilter.jsp" />
+		<put-attribute name="body" value="/monitor/client/clientSurvey.jsp" />
+	</definition>
+
+	<definition name="clientWatch" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/monitor/client/locationClient.jsp" />
+	</definition>
+	
+	<definition name="clientDebug" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/clientDebug.jsp" />
+	</definition>
+
+	<definition name="sshTunnel" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/sshTunnel.jsp" />
+	</definition>
+
+	<definition name="vlanProbe" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/vlanProbe.jsp" />
+	</definition>
+
+	<definition name="pathProbe" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/pathProbe.jsp" />
+	</definition>
+	
+	<definition name="fwPolicyRule" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/fwPolicyRule.jsp" />
+	</definition>
+	
+	<definition name="packetCapture" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/packetCapture.jsp" />
+	</definition>
+	
+	<definition name="reportSetting" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/jsp/monitor/reportSetting.jsp" />
+	</definition>
+	
+	<definition name="retailAnalytics" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/jsp/monitor/retailAnalytics.jsp" />
+	</definition>
+	
+	<definition name="retailSensorData" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/jsp/monitor/retailSensorData.jsp" />
+	</definition>
+	
+	<definition name="retailConfig" extends="monitorLayout">
+		<put-attribute name="body"
+			value="/jsp/monitor/retailConfig.jsp" />
+	</definition>
+	
+	<definition name="retailDecal" template="/jsp/monitor/retailDecal.jsp" />
+	
+    <definition name="cliWindow" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/cliWindow.jsp" />
+	</definition>
+	
+	<definition name="remoteSniffer" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/remoteSniffer.jsp" />
+	</definition>
+	
+	<definition name="multicastMonitor" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/hiveAps/multicastMonitor.jsp" />
+	</definition>
+	
+	<definition name="planningFromTopo" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/jsp/tools/planTool.jsp" />
+	</definition>
+	
+	<definition name="vpnTopology" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/config/security/vpnTopology.jsp" />
+	</definition>
+	<definition name="locationClientWatchJson" extends="layoutBlank">
+		<put-attribute name="body" value="/monitor/client/locationClient.jsp" />
+	</definition>
+	
+	<definition name="chartEmailConfig" template="/monitor/reports/common/emailConfigForChart.jsp">
+	</definition>
+	
+	<!-- Device page titles define start  -->
+	<definition name="deviceTitle" template="/config/devices/deviceTitle.jsp" />
+	
+	<definition name="deviceButton" template="/config/devices/deviceButton.jsp" />
+	
+	<definition name="deviceBaseSettings" template="/config/devices/deviceBaseSettings.jsp" />
+	
+	<definition name="radioConfig" template="/config/devices/radioConfig.jsp" />
+	
+	<definition name="deviceTag" template="/config/devices/deviceTag.jsp" />
+	
+	<definition name="deviceWifiConfig" template="/config/devices/deviceWifiConfig.jsp" />
+	
+	<definition name="routerWanPortSettings" template="/config/devices/routerWanPortSettings.jsp" />
+	
+	<definition name="cvgSettings" template="/config/devices/cvgSettings.jsp" />
+	
+	<definition name="deviceEthernetCwp" template="/config/devices/deviceEthernetCwp.jsp" />
+	
+	<definition name="deviceMgt0Config" template="/config/devices/deviceMgt0Config.jsp" />
+	
+	<definition name="deviceSsidBindConfig" template="/config/devices/deviceSsidBindConfig.jsp" />
+	
+	<definition name="deviceBrStaticRouter" template="/config/devices/deviceBrStaticRouter.jsp" />
+	
+	<definition name="deviceServiceSettings" template="/config/devices/deviceServiceSettings.jsp" />
+	
+	<definition name="deviceL3Roaming" template="/config/devices/deviceL3Roaming.jsp" />
+	
+	<definition name="cvgMgtService" template="/config/devices/cvgMgtService.jsp" />
+	
+	<definition name="deviceCredentials" template="/config/devices/deviceCredentials.jsp" />
+	
+	<definition name="deviceRoutingConfig" template="/config/devices/deviceRoutingConfig.jsp" />
+	
+	<definition name="deviceBonjourConfig" template="/config/devices/deviceBonjourConfig.jsp" />
+	
+	<definition name="deviceWifiClientMode" template="/config/devices/deviceWifiClientMode.jsp" />
+	
+	<definition name="deviceAdvancedSettings" template="/config/devices/deviceAdvancedSettings.jsp" />
+	
+	<definition name="deviceEthernetConfig" template="/config/devices/deviceEthernetConfig.jsp" />
+	
+	<definition name="ahDevicePageScript_1" template="/config/devices/ahDevicePageScript_1.jsp" />
+	
+	<definition name="ahDevicePageScript_2" template="/config/devices/ahDevicePageScript_2.jsp" />
+	
+	<definition name="switchPortSettings" template="/config/devices/switchPortSettings.jsp" />
+	
+	<definition name="stormControlSettings" template="/config/devices/stormControl.jsp" />
+	
+	<definition name="deviceSwitchQosSetting" template="/config/devices/deviceSwitchQosSetting.jsp" />
+	
+	<definition name="forwardingDB" template="/config/devices/forwardingDB.jsp" />
+	
+	<definition name="vlanSettings" template="/config/devices/vlanSettings.jsp" >
+	</definition>
+	
+	<definition name="deviceSwitchPSE" template="/config/devices/deviceSwitchPSE.jsp" />
+	
+	<definition name="switchPortsView" template="/config/devices/switchPortsView.jsp" />
+	
+	<definition name="igmpSettings" template="/config/devices/igmp.jsp" />
+	
+	<definition name="applicationConfigure" template="/jsp/monitor/child/applicationConfigure.jsp"/>
+	
+	<definition name="clientTsInfo" template="/monitor/client/clientTsInfo.jsp"/>
+	
+	<definition name="captureDataCwp" template="/config/devices/captureDataCwp.jsp" />
+	
+	<definition name="updateSimpleModel" template="/config/hiveAps/hiveApUpdateSimpleModel.jsp" />
+	
+	<!-- Device page titles define end  -->
+
+</tiles-definitions>

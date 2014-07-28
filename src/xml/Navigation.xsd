@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="xmlNavigationTree">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tree" type="xmlNavigationNode" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="xmlNavigationNode">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="node"
+				type="xmlNavigationNode" />
+		</xs:sequence>
+		<xs:attribute name="shortDescription" type="xs:string" />
+		<xs:attribute name="description" type="xs:string" />
+		<xs:attribute name="collapsible" type="xs:boolean" />
+		<xs:attribute name="summary" type="xs:boolean" />
+		<xs:attribute name="action" type="xs:string" />
+		<xs:attribute name="key" type="xs:string" />
+		<xs:attribute name="homeOnly" type="xs:boolean" />
+		<xs:attribute name="fullModeOnly" type="xs:boolean" />
+		<xs:attribute name="appMode" type="xs:int" />
+	</xs:complexType>
+</xs:schema>

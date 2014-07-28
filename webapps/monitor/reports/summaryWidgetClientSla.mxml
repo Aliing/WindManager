@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()"
+			paddingLeft="0" paddingTop="0" paddingRight="0" paddingBottom="0">
+
+	<mx:HTTPService id="httpSvc"/>
+
+	<mx:Script>
+        <![CDATA[
+			import flash.utils.Timer;
+			import mx.controls.Alert;
+			import flash.net.navigateToURL;
+			import mx.charts.HitData;
+			import mx.charts.events.ChartItemEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			private var initURL: String; 
+			private var timeFinishedFlg: Boolean=true;
+			
+			public function init():void {
+				if (Application.application.url.indexOf("monitor/reports")>=0){
+					initURL = Application.application.url.substring(0, Application.application.url.indexOf("monitor/reports"));
+				} else {
+					initURL="";
+				}
+				httpSvc.url = initURL+"reports.action?operation=summaryWidgetClientSlaData&key=" + new Date().time;
+				httpSvc.addEventListener("result", httpResult);
+				httpSvc.send();				
+				refreshTimer();
+    	 	}
+
+			public function refreshTimer():void {
+				// refresh for 15 * 60 secs = 15 minutes
+            	var myTimer:Timer = new Timer(180000, 5);            	
+				myTimer.addEventListener("timer", refreshHandler);
+				myTimer.start();
+        	}
+
+			public function refreshHandler(event:TimerEvent):void {
+				if (timeFinishedFlg){
+					httpSvc.url = initURL+"reports.action?operation=summaryWidgetClientSlaData&key=" + new Date().time;
+					httpSvc.addEventListener("result", httpResult);
+					timeFinishedFlg=false;
+					httpSvc.send();
+				}
+        	}
+        	
+        	public function httpResult(event:ResultEvent):void {
+        		if (httpSvc.lastResult.summary.clientSlaType==2){
+    	 	 		rb2.selected=true;
+    	 	 	} else if (httpSvc.lastResult.summary.clientSlaType==3){
+    	 	 		rb3.selected=true;
+    	 	 	} else if (httpSvc.lastResult.summary.clientSlaType==4){
+    	 	 		rb4.selected=true;
+    	 	 	} else {
+    	 	 		rb1.selected=true;
+    	 	 	}
+        		timeFinishedFlg=true;
+        	}
+			
+			public function areaChartFunction(e:HitData):String {
+			   	var s:String;
+			    s = "<I>Date Time:</I>" + e.item.date + "\n";
+			    s += "<I>Value:</I>" + e.item.count + "%\n";
+			    return s
+		    }	
+			
+            public function dateParseFunction(s:String):Date { 
+			    var temp:Array = s.split(" ");    
+			    var datepart:String = temp[0];    
+			    var datearray:Array = datepart.split("-"); 
+			    var timepart:String = temp[1];    
+			    var timearray:Array = timepart.split(":");   
+			    var intMon:int =datearray[1];
+			    var intDay:int =datearray[2];
+			    var intHour:int =timearray[0];
+			    var intMin:int =timearray[1]; 
+		     
+		        var testDate:Date = new Date();
+		    	var offhour:Number = testDate.getTimezoneOffset()/60 *-1;
+		    	var offmin:Number = testDate.getTimezoneOffset()%60 *-1
+		      	var newDate:Date = new Date(datearray[0],intMon-1,intDay,intHour+offhour,intMin+offmin);   
+		      	
+		      	return newDate;    
+            }
+            
+            public function myMouseOver(event: MouseEvent):void{
+				event.target.blendMode = BlendMode.DIFFERENCE;
+			}
+			public function myMouseOut(event: MouseEvent):void{
+				event.target.blendMode = BlendMode.NORMAL;
+		
+			}
+			public function clickClientArea():void{
+					var url:String = "reportList.action";
+					var variables:URLVariables = new URLVariables();
+					variables.listType = "clientNonCompliance";
+					variables.buttonType = "clientNonCompliance";
+					variables.operation = "runLink";
+					variables.ignore= new Date().time;
+	            	var request:URLRequest = new URLRequest(url);
+	    	        request.data = variables;
+					try {
+	    	            navigateToURL(request, "_self");
+    	    	    } catch (error:Error) {
+						// Alert.show('request failed:' + url);
+					}
+			}
+			
+			public function showFilterDetail(flg:int):void {
+				var clientSlaType:int=0;
+				if (flg==1) {
+					saveTitle.height=22;
+					filterDetail.height=20;
+					filterTitle.height=0;
+					filterGrid.height=45
+				} else if (flg==2) {
+					if (rb2.selected){
+						clientSlaType=2;
+					} else if (rb3.selected){
+						clientSlaType=3;
+					} else if (rb4.selected){
+						clientSlaType=4;
+					} else {
+						clientSlaType=1;
+					}
+					httpSvc.url = initURL+"reports.action?operation=saveClientSlaFilter&clientSlaType="+ clientSlaType +"&key=" + new Date().time;
+					httpSvc.addEventListener("result", httpResult);
+					timeFinishedFlg=false;
+					httpSvc.send();
+	
+					filterGrid.height=25
+					saveTitle.height=0;
+					filterDetail.height=0;
+					filterTitle.height=22;
+				} else {
+					filterGrid.height=25
+					saveTitle.height=0;
+					filterDetail.height=0;
+					filterTitle.height=22;
+				}
+			}
+
+        ]]>
+    </mx:Script>
+    <mx:Panel width="100%" height="100%" verticalGap="0" headerHeight="0" borderThicknessBottom="0" borderThicknessLeft="0" borderThicknessRight="0" borderThicknessTop="0" borderStyle="none">
+	      <mx:Grid  height="25" id="filterGrid" width="100%" verticalGap="0" borderThickness="0" horizontalGap="2" horizontalAlign="right">
+        	<mx:GridRow height="2" borderStyle="none" width="100%" borderThickness="0" horizontalAlign="right">
+        		<mx:GridItem>
+        		</mx:GridItem> 
+        	</mx:GridRow>
+        	<mx:GridRow height="22" id="filterTitle" borderStyle="none" width="100%" borderThickness="0" horizontalAlign="right">
+        		<mx:GridItem colSpan="4" horizontalAlign="right" paddingRight="5">
+        			<mx:Button width="80" label="SLA Filter" click="showFilterDetail(1)" color="#0202F8" buttonMode="true"  fontWeight="normal"/>
+        		</mx:GridItem>      		
+        	</mx:GridRow>
+        	<mx:GridRow height="0" id="saveTitle" borderStyle="none" width="100%" borderThickness="0" horizontalAlign="right">
+        		<mx:GridItem horizontalAlign="right" colSpan="3">
+        		    <mx:Button width="80" label="Save" click="showFilterDetail(2)" color="#0202F8" buttonMode="true" fontWeight="normal"/>
+        		</mx:GridItem> 
+        		<mx:GridItem horizontalAlign="right"  paddingRight="5">
+        		    <mx:Button width="80" label="Cancel" click="showFilterDetail(3)" color="#0202F8" buttonMode="true" fontWeight="normal"/>
+        		</mx:GridItem>      		
+        	</mx:GridRow>
+        	<mx:GridRow height="0" id="filterDetail" borderStyle="none" width="100%" borderThickness="0" horizontalAlign="right">
+        		<mx:GridItem>
+        			<mx:RadioButton label="All" id="rb1" value="1" selected="true"/>
+        		</mx:GridItem>    
+        		<mx:GridItem>
+        			<mx:RadioButton label="Throughput" id="rb2" value="2"/>
+        		</mx:GridItem> 
+        		<mx:GridItem>
+        			<mx:RadioButton label="Airtime" id="rb3" value="3"/>
+        		</mx:GridItem> 
+        		<mx:GridItem>
+        			<mx:RadioButton label="Health" id="rb4" value="4"/>
+        		</mx:GridItem>
+        	</mx:GridRow>
+        </mx:Grid>
+	     <mx:AreaChart id="clientSLA" height="100%" width="100%"
+		     paddingRight="5" paddingLeft="5" showDataTips="true"
+		     type="100%"
+		     dataTipFunction="areaChartFunction">
+	        <mx:horizontalAxis>
+	            <mx:DateTimeAxis
+	            	dataUnits="hours"
+	            	parseFunction="dateParseFunction"/>
+		    </mx:horizontalAxis>
+			<mx:verticalAxis>
+            	<mx:LinearAxis  baseAtZero="true" maximum="100"/>
+            </mx:verticalAxis>
+	        <mx:series>
+	        	<mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaClientClear.item}"
+						displayName="Compliant Clients (%)"
+						buttonMode="false">
+		            <mx:areaStroke>
+		                <mx:Stroke color="green"/>
+		            </mx:areaStroke>  
+			        <mx:areaFill>
+		            	<mx:SolidColor color="green"/>
+		            </mx:areaFill> 
+		        </mx:AreaSeries>
+		        <mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaClientYellow.item}"
+						displayName="Warning Clients (%)"
+						buttonMode="false">
+		            <mx:areaStroke>
+		                <mx:Stroke color="0xfbd608"/>
+		            </mx:areaStroke>  
+			        <mx:areaFill>
+		            	<mx:SolidColor color="0xfbd608"/>
+		            </mx:areaFill> 
+		        </mx:AreaSeries>
+		        <mx:AreaSeries yField="count" xField="date" dataProvider="{httpSvc.lastResult.summary.slaClientBad.item}"
+						displayName="Noncompliant Clients (%)"
+						buttonMode="true" mouseOver="myMouseOver(event);" 
+						mouseOut="myMouseOut(event);" click="clickClientArea()">
+		            <mx:areaStroke>
+		                <mx:Stroke color="0xFF0000"/>
+		            </mx:areaStroke>  
+			        <mx:areaFill>
+		            	<mx:SolidColor color="0xFF0000"/>
+		            </mx:areaFill> 
+		        </mx:AreaSeries>
+	    	</mx:series>
+	    </mx:AreaChart>
+	    <mx:Legend dataProvider="{clientSLA}" height="25"  width="100%"  markerHeight="6" borderStyle="none" borderThickness="0" horizontalGap="10" verticalGap="0" paddingTop="0" paddingBottom="0"/>
+		
+	</mx:Panel>
+</mx:Application>

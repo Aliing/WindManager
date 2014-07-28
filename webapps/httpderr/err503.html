@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>503 Service Temporarily Unavailable</title>
+<script language="JavaScript">
+function fixLogoPng(){
+	if(navigator.appVersion.indexOf("MSIE 6") != -1){
+		//fix PNG bug in IE6
+		var img = document.getElementById("logo_img");
+		var imgName = img.src;
+	  	if (null != imgName){
+		  	var imgID = (img.id) ? "id='" + img.id + "' " : "";
+		  	var imgClass = (img.className) ? "class='" + img.className + "' " : "";
+		  	var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' ";
+		  	var imgStyle = "display:inline-block;" + img.style.cssText;
+		  	if (img.align == "left") imgStyle = "float:left;" + imgStyle
+		  	if (img.align == "right") imgStyle = "float:right;" + imgStyle
+		  	if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+		  	var strNewHTML = "<span " + imgID + imgClass + imgTitle
+		  					+ " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+		  					+ "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+		  					+ "(src=\'" + imgName + "\', sizingMethod='scale');\"></span>";
+		  	img.outerHTML = strNewHTML;
+	   	}
+	}
+}
+</script>
+<style>
+body {
+	background-image: url("/httpderr/include/bkg.gif");
+	background-color: #E1E1E1;
+}
+
+.top_nav_bg {
+	background-image: url("/httpderr/include/header-blue-bkg.gif");
+	background-repeat: repeat-x;
+}
+
+.top_menu_bg {
+	background-image: url("/httpderr/include/nav-yellow-bkg.gif");
+	background-repeat: repeat-x;
+	height: 25px;
+}
+
+.content_bg {
+	text-align: center;
+	padding-top: 100px;
+}
+
+span {
+	font-family: Century Gothic,  Helvetica,Arial,sans-serif;
+	color: #C84B00;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom:44px;
+}
+
+p {
+	color:#6F6F6F;
+	font-family:Helvetica,Arial,Sans Seril;
+	font-size:18px;
+	margin-bottom:32px;
+}
+
+a {
+	color:#0093D1;
+	text-decoration:underline;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+</style>
+</head><body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="fixLogoPng()">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="top_nav_bg">
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td style="padding-left:5px;"><img id="logo_img" width="128" height="55" alt="" src="/httpderr/include/company_logo_reverse.png"></img></td>
+					</tr>
+			</table>
+		</td>
+	</tr>
+	<!-- fix bug 14292 -->
+<!-- 	<tr>
+		<td class="top_menu_bg"></td>
+	</tr>
+-->
+</table>
+<div class="content_bg"><span>Service Temporarily Unavailable</span>
+<p>The server is temporarily unable to service your request </p>
+<p>due to maintenance downtime or services being restarted.</p> 
+<p>Please try again later.</p>
+<p>If you have any other problems, please contact <a href="http://www.aerohive.com">Aerohive Networks, Inc.</a></p>
+</div>
+</body></html>

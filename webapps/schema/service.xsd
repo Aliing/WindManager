@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:service="http://www.aerohive.com/configuration/service" targetNamespace="http://www.aerohive.com/configuration/service">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:simpleType name="protocol-value">
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="1"/>
+					<xsd:maxInclusive value="255"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="tcp"/>
+					<xsd:enumeration value="udp"/>
+					<xsd:enumeration value="svp"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="alg-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ftp"/>
+			<xsd:enumeration value="tftp"/>
+			<xsd:enumeration value="sip"/>
+			<xsd:enumeration value="dns"/>
+			<xsd:enumeration value="tv"/>
+			<xsd:enumeration value="http"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="protocol-port">
+		<xsd:attribute name="value" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="65535"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="protocol-timeout">
+		<xsd:attribute name="value" use="optional" default="100">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="65535"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="service-protocol">
+		<xsd:sequence>
+			<xsd:element name="port" type="service:protocol-port" minOccurs="0"/>
+			<xsd:element name="timeout" type="service:protocol-timeout" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="service:protocol-value" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="service-app-id">
+		<xsd:sequence>
+			<xsd:element name="timeout" type="service:protocol-timeout" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="service-obj">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0">
+				<xsd:element name="protocol" type="service:service-protocol" minOccurs="0"/>
+				<xsd:element name="app-id" type="service:service-app-id" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element name="alg" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="service:alg-value" use="required"/>
+					<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

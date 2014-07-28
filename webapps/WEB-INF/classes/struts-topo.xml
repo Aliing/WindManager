@@ -1,0 +1,141 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="Topology" extends="ah-default" namespace="/">
+
+		<action name="maps" class="com.ah.ui.actions.monitor.MapsAction">
+			<result type="tiles">mapView2</result>
+			<result name="initPage" type="tiles">mapInitial</result>
+			<result name="loadingMap">/monitor/maps/canvas.jsp</result>
+			<result name="json">/tiles/json.jsp</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${localFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="mapNodes" class="com.ah.ui.actions.monitor.MapNodeAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result type="tiles" name="multicastMonitor">multicastMonitor</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">maps</param>
+				<param name="operation">view</param>
+			</result>
+			<result name="hiveApPage" type="redirectAction">
+				<param name="actionName">hiveAp</param>
+				<param name="operation">getTechBack</param>
+				<param name="message">${description}</param>
+			</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/tar</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${dumpFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<action name="mapSettings" class="com.ah.ui.actions.monitor.MapSettingsAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">maps</param>
+				<param name="operation">view</param>
+				<param name="selectedImage">${imageFileFileName}</param>
+			</result>
+			<result name="input" type="redirectAction">
+				<param name="actionName">maps</param>
+				<param name="operation">view</param>
+			</result>
+		</action>
+
+		<action name="mapsInit" class="com.ah.ui.actions.tools.InitMapsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">maps</param>
+				<param name="operation">view</param>
+				<param name="selectedMapId">${buildingId}</param>
+			</result>
+		</action>
+
+		<action name="mapBld" class="com.ah.ui.actions.monitor.MapBldAction">
+			<result name="loadingMap2">/monitor/maps/canvas2.jsp</result>
+			<result name="loadingMap3">/monitor/maps/canvas3.jsp</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="mapAps" class="com.ah.ui.actions.monitor.MapApsAction">
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="mapUpload" class="com.ah.ui.actions.monitor.MapSettingsAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">maps</param>
+				<param name="operation">view</param>
+			</result>
+		</action>
+
+		<action name="xmlUpload" class="com.ah.ui.actions.monitor.MapsAction">
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="sshClient" class="com.ah.ui.actions.monitor.SshClientAction">
+			<result name="sshClient">/monitor/maps/sshClient.jsp</result>
+			<result type="tiles" name="sshClientConfig">sshClientConfig</result>
+		</action>
+
+		<action name="sshWebClient" class="com.ah.ui.actions.monitor.SshWebClientAction">
+			<result name="input">/monitor/maps/sshWebClient.jsp</result>
+			<result name="json">/tiles/json.jsp</result>
+		</action>
+
+		<action name="hiveApToolkit" class="com.ah.ui.actions.monitor.HiveApToolkitAction">
+			<result name="json">/tiles/json.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">hiveAp</param>
+			</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${exportFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/tar</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${logFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result type="tiles" name="sshTunnel">sshTunnel</result>
+			<result type="tiles" name="clientDebug">clientDebug</result>
+			<result type="tiles" name="toolClientDebug">toolClientDebug</result>
+			<result type="tiles" name="vlanProbe">vlanProbe</result>
+			<result type="tiles" name="toolVlanProbe">toolVlanProbe</result>
+			<result type="tiles" name="pathProbe">pathProbe</result>
+			<result name="downloadCapture" type="stream">
+				<param name="contentType">application/tar</param>
+				<param name="inputName">captureInputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${dumpFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result type="tiles" name="packetCapture">packetCapture</result>
+			<result type="tiles" name="toolPacketCapture">toolPacketCapture</result>
+			<result type="tiles" name="cliWindow">cliWindow</result>
+			<result type="tiles" name="remoteSniffer">remoteSniffer</result>
+			<result type="tiles" name="fwPolicyRule">fwPolicyRule</result>
+		</action>
+	</package>
+
+</struts>

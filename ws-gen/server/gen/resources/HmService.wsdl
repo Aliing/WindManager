@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ah.com/hm/ws/platform/service/HmService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ah.com/hm/ws/platform/service/HmService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://ah.com/hm/ws/platform/service/HmService" xmlns:ns1="http://ah.com/hm/ws/platform/core" xmlns:ns2="http://ah.com/hm/ws/platform/bo/ap" xmlns:tns="http://ah.com/hm/ws/platform/service/HmService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://ah.com/hm/ws/platform/bo/ap" schemaLocation="ap.xsd"/>
+      <xs:import namespace="http://ah.com/hm/ws/platform/core" schemaLocation="core.xsd"/>
+      <xs:element name="soap">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="value" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="login">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="passport" type="ns1:passport"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="session" type="ns1:session"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logout">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logoutResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="keepSessionAlive">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="keepSessionAliveResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchAllHiveAps">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchAllHiveApsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="hiveAp" type="ns2:hiveAp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApsByNodeIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="nodeIds" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApsByNodeIdsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="hiveAp" type="ns2:hiveAp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApByNodeId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="nodeId" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApByNodeIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="hiveAp" type="ns2:hiveAp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApsByClientMacs">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="clientMacs" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApsByClientMacsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="hiveAp" nillable="true" type="ns2:hiveAp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApByClientMac">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="clientMac" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApByClientMacResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="hiveAp" type="ns2:hiveAp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApsByClientNames">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="clientNames" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApsByClientNamesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="hiveAp" nillable="true" type="ns2:hiveAp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApByClientName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="clientName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApByClientNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="hiveAp" type="ns2:hiveAp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getVendorNamesByMacOuis">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="macOuis" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getVendorNamesByMacOuisResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="string" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getVendorNameByMacOui">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="macOui" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getVendorNameByMacOuiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="string" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      
+      <!-- Add from Geneva to resolve the name case sensitive problem -->
+      <xs:element name="fetchHiveApsByClientNamesWithCase">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="clientNames" type="xs:string"/>
+            <xs:element minOccurs="0" name="caseSensitive" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fetchHiveApsByClientNamesWithCaseResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="hiveAp" nillable="true" type="ns2:hiveAp"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="fetchHiveApByClientMacResponseMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApByClientMacResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVendorNamesByMacOuisMessage">
+    <wsdl:part name="part" element="tns:getVendorNamesByMacOuis">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApByNodeIdResponseMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApByNodeIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApsByClientMacsMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApsByClientMacs">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchAllHiveApsResponseMessage">
+    <wsdl:part name="part" element="tns:fetchAllHiveApsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApsByNodeIdsMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApsByNodeIds">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="soapFault">
+    <wsdl:part name="fault" element="tns:soap">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApsByClientNamesWithCaseMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApsByClientNamesWithCase">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApsByClientMacsResponseMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApsByClientMacsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApsByClientNamesMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApsByClientNames">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchAllHiveApsMessage">
+    <wsdl:part name="part" element="tns:fetchAllHiveAps">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="keepSessionAliveMessage">
+    <wsdl:part name="part" element="tns:keepSessionAlive">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVendorNameByMacOuiResponseMessage">
+    <wsdl:part name="part" element="tns:getVendorNameByMacOuiResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginMessage">
+    <wsdl:part name="part" element="tns:login">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutMessage">
+    <wsdl:part name="part" element="tns:logout">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApByClientNameMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApByClientName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApByClientNameResponseMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApByClientNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApsByClientNamesResponseMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApsByClientNamesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVendorNamesByMacOuisResponseMessage">
+    <wsdl:part name="part" element="tns:getVendorNamesByMacOuisResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="keepSessionAliveResponseMessage">
+    <wsdl:part name="part" element="tns:keepSessionAliveResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApByNodeIdMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApByNodeId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApByClientMacMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApByClientMac">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApsByClientNamesWithCaseResponseMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApsByClientNamesWithCaseResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVendorNameByMacOuiMessage">
+    <wsdl:part name="part" element="tns:getVendorNameByMacOui">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fetchHiveApsByNodeIdsResponseMessage">
+    <wsdl:part name="part" element="tns:fetchHiveApsByNodeIdsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logoutResponseMessage">
+    <wsdl:part name="part" element="tns:logoutResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginResponseMessage">
+    <wsdl:part name="part" element="tns:loginResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HmServicePortType">
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:loginResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <wsdl:input message="tns:logoutMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:logoutResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="keepSessionAlive">
+      <wsdl:input message="tns:keepSessionAliveMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:keepSessionAliveResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchAllHiveAps">
+      <wsdl:input message="tns:fetchAllHiveApsMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchAllHiveApsResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApsByNodeIds">
+      <wsdl:input message="tns:fetchHiveApsByNodeIdsMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchHiveApsByNodeIdsResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApByNodeId">
+      <wsdl:input message="tns:fetchHiveApByNodeIdMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchHiveApByNodeIdResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApsByClientMacs">
+      <wsdl:input message="tns:fetchHiveApsByClientMacsMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchHiveApsByClientMacsResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApByClientMac">
+      <wsdl:input message="tns:fetchHiveApByClientMacMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchHiveApByClientMacResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApsByClientNames">
+      <wsdl:input message="tns:fetchHiveApsByClientNamesMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchHiveApsByClientNamesResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApsByClientNamesWithCase">
+      <wsdl:input message="tns:fetchHiveApsByClientNamesWithCaseMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchHiveApsByClientNamesWithCaseResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApByClientName">
+      <wsdl:input message="tns:fetchHiveApByClientNameMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:fetchHiveApByClientNameResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVendorNamesByMacOuis">
+      <wsdl:input message="tns:getVendorNamesByMacOuisMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getVendorNamesByMacOuisResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVendorNameByMacOui">
+      <wsdl:input message="tns:getVendorNameByMacOuiMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:getVendorNameByMacOuiResponseMessage">
+    </wsdl:output>
+      <wsdl:fault name="soapFault" message="tns:soapFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HmServiceBinding" type="tns:HmServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="urn:login"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="logout">
+      <soap:operation soapAction="urn:logout"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="keepSessionAlive">
+      <soap:operation soapAction="urn:keepSessionAlive"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchAllHiveAps">
+      <soap:operation soapAction="urn:fetchAllHiveAps"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApsByNodeIds">
+      <soap:operation soapAction="urn:fetchHiveApsByNodeIds"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApByNodeId">
+      <soap:operation soapAction="urn:fetchHiveApByNodeId"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApsByClientMacs">
+      <soap:operation soapAction="urn:fetchHiveApsByClientMacs"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApByClientMac">
+      <soap:operation soapAction="urn:fetchHiveApByClientMac"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApsByClientNames">
+      <soap:operation soapAction="urn:fetchHiveApsByClientNames"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApsByClientNamesWithCase">
+      <soap:operation soapAction="urn:fetchHiveApsByClientNamesWithCase"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:body use="boolean"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="fetchHiveApByClientName">
+      <soap:operation soapAction="urn:fetchHiveApByClientName"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVendorNamesByMacOuis">
+      <soap:operation soapAction="urn:getVendorNamesByMacOuis"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVendorNameByMacOui">
+      <soap:operation soapAction="urn:getVendorNameByMacOui"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="soapFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HmService">
+    <wsdl:port name="HmServicePort" binding="tns:HmServiceBinding">
+      <soap:address location="https://hm-online.aerohive.com/hm/services/HmService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

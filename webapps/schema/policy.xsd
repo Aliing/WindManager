@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:general="http://www.aerohive.com/configuration/general" xmlns:policy="http://www.aerohive.com/configuration/policy" targetNamespace="http://www.aerohive.com/configuration/policy">
+	<xsd:import namespace="http://www.aerohive.com/configuration/general" schemaLocation="general.xsd"/>
+	<xsd:complexType name="mobility-policy-from">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobility-policy-to">
+		<xsd:sequence>
+			<xsd:element name="password" type="general:ah-encrypted-string-act-value"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="policy-action-permit">
+		<xsd:sequence>
+			<xsd:element name="log" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="initiate-session" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="terminate-session" type="xsd:string" fixed="" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="policy-action-deny">
+		<xsd:sequence>
+			<xsd:element name="log" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="packet-drop" type="xsd:string" fixed="" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="policy-action-inter-station-traffic-drop">
+		<xsd:sequence>
+			<xsd:element name="log" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="initiate-session" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="terminate-session" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="packet-drop" type="xsd:string" fixed="" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="policy-action">
+		<xsd:choice>
+			<xsd:element name="permit" type="policy:policy-action-permit"/>
+			<xsd:element name="deny" type="policy:policy-action-deny"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="ip-policy-action">
+		<xsd:choice>
+			<xsd:element name="permit" type="policy:policy-action-permit"/>
+			<xsd:element name="deny" type="policy:policy-action-deny"/>
+			<xsd:element name="inter-station-traffic-drop" type="policy:policy-action-inter-station-traffic-drop"/>
+			<xsd:element name="nat" type="xsd:string" fixed=""/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="mac-policy-action">
+		<xsd:choice>
+			<xsd:element name="permit" type="policy:policy-action-permit"/>
+			<xsd:element name="deny" type="policy:policy-action-deny"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="policy-before">
+		<xsd:sequence>
+			<xsd:element name="id" type="general:ah-int" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ip-policy-to">
+		<xsd:sequence>
+			<xsd:element name="service">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="action" type="policy:ip-policy-action"/>
+					</xsd:sequence>
+					<xsd:attribute name="name" type="xsd:string" use="required"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ip-policy-from">
+		<xsd:sequence>
+			<xsd:element name="to" type="policy:ip-policy-to"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ip-policy-id">
+		<xsd:sequence>
+			<xsd:element name="from" type="policy:ip-policy-from" minOccurs="0"/>
+			<xsd:element name="before" type="policy:policy-before" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:int" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mac-policy-to">
+		<xsd:sequence>
+			<xsd:element name="action" type="policy:mac-policy-action"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mac-policy-from">
+		<xsd:sequence>
+			<xsd:element name="to" type="policy:mac-policy-to"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mac-policy-id">
+		<xsd:sequence>
+			<xsd:element name="from" type="policy:mac-policy-from" minOccurs="0"/>
+			<xsd:element name="before" type="policy:policy-before" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:int" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ip-policy-obj">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="id" type="policy:ip-policy-id" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="mac-policy-obj">
+		<xsd:sequence>
+			<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="id" type="policy:mac-policy-id" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobility-policy-obj">
+		<xsd:sequence>
+			<xsd:element name="dnxp" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="cr" type="xsd:string" fixed="" minOccurs="0"/>
+						<xsd:element name="nomadic-roaming" type="general:ah-only-act" minOccurs="0"/>
+						<xsd:element name="unroam-threshold" type="general:ah-string-act-quote-prohibited" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="inxp" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="gre-tunnel" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+									<xsd:element name="from" type="policy:mobility-policy-from" minOccurs="0" maxOccurs="unbounded"/>
+									<xsd:element name="to" type="policy:mobility-policy-to" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-policy-action">
+		<xsd:sequence>
+			<xsd:element name="additional-display-message" type="general:ah-string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-policy-user-group">
+		<xsd:sequence>
+			<xsd:element name="action" type="policy:library-sip-policy-action" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-policy-match">
+		<xsd:sequence>
+			<xsd:element name="user-group" type="policy:library-sip-policy-user-group" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-policy-field">
+		<xsd:choice>
+			<xsd:element name="contains" type="policy:library-sip-policy-match" minOccurs="0"/>
+			<xsd:element name="differs-from" type="policy:library-sip-policy-match" minOccurs="0"/>
+			<xsd:element name="matches" type="policy:library-sip-policy-match" minOccurs="0"/>
+			<xsd:element name="occurs-after" type="policy:library-sip-policy-match" minOccurs="0"/>
+			<xsd:element name="occurs-before" type="policy:library-sip-policy-match" minOccurs="0"/>
+			<xsd:element name="starts-with" type="policy:library-sip-policy-match" minOccurs="0"/>
+			<xsd:element name="equal" type="policy:library-sip-policy-match" minOccurs="0"/>
+			<xsd:element name="greater-than" type="policy:library-sip-policy-match" minOccurs="0"/>
+			<xsd:element name="less-than" type="policy:library-sip-policy-match" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-policy-seq">
+		<xsd:sequence>
+			<xsd:element name="id" type="general:ah-int" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-policy-default">
+		<xsd:sequence>
+			<xsd:element name="user-group" type="policy:library-sip-policy-user-group" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-policy-id">
+		<xsd:sequence>
+			<xsd:element name="field" type="policy:library-sip-policy-field" minOccurs="0"/>
+			<xsd:element name="before" type="policy:library-sip-policy-seq" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:int" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="library-sip-policy-obj">
+		<xsd:sequence>
+			<xsd:element name="id" type="policy:library-sip-policy-id" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="default" type="policy:library-sip-policy-default" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+		<xsd:attribute name="updateTime" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="os-detection-method">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="user-agent" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="dhcp-option55" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="os-detection-obj">
+		<xsd:sequence>
+			<xsd:element name="enable" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="method" type="policy:os-detection-method" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="domain-object-obj">
+		<xsd:sequence>
+			<xsd:element name="domain" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mac-object-obj">
+		<xsd:sequence>
+			<xsd:element name="mac-range" type="general:ah-name-act-value-quote-prohibited" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="os-object-obj">
+		<xsd:sequence>
+			<xsd:element name="os-version" type="general:ah-name-act-value" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="device-group-ownership">
+		<xsd:attribute name="value" type="policy:device-group-ownership-value" />
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="device-group-ownership-value">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="cid"/>
+			<xsd:enumeration value="byod"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="device-group-obj">
+		<xsd:sequence>
+			<xsd:element name="mac-object" type="general:ah-name-act-value" minOccurs="0"/>
+			<xsd:element name="domain-object" type="general:ah-name-act-value" minOccurs="0"/>
+			<xsd:element name="os-object" type="general:ah-name-act-value" minOccurs="0"/>
+			<xsd:element name="ownership" type="policy:device-group-ownership" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="mobile-device-policy-rule-value">
+		<xsd:restriction base="xsd:int">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="1024"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="mdp-rule-reassigned-user-profile-attr">
+		<xsd:attribute name="value" type="general:attribute-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mdp-rule-device-group">
+		<xsd:sequence>
+			<xsd:element name="reassigned-user-profile-attr" type="policy:mdp-rule-reassigned-user-profile-attr" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mdp-rule-original-user-profile">
+		<xsd:sequence>
+			<xsd:element name="device-group" type="policy:mdp-rule-device-group" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobile-device-policy-rule-seq">
+		<xsd:sequence>
+			<xsd:element name="rule" type="general:ah-int" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:int" use="optional"/>
+		<xsd:attribute name="operation" type="general:ah-enum-show" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobile-device-policy-rule">
+		<xsd:sequence>
+			<xsd:element name="original-user-profile" type="policy:mdp-rule-original-user-profile" minOccurs="0"/>
+			<xsd:element name="before" type="policy:mobile-device-policy-rule-seq" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="policy:mobile-device-policy-rule-value" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobile-device-policy-apply">
+		<xsd:choice>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="once" type="xsd:string" fixed="" minOccurs="0"/>
+			<xsd:element name="multiple-times" type="xsd:string" fixed="" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobile-device-policy-client-classification">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="mac" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="domain" type="general:ah-only-act" minOccurs="0"/>
+			<xsd:element name="os" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="mobile-device-policy-obj">
+		<xsd:sequence>
+			<xsd:element name="rule" type="policy:mobile-device-policy-rule" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="apply" type="policy:mobile-device-policy-apply" minOccurs="0"/>
+			<xsd:element name="client-classification" type="policy:mobile-device-policy-client-classification" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="operation" type="general:ah-enum-act-value" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="network-firewall-action">
+		<xsd:sequence>
+			<xsd:element name="logging" type="general:ah-name" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="network-firewall-service">
+		<xsd:sequence>
+			<xsd:element name="action" type="policy:network-firewall-action" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="network-firewall-to">
+		<xsd:sequence>
+			<xsd:element name="service" type="policy:network-firewall-service" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="network-firewall-from">
+		<xsd:sequence>
+			<xsd:element name="to" type="policy:network-firewall-to" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="quoteProhibited" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="network-firewall-rule-order">
+		<xsd:sequence>
+			<xsd:element name="AH-DELTA-ASSISTANT" type="general:ah-only-act" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:int" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="network-firewall-rule">
+		<xsd:sequence>
+			<xsd:element name="from" type="policy:network-firewall-from" minOccurs="0"/>
+			<xsd:element name="cr" type="policy:network-firewall-rule-order" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="network-firewall-obj">
+		<xsd:sequence>
+			<xsd:element name="name" type="policy:network-firewall-rule" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="operation" type="general:ah-enum-act" use="required"/>
+	</xsd:complexType>
+</xsd:schema>

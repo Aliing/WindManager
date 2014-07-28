@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="pragma"  content="no-cache"/>  
+    <meta  http-equiv="Cache-Control"  content="no-cache,  must-revalidate"/>  
+    <meta  http-equiv="expires"  content="Wed,  26  Feb  1997  08:21:57  GMT"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Login Successful</title>
+	
+	<script src="jquery.min.js"></script>
+<script  src="success_en.js"><!-- $STATIC_RESOURCE=success --></script>
+<script>
+$(function(){
+	fillData();
+	replaceData();
+	})
+	
+function replaceData(){
+var JSONObject= 
+{
+<!-- $STATIC_LIBSIP_REPLACE_SPECICAL_WORDS -->
+};
+
+var repalceArea1=$("#ok");
+var repalceArea2=$("#fines");
+if(repalceArea1!=null){
+var str=$("#ok").html();
+for(reg in JSONObject)
+        {
+                  str = str.replace(new RegExp(reg,"g"),JSONObject[reg]);
+		 }
+	repalceArea1.html(str);
+	}
+	
+if(repalceArea2!=null){
+var str=repalceArea2.html();
+for(reg in JSONObject)
+        {
+                  str = str.replace(new RegExp(reg,"g"),JSONObject[reg]);
+		 }
+	repalceArea2.html(str);
+	}
+}
+function changeSuccessMsg(waitApproval) {
+	/*#$SuccessPrompt-Resource#$*/
+}
+</script>
+	
+	<style type="text/css">
+	<!--
+	body{
+		background-color:#000000;
+		background-image: url();
+		background-repeat: tile-image;
+		background-attachment:fixed;
+		background-position: center;
+		font-family:Helvetica, Arial, sans-serif;
+		text-align:left;
+		width:400px;
+		margin:0 auto;
+		font-size:14px;
+		color: ;
+		padding:0 20px;
+	}
+	
+	a{
+		color: ;
+	}
+	
+	a:hover{
+		color: ;
+	}
+	
+	p{
+		text-align:left;
+		font-size:14px;
+	}
+	
+	.note{
+		width:200px;
+		font-size:12px;
+		line-height:14px;
+		color: ;
+	}
+	
+	h1{
+		font-family:Century Gothic, Helvetica, Arial, sans-serif;
+		font-size:30px;
+		text-align:center;
+		font-weight:300;
+	}
+	
+	h2{
+		color: ;
+		line-height:14px;
+	}
+	
+	h3{
+		font-family:Century Gothic, Helvetica, Arial, sans-serif;
+		color: ;
+		text-align:center;
+		font-size:24px;
+		font-weight:300;
+		margin-bottom:40px;
+	}
+		
+	
+	.req:after{
+		color: ;
+		font-size:16px;
+		content:"*";
+	}
+	
+	.login{
+		width:380px;
+		text-align:center;
+		margin:0px auto 60px;
+	}
+	
+	.login input{
+		font-size:25px;
+		margin-bottom:10px;
+		width:300px;
+		color: gray;
+	}
+	
+	.login_button{
+		float:right;
+		background: url(login.png) no-repeat;
+	    width: 125px;
+		height: 40px;
+	    border: 0px;
+		margin-top:10px;
+		cursor:pointer;
+	
+	}
+	
+	.register{
+		width: 388px;
+		text-align:center;
+		margin-top:30px;
+		margin:0 auto;
+	}
+	
+	.register input{
+		font-size:20px;
+		margin-bottom:5px;
+		color: gray;
+		width:275px;
+	}
+	
+	.reg_button{
+		float:right;
+		background: url(register.png) no-repeat 0px 5px;
+		margin-top:5px;
+	    width: 125px;
+		height: 45px;
+	    border: 0px;
+		cursor:pointer;
+	}
+	
+	.error{
+		color: ;
+		text-shadow: 0 0 3px #000;
+		text-align:center;
+	}
+	-->
+	</style>
+</head>
+<body>
+<div style="height:600px;">
+	<h1 id="h1Title"></h1>
+	<table width="100%">
+		<tr>
+			<td height="500px">
+	<div id="regularTitle">
+	    <img src="success.png" style="float:left;"/>
+	    <h2 id="h2Title" style="margin-top:100px;"></h2>
+	    <div class="style-message" style="padding-bottom: 20px;" id="notice">
+        </div>
+        <div class="style-message" id="idm_rtnSection">
+		    <div id="idm_msgSection" style="display: none;">
+		    	<p style="text-align:center;">
+		    		<label id="idm_yunp"></label>  : <span id="idm_un"></span>
+		    	</p>
+		        <p style="text-align:center;">
+		        	 <label id="idm_ypwp"></label> : <span id="idm_pw"></span>
+		        </p >
+		        <p style="text-align:center;">
+		        	<label id="idm_register"></label>
+		        </p>
+		        <p style="text-align:center;">
+		        	<label id="idm_reminder"></label>
+		        </p>
+		        <p style="text-align:center;">
+		        	<label id="idm_reminder2"></label>
+		        </p>
+		    </div>
+		    <div id="idm_buttonSection" style="display: none;">
+		    	<p style="text-align:center;">
+		    		<input type="button" value="login" id="idm_go" style="width: 60px;"
+		    		 onclick="location.href='http://www.aerohive.com'"/>
+		    	</p>
+		    </div>
+		</div>
+        <div class="style-message" id="ok">
+        </div>
+        <div class="style-message" style="display: none;" id="fines">
+        </div>
+        <div class="style-message" id="addi_msg">
+       	</div>
+	</div>
+	<div id="ppsk_reg" style="display: none">
+	    <p id="thanksNote" class="text-align:center"></p>
+	    <p id="ssidNote" class="text-align:center"></p>
+	    <h3><span id="ppsk_pwd"></span></h3>
+	    <div id="login_url"></div>
+	</div>
+			</td>
+		</tr>
+	</table>
+	<p style="float:right;"><img id="footImage" src="" style="width: 235px; height: 69px;"/></p>
+</div>
+</body>
+</html>

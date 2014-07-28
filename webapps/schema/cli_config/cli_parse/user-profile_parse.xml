@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../src/xml/cli_config.xsd">
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> cac airtime-percentage <number> [ share-time ]
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<cac>
+							<airtime-percentage value="{2}">
+								<share-time keyWord="{3}"/>
+							</airtime-percentage>
+						</cac>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> [ qos-policy <string> ] [ vlan-id <number> ] [ mobility-policy <string> ] [ attribute <number> [ - <number> ] ]
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<cr/>
+						<qos-policy name="{3}"/>
+						<vlan-id value="{5}"/>
+						<mobility-policy name="{7}"/>
+						<attribute name="{9}{10}"/>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> qos-marker-map {diffserv|8021p} <string> 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<qos-marker-map>
+							<_8021p name="{3}" keyWord="{2}"/>
+							<diffserv name="{3}" keyWord="{2}"/>
+						</qos-marker-map>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> {after|before} <string> [ <number> ]
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<before value="{3}" keyWord="{2}">
+							<cr value="{5}"/>
+						</before>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> {performance-sentinel} enable 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<performance-sentinel keyWord="{2}">
+							<enable/>
+						</performance-sentinel>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> {performance-sentinel} action {log|boost} 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<performance-sentinel keyWord="{2}">
+							<action>
+								<log keyWord="{3}"/>
+								<boost keyWord="{3}"/>
+							</action>
+						</performance-sentinel>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> {performance-sentinel} guaranteed-bandwidth <number> 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<performance-sentinel keyWord="{2}">
+							<guaranteed-bandwidth value="{3}"/>
+						</performance-sentinel>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> l3-tunnel-action {all|with-exception|split|drop-tunnel-traffic} 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<l3-tunnel-action value="{2}"/>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> tunnel-policy <string> 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<tunnel-policy name="{2}"/>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> security ip-policy [ from-access <string> ] [ to-access <string> ] 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<security>
+							<ip-policy>
+								<from-access value="{3}"/>
+								<to-access value="{5}"/>
+							</ip-policy>
+						</security>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> security ip-policy [ from-air <string> ] [ to-air <string> ] 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<security>
+							<ip-policy>
+								<from-air value="{3}"/>
+								<to-air value="{5}"/>
+							</ip-policy>
+						</security>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> ip-policy-default-action {permit|deny|inter-station-traffic-drop} 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<ip-policy-default-action value="{2}"/>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> security mac-policy [ from-access <string> ] [ to-access <string> ] 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<security>
+							<mac-policy>
+								<from-access value="{3}"/>
+								<to-access value="{5}"/>
+							</mac-policy>
+						</security>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> security mac-policy [ from-air <string> ] [ to-air <string> ] 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<security>
+							<mac-policy>
+								<from-air value="{3}"/>
+								<to-air value="{5}"/>
+							</mac-policy>
+						</security>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> mac-policy-default-action {permit|deny} 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<mac-policy-default-action value="{2}"/>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> schedule <string> 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<schedule name="{2}"/>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				user-profile <string> deny-action-for-schedule {ban|quarantine} 
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<user-profile name="{1}">
+						<deny-action-for-schedule value="{2}"/>
+					</user-profile>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+	
+	<cli-parse>
+		<cmd>
+			<![CDATA[
+				ip route net (<ip_addr> <netmask> [ gateway <ip_addr> ] [ metric <number> ])
+			]]>
+		</cmd>
+		<xml>
+			<![CDATA[
+				<configuration>
+					<ip>
+						<route>
+							<net name="{1}"/>
+						</route>
+					</ip>
+				</configuration>
+			]]>
+		</xml>
+	</cli-parse>
+</clis>

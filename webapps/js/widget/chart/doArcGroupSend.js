@@ -1,0 +1,4 @@
+/**
+ * 
+ */
+AhReportChart.GroupRequests.prepareAndDoRequest();

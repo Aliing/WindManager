@@ -1,0 +1,5 @@
+/HiveManager/soft_backup
+/HiveManager/tomcat/hm_soft_upgrade
+/HiveManager/upload
+/HiveManager/s3fs
+/HiveManager/tmp

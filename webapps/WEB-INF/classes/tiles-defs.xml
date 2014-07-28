@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<!-- Author: Chris Scheers -->
+
+<tiles-definitions>
+
+	<!-- Tables Layout -->
+	<!-- <definition name="hmLayout" template="/tiles/layout.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="leftMenu" value="/tiles/leftMenu.jsp" />
+		<put-attribute name="leftFilter" value="/tiles/blank.jsp" />
+		<put-attribute name="leftWidth" value="155" />
+		<put-attribute name="statusItems"
+			value="/tiles/statusItems.jsp" />
+		<put-attribute name="body" value="/tiles/blankBody.jsp" />
+		<put-attribute name="helpKey" value="hkRoot" />
+	</definition> -->
+
+	<!-- Tables Layout -->
+	<definition name="hmLayout" template="/tiles/layoutDark.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="leftMenu" value="/tiles/leftMenuDark.jsp" />
+		<put-attribute name="leftFilter" value="/tiles/blank.jsp" />
+		<put-attribute name="leftSearch" value="/tiles/search.jsp" />
+		<put-attribute name="leftWidth" value="155" />
+		<put-attribute name="statusView" value="/tiles/statusView.jsp" />
+		<put-attribute name="body" value="/tiles/blankBody.jsp" />
+		<put-attribute name="helpKey" value="hkRoot" />
+	</definition>
+
+	<!-- Layout with top panel -->
+	<definition name="hmLayoutHasTopPane" template="/tiles/layoutHasTopPane.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="body" value="/tiles/blankBody.jsp" />
+	</definition>
+
+	<!-- Layout with top panel -->
+	<definition name="hmLayoutLicenseTopPane" template="/tiles/licenseTopPane.jsp">
+		<put-attribute name="body" value="/tiles/blankBody.jsp" />
+	</definition>
+
+	<definition name="context" template="/tiles/context.jsp">
+		<put-attribute name="paging" value="/tiles/paging.jsp" />
+	</definition>
+
+	<definition name="notes" template="/tiles/notes.jsp"/>
+
+	<definition name="paging" template="/tiles/paging.jsp"/>
+
+	<definition name="statusView" template="/tiles/statusView.jsp"/>
+
+	<definition name="selectAll" template="/tiles/selectAll.jsp">
+	</definition>
+
+	<definition name="rowClass" template="/tiles/rowClass.jsp">
+	</definition>
+
+	<definition name="tabView" template="/tiles/tabView.jsp">
+	</definition>
+
+	<definition name="licenseInTitle" template="/tiles/enterLicenseInTitleArea.jsp">
+	</definition>
+
+	<definition name="userRegisterInfo" template="/jsp/home/registerUserInfo.jsp">
+	</definition>
+
+	<definition name="optionsTransfer"
+		template="/tiles/optionsTransfer.jsp">
+	</definition>
+
+	<definition name="flashHeader" template="/tiles/flashHeader.jsp"/>
+	<definition name="flash" template="/tiles/flash.jsp"/>
+
+	<!-- Split Panes Layout -->
+	<definition name="hmLayoutDj" template="/tiles/layoutDj.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="leftWidth" value="160" />
+	</definition>
+
+	<!-- Blank place holder page -->
+	<definition name="blank" extends="hmLayout"/>
+
+	<!-- Map Layout -->
+	<!-- <definition name="hmLayoutMap" template="/tiles/layoutMap.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="leftWidth" value="190" />
+		<put-attribute name="statusItems"
+			value="/tiles/statusItems.jsp" />
+		<put-attribute name="helpKey" value="hkRoot" />
+	</definition> -->
+
+	<!-- Map Layout Dark -->
+	<definition name="hmLayoutMap"
+		template="/tiles/layoutMapDark.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="leftWidth" value="160" />
+		<put-attribute name="statusView" value="/tiles/statusView.jsp" />
+		<put-attribute name="helpKey" value="hkRoot" />
+	</definition>
+
+	<!-- Map layout using Dojo 1.x / YUI 2.7  -->
+	<definition name="hmLayoutMap2" template="/tiles/layoutMap2.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="leftWidth" value="160" />
+		<put-attribute name="leftSearch" value="/tiles/search.jsp" />
+		<put-attribute name="techSupport" value="/tiles/techSupport.jsp" />
+		<put-attribute name="vpnTopo" value="/tiles/vpnTopo.jsp" />
+		<put-attribute name="statusView" value="/tiles/statusView.jsp" />
+		<put-attribute name="helpKey" value="hkRoot" />
+	</definition>
+
+	<!-- Map layout using YUI 2.6 -->
+	<definition name="hmLayoutMap3" template="/tiles/layoutMap3.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+		<put-attribute name="leftWidth" value="160" />
+		<put-attribute name="statusView" value="/tiles/statusView.jsp" />
+		<put-attribute name="helpKey" value="hkRoot" />
+	</definition>
+
+	<!--  Maps layout -->
+	<definition name="mapView" extends="hmLayoutMap">
+		<put-attribute name="body" value="/monitor/maps/view.jsp" />
+	</definition>
+
+	<definition name="mapView2" extends="hmLayoutMap2">
+		<put-attribute name="body" value="/monitor/maps/view2.jsp" />
+	</definition>
+
+	<definition name="mapInitial" extends="hmLayoutMap2">
+<!-- 	<put-attribute name="body" value="/monitor/maps/initPage.jsp" />   -->
+		<put-attribute name="body" value="/monitor/maps/initMaps.jsp" />
+	</definition>
+
+	<definition name="mapView3" extends="hmLayoutMap3">
+		<put-attribute name="body" value="/monitor/maps/view2.jsp" />
+	</definition>
+
+	<definition name="mapContext"
+		template="/monitor/maps/context.jsp">
+	</definition>
+
+	<!-- SSL page -->
+	<definition name="ssl" template="/tiles/ssl.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+	</definition>
+
+	<!-- Login page -->
+	<definition name="login" template="/tiles/loginDark.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+	</definition>
+
+	<!-- License page -->
+	<definition name="license" extends="hmLayoutLicenseTopPane">
+		<put-attribute name="body" value="/tiles/license.jsp" />
+	</definition>
+
+	<!-- Welcome page -->
+	<definition name="welcomePage" extends="hmLayoutLicenseTopPane">
+		<put-attribute name="body" value="/tiles/welcomePage.jsp" />
+	</definition>
+	
+	<!-- New Welcome page -->
+	<definition name="newWelcomePage" extends="hmLayoutLicenseTopPane">
+		<put-attribute name="body" value="/config/welcomePage/newWelcomePage.jsp" />
+	</definition>
+	<!-- New Welcome page - step1 -->
+	<definition name="reviewInventory" template="/config/welcomePage/reviewInventory.jsp"></definition>
+	<!-- New Welcome page - step2 -->
+	<definition name="activateLicense" template="/config/welcomePage/activateLicense.jsp"></definition>
+	<!-- New Welcome page - step3 -->
+	<definition name="managementSettings" template="/config/welcomePage/managementSettings.jsp"></definition>
+	<!-- New Welcome page configuration done -->
+	<definition name="newWelcomePageDone" extends="hmLayoutLicenseTopPane">
+		<put-attribute name="body" value="/config/welcomePage/welcomePageDone.jsp" />
+	</definition>
+
+	<!-- End User Agreement page -->
+	<definition name="eula" extends="hmLayoutLicenseTopPane">
+		<put-attribute name="body" value="/tiles/eulaDialog.jsp" />
+	</definition>
+
+	<definition name="blankPage" template="/tiles/blank.jsp">
+		<!--  Blank page -->
+	</definition>
+
+	<!-- Access Deny page -->
+	<definition name="denyPage" template="/tiles/denyPage.jsp">
+		<put-attribute name="topPane" value="/tiles/topPane.jsp" />
+	</definition>
+
+	<definition name="layoutBlank" template="/tiles/layoutBlank.jsp">
+		<!--  Blank -->
+	</definition>
+
+	<definition name="search" extends="layoutBlank">
+		<put-attribute name="body"
+			value="/tiles/search.jsp" />
+	</definition>
+
+	<definition name="startHere" extends="hmLayoutHasTopPane">
+		<put-attribute name="body" value="/jsp/home/startHere.jsp" />
+	</definition>
+
+	<!--  Teacher View -->
+	<definition name="selectClass" extends="hmLayoutLicenseTopPane">
+		<put-attribute name="body" value="/config/teacherView/selectClass.jsp" />
+	</definition>
+
+	<definition name="tvRedirect" template="/config/teacherView/paramRedirect.jsp">
+	</definition>
+
+	<!--  HM Test -->
+	<definition name="configTest" extends="hmLayout">
+		<put-attribute name="body" value="/jsp/test.jsp" />
+	</definition>
+
+	<!-- Student Register page -->
+	<definition name="registration" extends="hmLayoutLicenseTopPane">
+		<put-attribute name="body" value="/config/teacherView/registration.jsp" />
+	</definition>
+
+	<!-- Student Register Success page -->
+	<definition name="registSuccess" extends="hmLayoutLicenseTopPane">
+		<put-attribute name="body" value="/config/teacherView/registSuccess.jsp" />
+	</definition>
+
+	<!-- SSH config page -->
+	<definition name="sshClientConfig" extends="layoutBlank">
+		<put-attribute name="body" value="/monitor/maps/sshClientConfig.jsp" />
+	</definition>
+
+	<definition name="manageAPEx" extends="layoutBlank">
+		<put-attribute name="body" value="/config/hiveAps/managedHiveApsExList.jsp" />
+	</definition>
+
+	<!--  definition name="manageAPGuid" extends="layoutBlank">
+		<put-attribute name="body" value="/config/hiveAps/managedHiveApsList2.jsp" />
+	</definition-->
+
+	<definition name="notificationMsg" template="/tiles/notificationMsg.jsp"/>
+	<definition name="osVersionDetails" template="/tiles/supportedHOSDetails.jsp"/>
+
+	<definition name="hiveap2Page" template="/config/hiveAps/hiveap2Page.jsp"/>
+	<definition name="hiveap2Page_2" template="/config/hiveAps/hiveap2Page_2.jsp"/>
+	
+	<definition name="clientACMDetail" template="/monitor/client/clientACMDetail.jsp"/>
+</tiles-definitions>
